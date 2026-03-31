@@ -2,7 +2,7 @@ const cardStyle = {
   padding: "16px",
   background: "#121a2b",
   border: "1px solid #283247",
-  flex: 1,
+  flex: "1 1 30%",
 };
 
 function StatCard({ label, value }) {

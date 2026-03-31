@@ -8,7 +8,7 @@ const stats = [
 
 function Home() {
   return (
-    <div style={{ padding: "40px 24px" }}>
+    <div style={{ padding: "40px 24px", maxWidth: "1200px", margin: "0 auto" }}>
       {/* HERO SECTION */}
       <section style={{ marginBottom: "40px" }}>
         <h1>PopShift</h1>
