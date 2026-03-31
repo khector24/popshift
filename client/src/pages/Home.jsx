@@ -1,9 +1,10 @@
-const cardStyle = {
-  padding: "16px",
-  background: "#121a2b",
-  border: "1px solid #283247",
-  flex: 1,
-};
+import StatCard from "../components/ui/StatCard";
+
+const stats = [
+  { label: "Total Population", value: "331M" },
+  { label: "Fastest Growing State", value: "Texas" },
+  { label: "Biggest Decline", value: "New York" },
+];
 
 function Home() {
   return (
@@ -19,20 +20,9 @@ function Home() {
         <h2>Key Stats</h2>
 
         <div style={{ display: "flex", gap: "16px", flexWrap: "wrap" }}>
-          <div style={cardStyle}>
-            <p>Total Population</p>
-            <h3>331M</h3>
-          </div>
-
-          <div style={cardStyle}>
-            <p>Fastest Growing State</p>
-            <h3>Texas</h3>
-          </div>
-
-          <div style={cardStyle}>
-            <p>Biggest Decline</p>
-            <h3>New York</h3>
-          </div>
+          {stats.map((item) => (
+            <StatCard key={item.label} label={item.label} value={item.value} />
+          ))}
         </div>
       </section>
 
