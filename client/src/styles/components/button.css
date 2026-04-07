@@ -1,0 +1,18 @@
+.button {
+  padding: 12px 20px;
+  border-radius: 8px;
+  border: 1px solid var(--border);
+  color: var(--text);
+  cursor: pointer;
+  font-size: 14px;
+}
+
+/* primary style */
+.button.primary {
+  background-color: #1a2336;
+}
+
+/* hover */
+.button.primary:hover {
+  background-color: #24304a;
+}
