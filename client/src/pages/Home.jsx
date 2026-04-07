@@ -48,7 +48,7 @@ const cardGridStyle = {
 
 const buttonStyle = {
   padding: "12px 20px",
-  backgroundColor: "transparent",
+  backgroundColor: "#1a2336",
   borderRadius: "8px",
   border: "1px solid var(--border)",
   color: "var(--text)",
