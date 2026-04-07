@@ -2,8 +2,9 @@ import StatCard from "../components/ui/StatCard";
 
 const stats = [
   { label: "Total Population", value: "331M" },
-  { label: "Fastest Growing State", value: "Texas" },
-  { label: "Biggest Decline", value: "New York" },
+  { label: "Fastest Growth", value: "Texas" },
+  { label: "Biggest Gain", value: "Florida" },
+  { label: "Biggest Loss", value: "New York" },
 ];
 
 const containerStyle = {
@@ -22,9 +23,16 @@ const heroTitleStyle = {
 };
 
 const heroSubtitleStyle = {
+  fontSize: "20px",
+  color: "var(--text-muted)",
+  marginBottom: "8px",
+};
+
+const heroDescStyle = {
   fontSize: "18px",
-  color: "#9fb0cc",
+  color: "var(--text-muted)",
   maxWidth: "600px",
+  marginBottom: "24px",
 };
 
 const sectionTitleStyle = {
@@ -38,27 +46,47 @@ const cardGridStyle = {
   gap: "16px",
 };
 
-const panelStyle = {
-  background: "#0f172a",
-  border: "1px solid #283247",
-  borderRadius: "16px",
-  padding: "24px",
+const buttonStyle = {
+  padding: "12px 20px",
+  backgroundColor: "transparent",
+  borderRadius: "8px",
+  border: "1px solid var(--border)",
+  color: "var(--text)",
+  cursor: "pointer",
+  fontSize: "14px",
+};
+
+const mutedTextStyle = {
+  color: "var(--text-muted)",
+  marginBottom: "12px",
+};
+
+const listStyle = {
+  paddingLeft: "20px",
+  color: "var(--text-muted)",
+  lineHeight: "1.8",
 };
 
 function Home() {
   return (
     <div style={containerStyle}>
-      {/* HERO SECTION */}
+      {/* HERO */}
       <section style={sectionStyle}>
         <h1 style={heroTitleStyle}>PopShift</h1>
-        <p style={heroSubtitleStyle}>
+
+        <p style={heroSubtitleStyle}>How America shifted, state by state</p>
+
+        <p style={heroDescStyle}>
           Explore population trends across the United States from 2010 to 2025.
         </p>
+
+        <button style={buttonStyle}>Explore Dashboard</button>
       </section>
 
-      {/* STATS SECTION */}
+      {/* STATS */}
       <section style={sectionStyle}>
         <h2 style={sectionTitleStyle}>Key Stats</h2>
+
         <div style={cardGridStyle}>
           {stats.map((item) => (
             <StatCard key={item.label} label={item.label} value={item.value} />
@@ -66,9 +94,28 @@ function Home() {
         </div>
       </section>
 
-      {/* PLACEHOLDER SECTION */}
-      <section>
-        <h2 style={sectionTitleStyle}>More Coming Soon</h2>
+      {/* WHY IT MATTERS */}
+      <section style={sectionStyle}>
+        <h2 style={sectionTitleStyle}>Why It Matters</h2>
+
+        <p style={mutedTextStyle}>
+          Population shifts impact key areas of American life:
+        </p>
+
+        <ul style={listStyle}>
+          <li>Migration patterns</li>
+          <li>Economic growth</li>
+          <li>Political representation</li>
+        </ul>
+      </section>
+
+      {/* CTA */}
+      <section style={sectionStyle}>
+        <h2 style={sectionTitleStyle}>Ready to explore the data?</h2>
+
+        <div style={{ marginTop: "16px" }}>
+          <button style={buttonStyle}>Go to Dashboard</button>
+        </div>
       </section>
     </div>
   );
