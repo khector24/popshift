@@ -1,4 +1,5 @@
 import StatCard from "../components/ui/StatCard";
+import Button from "../components/ui/Button";
 
 const stats = [
   { label: "Total Population", value: "331M" },
@@ -46,16 +47,6 @@ const cardGridStyle = {
   gap: "16px",
 };
 
-const buttonStyle = {
-  padding: "12px 20px",
-  backgroundColor: "#1a2336",
-  borderRadius: "8px",
-  border: "1px solid var(--border)",
-  color: "var(--text)",
-  cursor: "pointer",
-  fontSize: "14px",
-};
-
 const mutedTextStyle = {
   color: "var(--text-muted)",
   marginBottom: "12px",
@@ -80,7 +71,7 @@ function Home() {
           Explore population trends across the United States from 2010 to 2025.
         </p>
 
-        <button style={buttonStyle}>Explore Dashboard</button>
+        <Button text="Explore Dashboard" variant="primary" />
       </section>
 
       {/* STATS */}
@@ -114,7 +105,7 @@ function Home() {
         <h2 style={sectionTitleStyle}>Ready to explore the data?</h2>
 
         <div style={{ marginTop: "16px" }}>
-          <button style={buttonStyle}>Go to Dashboard</button>
+          <Button text="Go to Dashboard" variant="primary" />
         </div>
       </section>
     </div>
