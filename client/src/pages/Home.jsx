@@ -1,5 +1,6 @@
 import StatCard from "../components/ui/StatCard";
 import Button from "../components/ui/Button";
+import "../styles/pages/Home.css";
 
 const stats = [
   { label: "Total Population", value: "331M" },
@@ -8,66 +9,18 @@ const stats = [
   { label: "Biggest Loss", value: "New York" },
 ];
 
-const containerStyle = {
-  maxWidth: "1200px",
-  margin: "0 auto",
-  padding: "48px 24px",
-};
-
-const sectionStyle = {
-  marginBottom: "64px",
-};
-
-const heroTitleStyle = {
-  fontSize: "48px",
-  marginBottom: "16px",
-};
-
-const heroSubtitleStyle = {
-  fontSize: "20px",
-  color: "var(--text-muted)",
-  marginBottom: "8px",
-};
-
-const heroDescStyle = {
-  fontSize: "18px",
-  color: "var(--text-muted)",
-  maxWidth: "600px",
-  marginBottom: "24px",
-};
-
-const sectionTitleStyle = {
-  fontSize: "20px",
-  marginBottom: "16px",
-};
-
-const cardGridStyle = {
-  display: "grid",
-  gridTemplateColumns: "repeat(auto-fit, minmax(250px, 1fr))",
-  gap: "16px",
-};
-
-const mutedTextStyle = {
-  color: "var(--text-muted)",
-  marginBottom: "12px",
-};
-
-const listStyle = {
-  paddingLeft: "20px",
-  color: "var(--text-muted)",
-  lineHeight: "1.8",
-};
-
 function Home() {
   return (
-    <div style={containerStyle}>
+    <div className="home">
       {/* HERO */}
-      <section style={sectionStyle}>
-        <h1 style={heroTitleStyle}>PopShift</h1>
+      <section className="home__section">
+        <h1 className="home__title">PopShift</h1>
 
-        <p style={heroSubtitleStyle}>How America shifted, state by state</p>
+        <p className="home__subtitle">
+          How America shifted, state by state
+        </p>
 
-        <p style={heroDescStyle}>
+        <p className="home__desc">
           Explore population trends across the United States from 2010 to 2025.
         </p>
 
@@ -75,10 +28,10 @@ function Home() {
       </section>
 
       {/* STATS */}
-      <section style={sectionStyle}>
-        <h2 style={sectionTitleStyle}>Key Stats</h2>
+      <section className="home__section">
+        <h2 className="home__section-title">Key Stats</h2>
 
-        <div style={cardGridStyle}>
+        <div className="home__grid">
           {stats.map((item) => (
             <StatCard key={item.label} label={item.label} value={item.value} />
           ))}
@@ -86,14 +39,14 @@ function Home() {
       </section>
 
       {/* WHY IT MATTERS */}
-      <section style={sectionStyle}>
-        <h2 style={sectionTitleStyle}>Why It Matters</h2>
+      <section className="home__section">
+        <h2 className="home__section-title">Why It Matters</h2>
 
-        <p style={mutedTextStyle}>
+        <p className="home__muted">
           Population shifts impact key areas of American life:
         </p>
 
-        <ul style={listStyle}>
+        <ul className="home__list">
           <li>Migration patterns</li>
           <li>Economic growth</li>
           <li>Political representation</li>
@@ -101,10 +54,12 @@ function Home() {
       </section>
 
       {/* CTA */}
-      <section style={sectionStyle}>
-        <h2 style={sectionTitleStyle}>Ready to explore the data?</h2>
+      <section className="home__section">
+        <h2 className="home__section-title">
+          Ready to explore the data?
+        </h2>
 
-        <div style={{ marginTop: "16px" }}>
+        <div className="home__cta">
           <Button text="Go to Dashboard" variant="primary" />
         </div>
       </section>
