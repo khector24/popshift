@@ -1,4 +1,5 @@
 import StatCard from "../components/ui/StatCard";
+import "../styles/pages/Dashboard.css";
 
 const dashboardStats = [
   { label: "U.S. Population", value: "331M", type: "neutral" },
@@ -46,11 +47,13 @@ function Dashboard() {
       </section>
 
       <section className="dashboard__main">
-        <div className="dashboard__map">Map Placeholder</div>
-        <div className="dashboard__side-panel">Side Panel Placeholder</div>
+        <div className="dashboard__map dashboard__panel">Map Placeholder</div>
+        <div className="dashboard__side-panel dashboard__panel">
+          Side Panel Placeholder
+        </div>
       </section>
 
-      <section className="dashboard__chart">
+      <section className="dashboard__chart dashboard__panel">
         <h2>Chart Placeholder</h2>
       </section>
     </div>
