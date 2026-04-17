@@ -1,0 +1,31 @@
+.stat-card {
+  padding: 20px;
+  border-radius: 12px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+
+  min-height: 120px;
+
+  transition: all 0.2s ease;
+  cursor: pointer;
+}
+
+.stat-card:hover {
+  background: #162036;
+}
+
+.stat-card__label {
+  margin-bottom: 8px;
+  color: var(--text-muted);
+  font-size: 14px;
+}
+
+.stat-card__value {
+  margin: 0;
+  font-size: 28px;
+  color: var(--text);
+}
