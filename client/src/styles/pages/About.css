@@ -1,0 +1,25 @@
+.about {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 48px 24px;
+}
+
+.about section {
+  margin-bottom: 48px;
+  padding-left: 16px;
+}
+
+.about h1 {
+  color: var(--text);
+}
+
+.about h2 {
+  font-size: 20px;
+  margin-bottom: 12px;
+}
+
+.about p {
+  color: var(--text-muted);
+  line-height: 1.7;
+  max-width: 800px;
+}
