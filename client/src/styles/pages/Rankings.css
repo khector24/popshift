@@ -1,0 +1,35 @@
+.rankings {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 48px 24px;
+}
+
+.rankings h1 {
+  margin-bottom: 24px;
+}
+
+.rankings__table {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+.rankings__row {
+  display: grid;
+  grid-template-columns: 80px 1.5fr 1fr 1fr 1fr;
+  gap: 16px;
+  padding: 16px 20px;
+  align-items: center;
+  border-bottom: 1px solid var(--border);
+}
+
+.rankings__header {
+  color: var(--text);
+  font-weight: 600;
+  background: #162036;
+}
+
+.rankings__table .rankings__row:last-child {
+  border-bottom: none;
+}
