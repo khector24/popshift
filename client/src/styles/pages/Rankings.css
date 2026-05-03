@@ -8,6 +8,42 @@
   margin-bottom: 24px;
 }
 
+.rankings__controls {
+  display: flex;
+  gap: 16px;
+  flex-wrap: wrap;
+  margin-bottom: 32px;
+}
+
+.rankings__control {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  min-width: 240px;
+}
+
+.rankings__control label {
+  color: var(--text-muted);
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.rankings__control select {
+  width: 100%;
+  background-color: var(--surface);
+  color: var(--text);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 12px 14px;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+.rankings__control select:focus {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+}
+
 .rankings__table {
   background: var(--surface);
   border: 1px solid var(--border);
@@ -32,33 +68,4 @@
 
 .rankings__table .rankings__row:last-child {
   border-bottom: none;
-}
-
-.rankings__controls {
-  display: flex;
-  gap: 16px;
-  flex-wrap: wrap;
-  margin-bottom: 24px;
-}
-
-.rankings__control {
-  display: flex;
-  flex-direction: column;
-  gap: 8px;
-  min-width: 260px;
-}
-
-.rankings__control label {
-  color: var(--text-muted);
-  font-size: 14px;
-}
-
-.rankings__control select {
-  width: 100%;
-  background-color: var(--surface);
-  color: var(--text);
-  border: 1px solid var(--border);
-  border-radius: 8px;
-  padding: 12px 40px 12px 12px;
-  font-size: 14px;
 }
