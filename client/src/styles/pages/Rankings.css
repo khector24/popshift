@@ -17,7 +17,7 @@
 
 .rankings__row {
   display: grid;
-  grid-template-columns: 80px 1.5fr 1fr 1fr 1fr;
+  grid-template-columns: 80px 1.5fr 1fr 1fr 1fr 1.2fr;
   gap: 16px;
   padding: 16px 20px;
   align-items: center;
@@ -32,4 +32,33 @@
 
 .rankings__table .rankings__row:last-child {
   border-bottom: none;
+}
+
+.rankings__controls {
+  display: flex;
+  gap: 16px;
+  flex-wrap: wrap;
+  margin-bottom: 24px;
+}
+
+.rankings__control {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  min-width: 260px;
+}
+
+.rankings__control label {
+  color: var(--text-muted);
+  font-size: 14px;
+}
+
+.rankings__control select {
+  width: 100%;
+  background-color: var(--surface);
+  color: var(--text);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 12px 40px 12px 12px;
+  font-size: 14px;
 }
