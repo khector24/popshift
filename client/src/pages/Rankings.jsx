@@ -1,11 +1,15 @@
 import { useState, useEffect } from "react";
 import "../styles/pages/Rankings.css";
+import { getStates } from "../services/statesApi.js";
 
 function Rankings() {
   const [sortBy, setSortBy] = useState("population");
   const [order, setOrder] = useState("desc");
   const [viewBy, setViewBy] = useState("state");
   const [region, setRegion] = useState("");
+
+  const [limit, setLimit] = useState(5);
+  const [page, setPage] = useState(1);
 
   const [statesData, setStatesData] = useState([]);
 
@@ -14,34 +18,20 @@ function Rankings() {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState("");
 
-  const API_URL = "http://localhost:3000";
-
   useEffect(() => {
     async function fetchStates() {
       try {
         setLoading(true);
         setError("");
 
-        const params = new URLSearchParams({
+        const data = await getStates({
           sortBy,
           order,
+          region,
+          search,
+          limit,
+          page,
         });
-
-        if (region) {
-          params.append("region", region);
-        }
-
-        if (search) {
-          params.append("search", search);
-        }
-
-        const response = await fetch(`${API_URL}/api/states?${params}`);
-
-        if (!response.ok) {
-          throw new Error("Failed to fetch states");
-        }
-
-        const data = await response.json();
         setStatesData(data);
       } catch (err) {
         setError(err.message);
@@ -51,7 +41,7 @@ function Rankings() {
     }
 
     fetchStates();
-  }, [sortBy, order, region, search]);
+  }, [sortBy, order, region, search, limit, page]);
 
   return (
     <div className="rankings">
@@ -66,6 +56,7 @@ function Rankings() {
             value={sortBy}
             onChange={(event) => {
               setSortBy(event.target.value);
+              setPage(1);
             }}
           >
             <option value="population">Population</option>
@@ -95,6 +86,7 @@ function Rankings() {
             value={order}
             onChange={(event) => {
               setOrder(event.target.value);
+              setPage(1);
             }}
           >
             <option value="desc">Descending</option>
@@ -110,6 +102,7 @@ function Rankings() {
             value={region}
             onChange={(event) => {
               setRegion(event.target.value);
+              setPage(1);
             }}
           >
             <option value="">All Regions</option>
@@ -128,9 +121,32 @@ function Rankings() {
             name="search"
             type="text"
             value={search}
-            onChange={(event) => setSearch(event.target.value)}
+            onChange={(event) => {
+              setSearch(event.target.value);
+              setPage(1);
+            }}
             placeholder="Search states..."
           />
+        </div>
+
+        <div className="rankings__control">
+          <label htmlFor="limit">Limit</label>
+
+          <select
+            id="limit"
+            name="limit"
+            value={limit}
+            onChange={(event) => {
+              setLimit(Number(event.target.value));
+              setPage(1);
+            }}
+          >
+            <option value="5">5</option>
+            <option value="10">10</option>
+            <option value="15">15</option>
+            <option value="20">20</option>
+            <option value="25">25</option>
+          </select>
         </div>
       </div>
 
@@ -163,7 +179,7 @@ function Rankings() {
 
           {statesData.map((item, index) => (
             <div className="rankings__row" key={item.state}>
-              <span>{index + 1}</span>
+              <span>{(page - 1) * limit + index + 1}</span>
 
               {viewBy === "state" ? (
                 <>
@@ -186,6 +202,26 @@ function Rankings() {
           ))}
         </div>
       )}
+
+      <div className="rankings__pagination">
+        <button
+          type="button"
+          onClick={() => setPage(page - 1)}
+          disabled={page === 1}
+        >
+          Previous
+        </button>
+
+        <span>Page {page}</span>
+
+        <button
+          type="button"
+          onClick={() => setPage(page + 1)}
+          disabled={statesData.length < limit}
+        >
+          Next
+        </button>
+      </div>
     </div>
   );
 }

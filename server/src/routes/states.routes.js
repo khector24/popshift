@@ -30,6 +30,16 @@ router.get("/", (req, res) => {
     });
   }
 
+  const limit = parseInt(req.query.limit);
+  const page = parseInt(req.query.page) || 1;
+
+  if (!isNaN(limit) && limit > 0) {
+    const startIndex = (page - 1) * limit;
+    const endIndex = startIndex + limit;
+
+    data = data.slice(startIndex, endIndex);
+  }
+
   res.json(data);
 });
 
