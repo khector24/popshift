@@ -44,6 +44,21 @@
   outline-offset: 2px;
 }
 
+.rankings__control input {
+  width: 100%;
+  background-color: var(--surface);
+  color: var(--text);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 12px 14px;
+  font-size: 14px;
+}
+
+.rankings__control input:focus {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+}
+
 .rankings__table {
   background: var(--surface);
   border: 1px solid var(--border);
