@@ -1,12 +1,14 @@
 import express from "express";
 import dotenv from "dotenv";
 import statesRoutes from "./routes/states.routes.js";
+import cors from "cors";
 
 dotenv.config();
 
 const app = express();
 
-// Body parser middleware
+// Middleware
+app.use(cors());
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 
