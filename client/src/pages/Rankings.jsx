@@ -12,6 +12,7 @@ function Rankings() {
   const [page, setPage] = useState(1);
 
   const [statesData, setStatesData] = useState([]);
+  const [pagination, setPagination] = useState(null);
 
   const [search, setSearch] = useState("");
 
@@ -24,7 +25,7 @@ function Rankings() {
         setLoading(true);
         setError("");
 
-        const data = await getStates({
+        const result = await getStates({
           sortBy,
           order,
           region,
@@ -32,7 +33,9 @@ function Rankings() {
           limit,
           page,
         });
-        setStatesData(data);
+
+        setStatesData(result.data);
+        setPagination(result.pagination);
       } catch (err) {
         setError(err.message);
       } finally {
@@ -212,12 +215,14 @@ function Rankings() {
           Previous
         </button>
 
-        <span>Page {page}</span>
+        <span>
+          Page {page} of {pagination?.totalPages || 1}
+        </span>
 
         <button
           type="button"
           onClick={() => setPage(page + 1)}
-          disabled={statesData.length < limit}
+          disabled={pagination && page >= pagination.totalPages}
         >
           Next
         </button>

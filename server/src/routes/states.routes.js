@@ -30,6 +30,8 @@ router.get("/", (req, res) => {
     });
   }
 
+  const total = data.length;
+
   const limit = parseInt(req.query.limit);
   const page = parseInt(req.query.page) || 1;
 
@@ -40,7 +42,17 @@ router.get("/", (req, res) => {
     data = data.slice(startIndex, endIndex);
   }
 
-  res.json(data);
+  const totalPages = !isNaN(limit) && limit > 0 ? Math.ceil(total / limit) : 1;
+
+  res.json({
+    data,
+    pagination: {
+      total,
+      page,
+      limit,
+      totalPages,
+    },
+  });
 });
 
 export default router;
