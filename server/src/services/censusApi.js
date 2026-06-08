@@ -72,3 +72,9 @@ export async function getCensusStates() {
 
   return statesWithShare;
 }
+
+export async function getCensusStateByCode(code) {
+  const states = await getCensusStates();
+
+  return states.find((state) => state.code === code);
+}

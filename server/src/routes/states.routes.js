@@ -1,5 +1,8 @@
 import express from "express";
-import { getCensusStates } from "../services/censusApi.js";
+import {
+  getCensusStates,
+  getCensusStateByCode,
+} from "../services/censusApi.js";
 
 const router = express.Router();
 
@@ -53,6 +56,17 @@ router.get("/", async (req, res) => {
       totalPages,
     },
   });
+});
+
+// GET /api/states
+router.get("/:code", async (req, res) => {
+  const state = await getCensusStateByCode(req.params.code);
+
+  if (!state) {
+    return res.status(404).json({ message: "State code not found" });
+  }
+
+  res.json(state);
 });
 
 export default router;

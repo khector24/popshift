@@ -37,3 +37,13 @@ export async function getStates({
 
   return response.json();
 }
+
+export async function getStateByCode(code) {
+  const response = await fetch(`${API_URL}/api/states/${code}`);
+
+  if (!response.ok) {
+    throw new Error("Failed to fetch state");
+  }
+
+  return response.json();
+}
