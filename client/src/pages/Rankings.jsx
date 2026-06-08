@@ -168,6 +168,8 @@ function Rankings() {
                 <span>Growth</span>
                 <span>Share</span>
                 <span>Region</span>
+                <span>Year</span>
+                <span>Code</span>
               </>
             ) : (
               <>
@@ -176,29 +178,39 @@ function Rankings() {
                 <span>Population</span>
                 <span>Growth</span>
                 <span>Share</span>
+                <span>Year</span>
+                <span>Code</span>
               </>
             )}
           </div>
 
-          {statesData.map((item, index) => (
-            <div className="rankings__row" key={item.state}>
+          {statesData.map((state, index) => (
+            <div className="rankings__row" key={state.code}>
               <span>{(page - 1) * limit + index + 1}</span>
 
               {viewBy === "state" ? (
                 <>
-                  <span>{item.state}</span>
-                  <span>{item.population}M</span>
-                  <span>{item.growth}%</span>
-                  <span>{item.share}%</span>
-                  <span>{item.region}</span>
+                  <span>{state.name}</span>
+                  <span>{state.population.toLocaleString()}</span>
+                  <span>
+                    {state.growth !== null ? `${state.growth}%` : "N/A"}
+                  </span>
+                  <span>{state.share}%</span>
+                  <span>{state.region}</span>
+                  <span>{state.year}</span>
+                  <span>{state.code}</span>
                 </>
               ) : (
                 <>
-                  <span>{item.region}</span>
-                  <span>{item.state}</span>
-                  <span>{item.population}M</span>
-                  <span>{item.growth}%</span>
-                  <span>{item.share}%</span>
+                  <span>{state.region}</span>
+                  <span>{state.name}</span>
+                  <span>{state.population.toLocaleString()}</span>
+                  <span>
+                    {state.growth !== null ? `${state.growth}%` : "N/A"}
+                  </span>
+                  <span>{state.share}%</span>
+                  <span>{state.year}</span>
+                  <span>{state.code}</span>
                 </>
               )}
             </div>

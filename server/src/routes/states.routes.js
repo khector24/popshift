@@ -1,11 +1,11 @@
 import express from "express";
-import statesData from "../data/states.js";
+import { getCensusStates } from "../services/censusApi.js";
 
 const router = express.Router();
 
 // GET /api/states
-router.get("/", (req, res) => {
-  let data = [...statesData];
+router.get("/", async (req, res) => {
+  let data = await getCensusStates();
 
   if (req.query.region) {
     data = data.filter(
@@ -15,7 +15,7 @@ router.get("/", (req, res) => {
 
   if (req.query.search) {
     data = data.filter((item) =>
-      item.state.toLowerCase().includes(req.query.search.toLowerCase()),
+      item.name.toLowerCase().includes(req.query.search.toLowerCase()),
     );
   }
 
