@@ -1,0 +1,31 @@
+.detail-stat-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 24px;
+}
+
+.detail-stat-card_label {
+  margin: 0 0 12px;
+  color: var(--text-muted);
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.detail-stat-card_value {
+  margin: 0;
+  color: var(--text);
+  font-size: 28px;
+  font-weight: 700;
+}
+
+.detail-stat-card {
+  transition:
+    transform 0.2s ease,
+    border-color 0.2s ease;
+}
+
+.detail-stat-card:hover {
+  transform: translateY(-2px);
+  border-color: var(--accent);
+}

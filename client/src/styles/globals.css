@@ -25,3 +25,11 @@ a {
 a:hover {
   color: var(--accent);
 }
+
+.growth-positive {
+  color: #4ade80;
+}
+
+.growth-negative {
+  color: #f87171;
+}

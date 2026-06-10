@@ -1,6 +1,8 @@
 import { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
 import "../styles/pages/Rankings.css";
 import { getStates } from "../services/statesApi.js";
+import { formatGrowth } from "../utils/growthUtils.js";
 
 function Rankings() {
   const [sortBy, setSortBy] = useState("population");
@@ -184,37 +186,48 @@ function Rankings() {
             )}
           </div>
 
-          {statesData.map((state, index) => (
-            <div className="rankings__row" key={state.code}>
-              <span>{(page - 1) * limit + index + 1}</span>
+          {statesData.map((state, index) => {
+            const { growthValue, growthClassName } = formatGrowth(state.growth);
 
-              {viewBy === "state" ? (
-                <>
-                  <span>{state.name}</span>
-                  <span>{state.population.toLocaleString()}</span>
-                  <span>
-                    {state.growth !== null ? `${state.growth}%` : "N/A"}
-                  </span>
-                  <span>{state.share}%</span>
-                  <span>{state.region}</span>
-                  <span>{state.year}</span>
-                  <span>{state.code}</span>
-                </>
-              ) : (
-                <>
-                  <span>{state.region}</span>
-                  <span>{state.name}</span>
-                  <span>{state.population.toLocaleString()}</span>
-                  <span>
-                    {state.growth !== null ? `${state.growth}%` : "N/A"}
-                  </span>
-                  <span>{state.share}%</span>
-                  <span>{state.year}</span>
-                  <span>{state.code}</span>
-                </>
-              )}
-            </div>
-          ))}
+            return (
+              <div className="rankings__row" key={state.code}>
+                <span>{(page - 1) * limit + index + 1}</span>
+
+                {viewBy === "state" ? (
+                  <>
+                    <span>
+                      <Link to={`/states/${state.code}`}>{state.name}</Link>
+                    </span>
+
+                    <span>{state.population.toLocaleString()}</span>
+
+                    <span className={growthClassName}>{growthValue}</span>
+
+                    <span>{state.share}%</span>
+                    <span>{state.region}</span>
+                    <span>{state.year}</span>
+                    <span>{state.code}</span>
+                  </>
+                ) : (
+                  <>
+                    <span>{state.region}</span>
+
+                    <span>
+                      <Link to={`/states/${state.code}`}>{state.name}</Link>
+                    </span>
+
+                    <span>{state.population.toLocaleString()}</span>
+
+                    <span className={growthClassName}>{growthValue}</span>
+
+                    <span>{state.share}%</span>
+                    <span>{state.year}</span>
+                    <span>{state.code}</span>
+                  </>
+                )}
+              </div>
+            );
+          })}
         </div>
       )}
 
