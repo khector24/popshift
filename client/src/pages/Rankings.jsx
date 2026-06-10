@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import "../styles/pages/Rankings.css";
 import { getStates } from "../services/statesApi.js";
 import { formatGrowth } from "../utils/growthUtils.js";
@@ -20,6 +20,8 @@ function Rankings() {
 
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState("");
+
+  const navigate = useNavigate();
 
   useEffect(() => {
     async function fetchStates() {
@@ -190,19 +192,18 @@ function Rankings() {
             const { growthValue, growthClassName } = formatGrowth(state.growth);
 
             return (
-              <div className="rankings__row" key={state.code}>
+              <div
+                className="rankings__row"
+                key={state.code}
+                onClick={() => navigate(`/states/${state.code}`)}
+              >
                 <span>{(page - 1) * limit + index + 1}</span>
 
                 {viewBy === "state" ? (
                   <>
-                    <span>
-                      <Link to={`/states/${state.code}`}>{state.name}</Link>
-                    </span>
-
+                    <span>{state.name}</span>
                     <span>{state.population.toLocaleString()}</span>
-
                     <span className={growthClassName}>{growthValue}</span>
-
                     <span>{state.share}%</span>
                     <span>{state.region}</span>
                     <span>{state.year}</span>
@@ -211,15 +212,9 @@ function Rankings() {
                 ) : (
                   <>
                     <span>{state.region}</span>
-
-                    <span>
-                      <Link to={`/states/${state.code}`}>{state.name}</Link>
-                    </span>
-
+                    <span>{state.name}</span>
                     <span>{state.population.toLocaleString()}</span>
-
                     <span className={growthClassName}>{growthValue}</span>
-
                     <span>{state.share}%</span>
                     <span>{state.year}</span>
                     <span>{state.code}</span>
