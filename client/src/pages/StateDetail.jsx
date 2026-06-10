@@ -1,7 +1,7 @@
 import { getStateByCode } from "../services/statesApi.js";
 import { formatGrowth } from "../utils/growthUtils.js";
 import { useState, useEffect } from "react";
-import { useParams, Link } from "react-router-dom";
+import { useParams, Link, useLocation } from "react-router-dom";
 
 import DetailStatCard from "../components/ui/DetailStatCard.jsx";
 
@@ -9,6 +9,7 @@ import "../styles/pages/StateDetail.css";
 
 function StateDetail() {
   const { code } = useParams();
+  const location = useLocation();
 
   const [stateData, setStateData] = useState(null);
 
@@ -41,7 +42,7 @@ function StateDetail() {
 
   return (
     <div className="state-detail">
-      <Link className="state-detail__back" to="/rankings">
+      <Link className="state-detail__back" to={`/rankings${location.search}`}>
         ← Back to Rankings
       </Link>
 

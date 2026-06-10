@@ -1,22 +1,24 @@
 import { useState, useEffect } from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useSearchParams } from "react-router-dom";
 import "../styles/pages/Rankings.css";
 import { getStates } from "../services/statesApi.js";
 import { formatGrowth } from "../utils/growthUtils.js";
 
 function Rankings() {
-  const [sortBy, setSortBy] = useState("population");
-  const [order, setOrder] = useState("desc");
-  const [viewBy, setViewBy] = useState("state");
-  const [region, setRegion] = useState("");
+  const [searchParams, setSearchParams] = useSearchParams();
 
-  const [limit, setLimit] = useState(5);
-  const [page, setPage] = useState(1);
+  const [sortBy, setSortBy] = useState(
+    searchParams.get("sortBy") || "population",
+  );
+  const [order, setOrder] = useState(searchParams.get("order") || "desc");
+  const [viewBy, setViewBy] = useState(searchParams.get("viewBy") || "state");
+  const [region, setRegion] = useState(searchParams.get("region") || "");
+  const [limit, setLimit] = useState(Number(searchParams.get("limit")) || 5);
+  const [page, setPage] = useState(Number(searchParams.get("page")) || 1);
+  const [search, setSearch] = useState(searchParams.get("search") || "");
 
   const [statesData, setStatesData] = useState([]);
   const [pagination, setPagination] = useState(null);
-
-  const [search, setSearch] = useState("");
 
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState("");
@@ -49,6 +51,21 @@ function Rankings() {
 
     fetchStates();
   }, [sortBy, order, region, search, limit, page]);
+
+  useEffect(() => {
+    setSearchParams(
+      {
+        sortBy,
+        order,
+        viewBy,
+        region,
+        search,
+        limit: String(limit),
+        page: String(page),
+      },
+      { replace: true },
+    );
+  }, [sortBy, order, viewBy, region, search, limit, page, setSearchParams]);
 
   return (
     <div className="rankings">
@@ -195,7 +212,9 @@ function Rankings() {
               <div
                 className="rankings__row"
                 key={state.code}
-                onClick={() => navigate(`/states/${state.code}`)}
+                onClick={() =>
+                  navigate(`/states/${state.code}${window.location.search}`)
+                }
               >
                 <span>{(page - 1) * limit + index + 1}</span>
 
