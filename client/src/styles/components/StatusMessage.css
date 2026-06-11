@@ -1,0 +1,26 @@
+.status-message {
+  margin: 32px 0;
+  padding: 24px;
+  border-radius: 12px;
+  border: 1px solid var(--border);
+  background: var(--surface);
+  text-align: center;
+}
+
+.status-message h2 {
+  margin-bottom: 8px;
+  font-size: 24px;
+}
+
+.status-message p {
+  color: var(--text-muted);
+  line-height: 1.6;
+}
+
+.status-message--loading {
+  border-color: #3b82f6;
+}
+
+.status-message--error {
+  border-color: #ef4444;
+}

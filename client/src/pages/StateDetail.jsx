@@ -4,6 +4,7 @@ import { useState, useEffect } from "react";
 import { useParams, Link, useLocation } from "react-router-dom";
 
 import DetailStatCard from "../components/ui/DetailStatCard.jsx";
+import StatusMessage from "../components/ui/StatusMessage.jsx";
 
 import "../styles/pages/StateDetail.css";
 
@@ -46,8 +47,20 @@ function StateDetail() {
         ← Back to Rankings
       </Link>
 
-      {loading && <p>Loading state data...</p>}
-      {error && <p>{error}</p>}
+      {loading && (
+        <StatusMessage
+          type="loading"
+          title="Loading state data"
+          message="Please wait while we fetch the latest information."
+        />
+      )}
+      {error && (
+        <StatusMessage
+          type="error"
+          title="Unable to load state"
+          message={error}
+        />
+      )}
 
       {!loading &&
         !error &&

@@ -4,6 +4,8 @@ import "../styles/pages/Rankings.css";
 import { getStates } from "../services/statesApi.js";
 import { formatGrowth } from "../utils/growthUtils.js";
 
+import StatusMessage from "../components/ui/StatusMessage.jsx";
+
 function Rankings() {
   const [searchParams, setSearchParams] = useSearchParams();
 
@@ -174,98 +176,115 @@ function Rankings() {
         </div>
       </div>
 
-      {loading && <p>Loading state data...</p>}
-      {error && <p>{error}</p>}
-
-      {!loading && !error && (
-        <div className="rankings__table">
-          <div className="rankings__row rankings__header">
-            <span>Rank</span>
-
-            {viewBy === "state" ? (
-              <>
-                <span>State</span>
-                <span>Population</span>
-                <span>Growth</span>
-                <span>Share</span>
-                <span>Region</span>
-                <span>Year</span>
-                <span>Code</span>
-              </>
-            ) : (
-              <>
-                <span>Region</span>
-                <span>State</span>
-                <span>Population</span>
-                <span>Growth</span>
-                <span>Share</span>
-                <span>Year</span>
-                <span>Code</span>
-              </>
-            )}
-          </div>
-
-          {statesData.map((state, index) => {
-            const { growthValue, growthClassName } = formatGrowth(state.growth);
-
-            return (
-              <div
-                className="rankings__row"
-                key={state.code}
-                onClick={() =>
-                  navigate(`/states/${state.code}${window.location.search}`)
-                }
-              >
-                <span>{(page - 1) * limit + index + 1}</span>
-
-                {viewBy === "state" ? (
-                  <>
-                    <span>{state.name}</span>
-                    <span>{state.population.toLocaleString()}</span>
-                    <span className={growthClassName}>{growthValue}</span>
-                    <span>{state.share}%</span>
-                    <span>{state.region}</span>
-                    <span>{state.year}</span>
-                    <span>{state.code}</span>
-                  </>
-                ) : (
-                  <>
-                    <span>{state.region}</span>
-                    <span>{state.name}</span>
-                    <span>{state.population.toLocaleString()}</span>
-                    <span className={growthClassName}>{growthValue}</span>
-                    <span>{state.share}%</span>
-                    <span>{state.year}</span>
-                    <span>{state.code}</span>
-                  </>
-                )}
-              </div>
-            );
-          })}
-        </div>
+      {loading && (
+        <StatusMessage
+          type="loading"
+          title="Loading rankings..."
+          message="Fetching the latest census ranking data."
+        />
       )}
 
-      <div className="rankings__pagination">
-        <button
-          type="button"
-          onClick={() => setPage(page - 1)}
-          disabled={page === 1}
-        >
-          Previous
-        </button>
+      {error && (
+        <StatusMessage
+          type="error"
+          title="Unable to load rankings"
+          message={error}
+        />
+      )}
 
-        <span>
-          Page {page} of {pagination?.totalPages || 1}
-        </span>
+      {!loading && !error && (
+        <>
+          <div className="rankings__table">
+            <div className="rankings__row rankings__header">
+              <span>Rank</span>
 
-        <button
-          type="button"
-          onClick={() => setPage(page + 1)}
-          disabled={pagination && page >= pagination.totalPages}
-        >
-          Next
-        </button>
-      </div>
+              {viewBy === "state" ? (
+                <>
+                  <span>State</span>
+                  <span>Population</span>
+                  <span>Growth</span>
+                  <span>Share</span>
+                  <span>Region</span>
+                  <span>Year</span>
+                  <span>Code</span>
+                </>
+              ) : (
+                <>
+                  <span>Region</span>
+                  <span>State</span>
+                  <span>Population</span>
+                  <span>Growth</span>
+                  <span>Share</span>
+                  <span>Year</span>
+                  <span>Code</span>
+                </>
+              )}
+            </div>
+
+            {statesData.map((state, index) => {
+              const { growthValue, growthClassName } = formatGrowth(
+                state.growth,
+              );
+
+              return (
+                <div
+                  className="rankings__row"
+                  key={state.code}
+                  onClick={() =>
+                    navigate(`/states/${state.code}${window.location.search}`)
+                  }
+                >
+                  <span>{(page - 1) * limit + index + 1}</span>
+
+                  {viewBy === "state" ? (
+                    <>
+                      <span>{state.name}</span>
+                      <span>{state.population.toLocaleString()}</span>
+                      <span className={growthClassName}>{growthValue}</span>
+                      <span>{state.share}%</span>
+                      <span>{state.region}</span>
+                      <span>{state.year}</span>
+                      <span>{state.code}</span>
+                    </>
+                  ) : (
+                    <>
+                      <span>{state.region}</span>
+                      <span>{state.name}</span>
+                      <span>{state.population.toLocaleString()}</span>
+                      <span className={growthClassName}>{growthValue}</span>
+                      <span>{state.share}%</span>
+                      <span>{state.year}</span>
+                      <span>{state.code}</span>
+                    </>
+                  )}
+                </div>
+              );
+            })}
+          </div>
+
+          <div className="rankings__pagination">
+            <button
+              type="button"
+              onClick={() => setPage(page - 1)}
+              disabled={page === 1}
+            >
+              Previous
+            </button>
+
+            <span>
+              Page {page} of {pagination?.totalPages || 1}
+            </span>
+
+            <button
+              type="button"
+              onClick={() => setPage(page + 1)}
+              disabled={pagination && page >= pagination.totalPages}
+            >
+              Next
+            </button>
+          </div>
+        </>
+      )}
     </div>
   );
 }
