@@ -1,4 +1,7 @@
-import { getStateByCode } from "../services/statesApi.js";
+import {
+  getStateByCode,
+  getStateHistoryByCode,
+} from "../services/statesApi.js";
 import { formatGrowth } from "../utils/growthUtils.js";
 import { useState, useEffect } from "react";
 import { useParams, Link, useLocation } from "react-router-dom";
@@ -13,6 +16,7 @@ function StateDetail() {
   const location = useLocation();
 
   const [stateData, setStateData] = useState(null);
+  const [history, setHistory] = useState([]);
 
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState("");
@@ -21,6 +25,9 @@ function StateDetail() {
     async function fetchState() {
       try {
         const result = await getStateByCode(code);
+        const historyResult = await getStateHistoryByCode(code);
+
+        setHistory(historyResult);
 
         setStateData(result);
       } catch (err) {
@@ -54,6 +61,7 @@ function StateDetail() {
           message="Please wait while we fetch the latest information."
         />
       )}
+
       {error && (
         <StatusMessage
           type="error"
@@ -67,7 +75,7 @@ function StateDetail() {
         (!stateData ? (
           "State not found"
         ) : (
-          <div>
+          <main className="state-detail__content">
             <div className="state-detail__header">
               <h1>{stateData.name}</h1>
               <p>
@@ -75,6 +83,7 @@ function StateDetail() {
                 <span> &bull; </span> State Code {stateData.code}
               </p>
             </div>
+
             <div className="state-detail-grid">
               <DetailStatCard
                 label="Population"
@@ -105,7 +114,30 @@ function StateDetail() {
                 .
               </p>
             </section>
-          </div>
+
+            <section className="state-detail__history">
+              <h2>Population History</h2>
+
+              {history.length > 0 ? (
+                <div className="state-detail__history-list">
+                  {history.map((item) => (
+                    <div className="state-detail__history-row" key={item.year}>
+                      <span className="state-detail__history-year">
+                        {item.year}
+                      </span>
+                      <span className="state-detail__history-population">
+                        {item.population.toLocaleString()}
+                      </span>
+                    </div>
+                  ))}
+                </div>
+              ) : (
+                <p className="state-detail__history-empty">
+                  Population history is not available for this state.
+                </p>
+              )}
+            </section>
+          </main>
         ))}
     </div>
   );

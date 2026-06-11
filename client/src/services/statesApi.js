@@ -47,3 +47,13 @@ export async function getStateByCode(code) {
 
   return response.json();
 }
+
+export async function getStateHistoryByCode(code) {
+  const response = await fetch(`${API_URL}/api/states/${code}/history`);
+
+  if (!response.ok) {
+    throw new Error("Failed to fetch state history");
+  }
+
+  return response.json();
+}

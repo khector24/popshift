@@ -2,6 +2,7 @@ import express from "express";
 import {
   getCensusStates,
   getCensusStateByCode,
+  getCensusStateHistoryByCode,
 } from "../services/censusApi.js";
 
 const router = express.Router();
@@ -56,6 +57,17 @@ router.get("/", async (req, res) => {
       totalPages,
     },
   });
+});
+
+// GET /api/states/:code/history
+router.get("/:code/history", async (req, res) => {
+  const history = await getCensusStateHistoryByCode(req.params.code);
+
+  if (history.length === 0) {
+    return res.status(404).json({ message: "State history not found" });
+  }
+
+  res.json(history);
 });
 
 // GET /api/states
