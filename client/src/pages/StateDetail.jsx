@@ -28,7 +28,6 @@ function StateDetail() {
         const historyResult = await getStateHistoryByCode(code);
 
         setHistory(historyResult);
-
         setStateData(result);
       } catch (err) {
         console.error(err);
@@ -49,23 +48,28 @@ function StateDetail() {
   );
 
   const firstHistoryItem = history[0];
-  const latestHistoryItem = history[history.length - 1];
 
-  const historicalGrowth =
-    firstHistoryItem && latestHistoryItem
-      ? Number(
-          (
-            ((latestHistoryItem.population - firstHistoryItem.population) /
-              firstHistoryItem.population) *
-            100
-          ).toFixed(1),
-        )
-      : null;
+  const historyWithGrowth = [...history].reverse().map((item) => {
+    if (item.year === firstHistoryItem?.year) {
+      return {
+        ...item,
+        changeText: "Baseline",
+      };
+    }
 
-  const historicalGrowthText =
-    historicalGrowth !== null
-      ? `${historicalGrowth > 0 ? "+" : ""}${historicalGrowth}%`
-      : "Not available";
+    const growthSinceBaseline = Number(
+      (
+        ((item.population - firstHistoryItem.population) /
+          firstHistoryItem.population) *
+        100
+      ).toFixed(1),
+    );
+
+    return {
+      ...item,
+      changeText: `${growthSinceBaseline > 0 ? "+" : ""}${growthSinceBaseline}%`,
+    };
+  });
 
   return (
     <div className="state-detail">
@@ -138,28 +142,29 @@ function StateDetail() {
               <h2>Population History</h2>
 
               {history.length > 0 ? (
-                <>
-                  <div className="state-detail__history-list">
-                    {history.map((item) => (
-                      <div
-                        className="state-detail__history-row"
-                        key={item.year}
-                      >
-                        <span className="state-detail__history-year">
-                          {item.year}
-                        </span>
-                        <span className="state-detail__history-population">
-                          {item.population.toLocaleString()}
-                        </span>
-                      </div>
-                    ))}
+                <div className="state-detail__history-list">
+                  <div className="state-detail__history-row state-detail__history-header">
+                    <span>Year</span>
+                    <span>Population</span>
+                    <span>Change since {firstHistoryItem?.year}</span>
                   </div>
 
-                  <div className="state-detail__history-summary">
-                    Growth since {firstHistoryItem?.year}:{" "}
-                    <span>{historicalGrowthText}</span>
-                  </div>
-                </>
+                  {historyWithGrowth.map((item) => (
+                    <div className="state-detail__history-row" key={item.year}>
+                      <span className="state-detail__history-year">
+                        {item.year}
+                      </span>
+
+                      <span className="state-detail__history-population">
+                        {item.population.toLocaleString()}
+                      </span>
+
+                      <span className="state-detail__history-change">
+                        {item.changeText}
+                      </span>
+                    </div>
+                  ))}
+                </div>
               ) : (
                 <p className="state-detail__history-empty">
                   Population history is not available for this state.
