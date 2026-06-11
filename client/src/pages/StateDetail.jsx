@@ -48,6 +48,25 @@ function StateDetail() {
     stateData?.growth,
   );
 
+  const firstHistoryItem = history[0];
+  const latestHistoryItem = history[history.length - 1];
+
+  const historicalGrowth =
+    firstHistoryItem && latestHistoryItem
+      ? Number(
+          (
+            ((latestHistoryItem.population - firstHistoryItem.population) /
+              firstHistoryItem.population) *
+            100
+          ).toFixed(1),
+        )
+      : null;
+
+  const historicalGrowthText =
+    historicalGrowth !== null
+      ? `${historicalGrowth > 0 ? "+" : ""}${historicalGrowth}%`
+      : "Not available";
+
   return (
     <div className="state-detail">
       <Link className="state-detail__back" to={`/rankings${location.search}`}>
@@ -119,18 +138,28 @@ function StateDetail() {
               <h2>Population History</h2>
 
               {history.length > 0 ? (
-                <div className="state-detail__history-list">
-                  {history.map((item) => (
-                    <div className="state-detail__history-row" key={item.year}>
-                      <span className="state-detail__history-year">
-                        {item.year}
-                      </span>
-                      <span className="state-detail__history-population">
-                        {item.population.toLocaleString()}
-                      </span>
-                    </div>
-                  ))}
-                </div>
+                <>
+                  <div className="state-detail__history-list">
+                    {history.map((item) => (
+                      <div
+                        className="state-detail__history-row"
+                        key={item.year}
+                      >
+                        <span className="state-detail__history-year">
+                          {item.year}
+                        </span>
+                        <span className="state-detail__history-population">
+                          {item.population.toLocaleString()}
+                        </span>
+                      </div>
+                    ))}
+                  </div>
+
+                  <div className="state-detail__history-summary">
+                    Growth since {firstHistoryItem?.year}:{" "}
+                    <span>{historicalGrowthText}</span>
+                  </div>
+                </>
               ) : (
                 <p className="state-detail__history-empty">
                   Population history is not available for this state.

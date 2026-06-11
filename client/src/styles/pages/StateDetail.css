@@ -95,3 +95,16 @@
   margin: 0;
   color: var(--text-muted);
 }
+
+.state-detail__history-summary {
+  margin-top: 16px;
+  padding-top: 16px;
+  border-top: 1px solid var(--border);
+  color: var(--text-muted);
+  font-weight: 600;
+}
+
+.state-detail__history-summary span {
+  color: var(--text);
+  font-weight: 800;
+}
