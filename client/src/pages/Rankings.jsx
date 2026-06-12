@@ -5,6 +5,7 @@ import { getStates } from "../services/statesApi.js";
 import { formatGrowth } from "../utils/growthUtils.js";
 
 import StatusMessage from "../components/ui/StatusMessage.jsx";
+import InfoTooltip from "../components/ui/InfoTooltip.jsx";
 
 function Rankings() {
   const [searchParams, setSearchParams] = useSearchParams();
@@ -71,7 +72,13 @@ function Rankings() {
 
   return (
     <div className="rankings">
-      <h1>State Rankings</h1>
+      <div className="rankings__header-block">
+        <h1>State Rankings</h1>
+        <p>
+          Compare states by population, yearly growth, U.S. population share,
+          and region.
+        </p>
+      </div>
 
       <div className="rankings__controls">
         <div className="rankings__control">
@@ -194,95 +201,119 @@ function Rankings() {
 
       {!loading && !error && (
         <>
-          <div className="rankings__table">
-            <div className="rankings__row rankings__header">
-              <span>Rank</span>
-
-              {viewBy === "state" ? (
-                <>
-                  <span>State</span>
-                  <span>Population</span>
-                  <span>Growth</span>
-                  <span>Share</span>
-                  <span>Region</span>
-                  <span>Year</span>
-                  <span>Code</span>
-                </>
-              ) : (
-                <>
-                  <span>Region</span>
-                  <span>State</span>
-                  <span>Population</span>
-                  <span>Growth</span>
-                  <span>Share</span>
-                  <span>Year</span>
-                  <span>Code</span>
-                </>
-              )}
-            </div>
-
-            {statesData.map((state, index) => {
-              const { growthValue, growthClassName } = formatGrowth(
-                state.growth,
-              );
-
-              return (
-                <div
-                  className="rankings__row"
-                  key={state.code}
-                  onClick={() =>
-                    navigate(`/states/${state.code}${window.location.search}`)
-                  }
-                >
-                  <span>{(page - 1) * limit + index + 1}</span>
+          {statesData.length === 0 ? (
+            <StatusMessage
+              type="info"
+              title="No states found"
+              message="Try a different search term or adjust your filters."
+            />
+          ) : (
+            <>
+              <div className="rankings__table">
+                <div className="rankings__row rankings__header">
+                  <span>Rank</span>
 
                   {viewBy === "state" ? (
                     <>
-                      <span>{state.name}</span>
-                      <span>{state.population.toLocaleString()}</span>
-                      <span className={growthClassName}>{growthValue}</span>
-                      <span>{state.share}%</span>
-                      <span>{state.region}</span>
-                      <span>{state.year}</span>
-                      <span>{state.code}</span>
+                      <span>State</span>
+                      <span>Population</span>
+                      <span className="rankings__tooltip-label">
+                        Growth
+                        <InfoTooltip text="Growth compares the 2023 population estimate against the 2022 estimate." />
+                      </span>
+                      <span className="rankings__tooltip-label">
+                        Share
+                        <InfoTooltip text="Share is the state's percentage of the tracked U.S. population total." />
+                      </span>
+                      <span>Region</span>
+                      <span>Year</span>
+                      <span>Code</span>
                     </>
                   ) : (
                     <>
-                      <span>{state.region}</span>
-                      <span>{state.name}</span>
-                      <span>{state.population.toLocaleString()}</span>
-                      <span className={growthClassName}>{growthValue}</span>
-                      <span>{state.share}%</span>
-                      <span>{state.year}</span>
-                      <span>{state.code}</span>
+                      <span>Region</span>
+                      <span>State</span>
+                      <span>Population</span>
+                      <span className="rankings__tooltip-label">
+                        Growth
+                        <InfoTooltip text="Growth compares the 2023 population estimate against the 2022 estimate." />
+                      </span>
+                      <span className="rankings__tooltip-label">
+                        Share
+                        <InfoTooltip text="Share is the state's percentage of the tracked U.S. population total." />
+                      </span>
+                      <span>Year</span>
+                      <span>Code</span>
                     </>
                   )}
                 </div>
-              );
-            })}
-          </div>
 
-          <div className="rankings__pagination">
-            <button
-              type="button"
-              onClick={() => setPage(page - 1)}
-              disabled={page === 1}
-            >
-              Previous
-            </button>
+                {statesData.map((state, index) => {
+                  const { growthValue, growthClassName } = formatGrowth(
+                    state.growth,
+                  );
 
-            <span>
-              Page {page} of {pagination?.totalPages || 1}
-            </span>
+                  return (
+                    <div
+                      className="rankings__row"
+                      key={state.code}
+                      onClick={() =>
+                        navigate(
+                          `/states/${state.code}${window.location.search}`,
+                        )
+                      }
+                    >
+                      <span>{(page - 1) * limit + index + 1}</span>
 
-            <button
-              type="button"
-              onClick={() => setPage(page + 1)}
-              disabled={pagination && page >= pagination.totalPages}
-            >
-              Next
-            </button>
-          </div>
+                      {viewBy === "state" ? (
+                        <>
+                          <span>{state.name}</span>
+                          <span>{state.population.toLocaleString()}</span>
+                          <span className={growthClassName}>{growthValue}</span>
+                          <span>{state.share}%</span>
+                          <span>{state.region}</span>
+                          <span>{state.year}</span>
+                          <span>{state.code}</span>
+                        </>
+                      ) : (
+                        <>
+                          <span>{state.region}</span>
+                          <span>{state.name}</span>
+                          <span>{state.population.toLocaleString()}</span>
+                          <span className={growthClassName}>{growthValue}</span>
+                          <span>{state.share}%</span>
+                          <span>{state.year}</span>
+                          <span>{state.code}</span>
+                        </>
+                      )}
+                    </div>
+                  );
+                })}
+              </div>
+
+              <div className="rankings__pagination">
+                <button
+                  type="button"
+                  onClick={() => setPage(page - 1)}
+                  disabled={page === 1}
+                >
+                  Previous
+                </button>
+
+                <span>
+                  Page {page} of {pagination?.totalPages || 1}
+                </span>
+
+                <button
+                  type="button"
+                  onClick={() => setPage(page + 1)}
+                  disabled={pagination && page >= pagination.totalPages}
+                >
+                  Next
+                </button>
+              </div>
+            </>
+          )}
         </>
       )}
     </div>

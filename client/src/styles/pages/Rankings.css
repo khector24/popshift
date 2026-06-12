@@ -4,8 +4,19 @@
   padding: 48px 24px;
 }
 
-.rankings h1 {
+.rankings__header-block {
   margin-bottom: 24px;
+}
+
+.rankings__header-block h1 {
+  margin-bottom: 8px;
+}
+
+.rankings__header-block p {
+  max-width: 680px;
+  margin: 0;
+  color: var(--text-muted);
+  line-height: 1.6;
 }
 
 .rankings__controls {
@@ -63,7 +74,13 @@
   background: var(--surface);
   border: 1px solid var(--border);
   border-radius: 12px;
-  overflow: hidden;
+  overflow: visible;
+}
+
+.rankings__tooltip-label {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
 }
 
 .rankings__row {
@@ -73,10 +90,13 @@
   padding: 16px 20px;
   align-items: center;
   border-bottom: 1px solid var(--border);
+}
+
+.rankings__row:not(.rankings__header) {
   cursor: pointer;
 }
 
-.rankings__row:hover {
+.rankings__row:not(.rankings__header):hover {
   background: rgba(255, 255, 255, 0.03);
 }
 
