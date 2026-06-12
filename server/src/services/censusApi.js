@@ -3,6 +3,8 @@ import stateRegions from "../data/stateRegions.js";
 const historicalYears = ["2020", "2021", "2022", "2023"];
 const censusYearCache = {};
 
+const censusRegions = ["West", "Northeast", "South", "Midwest", "Territory"];
+
 async function fetchCensusStatesByYear(year) {
   if (censusYearCache[year]) {
     return censusYearCache[year];
@@ -114,4 +116,88 @@ export async function getCensusStateHistoryByCode(code) {
   }
 
   return history;
+}
+
+export async function getCensusDashboardSummary(startYear, endYear) {
+  const startYearData = await fetchCensusStatesByYear(startYear);
+  const endYearData = await fetchCensusStatesByYear(endYear);
+
+  const startYearRows = formatCensusRows(startYearData);
+  const endYearRows = formatCensusRows(endYearData);
+
+  const startPopulationByCode = {};
+
+  startYearRows.forEach((state) => {
+    startPopulationByCode[state.code] = state.population;
+  });
+
+  const statesWithChange = endYearRows.map((state) => {
+    const startPopulation = startPopulationByCode[state.code];
+
+    return {
+      ...state,
+      startPopulation,
+      endPopulation: state.population,
+      populationChange: state.population - startPopulation,
+      growth: Number(
+        (
+          ((state.population - startPopulation) / startPopulation) *
+          100
+        ).toFixed(1),
+      ),
+    };
+  });
+
+  const totalPopulation = statesWithChange.reduce((sum, state) => {
+    return sum + state.endPopulation;
+  }, 0);
+
+  const topState = [...statesWithChange].sort((a, b) => {
+    return b.endPopulation - a.endPopulation;
+  })[0];
+
+  const growthLeader = [...statesWithChange].sort((a, b) => {
+    return b.growth - a.growth;
+  })[0];
+
+  const topGainers = [...statesWithChange]
+    .sort((a, b) => {
+      return b.growth - a.growth;
+    })
+    .slice(0, 5);
+
+  const topDecliners = [...statesWithChange]
+    .sort((a, b) => {
+      return a.growth - b.growth;
+    })
+    .slice(0, 5);
+
+  const populationGainLeader = [...statesWithChange].sort((a, b) => {
+    return b.populationChange - a.populationChange;
+  })[0];
+
+  const populationByRegion = {};
+
+  for (const region of censusRegions) {
+    let currRegionPopulation = 0;
+    statesWithChange.forEach((state) => {
+      if (state.region === region) {
+        currRegionPopulation += state.endPopulation;
+      }
+    });
+    populationByRegion[region] = currRegionPopulation;
+  }
+
+  return {
+    startYear: Number(startYear),
+    endYear: Number(endYear),
+    totalPopulation,
+    topState,
+    growthLeader,
+    populationGainLeader,
+    topGainers,
+    topDecliners,
+    populationByRegion,
+    states: statesWithChange,
+  };
 }

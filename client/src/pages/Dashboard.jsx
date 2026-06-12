@@ -6,7 +6,7 @@ const dashboardStats = [
   { label: "U.S. Population", value: "331M" },
   { label: "Top State", value: "California" },
   { label: "Growth Leader", value: "Texas" },
-  { label: "Biggest Share Gain", value: "+1.2%" },
+  { label: "Biggest Population Gain", value: "+1.2%" },
 ];
 
 function Dashboard() {

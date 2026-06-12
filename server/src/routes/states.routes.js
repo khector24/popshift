@@ -3,6 +3,7 @@ import {
   getCensusStates,
   getCensusStateByCode,
   getCensusStateHistoryByCode,
+  getCensusDashboardSummary,
 } from "../services/censusApi.js";
 
 const router = express.Router();
@@ -57,6 +58,16 @@ router.get("/", async (req, res) => {
       totalPages,
     },
   });
+});
+
+// GET /api/states/dashboard/summary
+router.get("/dashboard/summary", async (req, res) => {
+  const startYear = req.query.startYear || "2020";
+  const endYear = req.query.endYear || "2023";
+
+  const summary = await getCensusDashboardSummary(startYear, endYear);
+
+  res.json(summary);
 });
 
 // GET /api/states/:code/history
