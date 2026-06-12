@@ -87,6 +87,13 @@ function Methodology() {
           regional summaries, charts, mobile-friendly ranking layouts, and
           stronger visual tools for comparing population changes over time.
         </p>
+
+        <p>
+          Future versions of PopShift may also include additional demographic
+          and quality-of-life datasets such as median income, wage trends,
+          climate data, housing trends, migration patterns, and other
+          state-level analytics.
+        </p>
       </section>
     </div>
   );
