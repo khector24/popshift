@@ -32,42 +32,45 @@ async function fetchCensusStatesByYear(year) {
   return data;
 }
 
+function formatCensusRows(yearData) {
+  const rows = yearData.slice(1);
+
+  return rows.map((row) => ({
+    name: row[0],
+    population: Number(row[1]),
+    year: Number(row[2]),
+    code: row[5],
+    region: stateRegions[row[0]] || "Unknown",
+  }));
+}
+
 export async function getCensusStates() {
   const currentYearData = await fetchCensusStatesByYear("2023");
   const previousYearData = await fetchCensusStatesByYear("2022");
 
-  const previousRows = previousYearData.slice(1);
+  const previousRows = formatCensusRows(previousYearData);
+  const currentRows = formatCensusRows(currentYearData);
 
   const previousPopulationByCode = {};
 
-  previousRows.forEach((row) => {
-    const code = row[5];
-    const population = Number(row[1]);
-
-    previousPopulationByCode[code] = population;
+  previousRows.forEach((state) => {
+    previousPopulationByCode[state.code] = state.population;
   });
 
-  const rows = currentYearData.slice(1);
-
-  const formattedData = rows.map((row) => {
-    const currPopulation = Number(row[1]);
-    const previousPopulation = previousPopulationByCode[row[5]];
+  const formattedData = currentRows.map((state) => {
+    const previousPopulation = previousPopulationByCode[state.code];
 
     const growth = previousPopulation
       ? Number(
           (
-            ((currPopulation - previousPopulation) / previousPopulation) *
+            ((state.population - previousPopulation) / previousPopulation) *
             100
           ).toFixed(1),
         )
       : null;
 
     return {
-      name: row[0],
-      population: currPopulation,
-      year: Number(row[2]),
-      code: row[5],
-      region: stateRegions[row[0]] || "Unknown",
+      ...state,
       growth,
     };
   });
@@ -98,14 +101,14 @@ export async function getCensusStateHistoryByCode(code) {
   for (const year of historicalYears) {
     const yearData = await fetchCensusStatesByYear(year);
 
-    const rows = yearData.slice(1);
+    const rows = formatCensusRows(yearData);
 
-    const stateRow = rows.find((row) => row[5] === code);
+    const stateRow = rows.find((state) => state.code === code);
 
     if (stateRow) {
       history.push({
-        year: Number(year),
-        population: Number(stateRow[1]),
+        year: stateRow.year,
+        population: stateRow.population,
       });
     }
   }
