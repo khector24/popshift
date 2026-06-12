@@ -1,8 +1,13 @@
 import stateRegions from "../data/stateRegions.js";
 
 const historicalYears = ["2020", "2021", "2022", "2023"];
+const censusYearCache = {};
 
 async function fetchCensusStatesByYear(year) {
+  if (censusYearCache[year]) {
+    return censusYearCache[year];
+  }
+
   const CENSUS_API_KEY = process.env.CENSUS_API_KEY;
 
   const url = new URL("https://api.census.gov/data/2023/pep/charv");
@@ -20,7 +25,11 @@ async function fetchCensusStatesByYear(year) {
     throw new Error(`Failed to fetch Census data for ${year}`);
   }
 
-  return response.json();
+  const data = await response.json();
+
+  censusYearCache[year] = data;
+
+  return data;
 }
 
 export async function getCensusStates() {
