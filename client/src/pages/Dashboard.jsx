@@ -11,39 +11,41 @@ const dashboardStats = [
 function Dashboard() {
   return (
     <div className="dashboard">
-      <section className="dashboard__header">
-        <h1>U.S. Population Dashboard</h1>
-        <p>Explore key population trends across the United States.</p>
-      </section>
-
-      <section className="dashboard__controls">
-        <div className="dashboard__control">
-          <label htmlFor="metric">Metric</label>
-          <select id="metric" name="metric">
-            <option value="population">Population</option>
-            <option value="growth">Growth</option>
-            <option value="share">Share</option>
-          </select>
+      <section className="dashboard__top">
+        <div className="dashboard__header">
+          <h1>U.S. Population Dashboard</h1>
+          <p>Explore key population trends across the United States.</p>
         </div>
 
-        <div className="dashboard__control">
-          <label htmlFor="start-year">Start Year</label>
-          <select id="start-year" name="start-year">
-            <option>2020</option>
-            <option>2021</option>
-            <option>2022</option>
-            <option>2023</option>
-          </select>
-        </div>
+        <div className="dashboard__controls">
+          <div className="dashboard__control">
+            <label htmlFor="metric">Metric</label>
+            <select id="metric" name="metric">
+              <option value="population">Population</option>
+              <option value="growth">Growth</option>
+              <option value="share">Share</option>
+            </select>
+          </div>
 
-        <div className="dashboard__control">
-          <label htmlFor="end-year">End Year</label>
-          <select id="end-year" name="end-year">
-            <option>2020</option>
-            <option>2021</option>
-            <option>2022</option>
-            <option>2023</option>
-          </select>
+          <div className="dashboard__control">
+            <label htmlFor="start-year">Start Year</label>
+            <select id="start-year" name="start-year">
+              <option>2020</option>
+              <option>2021</option>
+              <option>2022</option>
+              <option>2023</option>
+            </select>
+          </div>
+
+          <div className="dashboard__control">
+            <label htmlFor="end-year">End Year</label>
+            <select id="end-year" name="end-year">
+              <option>2020</option>
+              <option>2021</option>
+              <option>2022</option>
+              <option>2023</option>
+            </select>
+          </div>
         </div>
       </section>
 
@@ -61,19 +63,76 @@ function Dashboard() {
 
         <div className="dashboard__side-panel dashboard__panel">
           <h2>Top Movers</h2>
-          <div className="dashboard__placeholder">Top movers list</div>
+          <div className="dashboard__movers">
+            <div className="dashboard__movers-section">
+              <h3>Biggest Gains</h3>
+
+              <div className="dashboard__mover-row">
+                <span>Texas</span>
+                <span>+4.7M</span>
+              </div>
+
+              <div className="dashboard__mover-row">
+                <span>Florida</span>
+                <span>+3.8M</span>
+              </div>
+            </div>
+
+            <div className="dashboard__movers-section">
+              <h3>Biggest Declines</h3>
+
+              <div className="dashboard__mover-row dashboard__mover-row--negative">
+                <span>California</span>
+                <span>-4.7M</span>
+              </div>
+
+              <div className="dashboard__mover-row dashboard__mover-row--negative">
+                <span>New York</span>
+                <span>-3.8M</span>
+              </div>
+            </div>
+          </div>
         </div>
       </section>
 
       <section className="dashboard__bottom-grid">
         <div className="dashboard__timeline dashboard__panel">
           <h2>U.S. Population Over Time</h2>
-          <div className="dashboard__placeholder">Timeline Chart</div>
+          <div className="dashboard__timeline-chart">
+            <div className="dashboard__timeline-line"></div>
+
+            <div className="dashboard__timeline-labels">
+              <span>2020</span>
+              <span>2021</span>
+              <span>2022</span>
+              <span>2023</span>
+            </div>
+          </div>
         </div>
 
         <div className="dashboard__region-panel dashboard__panel">
           <h2>Population by Region</h2>
-          <div className="dashboard__placeholder">Region Chart</div>
+          <div className="dashboard__region-list">
+            <div className="dashboard__region-row">
+              <span>South</span>
+              <span>38%</span>
+            </div>
+
+            <div className="dashboard__region-row">
+              <span>West</span>
+              <span>24%</span>
+            </div>
+
+            <div className="dashboard__region-row">
+              <span>Midwest</span>
+              <span>21%</span>
+            </div>
+
+            <div className="dashboard__region-row">
+              <span>Northeast</span>
+              <span>17%</span>
+            </div>
+          </div>
         </div>
       </section>
     </div>
