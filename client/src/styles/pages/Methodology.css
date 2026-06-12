@@ -1,0 +1,82 @@
+.methodology {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 48px 24px;
+}
+
+.methodology__header {
+  margin-bottom: 32px;
+}
+
+.methodology__header h1 {
+  margin-bottom: 12px;
+  font-size: 40px;
+}
+
+.methodology__header p {
+  margin: 0;
+  color: var(--text-muted);
+  line-height: 1.7;
+}
+
+.methodology__section {
+  margin-top: 24px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 24px;
+}
+
+.methodology__section h2 {
+  margin: 0 0 12px;
+}
+
+.methodology__section p {
+  margin: 0 0 16px;
+  color: var(--text-muted);
+  line-height: 1.7;
+}
+
+.methodology__section p:last-child {
+  margin-bottom: 0;
+}
+
+.methodology__formula {
+  margin: 16px 0;
+  padding: 16px;
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  background: rgba(255, 255, 255, 0.03);
+  color: var(--text);
+  font-weight: 700;
+  line-height: 1.6;
+}
+
+.methodology__section ul {
+  margin: 0;
+  padding-left: 20px;
+  color: var(--text-muted);
+  line-height: 1.8;
+}
+
+.methodology__section li {
+  margin-bottom: 8px;
+}
+
+.methodology__section li:last-child {
+  margin-bottom: 0;
+}
+
+@media (max-width: 768px) {
+  .methodology {
+    padding: 32px 16px;
+  }
+
+  .methodology__header h1 {
+    font-size: 32px;
+  }
+
+  .methodology__section {
+    padding: 20px;
+  }
+}

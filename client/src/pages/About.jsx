@@ -78,6 +78,11 @@ function About() {
           regional comparisons, and each state's share of the tracked U.S.
           population.
         </p>
+
+        <p>
+          For more details about the data source, growth calculations, and
+          current data limitations, visit the Methodology page.
+        </p>
       </section>
 
       <section>

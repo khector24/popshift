@@ -9,6 +9,7 @@ import Dashboard from "./pages/Dashboard";
 import Rankings from "./pages/Rankings";
 import StateDetail from "./pages/StateDetail";
 import About from "./pages/About";
+import Methodology from "./pages/Methodology";
 
 function App() {
   return (
@@ -23,6 +24,7 @@ function App() {
             <Route path="/rankings" element={<Rankings />} />
             <Route path="/states/:code" element={<StateDetail />} />
             <Route path="/about" element={<About />} />
+            <Route path="/methodology" element={<Methodology />} />
           </Routes>
         </main>
 
