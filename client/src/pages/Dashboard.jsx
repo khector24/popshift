@@ -19,15 +19,6 @@ function Dashboard() {
 
         <div className="dashboard__controls">
           <div className="dashboard__control">
-            <label htmlFor="metric">Metric</label>
-            <select id="metric" name="metric">
-              <option value="population">Population</option>
-              <option value="growth">Growth</option>
-              <option value="share">Share</option>
-            </select>
-          </div>
-
-          <div className="dashboard__control">
             <label htmlFor="start-year">Start Year</label>
             <select id="start-year" name="start-year">
               <option>2020</option>
@@ -39,7 +30,7 @@ function Dashboard() {
 
           <div className="dashboard__control">
             <label htmlFor="end-year">End Year</label>
-            <select id="end-year" name="end-year">
+            <select id="end-year" name="end-year" defaultValue="2023">
               <option>2020</option>
               <option>2021</option>
               <option>2022</option>
