@@ -1,3 +1,4 @@
+import { useState } from "react";
 import StatCard from "../components/ui/StatCard";
 import "../styles/pages/Dashboard.css";
 
@@ -9,6 +10,11 @@ const dashboardStats = [
 ];
 
 function Dashboard() {
+  const availableYears = [2020, 2021, 2022, 2023];
+
+  const [startYear, setStartYear] = useState(2020);
+  const [endYear, setEndYear] = useState(2023);
+
   return (
     <div className="dashboard">
       <section className="dashboard__top">
@@ -20,21 +26,33 @@ function Dashboard() {
         <div className="dashboard__controls">
           <div className="dashboard__control">
             <label htmlFor="start-year">Start Year</label>
-            <select id="start-year" name="start-year">
-              <option>2020</option>
-              <option>2021</option>
-              <option>2022</option>
-              <option>2023</option>
+            <select
+              id="start-year"
+              name="start-year"
+              value={startYear}
+              onChange={(event) => setStartYear(Number(event.target.value))}
+            >
+              {availableYears.map((year) => (
+                <option key={year} value={year} disabled={year >= endYear}>
+                  {year}
+                </option>
+              ))}
             </select>
           </div>
 
           <div className="dashboard__control">
             <label htmlFor="end-year">End Year</label>
-            <select id="end-year" name="end-year" defaultValue="2023">
-              <option>2020</option>
-              <option>2021</option>
-              <option>2022</option>
-              <option>2023</option>
+            <select
+              id="end-year"
+              name="end-year"
+              value={endYear}
+              onChange={(event) => setEndYear(Number(event.target.value))}
+            >
+              {availableYears.map((year) => (
+                <option key={year} value={year} disabled={year <= startYear}>
+                  {year}
+                </option>
+              ))}
             </select>
           </div>
         </div>
