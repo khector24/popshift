@@ -8,44 +8,84 @@ function About() {
       <section>
         <h2>What is PopShift?</h2>
         <p>
-          PopShift is a population analytics dashboard designed to help users
-          explore how U.S. states changed from 2010 to 2025. The goal is to make
-          state-by-state population trends easier to understand through
-          rankings, charts, and visual comparisons.
+          PopShift is a population analytics app designed to make U.S. state
+          population trends easier to explore. The app lets users compare states
+          by population, year-over-year growth, share of the tracked U.S.
+          population, and region.
+        </p>
+
+        <p>
+          The goal is to turn Census population data into a cleaner, more
+          interactive experience for exploring how states are growing,
+          shrinking, and shifting over time.
         </p>
       </section>
 
       <section>
         <h2>Why It Matters</h2>
         <p>
-          Population shifts across states are often tied to larger trends such
-          as economic opportunity, cost of living, and tax policy. In recent
-          years, there has been increasing discussion around which states are
-          growing, which are declining, and how these changes impact things like
-          tax revenue, housing, and regional development. PopShift was inspired
-          by these conversations, with the goal of making it easier to explore
-          and understand how population trends are evolving across the United
-          States.
+          Population shifts can reflect larger changes in the country, including
+          migration patterns, housing demand, economic opportunity, cost of
+          living, and regional development. When a state gains or loses
+          population, that change can influence public planning, business
+          investment, political representation, and long-term growth.
         </p>
 
         <p>
-          This project was built as a way to better visualize and explore these
-          trends in a more interactive format.
+          PopShift was built to make those changes easier to compare at a glance
+          while still giving users the ability to dig into individual state
+          details.
+        </p>
+      </section>
+
+      <section>
+        <h2>Current Scope</h2>
+        <p>
+          The current version of PopShift focuses on state-level population
+          rankings and state detail pages. It includes Census-backed population
+          rankings, search, sorting, region filtering, pagination, and
+          historical population detail data for 2020 through 2023.
+        </p>
+
+        <p>
+          On each state detail page, users can view recent population history
+          and growth since the baseline year currently available in the app.
+        </p>
+      </section>
+
+      <section>
+        <h2>Future Direction</h2>
+        <p>
+          A major goal for PopShift is to expand the historical dataset toward a
+          broader 2000–2025 timeline. This would allow the app to show longer
+          population trends, deeper comparisons, and more meaningful regional
+          changes over time.
+        </p>
+
+        <p>
+          Planned future improvements also include region summaries, dashboard
+          analytics, charts, mobile-friendly ranking views, and stronger visual
+          storytelling around state population changes.
         </p>
       </section>
 
       <section>
         <h2>Data Source</h2>
         <p>
-          This project is built around U.S. Census population data. It focuses
-          on statewide population totals, growth trends, and each state's share
-          of the total U.S. population over time.
+          PopShift uses U.S. Census population data and processes it through an
+          Express backend before displaying it in the React frontend. The app
+          currently focuses on state-level population totals, yearly growth,
+          regional comparisons, and each state's share of the tracked U.S.
+          population.
         </p>
       </section>
 
       <section>
         <h2>Tech Stack</h2>
-        <p>React, Express, Node.js, and custom processed population data.</p>
+        <p>
+          PopShift is built with React, React Router, Node.js, Express, the U.S.
+          Census API, and custom CSS organized by page and reusable component.
+        </p>
       </section>
     </div>
   );
