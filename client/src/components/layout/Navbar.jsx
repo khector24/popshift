@@ -1,26 +1,27 @@
-import { Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
+import "../../styles/components/Navbar.css";
 
 function Navbar() {
   return (
-    <nav
-      style={{
-        display: "flex",
-        justifyContent: "space-between",
-        alignItems: "center",
-        padding: "16px 24px",
-        background: "#0b1020",
-        borderBottom: "1px solid #283247",
-        color: "#f3f7ff",
-      }}
-    >
-      <h2 style={{ margin: 0 }}>PopShift</h2>
+    <nav className="navbar">
+      <h2 className="navbar__brand">PopShift</h2>
 
-      <div style={{ display: "flex", gap: "16px" }}>
-        <Link to="/">Home</Link>
-        <Link to="/dashboard">Dashboard</Link>
-        <Link to="/rankings">Rankings</Link>
-        <Link to="/about">About</Link>
-        <Link to="/methodology">Methodology</Link>
+      <div className="navbar__links">
+        <NavLink to="/" className="navbar__link">
+          Home
+        </NavLink>
+        <NavLink to="/dashboard" className="navbar__link">
+          Dashboard
+        </NavLink>
+        <NavLink to="/rankings" className="navbar__link">
+          Rankings
+        </NavLink>
+        <NavLink to="/about" className="navbar__link">
+          About
+        </NavLink>
+        <NavLink to="/methodology" className="navbar__link">
+          Methodology
+        </NavLink>
       </div>
     </nav>
   );
