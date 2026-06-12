@@ -70,7 +70,7 @@ router.get("/:code/history", async (req, res) => {
   res.json(history);
 });
 
-// GET /api/states
+// GET /api/states/:code
 router.get("/:code", async (req, res) => {
   const state = await getCensusStateByCode(req.params.code);
 

@@ -14,7 +14,6 @@ function Rankings() {
     searchParams.get("sortBy") || "population",
   );
   const [order, setOrder] = useState(searchParams.get("order") || "desc");
-  const [viewBy, setViewBy] = useState(searchParams.get("viewBy") || "state");
   const [region, setRegion] = useState(searchParams.get("region") || "");
   const [limit, setLimit] = useState(Number(searchParams.get("limit")) || 5);
   const [page, setPage] = useState(Number(searchParams.get("page")) || 1);
@@ -60,7 +59,6 @@ function Rankings() {
       {
         sortBy,
         order,
-        viewBy,
         region,
         search,
         limit: String(limit),
@@ -68,7 +66,7 @@ function Rankings() {
       },
       { replace: true },
     );
-  }, [sortBy, order, viewBy, region, search, limit, page, setSearchParams]);
+  }, [sortBy, order, region, search, limit, page, setSearchParams]);
 
   return (
     <div className="rankings">
@@ -95,19 +93,6 @@ function Rankings() {
             <option value="population">Population</option>
             <option value="growth">Growth</option>
             <option value="share">Share</option>
-          </select>
-        </div>
-
-        <div className="rankings__control">
-          <label htmlFor="view">View By</label>
-          <select
-            id="view"
-            name="view"
-            value={viewBy}
-            onChange={(event) => setViewBy(event.target.value)}
-          >
-            <option value="state">State</option>
-            <option value="region">Region</option>
           </select>
         </div>
 
@@ -213,39 +198,19 @@ function Rankings() {
                 <div className="rankings__row rankings__header">
                   <span>Rank</span>
 
-                  {viewBy === "state" ? (
-                    <>
-                      <span>State</span>
-                      <span>Population</span>
-                      <span className="rankings__tooltip-label">
-                        Growth
-                        <InfoTooltip text="Growth compares the 2023 population estimate against the 2022 estimate." />
-                      </span>
-                      <span className="rankings__tooltip-label">
-                        Share
-                        <InfoTooltip text="Share is the state's percentage of the tracked U.S. population total." />
-                      </span>
-                      <span>Region</span>
-                      <span>Year</span>
-                      <span>Code</span>
-                    </>
-                  ) : (
-                    <>
-                      <span>Region</span>
-                      <span>State</span>
-                      <span>Population</span>
-                      <span className="rankings__tooltip-label">
-                        Growth
-                        <InfoTooltip text="Growth compares the 2023 population estimate against the 2022 estimate." />
-                      </span>
-                      <span className="rankings__tooltip-label">
-                        Share
-                        <InfoTooltip text="Share is the state's percentage of the tracked U.S. population total." />
-                      </span>
-                      <span>Year</span>
-                      <span>Code</span>
-                    </>
-                  )}
+                  <span>State</span>
+                  <span>Population</span>
+                  <span className="rankings__tooltip-label">
+                    Growth
+                    <InfoTooltip text="Growth compares the 2023 population estimate against the 2022 estimate." />
+                  </span>
+                  <span className="rankings__tooltip-label">
+                    Share
+                    <InfoTooltip text="Share is the state's percentage of the tracked U.S. population total." />
+                  </span>
+                  <span>Region</span>
+                  <span>Year</span>
+                  <span>Code</span>
                 </div>
 
                 {statesData.map((state, index) => {
@@ -264,28 +229,13 @@ function Rankings() {
                       }
                     >
                       <span>{(page - 1) * limit + index + 1}</span>
-
-                      {viewBy === "state" ? (
-                        <>
-                          <span>{state.name}</span>
-                          <span>{state.population.toLocaleString()}</span>
-                          <span className={growthClassName}>{growthValue}</span>
-                          <span>{state.share}%</span>
-                          <span>{state.region}</span>
-                          <span>{state.year}</span>
-                          <span>{state.code}</span>
-                        </>
-                      ) : (
-                        <>
-                          <span>{state.region}</span>
-                          <span>{state.name}</span>
-                          <span>{state.population.toLocaleString()}</span>
-                          <span className={growthClassName}>{growthValue}</span>
-                          <span>{state.share}%</span>
-                          <span>{state.year}</span>
-                          <span>{state.code}</span>
-                        </>
-                      )}
+                      <span>{state.name}</span>
+                      <span>{state.population.toLocaleString()}</span>
+                      <span className={growthClassName}>{growthValue}</span>
+                      <span>{state.share}%</span>
+                      <span>{state.region}</span>
+                      <span>{state.year}</span>
+                      <span>{state.code}</span>
                     </div>
                   );
                 })}
