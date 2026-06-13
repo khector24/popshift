@@ -57,3 +57,20 @@ export async function getStateHistoryByCode(code) {
 
   return response.json();
 }
+
+export async function getDashboardSummary({ startYear, endYear }) {
+  const params = new URLSearchParams({
+    startYear: String(startYear),
+    endYear: String(endYear),
+  });
+
+  const response = await fetch(
+    `${API_URL}/api/states/dashboard/summary?${params}`,
+  );
+
+  if (!response.ok) {
+    throw new Error("Failed to fetch dashboard summary");
+  }
+
+  return response.json();
+}

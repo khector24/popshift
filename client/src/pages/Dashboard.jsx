@@ -1,19 +1,71 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import StatCard from "../components/ui/StatCard";
+import MoverSection from "../components/ui/MoverSection";
+import { getDashboardSummary } from "../services/statesApi.js";
 import "../styles/pages/Dashboard.css";
-
-const dashboardStats = [
-  { label: "U.S. Population", value: "331M" },
-  { label: "Top State", value: "California" },
-  { label: "Growth Leader", value: "Texas" },
-  { label: "Biggest Population Gain", value: "+1.2%" },
-];
 
 function Dashboard() {
   const availableYears = [2020, 2021, 2022, 2023];
 
+  const [summaryData, setSummaryData] = useState({});
+
   const [startYear, setStartYear] = useState(2020);
   const [endYear, setEndYear] = useState(2023);
+
+  useEffect(() => {
+    async function fetchDashboardSummary() {
+      try {
+        const result = await getDashboardSummary({ startYear, endYear });
+        setSummaryData(result);
+      } catch (error) {
+        console.log(error);
+      }
+    }
+
+    fetchDashboardSummary();
+  }, [startYear, endYear]);
+
+  const dashboardStats = [
+    {
+      label: "U.S. Population",
+      value: summaryData.totalPopulation?.toLocaleString() || "Loading...",
+    },
+    {
+      label: "Most Populous State",
+      value: summaryData.topState?.name || "Loading...",
+    },
+    {
+      label: "Growth Leader",
+      value: summaryData.growthLeader?.name || "Loading...",
+    },
+    {
+      label: "Biggest Population Gain",
+      value: summaryData.populationGainLeader?.name || "Loading...",
+    },
+  ];
+
+  const topGainers = summaryData.topGainers || [];
+  const topDecliners = summaryData.topDecliners || [];
+
+  const totalPopulation = summaryData.totalPopulation || 331000000;
+  const populationByRegion = summaryData.populationByRegion || {};
+  const regionRows = Object.entries(populationByRegion);
+
+  const regionColors = ["#8b5cf6", "#3b82f6", "#4ade80", "#fb923c", "#94a3b8"];
+
+  let currentPercent = 0;
+
+  const donutGradient = regionRows
+    .map(([, population], index) => {
+      const percentage = (population / totalPopulation) * 100;
+      const start = currentPercent;
+      const end = currentPercent + percentage;
+
+      currentPercent = end;
+
+      return `${regionColors[index]} ${start}% ${end}%`;
+    })
+    .join(", ");
 
   return (
     <div className="dashboard">
@@ -71,35 +123,19 @@ function Dashboard() {
         </div>
 
         <div className="dashboard__side-panel dashboard__panel">
-          <h2>Top Movers</h2>
+          <h2>Top Movers {`(${startYear} - ${endYear})`}</h2>
+
           <div className="dashboard__movers">
-            <div className="dashboard__movers-section">
-              <h3>Biggest Gains</h3>
-
-              <div className="dashboard__mover-row">
-                <span>Texas</span>
-                <span>+4.7M</span>
-              </div>
-
-              <div className="dashboard__mover-row">
-                <span>Florida</span>
-                <span>+3.8M</span>
-              </div>
-            </div>
-
-            <div className="dashboard__movers-section">
-              <h3>Biggest Declines</h3>
-
-              <div className="dashboard__mover-row dashboard__mover-row--negative">
-                <span>California</span>
-                <span>-4.7M</span>
-              </div>
-
-              <div className="dashboard__mover-row dashboard__mover-row--negative">
-                <span>New York</span>
-                <span>-3.8M</span>
-              </div>
-            </div>
+            <MoverSection
+              title="Biggest Gains"
+              states={topGainers}
+              type="positive"
+            />
+            <MoverSection
+              title="Biggest Declines"
+              states={topDecliners}
+              type="negative"
+            />
           </div>
         </div>
       </section>
@@ -107,6 +143,7 @@ function Dashboard() {
       <section className="dashboard__bottom-grid">
         <div className="dashboard__timeline dashboard__panel">
           <h2>U.S. Population Over Time</h2>
+
           <div className="dashboard__timeline-chart">
             <div className="dashboard__timeline-line"></div>
 
@@ -120,26 +157,36 @@ function Dashboard() {
         </div>
 
         <div className="dashboard__region-panel dashboard__panel">
-          <h2>Population by Region</h2>
-          <div className="dashboard__region-list">
-            <div className="dashboard__region-row">
-              <span>South</span>
-              <span>38%</span>
+          <h2>Population by Region ({endYear})</h2>
+
+          <div className="dashboard__region-content">
+            <div
+              className="dashboard__region-donut"
+              style={{ background: `conic-gradient(${donutGradient})` }}
+            >
+              <div className="dashboard__region-donut-center">
+                <strong>{(totalPopulation / 1000000).toFixed(1)}M</strong>
+                <span>Total</span>
+              </div>
             </div>
 
-            <div className="dashboard__region-row">
-              <span>West</span>
-              <span>24%</span>
-            </div>
+            <div className="dashboard__region-list">
+              {regionRows.map(([region, population], index) => (
+                <div className="dashboard__region-row" key={region}>
+                  <span className="dashboard__region-name">
+                    <span
+                      className="dashboard__region-dot"
+                      style={{ backgroundColor: regionColors[index] }}
+                    ></span>
+                    {region}
+                  </span>
 
-            <div className="dashboard__region-row">
-              <span>Midwest</span>
-              <span>21%</span>
-            </div>
-
-            <div className="dashboard__region-row">
-              <span>Northeast</span>
-              <span>17%</span>
+                  <span>
+                    {((population / totalPopulation) * 100).toFixed(1)}%
+                  </span>
+                  <span>{Math.round(population / 1000000)}M</span>
+                </div>
+              ))}
             </div>
           </div>
         </div>
