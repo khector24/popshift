@@ -2,7 +2,14 @@ import { useState, useEffect } from "react";
 import StatCard from "../components/ui/StatCard";
 import MoverSection from "../components/ui/MoverSection";
 import { getDashboardSummary } from "../services/statesApi.js";
+import {
+  formatPopulation,
+  formatPopulationChange,
+} from "../utils/formatNumbers.js";
 import "../styles/pages/Dashboard.css";
+
+import { FaTrophy, FaChartLine, FaStar } from "react-icons/fa";
+import { FaPeopleGroup } from "react-icons/fa6";
 
 function Dashboard() {
   const availableYears = [2020, 2021, 2022, 2023];
@@ -28,19 +35,39 @@ function Dashboard() {
   const dashboardStats = [
     {
       label: "U.S. Population",
-      value: summaryData.totalPopulation?.toLocaleString() || "Loading...",
+      value: formatPopulation(summaryData.totalPopulation),
+      subtitle: summaryData.totalPopulationChange
+        ? `${formatPopulationChange(summaryData.totalPopulationChange)} since ${startYear}`
+        : "",
+      variant: "purple",
+      icon: <FaPeopleGroup />,
     },
     {
       label: "Most Populous State",
       value: summaryData.topState?.name || "Loading...",
+      subtitle: summaryData.topState
+        ? `${formatPopulation(summaryData.topState.population)} people`
+        : "",
+      variant: "blue",
+      icon: <FaTrophy />,
     },
     {
       label: "Growth Leader",
       value: summaryData.growthLeader?.name || "Loading...",
+      subtitle: summaryData.growthLeader
+        ? `+${summaryData.growthLeader.growth}% since ${startYear}`
+        : "",
+      variant: "green",
+      icon: <FaChartLine />,
     },
     {
       label: "Biggest Population Gain",
       value: summaryData.populationGainLeader?.name || "Loading...",
+      subtitle: summaryData.populationGainLeader
+        ? `${formatPopulationChange(summaryData.populationGainLeader.populationChange)} since ${startYear}`
+        : "",
+      variant: "orange",
+      icon: <FaStar />,
     },
   ];
 
@@ -112,7 +139,14 @@ function Dashboard() {
 
       <section className="dashboard__stats">
         {dashboardStats.map((stat) => (
-          <StatCard key={stat.label} label={stat.label} value={stat.value} />
+          <StatCard
+            key={stat.label}
+            label={stat.label}
+            value={stat.value}
+            subtitle={stat.subtitle}
+            variant={stat.variant}
+            icon={stat.icon}
+          />
         ))}
       </section>
 

@@ -1,13 +1,8 @@
 import "../../styles/components/MoverSection.css";
+import { formatPopulationChange } from "../../utils/formatNumbers.js";
+
 function MoverSection({ title, states, type }) {
   const isNegative = type === "negative";
-
-  function formatPopulationChange(value) {
-    const sign = value > 0 ? "+" : "-";
-    const abbreviatedValue = Math.abs(value) / 1000000;
-
-    return `${sign}${abbreviatedValue.toFixed(2)}M`;
-  }
 
   return (
     <div className="dashboard__movers-section">

@@ -152,6 +152,10 @@ export async function getCensusDashboardSummary(startYear, endYear) {
     return sum + state.endPopulation;
   }, 0);
 
+  const totalPopulationChange = statesWithChange.reduce((sum, state) => {
+    return sum + state.populationChange;
+  }, 0);
+
   const topState = [...statesWithChange].sort((a, b) => {
     return b.endPopulation - a.endPopulation;
   })[0];
@@ -192,6 +196,7 @@ export async function getCensusDashboardSummary(startYear, endYear) {
     startYear: Number(startYear),
     endYear: Number(endYear),
     totalPopulation,
+    totalPopulationChange,
     topState,
     growthLeader,
     populationGainLeader,
