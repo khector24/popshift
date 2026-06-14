@@ -1,0 +1,23 @@
+.resource-link {
+  margin-top: 0.75rem;
+
+  font-size: 0.82rem;
+
+  color: rgba(255, 255, 255, 0.55);
+}
+
+.resource-link__label {
+  color: rgba(255, 255, 255, 0.5);
+}
+
+.resource-link__anchor {
+  color: #60a5fa;
+
+  text-decoration: none;
+
+  transition: color 0.2s ease;
+}
+
+.resource-link__anchor:hover {
+  color: #93c5fd;
+}

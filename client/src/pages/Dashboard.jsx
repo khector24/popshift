@@ -1,6 +1,9 @@
 import { useState, useEffect } from "react";
+
 import StatCard from "../components/ui/StatCard";
 import MoverSection from "../components/ui/MoverSection";
+import PopulationTimeline from "../components/ui/PopulationTimeline.jsx";
+
 import { getDashboardSummary } from "../services/statesApi.js";
 import {
   formatPopulation,
@@ -176,18 +179,11 @@ function Dashboard() {
 
       <section className="dashboard__bottom-grid">
         <div className="dashboard__timeline dashboard__panel">
-          <h2>U.S. Population Over Time</h2>
-
-          <div className="dashboard__timeline-chart">
-            <div className="dashboard__timeline-line"></div>
-
-            <div className="dashboard__timeline-labels">
-              <span>2020</span>
-              <span>2021</span>
-              <span>2022</span>
-              <span>2023</span>
-            </div>
-          </div>
+          <PopulationTimeline
+            title="U.S. Population Over Time"
+            data={summaryData.populationTimeline || []}
+            minDomain={315000000}
+          />
         </div>
 
         <div className="dashboard__region-panel dashboard__panel">
@@ -225,6 +221,15 @@ function Dashboard() {
           </div>
         </div>
       </section>
+
+      <div className="dashboard__explore-link">
+        <span className="dashboard__explore-icon">💡</span>
+
+        <p>
+          Explore the <a href="/rankings">Rankings</a> page to dive deeper into
+          state-by-state data.
+        </p>
+      </div>
     </div>
   );
 }

@@ -181,7 +181,6 @@ export async function getCensusDashboardSummary(startYear, endYear) {
   })[0];
 
   const populationByRegion = {};
-
   for (const region of censusRegions) {
     let currRegionPopulation = 0;
     statesWithChange.forEach((state) => {
@@ -190,6 +189,21 @@ export async function getCensusDashboardSummary(startYear, endYear) {
       }
     });
     populationByRegion[region] = currRegionPopulation;
+  }
+
+  const populationTimeline = [];
+  for (const year of historicalYears) {
+    const yearData = await fetchCensusStatesByYear(year);
+    const rows = formatCensusRows(yearData);
+
+    const totalPopulationForYear = rows.reduce((sum, state) => {
+      return sum + state.population;
+    }, 0);
+
+    populationTimeline.push({
+      year: Number(year),
+      population: totalPopulationForYear,
+    });
   }
 
   return {
@@ -203,6 +217,7 @@ export async function getCensusDashboardSummary(startYear, endYear) {
     topGainers,
     topDecliners,
     populationByRegion,
+    populationTimeline,
     states: statesWithChange,
   };
 }
