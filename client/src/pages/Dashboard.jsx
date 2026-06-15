@@ -160,10 +160,13 @@ function Dashboard() {
           <h2>
             Population Change by State
             <InfoTooltip
-              text={`Shows each state's population change from ${startYear} to ${endYear}.`}
+              text={`Colors show each state's percentage population change from ${startYear} to ${endYear}.`}
             />
           </h2>
+          <p className="dashboard__map-range">{`${startYear} to ${endYear}`}</p>
           <PopulationChangeMap states={summaryData.states || []} />
+
+          <p className="dashboard__map-scale-label">Population Change (%)</p>
         </div>
 
         <div className="dashboard__side-panel dashboard__panel">

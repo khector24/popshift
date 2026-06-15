@@ -63,3 +63,9 @@
   color: var(--text-muted);
   font-size: 0.8rem;
 }
+
+.population-change-map__state {
+  stroke: rgba(255, 255, 255, 0.75);
+  stroke-width: 0.6;
+  outline: none;
+}

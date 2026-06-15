@@ -68,10 +68,15 @@
 
 .dashboard__mover-rank {
   width: 14px;
-  color: var(--text-muted);
+  color: var(--text);
+  font-weight: 800;
   font-size: 12px;
   text-align: right;
   flex-shrink: 0;
+}
+
+.dashboard__mover-name span:last-child {
+  color: var(--text-muted);
 }
 
 .dashboard__mover-row > span:nth-child(2),

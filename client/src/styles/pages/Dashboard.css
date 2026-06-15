@@ -128,6 +128,21 @@
   font-weight: 700;
 }
 
+.dashboard__map-range {
+  margin: -8px 0 12px;
+  color: var(--text-muted);
+  font-size: 0.9rem;
+  font-weight: 700;
+}
+
+.dashboard__map-scale-label {
+  margin: 6px 0 0;
+  color: var(--text-muted);
+  font-size: 0.78rem;
+  font-weight: 700;
+  text-align: center;
+}
+
 /* Region section */
 
 .dashboard__region-panel {

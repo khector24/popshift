@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 import {
   ComposableMap,
   Geographies,
@@ -11,6 +12,8 @@ import "../../styles/components/PopulationChangeMap.css";
 const geoUrl = "/maps/states-10m.json";
 
 export default function PopulationChangeMap({ states }) {
+  const navigate = useNavigate();
+
   const [geographyData, setGeographyData] = useState([]);
 
   useEffect(() => {
@@ -82,14 +85,21 @@ export default function PopulationChangeMap({ states }) {
                     geography={geo}
                     className="population-change-map__state"
                     data-name={stateData?.name}
+                    onClick={() => {
+                      if (stateData?.code) {
+                        navigate(`/states/${stateData.code}`);
+                      }
+                    }}
                     style={{
                       default: {
                         fill: getMapColor(stateData?.growth),
                         outline: "none",
+                        cursor: stateData ? "pointer" : "default",
                       },
                       hover: {
                         fill: "#60a5fa",
                         outline: "none",
+                        cursor: stateData ? "pointer" : "default",
                       },
                       pressed: {
                         fill: getMapColor(stateData?.growth),
