@@ -3,6 +3,7 @@ import { useState, useEffect } from "react";
 import StatCard from "../components/ui/StatCard";
 import MoverSection from "../components/ui/MoverSection";
 import PopulationTimeline from "../components/ui/PopulationTimeline.jsx";
+import PopulationChangeMap from "../components/ui/PopulationChangeMap.jsx";
 import InfoTooltip from "../components/ui/InfoTooltip.jsx";
 
 import { getDashboardSummary } from "../services/statesApi.js";
@@ -157,12 +158,12 @@ function Dashboard() {
       <section className="dashboard__analytics">
         <div className="dashboard__map-panel dashboard__panel">
           <h2>
-            Population Change by State{" "}
+            Population Change by State
             <InfoTooltip
               text={`Shows each state's population change from ${startYear} to ${endYear}.`}
             />
           </h2>
-          <div className="dashboard__placeholder">U.S. Map Visualization</div>
+          <PopulationChangeMap states={summaryData.states || []} />
         </div>
 
         <div className="dashboard__side-panel dashboard__panel">
