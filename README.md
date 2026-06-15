@@ -99,3 +99,21 @@ The project also includes Census API caching to reduce repeated requests and imp
 ## Status
 
 This project is actively being expanded and refined as part of an ongoing full-stack development portfolio.
+
+## Data and Third-Party Resources
+
+PopShift uses the U.S. Census API for state-level population estimate data.
+
+- U.S. Census API: https://www.census.gov/data/developers/data-sets.html
+- Census Population Estimates API: https://api.census.gov/data/2023/pep/charv
+
+The population change map uses a TopoJSON geography file from the `us-atlas` package.
+
+- us-atlas package: https://www.npmjs.com/package/us-atlas
+- states-10m.json source: https://cdn.jsdelivr.net/npm/us-atlas@3/states-10m.json
+
+PopShift also uses visualization libraries for charts and maps.
+
+- Recharts: https://recharts.org/
+- react19-simple-maps: https://www.npmjs.com/package/@vnedyalk0v/react19-simple-maps
+- topojson-client: https://www.npmjs.com/package/topojson-client
