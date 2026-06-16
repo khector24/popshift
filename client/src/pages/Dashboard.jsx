@@ -192,7 +192,7 @@ function Dashboard() {
           <PopulationTimeline
             title="U.S. Population Over Time"
             data={summaryData.populationTimeline || []}
-            minDomain={315000000}
+            domain={[320000000, 340000000]}
           />
         </div>
 

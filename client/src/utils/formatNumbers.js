@@ -1,5 +1,8 @@
 export function formatPopulation(value) {
-  if (!value) return "Loading...";
+  if (value === undefined || value === null) {
+    return "Loading...";
+  }
+
   return `${(value / 1000000).toFixed(1)}M`;
 }
 

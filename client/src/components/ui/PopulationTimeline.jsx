@@ -6,11 +6,17 @@ import {
   ResponsiveContainer,
   CartesianGrid,
 } from "recharts";
+import { formatPopulation } from "../../utils/formatNumbers.js";
 
 import "../../styles/components/PopulationTimeline.css";
 import ResourceLink from "./ResourceLink";
 
-export default function PopulationTimeline({ title, data }) {
+export default function PopulationTimeline({
+  title,
+  data,
+  domain = ["dataMin", "dataMax"],
+  showSource = true,
+}) {
   return (
     <div className="population-timeline">
       <h2>{title}</h2>
@@ -41,8 +47,8 @@ export default function PopulationTimeline({ title, data }) {
             />
 
             <YAxis
-              domain={[320000000, 340000000]}
-              tickFormatter={(value) => `${Math.round(value / 1000000)}M`}
+              domain={domain}
+              tickFormatter={formatPopulation}
               width={60}
               tickLine={false}
               axisLine={{ stroke: "rgba(255,255,255,0.15)" }}
@@ -65,11 +71,13 @@ export default function PopulationTimeline({ title, data }) {
         </ResponsiveContainer>
       </div>
 
-      <ResourceLink
-        label="Source"
-        text="U.S. Census Bureau"
-        url="https://www.census.gov/"
-      />
+      {showSource && (
+        <ResourceLink
+          label="Source"
+          text="U.S. Census Bureau"
+          url="https://www.census.gov/"
+        />
+      )}
     </div>
   );
 }
