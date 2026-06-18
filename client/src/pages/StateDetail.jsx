@@ -8,6 +8,7 @@ import { useParams, Link, useLocation } from "react-router-dom";
 
 import DetailStatCard from "../components/ui/DetailStatCard.jsx";
 import StatusMessage from "../components/ui/StatusMessage.jsx";
+import PopulationTimeline from "../components/ui/PopulationTimeline.jsx";
 
 import "../styles/pages/StateDetail.css";
 
@@ -139,31 +140,43 @@ function StateDetail() {
             </section>
 
             <section className="state-detail__history">
-              <h2>Population History</h2>
+              <h2>{stateData.name} Population Over Time</h2>
 
               {history.length > 0 ? (
-                <div className="state-detail__history-list">
-                  <div className="state-detail__history-row state-detail__history-header">
-                    <span>Year</span>
-                    <span>Population</span>
-                    <span>Change since {firstHistoryItem?.year}</span>
+                <div className="state-detail__history-grid">
+                  <div className="state-detail__history-chart">
+                    <PopulationTimeline
+                      title="Population trend"
+                      data={history}
+                      showSource={false}
+                    />
                   </div>
-
-                  {historyWithGrowth.map((item) => (
-                    <div className="state-detail__history-row" key={item.year}>
-                      <span className="state-detail__history-year">
-                        {item.year}
-                      </span>
-
-                      <span className="state-detail__history-population">
-                        {item.population.toLocaleString()}
-                      </span>
-
-                      <span className="state-detail__history-change">
-                        {item.changeText}
-                      </span>
+                  <div className="state-detail__history-list">
+                    <div className="state-detail__history-row state-detail__history-header">
+                      <span>Year</span>
+                      <span>Population</span>
+                      <span>Change since {firstHistoryItem?.year}</span>
                     </div>
-                  ))}
+
+                    {historyWithGrowth.map((item) => (
+                      <div
+                        className="state-detail__history-row"
+                        key={item.year}
+                      >
+                        <span className="state-detail__history-year">
+                          {item.year}
+                        </span>
+
+                        <span className="state-detail__history-population">
+                          {item.population.toLocaleString()}
+                        </span>
+
+                        <span className="state-detail__history-change">
+                          {item.changeText}
+                        </span>
+                      </div>
+                    ))}
+                  </div>
                 </div>
               ) : (
                 <p className="state-detail__history-empty">

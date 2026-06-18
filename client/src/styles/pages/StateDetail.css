@@ -112,6 +112,32 @@
   color: var(--text-muted);
 }
 
+.state-detail__history-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+  align-items: start;
+}
+
+.state-detail__history-chart {
+  overflow: hidden;
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 18px;
+  background: rgba(255, 255, 255, 0.02);
+}
+
+.state-detail__history-chart .population-timeline h2 {
+  font-size: 18px;
+  margin-bottom: 12px;
+}
+
+@media (max-width: 900px) {
+  .state-detail__history-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
 @media (max-width: 768px) {
   .state-detail-grid {
     grid-template-columns: 1fr;

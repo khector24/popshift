@@ -6,17 +6,62 @@ import {
   ResponsiveContainer,
   CartesianGrid,
 } from "recharts";
-import { formatPopulation } from "../../utils/formatNumbers.js";
+import { formatChartPopulation } from "../../utils/formatNumbers.js";
 
 import "../../styles/components/PopulationTimeline.css";
 import ResourceLink from "./ResourceLink";
 
+function buildChartScale(data, fixedDomain, tickCount = 5) {
+  if (fixedDomain) {
+    const [min, max] = fixedDomain;
+    const step = (max - min) / (tickCount - 1);
+
+    return {
+      domain: fixedDomain,
+      ticks: Array.from(
+        { length: tickCount },
+        (_, index) => min + step * index,
+      ),
+    };
+  }
+
+  const values = data.map((item) => item.population);
+
+  if (values.length === 0) {
+    return {
+      domain: [0, 1],
+      ticks: [0, 0.25, 0.5, 0.75, 1],
+    };
+  }
+
+  const min = Math.min(...values);
+  const max = Math.max(...values);
+  const range = max - min || max * 0.1 || 1;
+  const padding = range * 0.25;
+
+  const paddedMin = min - padding;
+  const paddedMax = max + padding;
+  const paddedRange = paddedMax - paddedMin;
+  const step = paddedRange / (tickCount - 1);
+
+  return {
+    domain: [paddedMin, paddedMax],
+    ticks: Array.from(
+      { length: tickCount },
+      (_, index) => paddedMin + step * index,
+    ),
+  };
+}
+
 export default function PopulationTimeline({
   title,
   data,
-  domain = ["dataMin", "dataMax"],
+  fixedDomain = null,
+  tickCount = 5,
   showSource = true,
 }) {
+  const { domain, ticks } = buildChartScale(data, fixedDomain, tickCount);
+
   return (
     <div className="population-timeline">
       <h2>{title}</h2>
@@ -44,14 +89,17 @@ export default function PopulationTimeline({
               tickLine={false}
               axisLine={false}
               padding={{ left: 30, right: 30 }}
+              tick={{ fill: "var(--text-muted)", fontWeight: 700 }}
             />
 
             <YAxis
               domain={domain}
-              tickFormatter={formatPopulation}
-              width={60}
+              ticks={ticks}
+              tickFormatter={formatChartPopulation}
+              width={70}
               tickLine={false}
               axisLine={{ stroke: "rgba(255,255,255,0.15)" }}
+              tick={{ fill: "var(--text-muted)", fontWeight: 700 }}
             />
 
             <Area
