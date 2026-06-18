@@ -149,6 +149,7 @@ function StateDetail() {
                       title="Population trend"
                       data={history}
                       showSource={false}
+                      showLabels
                     />
                   </div>
                   <div className="state-detail__history-list">

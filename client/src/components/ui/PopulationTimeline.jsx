@@ -5,8 +5,12 @@ import {
   YAxis,
   ResponsiveContainer,
   CartesianGrid,
+  LabelList,
 } from "recharts";
-import { formatChartPopulation } from "../../utils/formatNumbers.js";
+import {
+  formatChartPopulation,
+  formatPopulation,
+} from "../../utils/formatNumbers.js";
 
 import "../../styles/components/PopulationTimeline.css";
 import ResourceLink from "./ResourceLink";
@@ -59,6 +63,7 @@ export default function PopulationTimeline({
   fixedDomain = null,
   tickCount = 5,
   showSource = true,
+  showLabels = false,
 }) {
   const { domain, ticks } = buildChartScale(data, fixedDomain, tickCount);
 
@@ -114,7 +119,19 @@ export default function PopulationTimeline({
                 stroke: "#8b5cf6",
                 strokeWidth: 2,
               }}
-            />
+            >
+              {showLabels && (
+                <LabelList
+                  dataKey="population"
+                  position="top"
+                  offset={12}
+                  formatter={formatPopulation}
+                  fill="#ffffff"
+                  fontSize={12}
+                  fontWeight={700}
+                />
+              )}
+            </Area>
           </AreaChart>
         </ResponsiveContainer>
       </div>

@@ -193,6 +193,7 @@ function Dashboard() {
             title="U.S. Population Over Time"
             data={summaryData.populationTimeline || []}
             fixedDomain={[320000000, 340000000]}
+            showLabels
           />
         </div>
 
