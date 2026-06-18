@@ -8,6 +8,7 @@ import Home from "./pages/Home";
 import Dashboard from "./pages/Dashboard";
 import Rankings from "./pages/Rankings";
 import StateDetail from "./pages/StateDetail";
+import Compare from "./pages/Compare";
 import About from "./pages/About";
 import Methodology from "./pages/Methodology";
 
@@ -23,6 +24,7 @@ function App() {
             <Route path="/dashboard" element={<Dashboard />} />
             <Route path="/rankings" element={<Rankings />} />
             <Route path="/states/:code" element={<StateDetail />} />
+            <Route path="/compare" element={<Compare />} />
             <Route path="/about" element={<About />} />
             <Route path="/methodology" element={<Methodology />} />
           </Routes>

@@ -1,0 +1,43 @@
+.compare {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 48px 24px;
+}
+
+.compare__header {
+  margin-bottom: 32px;
+}
+
+.compare__header h1 {
+  margin: 0 0 8px;
+  font-size: 40px;
+}
+
+.compare__header p {
+  margin: 0;
+  color: var(--text-muted);
+  line-height: 1.6;
+}
+
+.compare__selectors {
+  display: flex;
+  gap: 2rem;
+  margin-top: 2rem;
+}
+
+.compare__selector {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.compare__selector select {
+  min-width: 220px;
+}
+
+.compare__cards {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 2rem;
+  margin-top: 3rem;
+}
