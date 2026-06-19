@@ -5,14 +5,11 @@ import CompareTable from "../components/ui/CompareTable.jsx";
 import ComparePopulationChart from "../components/ui/ComparePopulationChart.jsx";
 import CompareStateLinks from "../components/ui/CompareStateLinks.jsx";
 
-// import CompareStateCard from "../components/ui/CompareStateCard.jsx";
-
 import "../styles/pages/Compare.css";
 
 export default function Compare() {
   const [statesData, setStatesData] = useState([]);
   const [selectedStateCodes, setSelectedStateCodes] = useState([]);
-
   const [chartData, setChartData] = useState([]);
 
   useEffect(() => {
@@ -50,10 +47,7 @@ export default function Compare() {
             let yearRow = mergedData.find((item) => item.year === point.year);
 
             if (!yearRow) {
-              yearRow = {
-                year: point.year,
-              };
-
+              yearRow = { year: point.year };
               mergedData.push(yearRow);
             }
 
@@ -94,7 +88,25 @@ export default function Compare() {
       <div className="compare__selectors">
         {selectedStateCodes.map((code, index) => (
           <div className="compare__selector" key={index}>
-            <label>State {index + 1}</label>
+            <div className="compare__selector-header">
+              <label>State {index + 1}</label>
+
+              {selectedStateCodes.length > 2 && (
+                <button
+                  className="compare__remove-button"
+                  type="button"
+                  aria-label={`Remove state ${index + 1}`}
+                  onClick={() => {
+                    const updatedCodes = selectedStateCodes.filter(
+                      (_, i) => i !== index,
+                    );
+                    setSelectedStateCodes(updatedCodes);
+                  }}
+                >
+                  ×
+                </button>
+              )}
+            </div>
 
             <select
               value={code}
@@ -110,20 +122,6 @@ export default function Compare() {
                 </option>
               ))}
             </select>
-
-            {selectedStateCodes.length > 2 && (
-              <button
-                type="button"
-                onClick={() => {
-                  const updatedCodes = selectedStateCodes.filter(
-                    (_, i) => i !== index,
-                  );
-                  setSelectedStateCodes(updatedCodes);
-                }}
-              >
-                Remove
-              </button>
-            )}
           </div>
         ))}
 
@@ -144,11 +142,6 @@ export default function Compare() {
           + Add State
         </button>
       </div>
-
-      {/* <div className="compare__cards">
-        <CompareStateCard state={stateA} />
-        <CompareStateCard state={stateB} />
-      </div> */}
 
       <div className="compare__table-section">
         <CompareTable states={selectedStates} />
