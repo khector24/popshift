@@ -1,14 +1,18 @@
 import { useEffect, useState } from "react";
-import { getStates } from "../services/statesApi.js";
+import { getStates, getStateHistoryByCode } from "../services/statesApi.js";
+
+import CompareTable from "../components/ui/CompareTable.jsx";
+import ComparePopulationChart from "../components/ui/ComparePopulationChart.jsx";
 
 // import CompareStateCard from "../components/ui/CompareStateCard.jsx";
-import CompareTable from "../components/ui/CompareTable.jsx";
 
 import "../styles/pages/Compare.css";
 
 export default function Compare() {
   const [statesData, setStatesData] = useState([]);
   const [selectedStateCodes, setSelectedStateCodes] = useState([]);
+
+  const [chartData, setChartData] = useState([]);
 
   useEffect(() => {
     async function fetchStates() {
@@ -30,6 +34,48 @@ export default function Compare() {
 
     fetchStates();
   }, []);
+
+  useEffect(() => {
+    async function fetchChartData() {
+      try {
+        const histories = await Promise.all(
+          selectedStateCodes.map((code) => getStateHistoryByCode(code)),
+        );
+
+        const mergedData = [];
+
+        histories.forEach((history, index) => {
+          history.forEach((point) => {
+            let yearRow = mergedData.find((item) => item.year === point.year);
+
+            if (!yearRow) {
+              yearRow = {
+                year: point.year,
+              };
+
+              mergedData.push(yearRow);
+            }
+
+            const state = statesData.find(
+              (state) => state.code === selectedStateCodes[index],
+            );
+
+            if (state) {
+              yearRow[state.name] = point.population;
+            }
+          });
+        });
+
+        setChartData(mergedData);
+      } catch (err) {
+        console.log(err);
+      }
+    }
+
+    if (selectedStateCodes.length > 0 && statesData.length > 0) {
+      fetchChartData();
+    }
+  }, [selectedStateCodes, statesData]);
 
   const selectedStates = selectedStateCodes
     .map((code) => statesData.find((state) => state.code === code))
@@ -106,6 +152,8 @@ export default function Compare() {
       <div className="compare__table-section">
         <CompareTable states={selectedStates} />
       </div>
+
+      <ComparePopulationChart data={chartData} states={selectedStates} />
     </div>
   );
 }
