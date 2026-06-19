@@ -35,9 +35,13 @@
   min-width: 220px;
 }
 
-.compare__cards {
+/* .compare__cards {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   gap: 2rem;
+  margin-top: 3rem;
+} */
+
+.compare__table-section {
   margin-top: 3rem;
 }

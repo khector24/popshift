@@ -1,6 +1,9 @@
 import { useEffect, useState } from "react";
 import { getStates } from "../services/statesApi.js";
-import CompareStateCard from "../components/ui/CompareStateCard.jsx";
+
+// import CompareStateCard from "../components/ui/CompareStateCard.jsx";
+import CompareTable from "../components/ui/CompareTable.jsx";
+
 import "../styles/pages/Compare.css";
 
 export default function Compare() {
@@ -71,9 +74,13 @@ export default function Compare() {
         </div>
       </div>
 
-      <div className="compare__cards">
+      {/* <div className="compare__cards">
         <CompareStateCard state={stateA} />
         <CompareStateCard state={stateB} />
+      </div> */}
+
+      <div className="compare__table-section">
+        <CompareTable states={[stateA, stateB]} />
       </div>
     </div>
   );
