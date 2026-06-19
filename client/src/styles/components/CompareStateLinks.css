@@ -1,0 +1,54 @@
+.compare-state-links {
+  margin-top: 3rem;
+  padding: 24px;
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.03);
+  text-align: center;
+}
+
+.compare-state-links__header {
+  max-width: 680px;
+  margin: 0 auto;
+}
+
+.compare-state-links h2 {
+  margin: 0 0 8px;
+  font-size: 22px;
+}
+
+.compare-state-links p {
+  margin: 0;
+  color: var(--text-muted);
+  line-height: 1.6;
+}
+
+.compare-state-links__buttons {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 18px;
+}
+
+.compare-state-links__button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 42px;
+  min-width: 110px;
+  padding: 10px 18px;
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  font-size: 14px;
+  font-weight: 800;
+  text-decoration: none;
+  transition:
+    filter 0.2s ease,
+    transform 0.2s ease;
+}
+
+.compare-state-links__button:hover {
+  filter: brightness(1.18);
+  transform: translateY(-1px);
+}

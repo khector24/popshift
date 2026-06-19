@@ -13,7 +13,7 @@ import InfoTooltip from "./InfoTooltip.jsx";
 import { formatChartPopulation } from "../../utils/formatNumbers.js";
 import "../../styles/components/ComparePopulationChart.css";
 
-const chartColors = ["#60a5fa", "#a78bfa", "#4ade80", "#fb923c"];
+import { compareColors } from "../../utils/compareColors.js";
 
 function buildChartScale(data, states, tickCount = 5) {
   const values = [];
@@ -109,13 +109,13 @@ export default function ComparePopulationChart({ data, states }) {
               <Area
                 key={state.code}
                 dataKey={state.name}
-                stroke={chartColors[index]}
+                stroke={compareColors[index]}
                 fillOpacity={0}
                 strokeWidth={3}
                 dot={{
                   r: 4,
                   fill: "#ffffff",
-                  stroke: chartColors[index],
+                  stroke: compareColors[index],
                   strokeWidth: 2,
                 }}
               />

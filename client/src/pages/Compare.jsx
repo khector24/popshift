@@ -3,6 +3,7 @@ import { getStates, getStateHistoryByCode } from "../services/statesApi.js";
 
 import CompareTable from "../components/ui/CompareTable.jsx";
 import ComparePopulationChart from "../components/ui/ComparePopulationChart.jsx";
+import CompareStateLinks from "../components/ui/CompareStateLinks.jsx";
 
 // import CompareStateCard from "../components/ui/CompareStateCard.jsx";
 
@@ -154,6 +155,7 @@ export default function Compare() {
       </div>
 
       <ComparePopulationChart data={chartData} states={selectedStates} />
+      <CompareStateLinks states={selectedStates} />
     </div>
   );
 }
