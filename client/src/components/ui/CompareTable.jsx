@@ -14,7 +14,8 @@ export default function CompareTable({ states }) {
             <th>Metric</th>
 
             {states.map(
-              (state) => state && <th key={state.code}>{state.name}</th>,
+              (state, index) =>
+                state && <th key={`${state.code}-${index}`}>{state.name}</th>,
             )}
           </tr>
         </thead>
@@ -25,10 +26,10 @@ export default function CompareTable({ states }) {
               <td>{metric.label}</td>
 
               {states.map(
-                (state) =>
+                (state, index) =>
                   state && (
                     <td
-                      key={`${state.code}-${metric.key}`}
+                      key={`${state.code}-${metric.key}-${index}`}
                       className={
                         metric.key === "growth"
                           ? formatGrowth(state.growth).growthClassName

@@ -8,8 +8,7 @@ import "../styles/pages/Compare.css";
 
 export default function Compare() {
   const [statesData, setStatesData] = useState([]);
-  const [stateACode, setStateACode] = useState("");
-  const [stateBCode, setStateBCode] = useState("");
+  const [selectedStateCodes, setSelectedStateCodes] = useState([]);
 
   useEffect(() => {
     async function fetchStates() {
@@ -20,8 +19,10 @@ export default function Compare() {
         });
 
         setStatesData(result.data);
-        setStateACode(result.data[0]?.code || "");
-        setStateBCode(result.data[1]?.code || "");
+        setSelectedStateCodes([
+          result.data[0]?.code || "",
+          result.data[1]?.code || "",
+        ]);
       } catch (err) {
         console.log(err);
       }
@@ -30,8 +31,9 @@ export default function Compare() {
     fetchStates();
   }, []);
 
-  const stateA = statesData.find((state) => state.code === stateACode);
-  const stateB = statesData.find((state) => state.code === stateBCode);
+  const selectedStates = selectedStateCodes
+    .map((code) => statesData.find((state) => state.code === code))
+    .filter(Boolean);
 
   return (
     <div className="compare">
@@ -43,35 +45,57 @@ export default function Compare() {
       </div>
 
       <div className="compare__selectors">
-        <div className="compare__selector">
-          <label>State A</label>
+        {selectedStateCodes.map((code, index) => (
+          <div className="compare__selector" key={index}>
+            <label>State {index + 1}</label>
 
-          <select
-            value={stateACode}
-            onChange={(event) => setStateACode(event.target.value)}
-          >
-            {statesData.map((state) => (
-              <option key={state.code} value={state.code}>
-                {state.name}
-              </option>
-            ))}
-          </select>
-        </div>
+            <select
+              value={code}
+              onChange={(event) => {
+                const updatedCodes = [...selectedStateCodes];
+                updatedCodes[index] = event.target.value;
+                setSelectedStateCodes(updatedCodes);
+              }}
+            >
+              {statesData.map((state) => (
+                <option key={state.code} value={state.code}>
+                  {state.name}
+                </option>
+              ))}
+            </select>
 
-        <div className="compare__selector">
-          <label>State B</label>
+            {selectedStateCodes.length > 2 && (
+              <button
+                type="button"
+                onClick={() => {
+                  const updatedCodes = selectedStateCodes.filter(
+                    (_, i) => i !== index,
+                  );
+                  setSelectedStateCodes(updatedCodes);
+                }}
+              >
+                Remove
+              </button>
+            )}
+          </div>
+        ))}
 
-          <select
-            value={stateBCode}
-            onChange={(event) => setStateBCode(event.target.value)}
-          >
-            {statesData.map((state) => (
-              <option key={state.code} value={state.code}>
-                {state.name}
-              </option>
-            ))}
-          </select>
-        </div>
+        <button
+          className="compare__add-button"
+          type="button"
+          disabled={selectedStateCodes.length >= 4}
+          onClick={() => {
+            const nextState = statesData.find(
+              (state) => !selectedStateCodes.includes(state.code),
+            );
+
+            if (!nextState) return;
+
+            setSelectedStateCodes([...selectedStateCodes, nextState.code]);
+          }}
+        >
+          + Add State
+        </button>
       </div>
 
       {/* <div className="compare__cards">
@@ -80,7 +104,7 @@ export default function Compare() {
       </div> */}
 
       <div className="compare__table-section">
-        <CompareTable states={[stateA, stateB]} />
+        <CompareTable states={selectedStates} />
       </div>
     </div>
   );
