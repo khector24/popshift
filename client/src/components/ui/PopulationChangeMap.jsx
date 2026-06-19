@@ -87,7 +87,12 @@ export default function PopulationChangeMap({ states }) {
                     data-name={stateData?.name}
                     onClick={() => {
                       if (stateData?.code) {
-                        navigate(`/states/${stateData.code}`);
+                        navigate(`/states/${stateData.code}`, {
+                          state: {
+                            from: "/dashboard",
+                            label: "Dashboard",
+                          },
+                        });
                       }
                     }}
                     style={{

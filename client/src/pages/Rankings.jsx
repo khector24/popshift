@@ -223,9 +223,12 @@ function Rankings() {
                       className="rankings__row"
                       key={state.code}
                       onClick={() =>
-                        navigate(
-                          `/states/${state.code}${window.location.search}`,
-                        )
+                        navigate(`/states/${state.code}`, {
+                          state: {
+                            from: `/rankings${window.location.search}`,
+                            label: "Rankings",
+                          },
+                        })
                       }
                     >
                       <span>{(page - 1) * limit + index + 1}</span>

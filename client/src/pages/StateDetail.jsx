@@ -15,6 +15,8 @@ import "../styles/pages/StateDetail.css";
 function StateDetail() {
   const { code } = useParams();
   const location = useLocation();
+  const backLink = location.state?.from || `/rankings${location.search}`;
+  const backLabel = location.state?.label || "Rankings";
 
   const [stateData, setStateData] = useState(null);
   const [history, setHistory] = useState([]);
@@ -74,8 +76,8 @@ function StateDetail() {
 
   return (
     <div className="state-detail">
-      <Link className="state-detail__back" to={`/rankings${location.search}`}>
-        ← Back to Rankings
+      <Link className="state-detail__back" to={backLink}>
+        ← Back to {backLabel}
       </Link>
 
       {loading && (

@@ -22,6 +22,10 @@ export default function CompareStateLinks({ states }) {
             className="compare-state-links__button"
             key={`${state.code}-${index}`}
             to={`/states/${state.code}`}
+            state={{
+              from: `/compare?states=${states.map((s) => s.code).join(",")}`,
+              label: "Compare",
+            }}
             style={{
               borderColor: compareColors[index],
               color: compareColors[index],

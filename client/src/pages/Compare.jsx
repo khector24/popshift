@@ -1,4 +1,5 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, useRef } from "react";
+import { useSearchParams } from "react-router-dom";
 import { getStates, getStateHistoryByCode } from "../services/statesApi.js";
 
 import CompareTable from "../components/ui/CompareTable.jsx";
@@ -11,6 +12,9 @@ export default function Compare() {
   const [statesData, setStatesData] = useState([]);
   const [selectedStateCodes, setSelectedStateCodes] = useState([]);
   const [chartData, setChartData] = useState([]);
+  const [searchParams, setSearchParams] = useSearchParams();
+
+  const initialStatesFromUrl = useRef(searchParams.get("states"));
 
   useEffect(() => {
     async function fetchStates() {
@@ -21,10 +25,15 @@ export default function Compare() {
         });
 
         setStatesData(result.data);
-        setSelectedStateCodes([
-          result.data[0]?.code || "",
-          result.data[1]?.code || "",
-        ]);
+
+        if (initialStatesFromUrl.current) {
+          setSelectedStateCodes(initialStatesFromUrl.current.split(","));
+        } else {
+          setSelectedStateCodes([
+            result.data[0]?.code || "",
+            result.data[1]?.code || "",
+          ]);
+        }
       } catch (err) {
         console.log(err);
       }
@@ -71,6 +80,14 @@ export default function Compare() {
       fetchChartData();
     }
   }, [selectedStateCodes, statesData]);
+
+  useEffect(() => {
+    if (selectedStateCodes.length > 0) {
+      setSearchParams({
+        states: selectedStateCodes.join(","),
+      });
+    }
+  }, [selectedStateCodes, setSearchParams]);
 
   const selectedStates = selectedStateCodes
     .map((code) => statesData.find((state) => state.code === code))
