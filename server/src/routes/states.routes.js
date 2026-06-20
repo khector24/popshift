@@ -6,11 +6,16 @@ import {
   getCensusDashboardSummary,
 } from "../services/populationDataService.js";
 
+import {
+  getStateEconomics,
+  getStateEconomicsByCode,
+} from "../services/economicsDataService.js";
+
 const router = express.Router();
 
 // GET /api/states
-router.get("/", async (req, res) => {
-  let data = await getCensusStates();
+router.get("/", (req, res) => {
+  let data = getCensusStates();
 
   if (req.query.region) {
     data = data.filter(
@@ -61,18 +66,44 @@ router.get("/", async (req, res) => {
 });
 
 // GET /api/states/dashboard/summary
-router.get("/dashboard/summary", async (req, res) => {
+router.get("/dashboard/summary", (req, res) => {
   const startYear = req.query.startYear || "2020";
-  const endYear = req.query.endYear || "2023";
+  const endYear = req.query.endYear || "2025";
 
-  const summary = await getCensusDashboardSummary(startYear, endYear);
+  const summary = getCensusDashboardSummary(startYear, endYear);
 
   res.json(summary);
 });
 
+router.get("/economics", (req, res) => {
+  const economics = getStateEconomics();
+
+  if (!economics.data) {
+    return res.status(404).json({
+      message: "States economics data not found",
+    });
+  }
+
+  res.json(economics);
+});
+
+router.get("/:code/economics", (req, res) => {
+  const { code } = req.params;
+
+  const stateEconomics = getStateEconomicsByCode(code);
+
+  if (!stateEconomics.data) {
+    return res.status(404).json({
+      message: "State economics not found",
+    });
+  }
+
+  res.json(stateEconomics);
+});
+
 // GET /api/states/:code/history
-router.get("/:code/history", async (req, res) => {
-  const history = await getCensusStateHistoryByCode(req.params.code);
+router.get("/:code/history", (req, res) => {
+  const history = getCensusStateHistoryByCode(req.params.code);
 
   if (history.length === 0) {
     return res.status(404).json({ message: "State history not found" });
@@ -82,8 +113,8 @@ router.get("/:code/history", async (req, res) => {
 });
 
 // GET /api/states/:code
-router.get("/:code", async (req, res) => {
-  const state = await getCensusStateByCode(req.params.code);
+router.get("/:code", (req, res) => {
+  const state = getCensusStateByCode(req.params.code);
 
   if (!state) {
     return res.status(404).json({ message: "State code not found" });

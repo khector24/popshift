@@ -74,3 +74,23 @@ export async function getDashboardSummary({ startYear, endYear }) {
 
   return response.json();
 }
+
+export async function getStateEconomics() {
+  const response = await fetch(`${API_URL}/api/states/economics`);
+
+  if (!response.ok) {
+    throw new Error("Failed to fetch states economics data");
+  }
+
+  return response.json();
+}
+
+export async function getStateEconomicsByCode(code) {
+  const response = await fetch(`${API_URL}/api/states/${code}/economics`);
+
+  if (!response.ok) {
+    throw new Error("Failed to fetch state economics data");
+  }
+
+  return response.json();
+}
