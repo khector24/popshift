@@ -202,7 +202,7 @@ function Rankings() {
                   <span>Population</span>
                   <span className="rankings__tooltip-label">
                     Growth
-                    <InfoTooltip text="Growth compares the 2023 population estimate against the 2022 estimate." />
+                    <InfoTooltip text="Growth compares the 2025 population estimate against the 2024 estimate." />{" "}
                   </span>
                   <span className="rankings__tooltip-label">
                     Share

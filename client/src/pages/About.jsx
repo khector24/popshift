@@ -55,7 +55,7 @@ function About() {
         <h2>Current Scope</h2>
         <p>
           PopShift currently focuses on state-level population analytics using
-          available Census population estimate data from 2020 through 2023.
+          available Census population estimate data from 2020 through 2025.
         </p>
 
         <p>

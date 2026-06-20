@@ -4,7 +4,7 @@ import {
   getCensusStateByCode,
   getCensusStateHistoryByCode,
   getCensusDashboardSummary,
-} from "../services/censusApi.js";
+} from "../services/populationDataService.js";
 
 const router = express.Router();
 

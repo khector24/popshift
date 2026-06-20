@@ -56,7 +56,7 @@ export default function ComparePopulationChart({ data, states }) {
     <div className="compare-population-chart">
       <h2>
         Population Over Time
-        <InfoTooltip text="Shows each selected state's population trend from 2020 to 2023." />
+        <InfoTooltip text="Shows each selected state's population trend from 2020 to 2025." />{" "}
       </h2>
       <div className="compare-population-chart__chart">
         <ResponsiveContainer width="100%" height="100%">

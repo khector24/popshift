@@ -6,7 +6,7 @@ function Footer() {
       <div className="footer__content">
         <h3 className="footer__title">PopShift</h3>
         <p className="footer__text">
-          Explore U.S. population trends from 2020 to 2023.
+          Explore U.S. population trends from 2020 to 2025.
         </p>
         <p className="footer__copyright">© 2026 PopShift</p>
       </div>

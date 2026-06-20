@@ -18,7 +18,7 @@ function Home() {
       try {
         const result = await getDashboardSummary({
           startYear: 2020,
-          endYear: 2023,
+          endYear: 2025,
         });
 
         setSummaryData(result);
@@ -73,7 +73,7 @@ function Home() {
 
           <StatCard
             label="Data Range"
-            value="2020–2023"
+            value="2020–2025"
             variant="blue"
             icon={<FaDatabase />}
           />

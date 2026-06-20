@@ -18,15 +18,18 @@ function Methodology() {
         <h2>Data Source</h2>
 
         <p>
-          PopShift uses population estimate data from the U.S. Census API. The
-          backend requests state-level population data, processes the results,
-          and sends the formatted data to the React frontend.
+          PopShift uses annual population estimates published by the U.S. Census
+          Bureau. Earlier versions of PopShift retrieved population data
+          directly from the Census Population Estimates API. As the project
+          grew, the backend was migrated to use locally processed Census Vintage
+          2025 data files.
         </p>
 
         <p>
-          The current historical detail view uses available Census population
-          estimate data for 2020 through 2023. A future goal is to expand the
-          historical range toward a broader 2000–2025 timeline.
+          The raw Census data is downloaded from the U.S. Census Bureau and
+          converted into a JavaScript data file during development. This removes
+          API limitations, improves performance, and allows PopShift to support
+          annual state population estimates from 2020 through 2025.
         </p>
       </section>
 
@@ -34,18 +37,20 @@ function Methodology() {
         <h2>Growth Calculation</h2>
 
         <p>
-          Year-over-year growth compares a state's current population estimate
-          against its previous year population estimate.
+          Population growth compares the ending population against the starting
+          population for the selected years.
         </p>
 
         <div className="methodology__formula">
-          growth = ((current population - previous population) / previous
+          growth = ((ending population - starting population) / starting
           population) × 100
         </div>
 
         <p>
-          In the current rankings view, growth compares the 2023 population
-          estimate against the 2022 population estimate.
+          In the Rankings page, year-over-year growth compares the latest
+          available estimate, 2025, against the previous estimate, 2024. On the
+          Dashboard, users can compare any available years from 2020 through
+          2025.
         </p>
       </section>
 
@@ -58,7 +63,7 @@ function Methodology() {
         </p>
 
         <div className="methodology__formula">
-          share = (state population / total tracked population) × 100
+          share = (state population / total U.S. population) × 100
         </div>
 
         <p>
@@ -77,20 +82,21 @@ function Methodology() {
 
         <h3>Census population data</h3>
         <p>
-          The main population data comes from the U.S. Census API. PopShift
-          requests state-level population estimates from the Census Population
-          Estimates endpoint, then the Express backend formats that data for the
-          dashboard, rankings page, and state detail pages.
+          The population data displayed throughout PopShift originates from the
+          U.S. Census Bureau&apos;s Population Estimates Program. PopShift uses
+          a local copy of the Census Vintage 2025 state population dataset,
+          which is processed by the backend and used to power the dashboard,
+          rankings, comparison tools, and state detail pages.
         </p>
 
         <ul>
           <li>
-            U.S. Census API:
-            https://www.census.gov/data/developers/data-sets.html
+            U.S. Census Population Estimates Program:
+            https://www.census.gov/programs-surveys/popest.html
           </li>
           <li>
-            Census Population Estimates API:
-            https://api.census.gov/data/2023/pep/charv
+            Vintage 2025 State Population Tables:
+            https://www.census.gov/data/tables/time-series/demo/popest/2020s-state-total.html
           </li>
         </ul>
 
@@ -98,7 +104,7 @@ function Methodology() {
         <p>
           The population change map uses a TopoJSON map file from the us-atlas
           package. This file provides the state shapes that PopShift colors
-          based on each state's percentage population change.
+          based on each state&apos;s percentage population change.
         </p>
 
         <ul>
@@ -143,17 +149,12 @@ function Methodology() {
         <h2>Current Limitations</h2>
 
         <ul>
-          <li>The app currently focuses on state-level population totals.</li>
-
-          <li>County, city, and metro-level data are not included yet.</li>
-
-          <li>The current historical detail range is 2020 through 2023.</li>
-
           <li>
-            Longer historical coverage, including a possible 2000–2025 range, is
-            planned for a future version.
+            The app currently focuses on state-level population estimates.
           </li>
-
+          <li>County, city, and metro-level data are not included yet.</li>
+          <li>The current historical range covers 2020 through 2025.</li>
+          <li>Longer historical coverage may be added in a future version.</li>
           <li>
             Growth and share values are rounded, so displayed percentages may
             not show every decimal place.

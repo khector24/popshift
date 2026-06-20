@@ -17,12 +17,12 @@ import { FaTrophy, FaChartLine, FaStar } from "react-icons/fa";
 import { FaPeopleGroup } from "react-icons/fa6";
 
 function Dashboard() {
-  const availableYears = [2020, 2021, 2022, 2023];
+  const availableYears = [2020, 2021, 2022, 2023, 2024, 2025];
 
   const [summaryData, setSummaryData] = useState({});
 
   const [startYear, setStartYear] = useState(2020);
-  const [endYear, setEndYear] = useState(2023);
+  const [endYear, setEndYear] = useState(2025);
 
   useEffect(() => {
     async function fetchDashboardSummary() {
