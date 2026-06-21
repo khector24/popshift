@@ -1,7 +1,10 @@
 import { useEffect, useState, useRef } from "react";
 import { useSearchParams } from "react-router-dom";
-import { getStates, getStateHistoryByCode } from "../services/statesApi.js";
-
+import {
+  getStates,
+  getStateHistoryByCode,
+  getStateEconomics,
+} from "../services/statesApi.js";
 import CompareTable from "../components/ui/CompareTable.jsx";
 import ComparePopulationChart from "../components/ui/ComparePopulationChart.jsx";
 import CompareStateLinks from "../components/ui/CompareStateLinks.jsx";
@@ -11,6 +14,7 @@ import "../styles/pages/Compare.css";
 export default function Compare() {
   const [statesData, setStatesData] = useState([]);
   const [selectedStateCodes, setSelectedStateCodes] = useState([]);
+  const [economicsData, setEconomicsData] = useState([]);
   const [chartData, setChartData] = useState([]);
   const [searchParams, setSearchParams] = useSearchParams();
 
@@ -23,6 +27,9 @@ export default function Compare() {
           sortBy: "population",
           order: "desc",
         });
+
+        const economicsResult = await getStateEconomics();
+        setEconomicsData(economicsResult.data);
 
         setStatesData(result.data);
 
@@ -90,7 +97,23 @@ export default function Compare() {
   }, [selectedStateCodes, setSearchParams]);
 
   const selectedStates = selectedStateCodes
-    .map((code) => statesData.find((state) => state.code === code))
+    .map((code) => {
+      const state = statesData.find((state) => state.code === code);
+      const economics = economicsData.find((item) => item.code === code);
+
+      console.log({
+        code,
+        stateName: state?.name,
+        economics,
+      });
+
+      if (!state) return null;
+
+      return {
+        ...state,
+        economics: economics || null,
+      };
+    })
     .filter(Boolean);
 
   return (
@@ -98,7 +121,8 @@ export default function Compare() {
       <div className="compare__header">
         <h1>Compare States</h1>
         <p>
-          Select two states to compare population, growth, share, and region.
+          Select two to four states to compare population, growth, housing, and
+          income.
         </p>
       </div>
 
