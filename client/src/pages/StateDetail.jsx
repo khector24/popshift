@@ -1,6 +1,7 @@
 import {
   getStateByCode,
   getStateHistoryByCode,
+  getStateEconomicsByCode,
 } from "../services/statesApi.js";
 import { formatGrowth } from "../utils/growthUtils.js";
 import { useState, useEffect } from "react";
@@ -9,8 +10,11 @@ import { useParams, Link, useLocation } from "react-router-dom";
 import DetailStatCard from "../components/ui/DetailStatCard.jsx";
 import StatusMessage from "../components/ui/StatusMessage.jsx";
 import PopulationTimeline from "../components/ui/PopulationTimeline.jsx";
+import EconomicStatCard from "../components/ui/EconomicStatCard.jsx";
 
 import "../styles/pages/StateDetail.css";
+
+import { FaWallet, FaBuilding, FaHouse } from "react-icons/fa6";
 
 function StateDetail() {
   const { code } = useParams();
@@ -20,6 +24,7 @@ function StateDetail() {
 
   const [stateData, setStateData] = useState(null);
   const [history, setHistory] = useState([]);
+  const [stateEconomics, setStateEconomics] = useState(null);
 
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState("");
@@ -29,9 +34,11 @@ function StateDetail() {
       try {
         const result = await getStateByCode(code);
         const historyResult = await getStateHistoryByCode(code);
+        const economicsResult = await getStateEconomicsByCode(code);
 
         setHistory(historyResult);
         setStateData(result);
+        setStateEconomics(economicsResult);
       } catch (err) {
         console.error(err);
 
@@ -98,7 +105,7 @@ function StateDetail() {
 
       {!loading &&
         !error &&
-        (!stateData ? (
+        (!stateData || !stateEconomics ? (
           "State not found"
         ) : (
           <main className="state-detail__content">
@@ -139,6 +146,34 @@ function StateDetail() {
                   : "not available"}
                 .
               </p>
+            </section>
+
+            <section className="state-detail__economics">
+              <h2>Economic Snapshot</h2>
+              <p>{stateEconomics.year} ACS estimates</p>
+
+              <div className="state-economics-grid">
+                <EconomicStatCard
+                  label="Median Household Income"
+                  value={`$${stateEconomics.data.medianIncome.toLocaleString()}`}
+                  icon={<FaWallet />}
+                  variant="green"
+                />
+
+                <EconomicStatCard
+                  label="Median Gross Rent"
+                  value={`$${stateEconomics.data.medianRent.toLocaleString()} / mo`}
+                  icon={<FaBuilding />}
+                  variant="purple"
+                />
+
+                <EconomicStatCard
+                  label="Median Home Value"
+                  value={`$${stateEconomics.data.medianHomeValue.toLocaleString()}`}
+                  icon={<FaHouse />}
+                  variant="blue"
+                />
+              </div>
             </section>
 
             <section className="state-detail__history">

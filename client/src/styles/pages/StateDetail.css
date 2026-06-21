@@ -36,7 +36,8 @@
 }
 
 .state-detail__about,
-.state-detail__history {
+.state-detail__history,
+.state-detail__economics {
   margin-top: 32px;
   background: var(--surface);
   border: 1px solid var(--border);
@@ -53,6 +54,22 @@
   margin: 0;
   color: var(--text-muted);
   line-height: 1.7;
+}
+
+.state-detail__economics h2 {
+  margin: 0 0 6px;
+}
+
+.state-detail__economics > p {
+  margin: 0 0 20px;
+  color: var(--text-muted);
+  font-weight: 600;
+}
+
+.state-economics-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 18px;
 }
 
 .state-detail__history-list {
@@ -134,6 +151,10 @@
 
 @media (max-width: 900px) {
   .state-detail__history-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .state-economics-grid {
     grid-template-columns: 1fr;
   }
 }
