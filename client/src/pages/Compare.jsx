@@ -101,12 +101,6 @@ export default function Compare() {
       const state = statesData.find((state) => state.code === code);
       const economics = economicsData.find((item) => item.code === code);
 
-      console.log({
-        code,
-        stateName: state?.name,
-        economics,
-      });
-
       if (!state) return null;
 
       return {
