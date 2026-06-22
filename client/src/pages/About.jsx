@@ -8,10 +8,10 @@ function About() {
       <section>
         <h2>What is PopShift?</h2>
         <p>
-          PopShift is a population analytics app designed to make U.S. state
-          population trends easier to explore. It turns Census-backed population
-          data into rankings, charts, maps, regional summaries, and state detail
-          pages.
+          PopShift is a state analytics app designed to make U.S. population and
+          economic trends easier to explore. It turns Census-backed population
+          and housing data into rankings, charts, maps, regional summaries,
+          comparison tools, and state detail pages.
         </p>
 
         <p>
@@ -30,9 +30,10 @@ function About() {
         </p>
 
         <p>
-          Users can also browse sortable state rankings, filter by region,
-          search for specific states, and open individual state detail pages for
-          more focused population history.
+          Users can also browse sortable state rankings, compare up to four
+          states, filter by region, search for specific states, and open
+          individual state detail pages with population history and economic
+          snapshots.
         </p>
       </section>
 
@@ -54,23 +55,24 @@ function About() {
       <section>
         <h2>Current Scope</h2>
         <p>
-          PopShift currently focuses on state-level population analytics using
-          available Census population estimate data from 2020 through 2025.
+          PopShift currently focuses on state-level analytics using Census
+          population estimates from 2020 through 2025 and selected 2024 American
+          Community Survey economic metrics.
         </p>
 
         <p>
-          The app compares population totals, percentage growth, raw population
-          change, regional population distribution, and each state&apos;s share
-          of the tracked U.S. population.
+          The app compares population totals, growth rates, population share,
+          median household income, median gross rent, median home value, and
+          regional population distribution.
         </p>
       </section>
 
       <section>
         <h2>Data Source</h2>
         <p>
-          PopShift uses U.S. Census population estimate data. The Express
-          backend requests and processes the Census data before sending
-          formatted results to the React frontend.
+          PopShift uses locally processed Census Vintage 2025 population data
+          and 2024 American Community Survey data. The Express backend serves
+          the processed datasets to the React frontend.
         </p>
 
         <p>
@@ -97,9 +99,9 @@ function About() {
       <section>
         <h2>Tech Stack</h2>
         <p>
-          PopShift is built with React, React Router, Node.js, Express, the U.S.
-          Census API, Recharts, React-based map rendering tools, and custom CSS
-          organized by page and reusable component.
+          PopShift is built with React, React Router, Node.js, Express, locally
+          processed Census datasets, Recharts, React-based map rendering tools,
+          and custom CSS organized by page and reusable component.
         </p>
       </section>
     </div>

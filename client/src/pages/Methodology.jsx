@@ -73,6 +73,27 @@ function Methodology() {
       </section>
 
       <section className="methodology__section">
+        <h2>Economic Metrics</h2>
+
+        <p>
+          PopShift also includes selected state-level economic and housing
+          metrics from the Census Bureau&apos;s 2024 American Community Survey
+          1-Year Estimates.
+        </p>
+
+        <ul>
+          <li>Median household income</li>
+          <li>Median gross rent</li>
+          <li>Median owner-occupied home value</li>
+        </ul>
+
+        <p>
+          These values use the latest available ACS 1-year estimates and may
+          have a different data year than the population estimates.
+        </p>
+      </section>
+
+      <section className="methodology__section">
         <h2>Data and Visualization Resources</h2>
 
         <p>
@@ -98,6 +119,18 @@ function Methodology() {
             Vintage 2025 State Population Tables:
             https://www.census.gov/data/tables/time-series/demo/popest/2020s-state-total.html
           </li>
+        </ul>
+
+        <h3>ACS economic and housing data</h3>
+        <p>
+          PopShift uses the Census Bureau&apos;s 2024 American Community Survey
+          1-Year Estimates for median household income, median gross rent, and
+          median owner-occupied home value. The ACS response is saved locally
+          and processed into a JavaScript data file during development.
+        </p>
+
+        <ul>
+          <li>ACS 1-Year Data: https://api.census.gov/data/2024/acs/acs1</li>
         </ul>
 
         <h3>Map geography data</h3>
