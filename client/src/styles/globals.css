@@ -27,9 +27,9 @@ a:hover {
 }
 
 .growth-positive {
-  color: #4ade80;
+  color: var(--positive);
 }
 
 .growth-negative {
-  color: #f87171;
+  color: var(--negative);
 }

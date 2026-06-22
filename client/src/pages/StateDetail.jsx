@@ -4,6 +4,7 @@ import {
   getStateEconomicsByCode,
 } from "../services/statesApi.js";
 import { formatGrowth } from "../utils/growthUtils.js";
+import { formatNationalContext } from "../utils/nationalContextUtils.js";
 import { useState, useEffect } from "react";
 import { useParams, Link, useLocation } from "react-router-dom";
 
@@ -81,6 +82,27 @@ function StateDetail() {
     };
   });
 
+  const incomeContext = stateEconomics?.data
+    ? formatNationalContext(
+        stateEconomics.data.nationalContext.incomeVsNational,
+        "income",
+      )
+    : null;
+
+  const rentContext = stateEconomics?.data
+    ? formatNationalContext(
+        stateEconomics.data.nationalContext.rentVsNational,
+        "cost",
+      )
+    : null;
+
+  const homeValueContext = stateEconomics?.data
+    ? formatNationalContext(
+        stateEconomics.data.nationalContext.homeValueVsNational,
+        "cost",
+      )
+    : null;
+
   return (
     <div className="state-detail">
       <Link className="state-detail__back" to={backLink}>
@@ -156,6 +178,7 @@ function StateDetail() {
                 <EconomicStatCard
                   label="Median Household Income"
                   value={`$${stateEconomics.data.medianIncome.toLocaleString()}`}
+                  context={incomeContext}
                   icon={<FaWallet />}
                   variant="green"
                 />
@@ -163,6 +186,7 @@ function StateDetail() {
                 <EconomicStatCard
                   label="Median Gross Rent"
                   value={`$${stateEconomics.data.medianRent.toLocaleString()} / mo`}
+                  context={rentContext}
                   icon={<FaBuilding />}
                   variant="purple"
                 />
@@ -170,6 +194,7 @@ function StateDetail() {
                 <EconomicStatCard
                   label="Median Home Value"
                   value={`$${stateEconomics.data.medianHomeValue.toLocaleString()}`}
+                  context={homeValueContext}
                   icon={<FaHouse />}
                   variant="blue"
                 />

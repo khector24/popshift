@@ -35,6 +35,25 @@
   font-weight: 900;
 }
 
+.economic-stat-card__context {
+  margin: 6px 0 0;
+  color: var(--text-subtle);
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.economic-stat-card__context--positive {
+  color: var(--positive);
+}
+
+.economic-stat-card__context--negative {
+  color: var(--negative);
+}
+
+.economic-stat-card__context--neutral {
+  color: var(--neutral);
+}
+
 .economic-stat-card--green .economic-stat-card__icon {
   color: #6dfc8b;
   background: rgba(109, 252, 139, 0.12);

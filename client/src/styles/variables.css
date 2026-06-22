@@ -4,5 +4,9 @@
   --border: #283247;
   --text: #f3f7ff;
   --text-muted: #9fb0cc;
+  --text-subtle: #6c7d9f;
   --accent: #4da3ff;
+  --positive: #4ade80;
+  --negative: #f87171;
+  --neutral: var(--text-muted);
 }
