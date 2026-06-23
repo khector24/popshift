@@ -11,6 +11,8 @@ import {
   getStateEconomicsByCode,
 } from "../services/economicsDataService.js";
 
+import { getStateMigrationByCode } from "../services/migrationDataService.js";
+
 const router = express.Router();
 
 // GET /api/states
@@ -75,6 +77,7 @@ router.get("/dashboard/summary", (req, res) => {
   res.json(summary);
 });
 
+// GET /api/states/economics
 router.get("/economics", (req, res) => {
   const economics = getStateEconomics();
 
@@ -87,6 +90,7 @@ router.get("/economics", (req, res) => {
   res.json(economics);
 });
 
+// GET /api/states/:code/economics
 router.get("/:code/economics", (req, res) => {
   const { code } = req.params;
 
@@ -99,6 +103,21 @@ router.get("/:code/economics", (req, res) => {
   }
 
   res.json(stateEconomics);
+});
+
+// GET /api/states/:code/migration
+router.get("/:code/migration", (req, res) => {
+  const { code } = req.params;
+
+  const stateMigration = getStateMigrationByCode(code);
+
+  if (!stateMigration.data) {
+    return res.status(404).json({
+      message: "State migration data not found",
+    });
+  }
+
+  res.json(stateMigration);
 });
 
 // GET /api/states/:code/history
