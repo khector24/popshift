@@ -1,7 +1,7 @@
 import { useState } from "react";
 import "../../styles/components/InfoTooltip.css";
 
-export default function InfoTooltip({ text }) {
+export default function InfoTooltip({ text, symbol = "?" }) {
   const [isOpen, setIsOpen] = useState(false);
 
   function toggleTooltip(event) {
@@ -23,7 +23,7 @@ export default function InfoTooltip({ text }) {
         onClick={toggleTooltip}
         aria-label={text}
       >
-        ?
+        {symbol}
       </button>
 
       {isOpen && (

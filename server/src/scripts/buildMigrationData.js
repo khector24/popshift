@@ -58,10 +58,6 @@ for (const row of dataRows) {
   });
 }
 
-console.log(migrationData.length);
-console.log(migrationData.slice(0, 10));
-console.log(migrationData.slice(-10));
-
 const migrationByState = {};
 
 for (const item of migrationData) {
@@ -108,6 +104,19 @@ for (const state in migrationByState) {
   migrationByState[state].inbound.sort((a, b) => b.movers - a.movers);
 
   migrationByState[state].outbound.sort((a, b) => b.movers - a.movers);
+
+  migrationByState[state].totalInbound = migrationByState[state].inbound.reduce(
+    (total, flow) => total + flow.movers,
+    0,
+  );
+
+  migrationByState[state].totalOutbound = migrationByState[
+    state
+  ].outbound.reduce((total, flow) => total + flow.movers, 0);
+
+  migrationByState[state].netMigration =
+    migrationByState[state].totalInbound -
+    migrationByState[state].totalOutbound;
 }
 
 const output = `export const migrationDataYear = 2024;

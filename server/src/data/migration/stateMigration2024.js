@@ -392,7 +392,10 @@ export const stateMigration = {
         "code": "55",
         "movers": 0
       }
-    ]
+    ],
+    "totalInbound": 33421,
+    "totalOutbound": 28385,
+    "netMigration": 5036
   },
   "11": {
     "name": "District of Columbia",
@@ -820,7 +823,10 @@ export const stateMigration = {
         "code": "56",
         "movers": 0
       }
-    ]
+    ],
+    "totalInbound": 52701,
+    "totalOutbound": 53452,
+    "netMigration": -751
   },
   "12": {
     "name": "Florida",
@@ -1328,7 +1334,10 @@ export const stateMigration = {
         "code": "50",
         "movers": 259
       }
-    ]
+    ],
+    "totalInbound": 573876,
+    "totalOutbound": 506246,
+    "netMigration": 67630
   },
   "13": {
     "name": "Georgia",
@@ -1816,7 +1825,10 @@ export const stateMigration = {
         "code": "56",
         "movers": 46
       }
-    ]
+    ],
+    "totalInbound": 266166,
+    "totalOutbound": 229454,
+    "netMigration": 36712
   },
   "15": {
     "name": "Hawaii",
@@ -2254,7 +2266,10 @@ export const stateMigration = {
         "code": "38",
         "movers": 0
       }
-    ]
+    ],
+    "totalInbound": 53093,
+    "totalOutbound": 51804,
+    "netMigration": 1289
   },
   "16": {
     "name": "Idaho",
@@ -2722,7 +2737,10 @@ export const stateMigration = {
         "code": "54",
         "movers": 0
       }
-    ]
+    ],
+    "totalInbound": 72442,
+    "totalOutbound": 60127,
+    "netMigration": 12315
   },
   "17": {
     "name": "Illinois",
@@ -3210,7 +3228,10 @@ export const stateMigration = {
         "code": "02",
         "movers": 0
       }
-    ]
+    ],
+    "totalInbound": 199996,
+    "totalOutbound": 282434,
+    "netMigration": -82438
   },
   "18": {
     "name": "Indiana",
@@ -3668,7 +3689,10 @@ export const stateMigration = {
         "code": "46",
         "movers": 71
       }
-    ]
+    ],
+    "totalInbound": 133372,
+    "totalOutbound": 130458,
+    "netMigration": 2914
   },
   "19": {
     "name": "Iowa",
@@ -4131,7 +4155,10 @@ export const stateMigration = {
         "code": "56",
         "movers": 0
       }
-    ]
+    ],
+    "totalInbound": 59199,
+    "totalOutbound": 69493,
+    "netMigration": -10294
   },
   "20": {
     "name": "Kansas",
@@ -4594,7 +4621,10 @@ export const stateMigration = {
         "code": "54",
         "movers": 0
       }
-    ]
+    ],
+    "totalInbound": 83083,
+    "totalOutbound": 82986,
+    "netMigration": 97
   },
   "21": {
     "name": "Kentucky",
@@ -5047,7 +5077,10 @@ export const stateMigration = {
         "code": "50",
         "movers": 0
       }
-    ]
+    ],
+    "totalInbound": 95452,
+    "totalOutbound": 81862,
+    "netMigration": 13590
   },
   "22": {
     "name": "Louisiana",
@@ -5475,7 +5508,10 @@ export const stateMigration = {
         "code": "50",
         "movers": 0
       }
-    ]
+    ],
+    "totalInbound": 70992,
+    "totalOutbound": 83462,
+    "netMigration": -12470
   },
   "23": {
     "name": "Maine",
@@ -5913,7 +5949,10 @@ export const stateMigration = {
         "code": "45",
         "movers": 0
       }
-    ]
+    ],
+    "totalInbound": 35281,
+    "totalOutbound": 26656,
+    "netMigration": 8625
   },
   "24": {
     "name": "Maryland",
@@ -6391,7 +6430,10 @@ export const stateMigration = {
         "code": "56",
         "movers": 0
       }
-    ]
+    ],
+    "totalInbound": 164290,
+    "totalOutbound": 158685,
+    "netMigration": 5605
   },
   "25": {
     "name": "Massachusetts",
@@ -6849,7 +6891,10 @@ export const stateMigration = {
         "code": "56",
         "movers": 0
       }
-    ]
+    ],
+    "totalInbound": 151762,
+    "totalOutbound": 182315,
+    "netMigration": -30553
   },
   "26": {
     "name": "Michigan",
@@ -7342,7 +7387,10 @@ export const stateMigration = {
         "code": "23",
         "movers": 83
       }
-    ]
+    ],
+    "totalInbound": 140323,
+    "totalOutbound": 134180,
+    "netMigration": 6143
   },
   "27": {
     "name": "Minnesota",
@@ -7820,7 +7868,10 @@ export const stateMigration = {
         "code": "54",
         "movers": 0
       }
-    ]
+    ],
+    "totalInbound": 104339,
+    "totalOutbound": 111575,
+    "netMigration": -7236
   },
   "28": {
     "name": "Mississippi",
@@ -8223,7 +8274,10 @@ export const stateMigration = {
         "code": "54",
         "movers": 0
       }
-    ]
+    ],
+    "totalInbound": 64492,
+    "totalOutbound": 53696,
+    "netMigration": 10796
   },
   "29": {
     "name": "Missouri",
@@ -8676,7 +8730,10 @@ export const stateMigration = {
         "code": "56",
         "movers": 124
       }
-    ]
+    ],
+    "totalInbound": 139911,
+    "totalOutbound": 131940,
+    "netMigration": 7971
   },
   "30": {
     "name": "Montana",
@@ -9134,7 +9191,10 @@ export const stateMigration = {
         "code": "50",
         "movers": 0
       }
-    ]
+    ],
+    "totalInbound": 35735,
+    "totalOutbound": 34901,
+    "netMigration": 834
   },
   "31": {
     "name": "Nebraska",
@@ -9582,7 +9642,10 @@ export const stateMigration = {
         "code": "44",
         "movers": 0
       }
-    ]
+    ],
+    "totalInbound": 49446,
+    "totalOutbound": 48085,
+    "netMigration": 1361
   },
   "32": {
     "name": "Nevada",
@@ -10070,7 +10133,10 @@ export const stateMigration = {
         "code": "50",
         "movers": 0
       }
-    ]
+    ],
+    "totalInbound": 130450,
+    "totalOutbound": 89401,
+    "netMigration": 41049
   },
   "33": {
     "name": "New Hampshire",
@@ -10458,7 +10524,10 @@ export const stateMigration = {
         "code": "56",
         "movers": 0
       }
-    ]
+    ],
+    "totalInbound": 46226,
+    "totalOutbound": 39383,
+    "netMigration": 6843
   },
   "34": {
     "name": "New Jersey",
@@ -10906,7 +10975,10 @@ export const stateMigration = {
         "code": "56",
         "movers": 0
       }
-    ]
+    ],
+    "totalInbound": 149816,
+    "totalOutbound": 214516,
+    "netMigration": -64700
   },
   "35": {
     "name": "New Mexico",
@@ -11344,7 +11416,10 @@ export const stateMigration = {
         "code": "33",
         "movers": 0
       }
-    ]
+    ],
+    "totalInbound": 52988,
+    "totalOutbound": 60608,
+    "netMigration": -7620
   },
   "36": {
     "name": "New York",
@@ -11837,7 +11912,10 @@ export const stateMigration = {
         "code": "38",
         "movers": 0
       }
-    ]
+    ],
+    "totalInbound": 284868,
+    "totalOutbound": 415304,
+    "netMigration": -130436
   },
   "37": {
     "name": "North Carolina",
@@ -12340,7 +12418,10 @@ export const stateMigration = {
         "code": "30",
         "movers": 104
       }
-    ]
+    ],
+    "totalInbound": 299782,
+    "totalOutbound": 241172,
+    "netMigration": 58610
   },
   "38": {
     "name": "North Dakota",
@@ -12768,7 +12849,10 @@ export const stateMigration = {
         "code": "51",
         "movers": 0
       }
-    ]
+    ],
+    "totalInbound": 27062,
+    "totalOutbound": 19530,
+    "netMigration": 7532
   },
   "39": {
     "name": "Ohio",
@@ -13261,7 +13345,10 @@ export const stateMigration = {
         "code": "46",
         "movers": 0
       }
-    ]
+    ],
+    "totalInbound": 197890,
+    "totalOutbound": 177385,
+    "netMigration": 20505
   },
   "40": {
     "name": "Oklahoma",
@@ -13704,7 +13791,10 @@ export const stateMigration = {
         "code": "50",
         "movers": 0
       }
-    ]
+    ],
+    "totalInbound": 106621,
+    "totalOutbound": 72744,
+    "netMigration": 33877
   },
   "41": {
     "name": "Oregon",
@@ -14162,7 +14252,10 @@ export const stateMigration = {
         "code": "19",
         "movers": 177
       }
-    ]
+    ],
+    "totalInbound": 117874,
+    "totalOutbound": 112636,
+    "netMigration": 5238
   },
   "42": {
     "name": "Pennsylvania",
@@ -14665,7 +14758,10 @@ export const stateMigration = {
         "code": "46",
         "movers": 162
       }
-    ]
+    ],
+    "totalInbound": 234568,
+    "totalOutbound": 251701,
+    "netMigration": -17133
   },
   "44": {
     "name": "Rhode Island",
@@ -15068,7 +15164,10 @@ export const stateMigration = {
         "code": "56",
         "movers": 0
       }
-    ]
+    ],
+    "totalInbound": 35163,
+    "totalOutbound": 31984,
+    "netMigration": 3179
   },
   "45": {
     "name": "South Carolina",
@@ -15551,7 +15650,10 @@ export const stateMigration = {
         "code": "40",
         "movers": 0
       }
-    ]
+    ],
+    "totalInbound": 189282,
+    "totalOutbound": 134497,
+    "netMigration": 54785
   },
   "46": {
     "name": "South Dakota",
@@ -15959,7 +16061,10 @@ export const stateMigration = {
         "code": "54",
         "movers": 0
       }
-    ]
+    ],
+    "totalInbound": 22709,
+    "totalOutbound": 29476,
+    "netMigration": -6767
   },
   "47": {
     "name": "Tennessee",
@@ -16447,7 +16552,10 @@ export const stateMigration = {
         "code": "30",
         "movers": 0
       }
-    ]
+    ],
+    "totalInbound": 191844,
+    "totalOutbound": 156435,
+    "netMigration": 35409
   },
   "48": {
     "name": "Texas",
@@ -16955,7 +17063,10 @@ export const stateMigration = {
         "code": "23",
         "movers": 227
       }
-    ]
+    ],
+    "totalInbound": 556156,
+    "totalOutbound": 483476,
+    "netMigration": 72680
   },
   "49": {
     "name": "Utah",
@@ -17423,7 +17534,10 @@ export const stateMigration = {
         "code": "54",
         "movers": 0
       }
-    ]
+    ],
+    "totalInbound": 94553,
+    "totalOutbound": 85775,
+    "netMigration": 8778
   },
   "50": {
     "name": "Vermont",
@@ -17831,7 +17945,10 @@ export const stateMigration = {
         "code": "55",
         "movers": 0
       }
-    ]
+    ],
+    "totalInbound": 24112,
+    "totalOutbound": 14653,
+    "netMigration": 9459
   },
   "51": {
     "name": "Virginia",
@@ -18329,7 +18446,10 @@ export const stateMigration = {
         "code": "56",
         "movers": 88
       }
-    ]
+    ],
+    "totalInbound": 265444,
+    "totalOutbound": 263833,
+    "netMigration": 1611
   },
   "53": {
     "name": "Washington",
@@ -18822,7 +18942,10 @@ export const stateMigration = {
         "code": "10",
         "movers": 0
       }
-    ]
+    ],
+    "totalInbound": 221646,
+    "totalOutbound": 204242,
+    "netMigration": 17404
   },
   "54": {
     "name": "West Virginia",
@@ -19205,7 +19328,10 @@ export const stateMigration = {
         "code": "56",
         "movers": 0
       }
-    ]
+    ],
+    "totalInbound": 42495,
+    "totalOutbound": 35062,
+    "netMigration": 7433
   },
   "55": {
     "name": "Wisconsin",
@@ -19663,7 +19789,10 @@ export const stateMigration = {
         "code": "22",
         "movers": 0
       }
-    ]
+    ],
+    "totalInbound": 116098,
+    "totalOutbound": 106414,
+    "netMigration": 9684
   },
   "56": {
     "name": "Wyoming",
@@ -20061,7 +20190,10 @@ export const stateMigration = {
         "code": "54",
         "movers": 0
       }
-    ]
+    ],
+    "totalInbound": 25060,
+    "totalOutbound": 18594,
+    "netMigration": 6466
   },
   "01": {
     "name": "Alabama",
@@ -20524,7 +20656,10 @@ export const stateMigration = {
         "code": "44",
         "movers": 0
       }
-    ]
+    ],
+    "totalInbound": 119767,
+    "totalOutbound": 97317,
+    "netMigration": 22450
   },
   "02": {
     "name": "Alaska",
@@ -20962,7 +21097,10 @@ export const stateMigration = {
         "code": "54",
         "movers": 0
       }
-    ]
+    ],
+    "totalInbound": 29456,
+    "totalOutbound": 39842,
+    "netMigration": -10386
   },
   "04": {
     "name": "Arizona",
@@ -21450,7 +21588,10 @@ export const stateMigration = {
         "code": "28",
         "movers": 255
       }
-    ]
+    ],
+    "totalInbound": 234819,
+    "totalOutbound": 179314,
+    "netMigration": 55505
   },
   "05": {
     "name": "Arkansas",
@@ -21913,7 +22054,10 @@ export const stateMigration = {
         "code": "56",
         "movers": 0
       }
-    ]
+    ],
+    "totalInbound": 62808,
+    "totalOutbound": 56414,
+    "netMigration": 6394
   },
   "06": {
     "name": "California",
@@ -22421,7 +22565,10 @@ export const stateMigration = {
         "code": "38",
         "movers": 859
       }
-    ]
+    ],
+    "totalInbound": 406873,
+    "totalOutbound": 661205,
+    "netMigration": -254332
   },
   "08": {
     "name": "Colorado",
@@ -22914,7 +23061,10 @@ export const stateMigration = {
         "code": "44",
         "movers": 134
       }
-    ]
+    ],
+    "totalInbound": 181683,
+    "totalOutbound": 206674,
+    "netMigration": -24991
   },
   "09": {
     "name": "Connecticut",
@@ -23357,6 +23507,9 @@ export const stateMigration = {
         "code": "56",
         "movers": 0
       }
-    ]
+    ],
+    "totalInbound": 82002,
+    "totalOutbound": 87704,
+    "netMigration": -5702
   }
 };

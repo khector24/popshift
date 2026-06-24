@@ -94,3 +94,13 @@ export async function getStateEconomicsByCode(code) {
 
   return response.json();
 }
+
+export async function getStateMigrationByCode(code) {
+  const response = await fetch(`${API_URL}/api/states/${code}/migration`);
+
+  if (!response.ok) {
+    throw new Error("Failed to fetch state migration");
+  }
+
+  return response.json();
+}

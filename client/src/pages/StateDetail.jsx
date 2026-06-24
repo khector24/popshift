@@ -2,9 +2,11 @@ import {
   getStateByCode,
   getStateHistoryByCode,
   getStateEconomicsByCode,
+  getStateMigrationByCode,
 } from "../services/statesApi.js";
 import { formatGrowth } from "../utils/growthUtils.js";
 import { formatNationalContext } from "../utils/nationalContextUtils.js";
+
 import { useState, useEffect } from "react";
 import { useParams, Link, useLocation } from "react-router-dom";
 
@@ -12,10 +14,13 @@ import DetailStatCard from "../components/ui/DetailStatCard.jsx";
 import StatusMessage from "../components/ui/StatusMessage.jsx";
 import PopulationTimeline from "../components/ui/PopulationTimeline.jsx";
 import EconomicStatCard from "../components/ui/EconomicStatCard.jsx";
+import MigrationFlowCard from "../components/ui/MigrationFlowCard.jsx";
+import InfoToolTip from "../components/ui/InfoTooltip.jsx";
 
 import "../styles/pages/StateDetail.css";
 
 import { FaWallet, FaBuilding, FaHouse } from "react-icons/fa6";
+import { FaRegArrowAltCircleUp, FaRegArrowAltCircleDown } from "react-icons/fa";
 
 function StateDetail() {
   const { code } = useParams();
@@ -26,6 +31,7 @@ function StateDetail() {
   const [stateData, setStateData] = useState(null);
   const [history, setHistory] = useState([]);
   const [stateEconomics, setStateEconomics] = useState(null);
+  const [stateMigration, setStateMigration] = useState(null);
 
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState("");
@@ -36,13 +42,14 @@ function StateDetail() {
         const result = await getStateByCode(code);
         const historyResult = await getStateHistoryByCode(code);
         const economicsResult = await getStateEconomicsByCode(code);
+        const migrationResult = await getStateMigrationByCode(code);
 
         setHistory(historyResult);
         setStateData(result);
         setStateEconomics(economicsResult);
+        setStateMigration(migrationResult);
       } catch (err) {
         console.error(err);
-
         setError(
           "State not found. Please check the state code or return to rankings.",
         );
@@ -62,10 +69,7 @@ function StateDetail() {
 
   const historyWithGrowth = [...history].reverse().map((item) => {
     if (item.year === firstHistoryItem?.year) {
-      return {
-        ...item,
-        changeText: "Baseline",
-      };
+      return { ...item, changeText: "Baseline" };
     }
 
     const growthSinceBaseline = Number(
@@ -102,6 +106,20 @@ function StateDetail() {
         "cost",
       )
     : null;
+
+  const topInboundFlows = stateMigration?.data?.inbound?.slice(0, 3) || [];
+  const topOutboundFlows = stateMigration?.data?.outbound?.slice(0, 3) || [];
+  const totalInbound = stateMigration?.data?.totalInbound ?? 0;
+  const totalOutbound = stateMigration?.data?.totalOutbound ?? 0;
+  const netMigration = stateMigration?.data?.netMigration ?? 0;
+
+  const netMigrationTone =
+    netMigration > 0 ? "positive" : netMigration < 0 ? "negative" : "neutral";
+
+  const netMigrationLabel =
+    netMigration > 0 ? "Positive" : netMigration < 0 ? "Negative" : "Neutral";
+
+  const netMigrationAmount = Math.abs(netMigration).toLocaleString();
 
   return (
     <div className="state-detail">
@@ -201,6 +219,97 @@ function StateDetail() {
               </div>
             </section>
 
+            <section className="state-detail__migration">
+              <div>
+                <h2>
+                  Migration Snapshot{" "}
+                  <InfoToolTip
+                    symbol="i"
+                    text="Estimates of moves between U.S. states during 2024. Inbound states are where residents came from, while outbound states are where residents moved to."
+                  />
+                </h2>
+
+                <p>2024 State-to-State Migration Estimates</p>
+              </div>
+
+              <div className="state-migration-grid">
+                <MigrationFlowCard
+                  label="Top states people moved from"
+                  migrationType="inbound"
+                  flows={topInboundFlows}
+                  totalMovers={totalInbound}
+                />
+
+                <MigrationFlowCard
+                  label="Top states people moved to"
+                  migrationType="outbound"
+                  flows={topOutboundFlows}
+                  totalMovers={totalOutbound}
+                />
+              </div>
+
+              {stateMigration?.data && (
+                <div className="state-detail__migration-net">
+                  <div className="state-detail__migration-net-summary">
+                    <span
+                      className={`state-detail__migration-net-icon state-detail__migration-net-icon--${netMigrationTone}`}
+                    >
+                      {netMigrationTone === "positive" ? (
+                        <FaRegArrowAltCircleUp />
+                      ) : (
+                        <FaRegArrowAltCircleDown />
+                      )}
+                    </span>
+
+                    <span className="state-detail__migration-net-label">
+                      Net migration:
+                    </span>
+
+                    <span
+                      className={`state-detail__migration-net-badge state-detail__migration-net-badge--${netMigrationTone}`}
+                    >
+                      {netMigrationLabel}
+                    </span>
+
+                    <span className="state-detail__migration-net-divider"></span>
+
+                    <span>
+                      {netMigration > 0 && (
+                        <>
+                          {stateData.name} gained{" "}
+                          <span
+                            className={`state-detail__migration-net-number state-detail__migration-net-number--${netMigrationTone}`}
+                          >
+                            {netMigrationAmount}
+                          </span>{" "}
+                          more people than it lost to other states.
+                        </>
+                      )}
+
+                      {netMigration < 0 && (
+                        <>
+                          {stateData.name} lost{" "}
+                          <span
+                            className={`state-detail__migration-net-number state-detail__migration-net-number--${netMigrationTone}`}
+                          >
+                            {netMigrationAmount}
+                          </span>{" "}
+                          more people than it gained from other states.
+                        </>
+                      )}
+
+                      {netMigration === 0 && (
+                        <>
+                          {stateData.name} had no net migration change with
+                          other states.
+                        </>
+                      )}
+                    </span>
+                  </div>
+                </div>
+              )}
+            </section>
+
             <section className="state-detail__history">
               <h2>{stateData.name} Population Over Time</h2>
 
@@ -214,6 +323,7 @@ function StateDetail() {
                       showLabels
                     />
                   </div>
+
                   <div className="state-detail__history-list">
                     <div className="state-detail__history-row state-detail__history-header">
                       <span>Year</span>

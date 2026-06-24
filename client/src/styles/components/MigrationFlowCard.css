@@ -1,0 +1,49 @@
+.migration-flow-card {
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 20px;
+  background: rgba(255, 255, 255, 0.03);
+}
+
+.migration-flow-card--inbound {
+  background: rgba(74, 222, 128, 0.06);
+}
+
+.migration-flow-card--outbound {
+  background: rgba(248, 113, 113, 0.06);
+}
+
+.migration-flow-card h3 {
+  margin: 0 0 16px;
+  font-size: 18px;
+}
+
+.migration-flow-card table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.migration-flow-card th {
+  padding: 10px 0;
+  color: var(--text-muted);
+  font-size: 13px;
+  text-align: left;
+}
+
+.migration-flow-card th:last-child,
+.migration-flow-card td:last-child {
+  text-align: right;
+}
+
+.migration-flow-card td {
+  padding: 12px 0;
+  border-top: 1px solid var(--border);
+  color: var(--text);
+  font-weight: 700;
+}
+
+.migration-flow-card__total {
+  margin: 16px 0 0;
+  color: var(--text-muted);
+  font-weight: 600;
+}

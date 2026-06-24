@@ -37,7 +37,8 @@
 
 .state-detail__about,
 .state-detail__history,
-.state-detail__economics {
+.state-detail__economics,
+.state-detail__migration {
   margin-top: 32px;
   background: var(--surface);
   border: 1px solid var(--border);
@@ -56,11 +57,13 @@
   line-height: 1.7;
 }
 
-.state-detail__economics h2 {
+.state-detail__economics h2,
+.state-detail__migration h2 {
   margin: 0 0 6px;
 }
 
-.state-detail__economics > p {
+.state-detail__economics > p,
+.state-detail__migration > div:first-child > p {
   margin: 0 0 20px;
   color: var(--text-muted);
   font-weight: 600;
@@ -70,6 +73,94 @@
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: 18px;
+}
+
+.state-migration-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 18px;
+}
+
+.state-detail__migration-net {
+  margin-top: 18px;
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 16px 18px;
+  background: rgba(255, 255, 255, 0.03);
+}
+
+.state-detail__migration-net-summary {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 14px;
+  flex-wrap: wrap;
+  color: var(--text);
+  text-align: center;
+}
+
+.state-detail__migration-net-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 24px;
+  line-height: 1;
+}
+
+.state-detail__migration-net-icon--positive {
+  color: var(--positive);
+}
+
+.state-detail__migration-net-icon--negative {
+  color: var(--negative);
+}
+
+.state-detail__migration-net-icon--neutral {
+  color: var(--text-muted);
+}
+
+.state-detail__migration-net-label {
+  color: var(--text);
+}
+
+.state-detail__migration-net-badge {
+  border-radius: 5px;
+  padding: 4px 10px;
+  font-size: 13px;
+  font-weight: 800;
+}
+
+.state-detail__migration-net-badge--positive {
+  color: var(--positive);
+  background: rgba(74, 222, 128, 0.14);
+}
+
+.state-detail__migration-net-badge--negative {
+  color: var(--negative);
+  background: rgba(248, 113, 113, 0.14);
+}
+
+.state-detail__migration-net-badge--neutral {
+  color: var(--text-muted);
+  background: rgba(255, 255, 255, 0.08);
+}
+
+.state-detail__migration-net-divider {
+  width: 1px;
+  height: 28px;
+  background: var(--border);
+}
+
+.state-detail__migration-net-number {
+  font-weight: 900;
+}
+
+.state-detail__migration-net-number--positive {
+  color: var(--positive);
+}
+
+.state-detail__migration-net-number--negative {
+  color: var(--negative);
 }
 
 .state-detail__history-list {
@@ -157,11 +248,23 @@
   .state-economics-grid {
     grid-template-columns: 1fr;
   }
+
+  .state-migration-grid {
+    grid-template-columns: 1fr;
+  }
 }
 
 @media (max-width: 768px) {
   .state-detail-grid {
     grid-template-columns: 1fr;
+  }
+
+  .state-detail__migration-net-summary {
+    gap: 10px;
+  }
+
+  .state-detail__migration-net-divider {
+    display: none;
   }
 
   .state-detail__history-row {
