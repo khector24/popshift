@@ -3,6 +3,7 @@ import {
   getStateHistoryByCode,
   getStateEconomicsByCode,
   getStateMigrationByCode,
+  getStateEducationByCode,
 } from "../services/statesApi.js";
 import { formatGrowth } from "../utils/growthUtils.js";
 import { formatNationalContext } from "../utils/nationalContextUtils.js";
@@ -18,6 +19,7 @@ import MigrationFlowCard from "../components/ui/MigrationFlowCard.jsx";
 import InfoToolTip from "../components/ui/InfoTooltip.jsx";
 import MigrationTimeline from "../components/ui/MigrationTimeline.jsx";
 import MigrationHistoryTable from "../components/ui/MigrationHistoryTable.jsx";
+import EducationSnapshot from "../components/ui/EducationSnapshot.jsx";
 
 import "../styles/pages/StateDetail.css";
 
@@ -34,6 +36,7 @@ function StateDetail() {
   const [history, setHistory] = useState([]);
   const [stateEconomics, setStateEconomics] = useState(null);
   const [stateMigration, setStateMigration] = useState(null);
+  const [stateEducation, setStateEducation] = useState(null);
 
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState("");
@@ -45,11 +48,13 @@ function StateDetail() {
         const historyResult = await getStateHistoryByCode(code);
         const economicsResult = await getStateEconomicsByCode(code);
         const migrationResult = await getStateMigrationByCode(code);
+        const educationResult = await getStateEducationByCode(code);
 
         setHistory(historyResult);
         setStateData(result);
         setStateEconomics(economicsResult);
         setStateMigration(migrationResult);
+        setStateEducation(educationResult);
       } catch (err) {
         console.error(err);
         setError(
@@ -224,6 +229,15 @@ function StateDetail() {
                 />
               </div>
             </section>
+
+            {stateEducation && (
+              <EducationSnapshot
+                education={stateEducation.data}
+                national={stateEducation.national}
+                year={stateEducation.year}
+                metadata={stateEducation.metadata}
+              />
+            )}
 
             <section className="state-detail__migration">
               <div>

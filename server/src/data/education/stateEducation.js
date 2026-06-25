@@ -1,7 +1,7 @@
 export const educationDataYear = 2024;
 
 export const educationMetadata = {
-  attainmentPopulation: "Population 25 years and over",
+  attainmentPopulation: "Population 25+",
   naepGrade: 8,
   naepSubjects: ["reading", "math"],
 };

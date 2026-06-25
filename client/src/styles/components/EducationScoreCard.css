@@ -1,0 +1,135 @@
+.education-score-card {
+  display: grid;
+  grid-template-rows: 72px 1px 42px 1px 44px;
+  gap: 0.65rem;
+
+  min-height: 205px;
+  padding: 1.1rem;
+
+  background: rgba(255, 255, 255, 0.025);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+}
+
+.education-score-card__header {
+  display: flex;
+  align-items: center;
+  gap: 0.85rem;
+}
+
+.education-score-card__icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  flex-shrink: 0;
+  width: 46px;
+  height: 46px;
+
+  border-radius: 12px;
+  background: linear-gradient(135deg, #7c3aed, #4f46e5);
+  color: #fff;
+  font-size: 1.3rem;
+}
+
+.education-score-card h3 {
+  margin: 0 0 0.2rem;
+  color: var(--text);
+  font-size: 0.95rem;
+  line-height: 1.18;
+}
+
+.education-score-card__subtitle {
+  margin: 0;
+  color: var(--text-muted);
+  font-size: 0.82rem;
+  font-weight: 600;
+}
+
+.education-score-card__divider {
+  height: 1px;
+  background: var(--border);
+}
+
+.education-score-card__value-row {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.25rem;
+
+  width: 100%;
+}
+
+.education-score-card__value {
+  margin: 0;
+  color: var(--text);
+  font-size: 1.45rem;
+  font-weight: 900;
+  line-height: 1;
+  letter-spacing: -0.03em;
+  white-space: nowrap;
+}
+
+.education-score-card__badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  padding: 0.28rem 0.5rem;
+
+  border-radius: 7px;
+  background: rgba(124, 58, 237, 0.25);
+  color: #c4b5fd;
+
+  font-size: 0.7rem;
+  font-weight: 800;
+  white-space: nowrap;
+}
+
+.education-score-card__comparison {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.35rem;
+
+  margin: 0;
+  color: var(--text-muted);
+  font-size: 0.8rem;
+  font-weight: 700;
+  line-height: 1.25;
+  white-space: nowrap;
+}
+
+.education-score-card__comparison-icon {
+  display: flex;
+  align-items: center;
+  flex-shrink: 0;
+  font-size: 0.9rem;
+}
+
+.education-score-card__comparison--positive
+  .education-score-card__comparison-icon {
+  color: var(--positive);
+}
+
+.education-score-card__comparison--negative
+  .education-score-card__comparison-icon {
+  color: var(--negative);
+}
+
+@media (max-width: 1000px) {
+  .education-score-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 640px) {
+  .education-score-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .education-score-card {
+    min-height: auto;
+    grid-template-rows: auto 1px auto 1px auto;
+  }
+}
