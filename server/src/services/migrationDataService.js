@@ -1,18 +1,22 @@
 import {
-  migrationDataYear,
+  migrationYears,
   stateMigration,
-} from "../data/migration/stateMigration2024.js";
+} from "../data/migration/stateMigration.js";
+
+const latestMigrationYear = migrationYears[migrationYears.length - 1];
 
 export function getStateMigration() {
   return {
-    year: migrationDataYear,
+    years: migrationYears,
+    latestYear: latestMigrationYear,
     data: stateMigration,
   };
 }
 
 export function getStateMigrationByCode(code) {
   return {
-    year: migrationDataYear,
+    years: migrationYears,
+    latestYear: latestMigrationYear,
     data: stateMigration[code] || null,
   };
 }
