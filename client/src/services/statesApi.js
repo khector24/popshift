@@ -104,3 +104,13 @@ export async function getStateMigrationByCode(code) {
 
   return response.json();
 }
+
+export async function getStateEducationByCode(code) {
+  const response = await fetch(`${API_URL}/api/states/${code}/education`);
+
+  if (!response.ok) {
+    throw new Error("Failed to fetch state education");
+  }
+
+  return response.json();
+}
