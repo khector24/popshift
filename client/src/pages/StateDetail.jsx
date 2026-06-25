@@ -107,11 +107,13 @@ function StateDetail() {
       )
     : null;
 
-  const topInboundFlows = stateMigration?.data?.inbound?.slice(0, 3) || [];
-  const topOutboundFlows = stateMigration?.data?.outbound?.slice(0, 3) || [];
-  const totalInbound = stateMigration?.data?.totalInbound ?? 0;
-  const totalOutbound = stateMigration?.data?.totalOutbound ?? 0;
-  const netMigration = stateMigration?.data?.netMigration ?? 0;
+  const latestMigration = stateMigration?.data.years.at(-1);
+
+  const topInboundFlows = latestMigration?.inbound?.slice(0, 3) || [];
+  const topOutboundFlows = latestMigration?.outbound?.slice(0, 3) || [];
+  const totalInbound = latestMigration?.totalInbound ?? 0;
+  const totalOutbound = latestMigration?.totalOutbound ?? 0;
+  const netMigration = latestMigration?.netMigration ?? 0;
 
   const netMigrationTone =
     netMigration > 0 ? "positive" : netMigration < 0 ? "negative" : "neutral";
@@ -228,8 +230,9 @@ function StateDetail() {
                     text="Estimates of moves between U.S. states during 2024. Inbound states are where residents came from, while outbound states are where residents moved to."
                   />
                 </h2>
-
-                <p>2024 State-to-State Migration Estimates</p>
+                <p>
+                  {latestMigration?.year} State-to-State Migration Estimates
+                </p>
               </div>
 
               <div className="state-migration-grid">
