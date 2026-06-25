@@ -12,6 +12,7 @@ import {
 } from "../services/economicsDataService.js";
 
 import { getStateMigrationByCode } from "../services/migrationDataService.js";
+import { getStateEducationByCode } from "../services/educationDataService.js";
 
 const router = express.Router();
 
@@ -118,6 +119,21 @@ router.get("/:code/migration", (req, res) => {
   }
 
   res.json(stateMigration);
+});
+
+// GET /api/states/:code/education
+router.get("/:code/education", (req, res) => {
+  const { code } = req.params;
+
+  const stateEducation = getStateEducationByCode(code);
+
+  if (!stateEducation.data) {
+    return res.status(404).json({
+      message: "State education data not found",
+    });
+  }
+
+  res.json(stateEducation);
 });
 
 // GET /api/states/:code/history
