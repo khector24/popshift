@@ -1,6 +1,8 @@
 import "../../styles/components/EducationSnapshot.css";
 import ResourceLink from "./ResourceLink";
 import EducationScoreCard from "./EducationScoreCard";
+import EducationAttainmentTable from "./EducationAttainmentTable";
+import EducationStatCard from "./EducationStatCard";
 import {
   FaGraduationCap,
   FaUsers,
@@ -80,6 +82,47 @@ export default function EducationSnapshot({
           nationalValue={national.naep.math}
           badge={`#${education.rankings.mathScore} nationally`}
         />
+      </div>
+
+      <div className="education-snapshot__details">
+        <div className="education-snapshot__breakdown">
+          <div>
+            <h3>Education Attainment Breakdown</h3>
+            <p>{metadata.attainmentPopulation}</p>
+          </div>
+
+          <EducationAttainmentTable
+            stateName={education.name}
+            attainment={education.attainment}
+            nationalAttainment={national.attainment}
+          />
+
+          <p className="education-snapshot__panel-source">
+            Source: {year} ACS 5-Year Estimates (S1501)
+            <br />
+            Totals may not add to 100% due to rounding.
+          </p>
+        </div>
+        <div className="education-snapshot__comparison">
+          <div>
+            <h3>Reading and Math Score Comparison</h3>
+            <p>{`2024 NAEP Average Score (Grade 8)`}</p>
+          </div>
+
+          <EducationStatCard
+            stateName={education.name}
+            readingScore={education.naep.reading}
+            mathScore={education.naep.math}
+            nationalReadingScore={national.naep.reading}
+            nationalMathScore={national.naep.math}
+            readingRank={education.rankings.readingScore}
+            mathRank={education.rankings.mathScore}
+          />
+
+          <p className="education-snapshot__panel-source">
+            Source: {year} NAEP Mathematics & Reading Assessments
+          </p>
+        </div>
       </div>
 
       <div className="education-snapshot__why">

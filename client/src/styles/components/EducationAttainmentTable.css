@@ -1,0 +1,44 @@
+.education-attainment-table {
+  width: 100%;
+  margin-top: 0.8rem;
+  border-collapse: collapse;
+}
+
+.education-attainment-table th,
+.education-attainment-table td {
+  padding: 0.8rem 0.25rem;
+  border-bottom: 1px solid var(--border);
+  color: var(--text);
+  font-size: 0.95rem;
+}
+
+.education-attainment-table th {
+  color: var(--text-muted);
+  font-size: 0.82rem;
+  font-weight: 800;
+  text-align: left;
+}
+
+.education-attainment-table th:nth-child(2),
+.education-attainment-table th:nth-child(3),
+.education-attainment-table td:nth-child(2),
+.education-attainment-table td:nth-child(3) {
+  text-align: right;
+  white-space: nowrap;
+}
+
+.education-attainment-table tbody tr:last-child td {
+  border-bottom: none;
+}
+
+.education-attainment-table__highlight td {
+  color: #a78bfa;
+  font-weight: 800;
+}
+
+@media (max-width: 640px) {
+  .education-attainment-table th,
+  .education-attainment-table td {
+    font-size: 0.85rem;
+  }
+}
