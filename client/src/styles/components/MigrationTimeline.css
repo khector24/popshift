@@ -1,0 +1,21 @@
+.migration-timeline {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.migration-timeline h2 {
+  font-size: 18px;
+  margin-bottom: 12px;
+}
+
+.migration-timeline__chart {
+  width: 100%;
+  height: 220px;
+  min-width: 0;
+  min-height: 220px;
+}
+
+.migration-timeline__chart *:focus {
+  outline: none;
+}

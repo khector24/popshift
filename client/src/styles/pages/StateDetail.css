@@ -163,6 +163,18 @@
   color: var(--negative);
 }
 
+.state-detail__migration-history {
+  margin-top: 32px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 24px;
+}
+
+.state-detail__migration-history h2 {
+  margin: 0 0 20px;
+}
+
 .state-detail__history-list {
   overflow: hidden;
   border: 1px solid var(--border);

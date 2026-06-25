@@ -16,6 +16,8 @@ import PopulationTimeline from "../components/ui/PopulationTimeline.jsx";
 import EconomicStatCard from "../components/ui/EconomicStatCard.jsx";
 import MigrationFlowCard from "../components/ui/MigrationFlowCard.jsx";
 import InfoToolTip from "../components/ui/InfoTooltip.jsx";
+import MigrationTimeline from "../components/ui/MigrationTimeline.jsx";
+import MigrationHistoryTable from "../components/ui/MigrationHistoryTable.jsx";
 
 import "../styles/pages/StateDetail.css";
 
@@ -123,6 +125,8 @@ function StateDetail() {
 
   const netMigrationAmount = Math.abs(netMigration).toLocaleString();
 
+  const migrationHistory = stateMigration?.data?.years || [];
+
   return (
     <div className="state-detail">
       <Link className="state-detail__back" to={backLink}>
@@ -227,7 +231,9 @@ function StateDetail() {
                   Migration Snapshot{" "}
                   <InfoToolTip
                     symbol="i"
-                    text="Estimates of moves between U.S. states during 2024. Inbound states are where residents came from, while outbound states are where residents moved to."
+                    text={`Estimates of moves between U.S. states 
+                      during ${latestMigration?.year}. Inbound states are 
+                      where residents came from, while outbound states are where residents moved to.`}
                   />
                 </h2>
                 <p>
@@ -312,6 +318,25 @@ function StateDetail() {
                 </div>
               )}
             </section>
+
+            {migrationHistory.length > 0 && (
+              <section className="state-detail__migration-history">
+                <h2>{stateData.name} Migration Over Time</h2>
+
+                <div className="state-detail__history-grid">
+                  <div className="state-detail__history-chart">
+                    <MigrationTimeline
+                      title="Net migration trend"
+                      data={migrationHistory}
+                    />
+                  </div>
+
+                  <div className="state-detail__history-list">
+                    <MigrationHistoryTable data={migrationHistory} />
+                  </div>
+                </div>
+              </section>
+            )}
 
             <section className="state-detail__history">
               <h2>{stateData.name} Population Over Time</h2>
