@@ -4,7 +4,6 @@ import xlsx from "xlsx";
 const LIMIT = 100;
 
 const METRO_POPULATION_PATH = "./src/data/metros/raw/cbsa-met-est2025-pop.xlsx";
-
 const OUTPUT_PATH = "./src/data/metros/topMetros.js";
 
 function parseNumber(value) {
@@ -44,7 +43,6 @@ function buildTopMetros(rows) {
   for (const row of rows) {
     const name = String(row[0]).replace(/^\.+/, "").trim();
 
-    if (typeof name !== "string") continue;
     if (!name.endsWith(" Metro Area")) continue;
 
     const population2025 = parseNumber(row[6]);
@@ -58,6 +56,9 @@ function buildTopMetros(rows) {
       slug,
       population: population2025,
       image: `/images/metros/${slug}.jpg`,
+      imageAuthor: "",
+      imageLicense: "CC BY-SA 4.0",
+      imageUrl: "",
     });
   }
 
