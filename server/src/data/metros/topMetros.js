@@ -39,6 +39,7 @@ export const topMetros = [
     population: 8353600,
     image: "/images/metros/dallas-fort-worth-arlington.jpg",
     imageAuthor: "Zygmunt Put Zetpe0202",
+    imageLicense: "CC BY-SA 4.0",
     imageUrl:
       "https://commons.wikimedia.org/wiki/File:Dallas_(downtown),_Texas,_USA.jpg",
   },
