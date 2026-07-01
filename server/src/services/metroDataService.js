@@ -1,0 +1,90 @@
+import { topMetros } from "../data/metros/topMetros";
+import { metroStates } from "../data/metros/metroStates";
+import {
+  metroPopulationYears,
+  metroPopulation,
+} from "../data/metros/metroPopulation2025";
+import {
+  metroACSYear,
+  nationalACS,
+  metroACS,
+} from "../data/metros/metroACS2024";
+
+function getMetroStatesBySlug(slug) {
+  const metroStateRecord = metroStates.find((metro) => metro.slug === slug);
+
+  return metroStateRecord?.states || [];
+}
+
+function getMetroPopulationBySlug(slug) {
+  const metroPopulationRecord = metroPopulation.find(
+    (metro) => metro.slug === slug,
+  );
+
+  return {
+    populationYears: metroPopulationYears,
+    population: metroPopulationRecord?.population,
+    populationByYear: metroPopulationRecord?.populationByYear,
+    yearlyGrowth: metroPopulationRecord?.yearlyGrowth,
+    growthSince2020: metroPopulationRecord?.growthSince2020,
+  };
+}
+
+function getMetroACSBySlug(slug) {
+  const metroACSRecord = metroACS.find((metro) => metro.slug === slug);
+
+  return {
+    metroACSYear,
+    economics: metroACSRecord?.economics,
+    housing: metroACSRecord?.housing,
+    transportation: metroACSRecord?.transportation,
+    education: metroACSRecord?.education,
+  };
+}
+
+function buildMetro() {
+  const metros = [];
+  const nationalAverages = nationalACS;
+
+  for (const metro of topMetros) {
+    const { rank, name, slug } = metro;
+
+    const states = getMetroStatesBySlug(slug);
+    const populationRecord = getMetroPopulationBySlug(slug);
+
+    const acsRecord = {
+      ...getMetroACSBySlug(slug),
+      nationalAverages,
+    };
+
+    const newMetro = {
+      rank,
+      name,
+      slug,
+      imageData: {
+        name: metro.image,
+        author: metro.imageAuthor,
+        license: metro.imageLicense,
+        url: metro.imageUrl,
+      },
+
+      ...populationRecord,
+
+      ...acsRecord,
+
+      states,
+    };
+
+    metros.push(newMetro);
+  }
+
+  return metros;
+}
+
+export function getMetros() {
+  return buildMetro();
+}
+
+export function getMetroBySlug(slug) {
+  return getMetros().find((metro) => metro.slug === slug) ?? null;
+}

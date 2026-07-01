@@ -1,3133 +1,3133 @@
 export const metroACSYear = 2024;
 
 export const nationalACS = {
-  "economics": {
-    "medianHouseholdIncome": 80734,
-    "povertyRate": 12.5
+  economics: {
+    medianHouseholdIncome: 80734,
+    povertyRate: 12.5,
   },
-  "housing": {
-    "medianGrossRent": 1413,
-    "medianHomeValue": 332700,
-    "rentAsPercentOfIncome": 21,
-    "homeValueToIncome": 4.1
+  housing: {
+    medianGrossRent: 1413,
+    medianHomeValue: 332700,
+    rentAsPercentOfIncome: 21,
+    homeValueToIncome: 4.1,
   },
-  "transportation": {
-    "driveAlone": 68.8,
-    "publicTransit": 3.2,
-    "workFromHome": 1.5,
-    "averageCommuteMinutes": 26.4
+  transportation: {
+    driveAlone: 68.8,
+    publicTransit: 3.2,
+    workFromHome: 1.5,
+    averageCommuteMinutes: 26.4,
   },
-  "education": {
-    "highSchoolOrHigher": 89.6,
-    "bachelorsOrHigher": 35.7,
-    "attainment": {
-      "lessThanHighSchool": 10.4,
-      "highSchoolGraduate": 26,
-      "someCollegeOrAssociate": 27.9,
-      "bachelorsOrHigher": 35.7
-    }
-  }
+  education: {
+    highSchoolOrHigher: 89.6,
+    bachelorsOrHigher: 35.7,
+    attainment: {
+      lessThanHighSchool: 10.4,
+      highSchoolGraduate: 26,
+      someCollegeOrAssociate: 27.9,
+      bachelorsOrHigher: 35.7,
+    },
+  },
 };
 
 export const metroACS = [
   {
-    "rank": 1,
-    "name": "New York-Newark-Jersey City, NY-NJ Metro Area",
-    "slug": "new-york-newark-jersey-city",
-    "economics": {
-      "medianHouseholdIncome": 99155,
-      "povertyRate": 12.7
-    },
-    "housing": {
-      "medianGrossRent": 1830,
-      "medianHomeValue": 614200,
-      "rentAsPercentOfIncome": 22.1,
-      "homeValueToIncome": 6.2
-    },
-    "transportation": {
-      "driveAlone": 44.6,
-      "publicTransit": 24.1,
-      "workFromHome": 2.3,
-      "averageCommuteMinutes": 35.6
-    },
-    "education": {
-      "highSchoolOrHigher": 87.6,
-      "bachelorsOrHigher": 44.2,
-      "attainment": {
-        "lessThanHighSchool": 12.4,
-        "highSchoolGraduate": 22.9,
-        "someCollegeOrAssociate": 20.6,
-        "bachelorsOrHigher": 44.2
-      }
-    }
-  },
-  {
-    "rank": 2,
-    "name": "Los Angeles-Long Beach-Anaheim, CA Metro Area",
-    "slug": "los-angeles-long-beach-anaheim",
-    "economics": {
-      "medianHouseholdIncome": 95958,
-      "povertyRate": 12.7
-    },
-    "housing": {
-      "medianGrossRent": 2063,
-      "medianHomeValue": 871300,
-      "rentAsPercentOfIncome": 25.8,
-      "homeValueToIncome": 9.1
-    },
-    "transportation": {
-      "driveAlone": 65.5,
-      "publicTransit": 3.2,
-      "workFromHome": 1.9,
-      "averageCommuteMinutes": 29.5
-    },
-    "education": {
-      "highSchoolOrHigher": 82.4,
-      "bachelorsOrHigher": 38,
-      "attainment": {
-        "lessThanHighSchool": 17.7,
-        "highSchoolGraduate": 19.6,
-        "someCollegeOrAssociate": 24.8,
-        "bachelorsOrHigher": 38
-      }
-    }
-  },
-  {
-    "rank": 3,
-    "name": "Chicago-Naperville-Elgin, IL-IN Metro Area",
-    "slug": "chicago-naperville-elgin",
-    "economics": {
-      "medianHouseholdIncome": 90887,
-      "povertyRate": 11.2
-    },
-    "housing": {
-      "medianGrossRent": 1430,
-      "medianHomeValue": 323000,
-      "rentAsPercentOfIncome": 18.9,
-      "homeValueToIncome": 3.6
-    },
-    "transportation": {
-      "driveAlone": 62.1,
-      "publicTransit": 7.5,
-      "workFromHome": 1.5,
-      "averageCommuteMinutes": 30.3
-    },
-    "education": {
-      "highSchoolOrHigher": 89.8,
-      "bachelorsOrHigher": 41.6,
-      "attainment": {
-        "lessThanHighSchool": 10.1,
-        "highSchoolGraduate": 23,
-        "someCollegeOrAssociate": 25.3,
-        "bachelorsOrHigher": 41.6
-      }
-    }
-  },
-  {
-    "rank": 4,
-    "name": "Dallas-Fort Worth-Arlington, TX Metro Area",
-    "slug": "dallas-fort-worth-arlington",
-    "economics": {
-      "medianHouseholdIncome": 90275,
-      "povertyRate": 10.5
-    },
-    "housing": {
-      "medianGrossRent": 1614,
-      "medianHomeValue": 359500,
-      "rentAsPercentOfIncome": 21.5,
-      "homeValueToIncome": 4
-    },
-    "transportation": {
-      "driveAlone": 69.2,
-      "publicTransit": 0.7,
-      "workFromHome": 1.4,
-      "averageCommuteMinutes": 27.9
-    },
-    "education": {
-      "highSchoolOrHigher": 87.6,
-      "bachelorsOrHigher": 39.4,
-      "attainment": {
-        "lessThanHighSchool": 12.4,
-        "highSchoolGraduate": 21.6,
-        "someCollegeOrAssociate": 26.7,
-        "bachelorsOrHigher": 39.4
-      }
-    }
-  },
-  {
-    "rank": 5,
-    "name": "Houston-Pasadena-The Woodlands, TX Metro Area",
-    "slug": "houston-pasadena-the-woodlands",
-    "economics": {
-      "medianHouseholdIncome": 82168,
-      "povertyRate": 13.9
-    },
-    "housing": {
-      "medianGrossRent": 1430,
-      "medianHomeValue": 298000,
-      "rentAsPercentOfIncome": 20.9,
-      "homeValueToIncome": 3.6
-    },
-    "transportation": {
-      "driveAlone": 71.6,
-      "publicTransit": 1.5,
-      "workFromHome": 2,
-      "averageCommuteMinutes": 29.9
-    },
-    "education": {
-      "highSchoolOrHigher": 85.1,
-      "bachelorsOrHigher": 36,
-      "attainment": {
-        "lessThanHighSchool": 14.9,
-        "highSchoolGraduate": 22.6,
-        "someCollegeOrAssociate": 26.5,
-        "bachelorsOrHigher": 36
-      }
-    }
-  },
-  {
-    "rank": 6,
-    "name": "Atlanta-Sandy Springs-Roswell, GA Metro Area",
-    "slug": "atlanta-sandy-springs-roswell",
-    "economics": {
-      "medianHouseholdIncome": 89724,
-      "povertyRate": 11
-    },
-    "housing": {
-      "medianGrossRent": 1672,
-      "medianHomeValue": 367600,
-      "rentAsPercentOfIncome": 22.4,
-      "homeValueToIncome": 4.1
-    },
-    "transportation": {
-      "driveAlone": 66.3,
-      "publicTransit": 1.5,
-      "workFromHome": 1.8,
-      "averageCommuteMinutes": 31
-    },
-    "education": {
-      "highSchoolOrHigher": 91,
-      "bachelorsOrHigher": 42.2,
-      "attainment": {
-        "lessThanHighSchool": 9,
-        "highSchoolGraduate": 22.8,
-        "someCollegeOrAssociate": 26,
-        "bachelorsOrHigher": 42.2
-      }
-    }
-  },
-  {
-    "rank": 7,
-    "name": "Washington-Arlington-Alexandria, DC-VA-MD-WV Metro Area",
-    "slug": "washington-arlington-alexandria",
-    "economics": {
-      "medianHouseholdIncome": 126684,
-      "povertyRate": 8.1
-    },
-    "housing": {
-      "medianGrossRent": 2027,
-      "medianHomeValue": 579900,
-      "rentAsPercentOfIncome": 19.2,
-      "homeValueToIncome": 4.6
-    },
-    "transportation": {
-      "driveAlone": 54.7,
-      "publicTransit": 7,
-      "workFromHome": 1.8,
-      "averageCommuteMinutes": 32.4
-    },
-    "education": {
-      "highSchoolOrHigher": 91.4,
-      "bachelorsOrHigher": 54.4,
-      "attainment": {
-        "lessThanHighSchool": 8.6,
-        "highSchoolGraduate": 17.2,
-        "someCollegeOrAssociate": 19.9,
-        "bachelorsOrHigher": 54.4
-      }
-    }
-  },
-  {
-    "rank": 8,
-    "name": "Miami-Fort Lauderdale-West Palm Beach, FL Metro Area",
-    "slug": "miami-fort-lauderdale-west-palm-beach",
-    "economics": {
-      "medianHouseholdIncome": 76527,
-      "povertyRate": 13.1
-    },
-    "housing": {
-      "medianGrossRent": 1869,
-      "medianHomeValue": 443300,
-      "rentAsPercentOfIncome": 29.3,
-      "homeValueToIncome": 5.8
-    },
-    "transportation": {
-      "driveAlone": 69.2,
-      "publicTransit": 2.4,
-      "workFromHome": 2.3,
-      "averageCommuteMinutes": 29.3
-    },
-    "education": {
-      "highSchoolOrHigher": 87.3,
-      "bachelorsOrHigher": 36.7,
-      "attainment": {
-        "lessThanHighSchool": 12.7,
-        "highSchoolGraduate": 25.7,
-        "someCollegeOrAssociate": 24.9,
-        "bachelorsOrHigher": 36.7
-      }
-    }
-  },
-  {
-    "rank": 9,
-    "name": "Philadelphia-Camden-Wilmington, PA-NJ-DE-MD Metro Area",
-    "slug": "philadelphia-camden-wilmington",
-    "economics": {
-      "medianHouseholdIncome": 91289,
-      "povertyRate": 11.5
-    },
-    "housing": {
-      "medianGrossRent": 1480,
-      "medianHomeValue": 351900,
-      "rentAsPercentOfIncome": 19.5,
-      "homeValueToIncome": 3.9
-    },
-    "transportation": {
-      "driveAlone": 62.8,
-      "publicTransit": 6.1,
-      "workFromHome": 1.5,
-      "averageCommuteMinutes": 28.7
-    },
-    "education": {
-      "highSchoolOrHigher": 92.3,
-      "bachelorsOrHigher": 42.2,
-      "attainment": {
-        "lessThanHighSchool": 7.7,
-        "highSchoolGraduate": 26.8,
-        "someCollegeOrAssociate": 23.2,
-        "bachelorsOrHigher": 42.2
-      }
-    }
-  },
-  {
-    "rank": 10,
-    "name": "Phoenix-Mesa-Chandler, AZ Metro Area",
-    "slug": "phoenix-mesa-chandler",
-    "economics": {
-      "medianHouseholdIncome": 88301,
-      "povertyRate": 11
-    },
-    "housing": {
-      "medianGrossRent": 1702,
-      "medianHomeValue": 440900,
-      "rentAsPercentOfIncome": 23.1,
-      "homeValueToIncome": 5
-    },
-    "transportation": {
-      "driveAlone": 65.1,
-      "publicTransit": 1.1,
-      "workFromHome": 2,
-      "averageCommuteMinutes": 26.4
-    },
-    "education": {
-      "highSchoolOrHigher": 89.7,
-      "bachelorsOrHigher": 35.3,
-      "attainment": {
-        "lessThanHighSchool": 10.3,
-        "highSchoolGraduate": 22.7,
-        "someCollegeOrAssociate": 31.7,
-        "bachelorsOrHigher": 35.3
-      }
-    }
-  },
-  {
-    "rank": 11,
-    "name": "Boston-Cambridge-Newton, MA-NH Metro Area",
-    "slug": "boston-cambridge-newton",
-    "economics": {
-      "medianHouseholdIncome": 115863,
-      "povertyRate": 8.9
-    },
-    "housing": {
-      "medianGrossRent": 2023,
-      "medianHomeValue": 646300,
-      "rentAsPercentOfIncome": 21,
-      "homeValueToIncome": 5.6
-    },
-    "transportation": {
-      "driveAlone": 57.1,
-      "publicTransit": 8.3,
-      "workFromHome": 1.8,
-      "averageCommuteMinutes": 30.3
-    },
-    "education": {
-      "highSchoolOrHigher": 92.2,
-      "bachelorsOrHigher": 51.9,
-      "attainment": {
-        "lessThanHighSchool": 7.7,
-        "highSchoolGraduate": 20.4,
-        "someCollegeOrAssociate": 19.9,
-        "bachelorsOrHigher": 51.9
-      }
-    }
-  },
-  {
-    "rank": 12,
-    "name": "Riverside-San Bernardino-Ontario, CA Metro Area",
-    "slug": "riverside-san-bernardino-ontario",
-    "economics": {
-      "medianHouseholdIncome": 89662,
-      "povertyRate": 11.9
-    },
-    "housing": {
-      "medianGrossRent": 1846,
-      "medianHomeValue": 536300,
-      "rentAsPercentOfIncome": 24.7,
-      "homeValueToIncome": 6
-    },
-    "transportation": {
-      "driveAlone": 73.7,
-      "publicTransit": 0.8,
-      "workFromHome": 1.2,
-      "averageCommuteMinutes": 33.2
-    },
-    "education": {
-      "highSchoolOrHigher": 83,
-      "bachelorsOrHigher": 24.5,
-      "attainment": {
-        "lessThanHighSchool": 17,
-        "highSchoolGraduate": 27.5,
-        "someCollegeOrAssociate": 31.1,
-        "bachelorsOrHigher": 24.5
-      }
-    }
-  },
-  {
-    "rank": 13,
-    "name": "San Francisco-Oakland-Fremont, CA Metro Area",
-    "slug": "san-francisco-oakland-fremont",
-    "economics": {
-      "medianHouseholdIncome": 136027,
-      "povertyRate": 8.9
-    },
-    "housing": {
-      "medianGrossRent": 2474,
-      "medianHomeValue": 1140700,
-      "rentAsPercentOfIncome": 21.8,
-      "homeValueToIncome": 8.4
-    },
-    "transportation": {
-      "driveAlone": 50.1,
-      "publicTransit": 8.7,
-      "workFromHome": 1.9,
-      "averageCommuteMinutes": 31
-    },
-    "education": {
-      "highSchoolOrHigher": 89.5,
-      "bachelorsOrHigher": 52.9,
-      "attainment": {
-        "lessThanHighSchool": 10.5,
-        "highSchoolGraduate": 14.8,
-        "someCollegeOrAssociate": 21.8,
-        "bachelorsOrHigher": 52.9
-      }
-    }
-  },
-  {
-    "rank": 14,
-    "name": "Detroit-Warren-Dearborn, MI Metro Area",
-    "slug": "detroit-warren-dearborn",
-    "economics": {
-      "medianHouseholdIncome": 76664,
-      "povertyRate": 13.6
-    },
-    "housing": {
-      "medianGrossRent": 1207,
-      "medianHomeValue": 249700,
-      "rentAsPercentOfIncome": 18.9,
-      "homeValueToIncome": 3.3
-    },
-    "transportation": {
-      "driveAlone": 73.2,
-      "publicTransit": 0.9,
-      "workFromHome": 1.3,
-      "averageCommuteMinutes": 26
-    },
-    "education": {
-      "highSchoolOrHigher": 91.3,
-      "bachelorsOrHigher": 34.8,
-      "attainment": {
-        "lessThanHighSchool": 8.7,
-        "highSchoolGraduate": 25.7,
-        "someCollegeOrAssociate": 30.8,
-        "bachelorsOrHigher": 34.8
-      }
-    }
-  },
-  {
-    "rank": 15,
-    "name": "Seattle-Tacoma-Bellevue, WA Metro Area",
-    "slug": "seattle-tacoma-bellevue",
-    "economics": {
-      "medianHouseholdIncome": 115177,
-      "povertyRate": 8.5
-    },
-    "housing": {
-      "medianGrossRent": 2000,
-      "medianHomeValue": 717500,
-      "rentAsPercentOfIncome": 20.8,
-      "homeValueToIncome": 6.2
-    },
-    "transportation": {
-      "driveAlone": 57.7,
-      "publicTransit": 5,
-      "workFromHome": 1.2,
-      "averageCommuteMinutes": 29.2
-    },
-    "education": {
-      "highSchoolOrHigher": 93.4,
-      "bachelorsOrHigher": 47.2,
-      "attainment": {
-        "lessThanHighSchool": 6.6,
-        "highSchoolGraduate": 18.5,
-        "someCollegeOrAssociate": 27.6,
-        "bachelorsOrHigher": 47.2
-      }
-    }
-  },
-  {
-    "rank": 16,
-    "name": "Minneapolis-St. Paul-Bloomington, MN-WI Metro Area",
-    "slug": "minneapolis-st-paul-bloomington",
-    "economics": {
-      "medianHouseholdIncome": 99833,
-      "povertyRate": 8.2
-    },
-    "housing": {
-      "medianGrossRent": 1440,
-      "medianHomeValue": 374000,
-      "rentAsPercentOfIncome": 17.3,
-      "homeValueToIncome": 3.7
-    },
-    "transportation": {
-      "driveAlone": 65.9,
-      "publicTransit": 2.1,
-      "workFromHome": 1.3,
-      "averageCommuteMinutes": 23.9
-    },
-    "education": {
-      "highSchoolOrHigher": 94.3,
-      "bachelorsOrHigher": 45.4,
-      "attainment": {
-        "lessThanHighSchool": 5.7,
-        "highSchoolGraduate": 20,
-        "someCollegeOrAssociate": 28.9,
-        "bachelorsOrHigher": 45.4
-      }
-    }
-  },
-  {
-    "rank": 17,
-    "name": "Tampa-St. Petersburg-Clearwater, FL Metro Area",
-    "slug": "tampa-st-petersburg-clearwater",
-    "economics": {
-      "medianHouseholdIncome": 74392,
-      "povertyRate": 12
-    },
-    "housing": {
-      "medianGrossRent": 1628,
-      "medianHomeValue": 345100,
-      "rentAsPercentOfIncome": 26.3,
-      "homeValueToIncome": 4.6
-    },
-    "transportation": {
-      "driveAlone": 67.3,
-      "publicTransit": 0.8,
-      "workFromHome": 1.8,
-      "averageCommuteMinutes": 28.3
-    },
-    "education": {
-      "highSchoolOrHigher": 91.1,
-      "bachelorsOrHigher": 34.9,
-      "attainment": {
-        "lessThanHighSchool": 9,
-        "highSchoolGraduate": 27.2,
-        "someCollegeOrAssociate": 29,
-        "bachelorsOrHigher": 34.9
-      }
-    }
-  },
-  {
-    "rank": 18,
-    "name": "San Diego-Chula Vista-Carlsbad, CA Metro Area",
-    "slug": "san-diego-chula-vista-carlsbad",
-    "economics": {
-      "medianHouseholdIncome": 106268,
-      "povertyRate": 10.3
-    },
-    "housing": {
-      "medianGrossRent": 2246,
-      "medianHomeValue": 854700,
-      "rentAsPercentOfIncome": 25.4,
-      "homeValueToIncome": 8
-    },
-    "transportation": {
-      "driveAlone": 65.9,
-      "publicTransit": 1.9,
-      "workFromHome": 1.7,
-      "averageCommuteMinutes": 25.5
-    },
-    "education": {
-      "highSchoolOrHigher": 89.1,
-      "bachelorsOrHigher": 43.2,
-      "attainment": {
-        "lessThanHighSchool": 10.8,
-        "highSchoolGraduate": 17.9,
-        "someCollegeOrAssociate": 28.1,
-        "bachelorsOrHigher": 43.2
-      }
-    }
-  },
-  {
-    "rank": 19,
-    "name": "Denver-Aurora-Centennial, CO Metro Area",
-    "slug": "denver-aurora-centennial",
-    "economics": {
-      "medianHouseholdIncome": 105762,
-      "povertyRate": 8.4
-    },
-    "housing": {
-      "medianGrossRent": 1874,
-      "medianHomeValue": 603800,
-      "rentAsPercentOfIncome": 21.3,
-      "homeValueToIncome": 5.7
-    },
-    "transportation": {
-      "driveAlone": 63.1,
-      "publicTransit": 2.2,
-      "workFromHome": 1.3,
-      "averageCommuteMinutes": 27
-    },
-    "education": {
-      "highSchoolOrHigher": 92.3,
-      "bachelorsOrHigher": 49.4,
-      "attainment": {
-        "lessThanHighSchool": 7.7,
-        "highSchoolGraduate": 18,
-        "someCollegeOrAssociate": 24.9,
-        "bachelorsOrHigher": 49.4
-      }
-    }
-  },
-  {
-    "rank": 20,
-    "name": "Orlando-Kissimmee-Sanford, FL Metro Area",
-    "slug": "orlando-kissimmee-sanford",
-    "economics": {
-      "medianHouseholdIncome": 78533,
-      "povertyRate": 11.7
-    },
-    "housing": {
-      "medianGrossRent": 1760,
-      "medianHomeValue": 369800,
-      "rentAsPercentOfIncome": 26.9,
-      "homeValueToIncome": 4.7
-    },
-    "transportation": {
-      "driveAlone": 69,
-      "publicTransit": 1,
-      "workFromHome": 1.9,
-      "averageCommuteMinutes": 29.2
-    },
-    "education": {
-      "highSchoolOrHigher": 91.1,
-      "bachelorsOrHigher": 36.7,
-      "attainment": {
-        "lessThanHighSchool": 8.9,
-        "highSchoolGraduate": 25,
-        "someCollegeOrAssociate": 29.4,
-        "bachelorsOrHigher": 36.7
-      }
-    }
-  },
-  {
-    "rank": 21,
-    "name": "Charlotte-Concord-Gastonia, NC-SC Metro Area",
-    "slug": "charlotte-concord-gastonia",
-    "economics": {
-      "medianHouseholdIncome": 83304,
-      "povertyRate": 10.6
-    },
-    "housing": {
-      "medianGrossRent": 1473,
-      "medianHomeValue": 356400,
-      "rentAsPercentOfIncome": 21.2,
-      "homeValueToIncome": 4.3
-    },
-    "transportation": {
-      "driveAlone": 66.9,
-      "publicTransit": 0.9,
-      "workFromHome": 1.3,
-      "averageCommuteMinutes": 26.6
-    },
-    "education": {
-      "highSchoolOrHigher": 90.6,
-      "bachelorsOrHigher": 39.9,
-      "attainment": {
-        "lessThanHighSchool": 9.3,
-        "highSchoolGraduate": 22.5,
-        "someCollegeOrAssociate": 28.2,
-        "bachelorsOrHigher": 39.9
-      }
-    }
-  },
-  {
-    "rank": 22,
-    "name": "Baltimore-Columbia-Towson, MD Metro Area",
-    "slug": "baltimore-columbia-towson",
-    "economics": {
-      "medianHouseholdIncome": 99470,
-      "povertyRate": 9.8
-    },
-    "housing": {
-      "medianGrossRent": 1611,
-      "medianHomeValue": 391300,
-      "rentAsPercentOfIncome": 19.4,
-      "homeValueToIncome": 3.9
-    },
-    "transportation": {
-      "driveAlone": 67.3,
-      "publicTransit": 3.3,
-      "workFromHome": 1.6,
-      "averageCommuteMinutes": 29.4
-    },
-    "education": {
-      "highSchoolOrHigher": 92.2,
-      "bachelorsOrHigher": 44,
-      "attainment": {
-        "lessThanHighSchool": 7.7,
-        "highSchoolGraduate": 23.3,
-        "someCollegeOrAssociate": 24.9,
-        "bachelorsOrHigher": 44
-      }
-    }
-  },
-  {
-    "rank": 23,
-    "name": "St. Louis, MO-IL Metro Area",
-    "slug": "st-louis",
-    "economics": {
-      "medianHouseholdIncome": 80196,
-      "povertyRate": 10.5
-    },
-    "housing": {
-      "medianGrossRent": 1113,
-      "medianHomeValue": 244800,
-      "rentAsPercentOfIncome": 16.7,
-      "homeValueToIncome": 3.1
-    },
-    "transportation": {
-      "driveAlone": 73.5,
-      "publicTransit": 1.3,
-      "workFromHome": 1,
-      "averageCommuteMinutes": 24.9
-    },
-    "education": {
-      "highSchoolOrHigher": 93.6,
-      "bachelorsOrHigher": 38.2,
-      "attainment": {
-        "lessThanHighSchool": 6.4,
-        "highSchoolGraduate": 25.4,
-        "someCollegeOrAssociate": 30.1,
-        "bachelorsOrHigher": 38.2
-      }
-    }
-  },
-  {
-    "rank": 24,
-    "name": "San Antonio-New Braunfels, TX Metro Area",
-    "slug": "san-antonio-new-braunfels",
-    "economics": {
-      "medianHouseholdIncome": 76213,
-      "povertyRate": 13.4
-    },
-    "housing": {
-      "medianGrossRent": 1363,
-      "medianHomeValue": 278800,
-      "rentAsPercentOfIncome": 21.5,
-      "homeValueToIncome": 3.7
-    },
-    "transportation": {
-      "driveAlone": 69.4,
-      "publicTransit": 1.3,
-      "workFromHome": 1.5,
-      "averageCommuteMinutes": 26.8
-    },
-    "education": {
-      "highSchoolOrHigher": 87.6,
-      "bachelorsOrHigher": 32.3,
-      "attainment": {
-        "lessThanHighSchool": 12.4,
-        "highSchoolGraduate": 25.3,
-        "someCollegeOrAssociate": 30,
-        "bachelorsOrHigher": 32.3
-      }
-    }
-  },
-  {
-    "rank": 25,
-    "name": "Austin-Round Rock-San Marcos, TX Metro Area",
-    "slug": "austin-round-rock-san-marcos",
-    "economics": {
-      "medianHouseholdIncome": 100431,
-      "povertyRate": 9.8
-    },
-    "housing": {
-      "medianGrossRent": 1726,
-      "medianHomeValue": 465000,
-      "rentAsPercentOfIncome": 20.6,
-      "homeValueToIncome": 4.6
-    },
-    "transportation": {
-      "driveAlone": 60.9,
-      "publicTransit": 1.1,
-      "workFromHome": 1.6,
-      "averageCommuteMinutes": 27.3
-    },
-    "education": {
-      "highSchoolOrHigher": 91.9,
-      "bachelorsOrHigher": 50.9,
-      "attainment": {
-        "lessThanHighSchool": 8.1,
-        "highSchoolGraduate": 16.8,
-        "someCollegeOrAssociate": 24.2,
-        "bachelorsOrHigher": 50.9
-      }
-    }
-  },
-  {
-    "rank": 26,
-    "name": "Portland-Vancouver-Hillsboro, OR-WA Metro Area",
-    "slug": "portland-vancouver-hillsboro",
-    "economics": {
-      "medianHouseholdIncome": 97436,
-      "povertyRate": 9.5
-    },
-    "housing": {
-      "medianGrossRent": 1724,
-      "medianHomeValue": 559400,
-      "rentAsPercentOfIncome": 21.2,
-      "homeValueToIncome": 5.7
-    },
-    "transportation": {
-      "driveAlone": 61.3,
-      "publicTransit": 3.1,
-      "workFromHome": 1.2,
-      "averageCommuteMinutes": 25
-    },
-    "education": {
-      "highSchoolOrHigher": 92.8,
-      "bachelorsOrHigher": 42.5,
-      "attainment": {
-        "lessThanHighSchool": 7.3,
-        "highSchoolGraduate": 19.8,
-        "someCollegeOrAssociate": 30.4,
-        "bachelorsOrHigher": 42.5
-      }
-    }
-  },
-  {
-    "rank": 27,
-    "name": "Sacramento-Roseville-Folsom, CA Metro Area",
-    "slug": "sacramento-roseville-folsom",
-    "economics": {
-      "medianHouseholdIncome": 97188,
-      "povertyRate": 11.5
-    },
-    "housing": {
-      "medianGrossRent": 1819,
-      "medianHomeValue": 589500,
-      "rentAsPercentOfIncome": 22.5,
-      "homeValueToIncome": 6.1
-    },
-    "transportation": {
-      "driveAlone": 65.9,
-      "publicTransit": 1.3,
-      "workFromHome": 1.6,
-      "averageCommuteMinutes": 27.1
-    },
-    "education": {
-      "highSchoolOrHigher": 90.1,
-      "bachelorsOrHigher": 37.1,
-      "attainment": {
-        "lessThanHighSchool": 9.9,
-        "highSchoolGraduate": 20.6,
-        "someCollegeOrAssociate": 32.5,
-        "bachelorsOrHigher": 37.1
-      }
-    }
-  },
-  {
-    "rank": 28,
-    "name": "Pittsburgh, PA Metro Area",
-    "slug": "pittsburgh",
-    "economics": {
-      "medianHouseholdIncome": 75762,
-      "povertyRate": 11.1
-    },
-    "housing": {
-      "medianGrossRent": 1053,
-      "medianHomeValue": 215000,
-      "rentAsPercentOfIncome": 16.7,
-      "homeValueToIncome": 2.8
-    },
-    "transportation": {
-      "driveAlone": 68.6,
-      "publicTransit": 3.2,
-      "workFromHome": 1.2,
-      "averageCommuteMinutes": 25.8
-    },
-    "education": {
-      "highSchoolOrHigher": 95.1,
-      "bachelorsOrHigher": 38.2,
-      "attainment": {
-        "lessThanHighSchool": 4.9,
-        "highSchoolGraduate": 31.1,
-        "someCollegeOrAssociate": 25.7,
-        "bachelorsOrHigher": 38.2
-      }
-    }
-  },
-  {
-    "rank": 29,
-    "name": "Las Vegas-Henderson-North Las Vegas, NV Metro Area",
-    "slug": "las-vegas-henderson-north-las-vegas",
-    "economics": {
-      "medianHouseholdIncome": 76472,
-      "povertyRate": 13
-    },
-    "housing": {
-      "medianGrossRent": 1626,
-      "medianHomeValue": 431000,
-      "rentAsPercentOfIncome": 25.5,
-      "homeValueToIncome": 5.6
-    },
-    "transportation": {
-      "driveAlone": 70.8,
-      "publicTransit": 2.2,
-      "workFromHome": 2.6,
-      "averageCommuteMinutes": 25.1
-    },
-    "education": {
-      "highSchoolOrHigher": 86.9,
-      "bachelorsOrHigher": 27.8,
-      "attainment": {
-        "lessThanHighSchool": 13.1,
-        "highSchoolGraduate": 27.7,
-        "someCollegeOrAssociate": 31.4,
-        "bachelorsOrHigher": 27.8
-      }
-    }
-  },
-  {
-    "rank": 30,
-    "name": "Cincinnati, OH-KY-IN Metro Area",
-    "slug": "cincinnati",
-    "economics": {
-      "medianHouseholdIncome": 81120,
-      "povertyRate": 11.8
-    },
-    "housing": {
-      "medianGrossRent": 1105,
-      "medianHomeValue": 258600,
-      "rentAsPercentOfIncome": 16.3,
-      "homeValueToIncome": 3.2
-    },
-    "transportation": {
-      "driveAlone": 73.9,
-      "publicTransit": 1.1,
-      "workFromHome": 1.3,
-      "averageCommuteMinutes": 24.7
-    },
-    "education": {
-      "highSchoolOrHigher": 92.5,
-      "bachelorsOrHigher": 37.1,
-      "attainment": {
-        "lessThanHighSchool": 7.5,
-        "highSchoolGraduate": 28.5,
-        "someCollegeOrAssociate": 26.9,
-        "bachelorsOrHigher": 37.1
-      }
-    }
-  },
-  {
-    "rank": 31,
-    "name": "Kansas City, MO-KS Metro Area",
-    "slug": "kansas-city",
-    "economics": {
-      "medianHouseholdIncome": 83460,
-      "povertyRate": 10
-    },
-    "housing": {
-      "medianGrossRent": 1249,
-      "medianHomeValue": 287300,
-      "rentAsPercentOfIncome": 18,
-      "homeValueToIncome": 3.4
-    },
-    "transportation": {
-      "driveAlone": 72.8,
-      "publicTransit": 0.6,
-      "workFromHome": 1.2,
-      "averageCommuteMinutes": 23.2
-    },
-    "education": {
-      "highSchoolOrHigher": 93.2,
-      "bachelorsOrHigher": 39.8,
-      "attainment": {
-        "lessThanHighSchool": 6.8,
-        "highSchoolGraduate": 24.6,
-        "someCollegeOrAssociate": 28.8,
-        "bachelorsOrHigher": 39.8
-      }
-    }
-  },
-  {
-    "rank": 32,
-    "name": "Columbus, OH Metro Area",
-    "slug": "columbus",
-    "economics": {
-      "medianHouseholdIncome": 81945,
-      "povertyRate": 12.3
-    },
-    "housing": {
-      "medianGrossRent": 1274,
-      "medianHomeValue": 300800,
-      "rentAsPercentOfIncome": 18.7,
-      "homeValueToIncome": 3.7
-    },
-    "transportation": {
-      "driveAlone": 70,
-      "publicTransit": 1.1,
-      "workFromHome": 1.1,
-      "averageCommuteMinutes": 23.6
-    },
-    "education": {
-      "highSchoolOrHigher": 92.2,
-      "bachelorsOrHigher": 39.8,
-      "attainment": {
-        "lessThanHighSchool": 7.8,
-        "highSchoolGraduate": 26.6,
-        "someCollegeOrAssociate": 25.8,
-        "bachelorsOrHigher": 39.8
-      }
-    }
-  },
-  {
-    "rank": 33,
-    "name": "Indianapolis-Carmel-Greenwood, IN Metro Area",
-    "slug": "indianapolis-carmel-greenwood",
-    "economics": {
-      "medianHouseholdIncome": 79852,
-      "povertyRate": 10.7
-    },
-    "housing": {
-      "medianGrossRent": 1191,
-      "medianHomeValue": 265900,
-      "rentAsPercentOfIncome": 17.9,
-      "homeValueToIncome": 3.3
-    },
-    "transportation": {
-      "driveAlone": 73.1,
-      "publicTransit": 0.6,
-      "workFromHome": 1,
-      "averageCommuteMinutes": 25.5
-    },
-    "education": {
-      "highSchoolOrHigher": 91.3,
-      "bachelorsOrHigher": 38.5,
-      "attainment": {
-        "lessThanHighSchool": 8.7,
-        "highSchoolGraduate": 26.4,
-        "someCollegeOrAssociate": 26.3,
-        "bachelorsOrHigher": 38.5
-      }
-    }
-  },
-  {
-    "rank": 34,
-    "name": "Cleveland, OH Metro Area",
-    "slug": "cleveland",
-    "economics": {
-      "medianHouseholdIncome": 66135,
-      "povertyRate": 12.9
-    },
-    "housing": {
-      "medianGrossRent": 1006,
-      "medianHomeValue": 247000,
-      "rentAsPercentOfIncome": 18.3,
-      "homeValueToIncome": 3.7
-    },
-    "transportation": {
-      "driveAlone": 79.1,
-      "publicTransit": 0,
-      "workFromHome": 0.2,
-      "averageCommuteMinutes": 24.4
-    },
-    "education": {
-      "highSchoolOrHigher": 88.4,
-      "bachelorsOrHigher": 23.3,
-      "attainment": {
-        "lessThanHighSchool": 11.6,
-        "highSchoolGraduate": 31.5,
-        "someCollegeOrAssociate": 33.6,
-        "bachelorsOrHigher": 23.3
-      }
-    }
-  },
-  {
-    "rank": 35,
-    "name": "Nashville-Davidson--Murfreesboro--Franklin, TN Metro Area",
-    "slug": "nashville-davidson-murfreesboro-franklin",
-    "economics": {
-      "medianHouseholdIncome": 85447,
-      "povertyRate": 10.4
-    },
-    "housing": {
-      "medianGrossRent": 1528,
-      "medianHomeValue": 409600,
-      "rentAsPercentOfIncome": 21.5,
-      "homeValueToIncome": 4.8
-    },
-    "transportation": {
-      "driveAlone": 70.7,
-      "publicTransit": 0.6,
-      "workFromHome": 1.2,
-      "averageCommuteMinutes": 27.8
-    },
-    "education": {
-      "highSchoolOrHigher": 91.9,
-      "bachelorsOrHigher": 40.9,
-      "attainment": {
-        "lessThanHighSchool": 8.1,
-        "highSchoolGraduate": 25.4,
-        "someCollegeOrAssociate": 25.6,
-        "bachelorsOrHigher": 40.9
-      }
-    }
-  },
-  {
-    "rank": 36,
-    "name": "San Juan-Bayamón-Caguas, PR Metro Area",
-    "slug": "san-juan-bayam-n-caguas",
-    "economics": {
-      "medianHouseholdIncome": 29276,
-      "povertyRate": 37
-    },
-    "housing": {
-      "medianGrossRent": 623,
-      "medianHomeValue": 145900,
-      "rentAsPercentOfIncome": 25.5,
-      "homeValueToIncome": 5
-    },
-    "transportation": {
-      "driveAlone": 81,
-      "publicTransit": 1.1,
-      "workFromHome": 2,
-      "averageCommuteMinutes": 29.4
-    },
-    "education": {
-      "highSchoolOrHigher": 83.3,
-      "bachelorsOrHigher": 32.3,
-      "attainment": {
-        "lessThanHighSchool": 16.7,
-        "highSchoolGraduate": 26.4,
-        "someCollegeOrAssociate": 24.7,
-        "bachelorsOrHigher": 32.3
-      }
-    }
-  },
-  {
-    "rank": 37,
-    "name": "San Jose-Sunnyvale-Santa Clara, CA Metro Area",
-    "slug": "san-jose-sunnyvale-santa-clara",
-    "economics": {
-      "medianHouseholdIncome": 162111,
-      "povertyRate": 7.1
-    },
-    "housing": {
-      "medianGrossRent": 2840,
-      "medianHomeValue": 1447800,
-      "rentAsPercentOfIncome": 21,
-      "homeValueToIncome": 8.9
-    },
-    "transportation": {
-      "driveAlone": 60.3,
-      "publicTransit": 2.3,
-      "workFromHome": 1.5,
-      "averageCommuteMinutes": 26.6
-    },
-    "education": {
-      "highSchoolOrHigher": 89.1,
-      "bachelorsOrHigher": 55.5,
-      "attainment": {
-        "lessThanHighSchool": 10.9,
-        "highSchoolGraduate": 13.8,
-        "someCollegeOrAssociate": 19.8,
-        "bachelorsOrHigher": 55.5
-      }
-    }
-  },
-  {
-    "rank": 38,
-    "name": "Virginia Beach-Chesapeake-Norfolk, VA-NC Metro Area",
-    "slug": "virginia-beach-chesapeake-norfolk",
-    "economics": {
-      "medianHouseholdIncome": 82330,
-      "povertyRate": 10.8
-    },
-    "housing": {
-      "medianGrossRent": 1478,
-      "medianHomeValue": 340900,
-      "rentAsPercentOfIncome": 21.5,
-      "homeValueToIncome": 4.1
-    },
-    "transportation": {
-      "driveAlone": 74.3,
-      "publicTransit": 1.1,
-      "workFromHome": 1.5,
-      "averageCommuteMinutes": 24.9
-    },
-    "education": {
-      "highSchoolOrHigher": 93,
-      "bachelorsOrHigher": 35.8,
-      "attainment": {
-        "lessThanHighSchool": 7,
-        "highSchoolGraduate": 25.2,
-        "someCollegeOrAssociate": 32,
-        "bachelorsOrHigher": 35.8
-      }
-    }
-  },
-  {
-    "rank": 39,
-    "name": "Jacksonville, FL Metro Area",
-    "slug": "jacksonville",
-    "economics": {
-      "medianHouseholdIncome": 68148,
-      "povertyRate": 11.6
-    },
-    "housing": {
-      "medianGrossRent": 1265,
-      "medianHomeValue": 236400,
-      "rentAsPercentOfIncome": 22.3,
-      "homeValueToIncome": 3.5
-    },
-    "transportation": {
-      "driveAlone": 65.7,
-      "publicTransit": 0.2,
-      "workFromHome": 2.2,
-      "averageCommuteMinutes": 22.4
-    },
-    "education": {
-      "highSchoolOrHigher": 93.3,
-      "bachelorsOrHigher": 26,
-      "attainment": {
-        "lessThanHighSchool": 6.8,
-        "highSchoolGraduate": 29.3,
-        "someCollegeOrAssociate": 38.1,
-        "bachelorsOrHigher": 26
-      }
-    }
-  },
-  {
-    "rank": 40,
-    "name": "Providence-Warwick, RI-MA Metro Area",
-    "slug": "providence-warwick",
-    "economics": {
-      "medianHouseholdIncome": 87040,
-      "povertyRate": 11.2
-    },
-    "housing": {
-      "medianGrossRent": 1307,
-      "medianHomeValue": 422500,
-      "rentAsPercentOfIncome": 18,
-      "homeValueToIncome": 4.9
-    },
-    "transportation": {
-      "driveAlone": 73.2,
-      "publicTransit": 1.8,
-      "workFromHome": 1.7,
-      "averageCommuteMinutes": 26.6
-    },
-    "education": {
-      "highSchoolOrHigher": 88.7,
-      "bachelorsOrHigher": 35.3,
-      "attainment": {
-        "lessThanHighSchool": 11.3,
-        "highSchoolGraduate": 27.9,
-        "someCollegeOrAssociate": 25.4,
-        "bachelorsOrHigher": 35.3
-      }
-    }
-  },
-  {
-    "rank": 41,
-    "name": "Milwaukee-Waukesha, WI Metro Area",
-    "slug": "milwaukee-waukesha",
-    "economics": {
-      "medianHouseholdIncome": 78218,
-      "povertyRate": 12.3
-    },
-    "housing": {
-      "medianGrossRent": 1139,
-      "medianHomeValue": 306400,
-      "rentAsPercentOfIncome": 17.5,
-      "homeValueToIncome": 3.9
-    },
-    "transportation": {
-      "driveAlone": 72.1,
-      "publicTransit": 2,
-      "workFromHome": 1,
-      "averageCommuteMinutes": 22.7
-    },
-    "education": {
-      "highSchoolOrHigher": 92.7,
-      "bachelorsOrHigher": 39.6,
-      "attainment": {
-        "lessThanHighSchool": 7.2,
-        "highSchoolGraduate": 25.2,
-        "someCollegeOrAssociate": 27.9,
-        "bachelorsOrHigher": 39.6
-      }
-    }
-  },
-  {
-    "rank": 42,
-    "name": "Raleigh-Cary, NC Metro Area",
-    "slug": "raleigh-cary",
-    "economics": {
-      "medianHouseholdIncome": 100103,
-      "povertyRate": 8.7
-    },
-    "housing": {
-      "medianGrossRent": 1573,
-      "medianHomeValue": 418400,
-      "rentAsPercentOfIncome": 18.9,
-      "homeValueToIncome": 4.2
-    },
-    "transportation": {
-      "driveAlone": 64.3,
-      "publicTransit": 0.5,
-      "workFromHome": 1.3,
-      "averageCommuteMinutes": 26.8
-    },
-    "education": {
-      "highSchoolOrHigher": 93.2,
-      "bachelorsOrHigher": 51.2,
-      "attainment": {
-        "lessThanHighSchool": 6.9,
-        "highSchoolGraduate": 17.1,
-        "someCollegeOrAssociate": 24.9,
-        "bachelorsOrHigher": 51.2
-      }
-    }
-  },
-  {
-    "rank": 43,
-    "name": "Oklahoma City, OK Metro Area",
-    "slug": "oklahoma-city",
-    "economics": {
-      "medianHouseholdIncome": 72094,
-      "povertyRate": 13.9
-    },
-    "housing": {
-      "medianGrossRent": 1124,
-      "medianHomeValue": 230000,
-      "rentAsPercentOfIncome": 18.7,
-      "homeValueToIncome": 3.2
-    },
-    "transportation": {
-      "driveAlone": 76.7,
-      "publicTransit": 0.3,
-      "workFromHome": 1.2,
-      "averageCommuteMinutes": 23.4
-    },
-    "education": {
-      "highSchoolOrHigher": 90,
-      "bachelorsOrHigher": 34.1,
-      "attainment": {
-        "lessThanHighSchool": 10,
-        "highSchoolGraduate": 25.9,
-        "someCollegeOrAssociate": 30,
-        "bachelorsOrHigher": 34.1
-      }
-    }
-  },
-  {
-    "rank": 44,
-    "name": "Louisville/Jefferson County, KY-IN Metro Area",
-    "slug": "louisville-jefferson-county",
-    "economics": {
-      "medianHouseholdIncome": 73863,
-      "povertyRate": 12.3
-    },
-    "housing": {
-      "medianGrossRent": 1116,
-      "medianHomeValue": 248700,
-      "rentAsPercentOfIncome": 18.1,
-      "homeValueToIncome": 3.4
-    },
-    "transportation": {
-      "driveAlone": 74.6,
-      "publicTransit": 0.9,
-      "workFromHome": 1.2,
-      "averageCommuteMinutes": 24.1
-    },
-    "education": {
-      "highSchoolOrHigher": 91.3,
-      "bachelorsOrHigher": 32.9,
-      "attainment": {
-        "lessThanHighSchool": 8.7,
-        "highSchoolGraduate": 29.1,
-        "someCollegeOrAssociate": 29.3,
-        "bachelorsOrHigher": 32.9
-      }
-    }
-  },
-  {
-    "rank": 45,
-    "name": "Richmond, VA Metro Area",
-    "slug": "richmond",
-    "economics": {
-      "medianHouseholdIncome": 86679,
-      "povertyRate": 10
-    },
-    "housing": {
-      "medianGrossRent": 1447,
-      "medianHomeValue": 353500,
-      "rentAsPercentOfIncome": 20,
-      "homeValueToIncome": 4.1
-    },
-    "transportation": {
-      "driveAlone": 69.6,
-      "publicTransit": 1,
-      "workFromHome": 1.2,
-      "averageCommuteMinutes": 25.4
-    },
-    "education": {
-      "highSchoolOrHigher": 92.2,
-      "bachelorsOrHigher": 41.1,
-      "attainment": {
-        "lessThanHighSchool": 7.8,
-        "highSchoolGraduate": 24.2,
-        "someCollegeOrAssociate": 26.9,
-        "bachelorsOrHigher": 41.1
-      }
-    }
-  },
-  {
-    "rank": 46,
-    "name": "Memphis, TN-MS-AR Metro Area",
-    "slug": "memphis",
-    "economics": {
-      "medianHouseholdIncome": 66401,
-      "povertyRate": 16.5
-    },
-    "housing": {
-      "medianGrossRent": 1220,
-      "medianHomeValue": 245900,
-      "rentAsPercentOfIncome": 22,
-      "homeValueToIncome": 3.7
-    },
-    "transportation": {
-      "driveAlone": 78,
-      "publicTransit": 0.4,
-      "workFromHome": 1.1,
-      "averageCommuteMinutes": 24.3
-    },
-    "education": {
-      "highSchoolOrHigher": 89.6,
-      "bachelorsOrHigher": 31,
-      "attainment": {
-        "lessThanHighSchool": 10.4,
-        "highSchoolGraduate": 29.1,
-        "someCollegeOrAssociate": 29.5,
-        "bachelorsOrHigher": 31
-      }
-    }
-  },
-  {
-    "rank": 47,
-    "name": "Salt Lake City-Murray, UT Metro Area",
-    "slug": "salt-lake-city-murray",
-    "economics": {
-      "medianHouseholdIncome": 98083,
-      "povertyRate": 8
-    },
-    "housing": {
-      "medianGrossRent": 1583,
-      "medianHomeValue": 515400,
-      "rentAsPercentOfIncome": 19.4,
-      "homeValueToIncome": 5.3
-    },
-    "transportation": {
-      "driveAlone": 64.8,
-      "publicTransit": 2.1,
-      "workFromHome": 1.1,
-      "averageCommuteMinutes": 22.8
-    },
-    "education": {
-      "highSchoolOrHigher": 91.9,
-      "bachelorsOrHigher": 38.4,
-      "attainment": {
-        "lessThanHighSchool": 8.1,
-        "highSchoolGraduate": 22.5,
-        "someCollegeOrAssociate": 31,
-        "bachelorsOrHigher": 38.4
-      }
-    }
-  },
-  {
-    "rank": 48,
-    "name": "Fresno, CA Metro Area",
-    "slug": "fresno",
-    "economics": {
-      "medianHouseholdIncome": 74468,
-      "povertyRate": 18.4
-    },
-    "housing": {
-      "medianGrossRent": 1392,
-      "medianHomeValue": 389400,
-      "rentAsPercentOfIncome": 22.4,
-      "homeValueToIncome": 5.2
-    },
-    "transportation": {
-      "driveAlone": 73,
-      "publicTransit": 0.7,
-      "workFromHome": 2.5,
-      "averageCommuteMinutes": 24
-    },
-    "education": {
-      "highSchoolOrHigher": 78.3,
-      "bachelorsOrHigher": 23.4,
-      "attainment": {
-        "lessThanHighSchool": 21.7,
-        "highSchoolGraduate": 23.5,
-        "someCollegeOrAssociate": 31.3,
-        "bachelorsOrHigher": 23.4
-      }
-    }
-  },
-  {
-    "rank": 49,
-    "name": "Birmingham, AL Metro Area",
-    "slug": "birmingham",
-    "economics": {
-      "medianHouseholdIncome": 71498,
-      "povertyRate": 13.8
-    },
-    "housing": {
-      "medianGrossRent": 1172,
-      "medianHomeValue": 240200,
-      "rentAsPercentOfIncome": 19.7,
-      "homeValueToIncome": 3.4
-    },
-    "transportation": {
-      "driveAlone": 77.9,
-      "publicTransit": 0.4,
-      "workFromHome": 1,
-      "averageCommuteMinutes": 27
-    },
-    "education": {
-      "highSchoolOrHigher": 90.4,
-      "bachelorsOrHigher": 33.7,
-      "attainment": {
-        "lessThanHighSchool": 9.6,
-        "highSchoolGraduate": 27.7,
-        "someCollegeOrAssociate": 29,
-        "bachelorsOrHigher": 33.7
-      }
-    }
-  },
-  {
-    "rank": 50,
-    "name": "Grand Rapids-Wyoming-Kentwood, MI Metro Area",
-    "slug": "grand-rapids-wyoming-kentwood",
-    "economics": {
-      "medianHouseholdIncome": 82874,
-      "povertyRate": 9.7
-    },
-    "housing": {
-      "medianGrossRent": 1202,
-      "medianHomeValue": 285300,
-      "rentAsPercentOfIncome": 17.4,
-      "homeValueToIncome": 3.4
-    },
-    "transportation": {
-      "driveAlone": 75.3,
-      "publicTransit": 1.1,
-      "workFromHome": 0.9,
-      "averageCommuteMinutes": 22
-    },
-    "education": {
-      "highSchoolOrHigher": 92.6,
-      "bachelorsOrHigher": 36.5,
-      "attainment": {
-        "lessThanHighSchool": 7.4,
-        "highSchoolGraduate": 26.4,
-        "someCollegeOrAssociate": 29.6,
-        "bachelorsOrHigher": 36.5
-      }
-    }
-  },
-  {
-    "rank": 51,
-    "name": "Hartford-West Hartford-East Hartford, CT Metro Area",
-    "slug": "hartford-west-hartford-east-hartford",
-    "economics": {
-      "medianHouseholdIncome": 95118,
-      "povertyRate": 9.8
-    },
-    "housing": {
-      "medianGrossRent": 1416,
-      "medianHomeValue": 333500,
-      "rentAsPercentOfIncome": 17.9,
-      "homeValueToIncome": 3.5
-    },
-    "transportation": {
-      "driveAlone": 70,
-      "publicTransit": 2.5,
-      "workFromHome": 1.4,
-      "averageCommuteMinutes": 24
-    },
-    "education": {
-      "highSchoolOrHigher": 92.1,
-      "bachelorsOrHigher": 42.7,
-      "attainment": {
-        "lessThanHighSchool": 7.9,
-        "highSchoolGraduate": 24.8,
-        "someCollegeOrAssociate": 24.5,
-        "bachelorsOrHigher": 42.7
-      }
-    }
-  },
-  {
-    "rank": 52,
-    "name": "Buffalo-Cheektowaga, NY Metro Area",
-    "slug": "buffalo-cheektowaga",
-    "economics": {
-      "medianHouseholdIncome": 72237,
-      "povertyRate": 13.8
-    },
-    "housing": {
-      "medianGrossRent": 1057,
-      "medianHomeValue": 226100,
-      "rentAsPercentOfIncome": 17.6,
-      "homeValueToIncome": 3.1
-    },
-    "transportation": {
-      "driveAlone": 73.2,
-      "publicTransit": 2.4,
-      "workFromHome": 1.4,
-      "averageCommuteMinutes": 21.5
-    },
-    "education": {
-      "highSchoolOrHigher": 92.4,
-      "bachelorsOrHigher": 36.2,
-      "attainment": {
-        "lessThanHighSchool": 7.6,
-        "highSchoolGraduate": 26.5,
-        "someCollegeOrAssociate": 29.8,
-        "bachelorsOrHigher": 36.2
-      }
-    }
-  },
-  {
-    "rank": 53,
-    "name": "Tucson, AZ Metro Area",
-    "slug": "tucson",
-    "economics": {
-      "medianHouseholdIncome": 70315,
-      "povertyRate": 14.3
-    },
-    "housing": {
-      "medianGrossRent": 1212,
-      "medianHomeValue": 319700,
-      "rentAsPercentOfIncome": 20.7,
-      "homeValueToIncome": 4.5
-    },
-    "transportation": {
-      "driveAlone": 69.3,
-      "publicTransit": 1.5,
-      "workFromHome": 1.4,
-      "averageCommuteMinutes": 24.3
-    },
-    "education": {
-      "highSchoolOrHigher": 90.5,
-      "bachelorsOrHigher": 36.8,
-      "attainment": {
-        "lessThanHighSchool": 9.4,
-        "highSchoolGraduate": 21.1,
-        "someCollegeOrAssociate": 32.6,
-        "bachelorsOrHigher": 36.8
-      }
-    }
-  },
-  {
-    "rank": 54,
-    "name": "Tulsa, OK Metro Area",
-    "slug": "tulsa",
-    "economics": {
-      "medianHouseholdIncome": 69359,
-      "povertyRate": 13.8
-    },
-    "housing": {
-      "medianGrossRent": 1078,
-      "medianHomeValue": 221700,
-      "rentAsPercentOfIncome": 18.7,
-      "homeValueToIncome": 3.2
-    },
-    "transportation": {
-      "driveAlone": 77.1,
-      "publicTransit": 0.3,
-      "workFromHome": 1.2,
-      "averageCommuteMinutes": 22.1
-    },
-    "education": {
-      "highSchoolOrHigher": 90.4,
-      "bachelorsOrHigher": 30.5,
-      "attainment": {
-        "lessThanHighSchool": 9.6,
-        "highSchoolGraduate": 28.4,
-        "someCollegeOrAssociate": 31.4,
-        "bachelorsOrHigher": 30.5
-      }
-    }
-  },
-  {
-    "rank": 55,
-    "name": "Rochester, NY Metro Area",
-    "slug": "rochester",
-    "economics": {
-      "medianHouseholdIncome": 76284,
-      "povertyRate": 12.8
-    },
-    "housing": {
-      "medianGrossRent": 1143,
-      "medianHomeValue": 204600,
-      "rentAsPercentOfIncome": 18,
-      "homeValueToIncome": 2.7
-    },
-    "transportation": {
-      "driveAlone": 72.3,
-      "publicTransit": 1.4,
-      "workFromHome": 1.3,
-      "averageCommuteMinutes": 21
-    },
-    "education": {
-      "highSchoolOrHigher": 91.9,
-      "bachelorsOrHigher": 38.2,
-      "attainment": {
-        "lessThanHighSchool": 8,
-        "highSchoolGraduate": 25.2,
-        "someCollegeOrAssociate": 28.5,
-        "bachelorsOrHigher": 38.2
-      }
-    }
-  },
-  {
-    "rank": 56,
-    "name": "Omaha, NE-IA Metro Area",
-    "slug": "omaha",
-    "economics": {
-      "medianHouseholdIncome": 84829,
-      "povertyRate": 10
-    },
-    "housing": {
-      "medianGrossRent": 1192,
-      "medianHomeValue": 268600,
-      "rentAsPercentOfIncome": 16.9,
-      "homeValueToIncome": 3.2
-    },
-    "transportation": {
-      "driveAlone": 74.3,
-      "publicTransit": 0.6,
-      "workFromHome": 1.2,
-      "averageCommuteMinutes": 20.9
-    },
-    "education": {
-      "highSchoolOrHigher": 92.7,
-      "bachelorsOrHigher": 39.3,
-      "attainment": {
-        "lessThanHighSchool": 7.3,
-        "highSchoolGraduate": 22.6,
-        "someCollegeOrAssociate": 30.8,
-        "bachelorsOrHigher": 39.3
-      }
-    }
-  },
-  {
-    "rank": 57,
-    "name": "Greenville-Anderson-Greer, SC Metro Area",
-    "slug": "greenville-anderson-greer",
-    "economics": {
-      "medianHouseholdIncome": 71240,
-      "povertyRate": 13
-    },
-    "housing": {
-      "medianGrossRent": 1150,
-      "medianHomeValue": 264600,
-      "rentAsPercentOfIncome": 19.4,
-      "homeValueToIncome": 3.7
-    },
-    "transportation": {
-      "driveAlone": 76.7,
-      "publicTransit": 0.3,
-      "workFromHome": 1.5,
-      "averageCommuteMinutes": 24.6
-    },
-    "education": {
-      "highSchoolOrHigher": 89.4,
-      "bachelorsOrHigher": 34.6,
-      "attainment": {
-        "lessThanHighSchool": 10.5,
-        "highSchoolGraduate": 26.4,
-        "someCollegeOrAssociate": 28.4,
-        "bachelorsOrHigher": 34.6
-      }
-    }
-  },
-  {
-    "rank": 58,
-    "name": "Urban Honolulu, HI Metro Area",
-    "slug": "urban-honolulu",
-    "economics": {
-      "medianHouseholdIncome": 106195,
-      "povertyRate": 9.2
-    },
-    "housing": {
-      "medianGrossRent": 2083,
-      "medianHomeValue": 897500,
-      "rentAsPercentOfIncome": 23.5,
-      "homeValueToIncome": 8.5
-    },
-    "transportation": {
-      "driveAlone": 63.4,
-      "publicTransit": 4.9,
-      "workFromHome": 2.5,
-      "averageCommuteMinutes": 26.7
-    },
-    "education": {
-      "highSchoolOrHigher": 93.2,
-      "bachelorsOrHigher": 38.5,
-      "attainment": {
-        "lessThanHighSchool": 6.8,
-        "highSchoolGraduate": 25.1,
-        "someCollegeOrAssociate": 29.6,
-        "bachelorsOrHigher": 38.5
-      }
-    }
-  },
-  {
-    "rank": 59,
-    "name": "Bridgeport-Stamford-Danbury, CT Metro Area",
-    "slug": "bridgeport-stamford-danbury",
-    "economics": {
-      "medianHouseholdIncome": 114565,
-      "povertyRate": 9.2
-    },
-    "housing": {
-      "medianGrossRent": 1875,
-      "medianHomeValue": 564500,
-      "rentAsPercentOfIncome": 19.6,
-      "homeValueToIncome": 4.9
-    },
-    "transportation": {
-      "driveAlone": 60.9,
-      "publicTransit": 6.6,
-      "workFromHome": 1.5,
-      "averageCommuteMinutes": 31
-    },
-    "education": {
-      "highSchoolOrHigher": 90.2,
-      "bachelorsOrHigher": 50.9,
-      "attainment": {
-        "lessThanHighSchool": 9.8,
-        "highSchoolGraduate": 19.9,
-        "someCollegeOrAssociate": 19.5,
-        "bachelorsOrHigher": 50.9
-      }
-    }
-  },
-  {
-    "rank": 60,
-    "name": "New Orleans-Metairie, LA Metro Area",
-    "slug": "new-orleans-metairie",
-    "economics": {
-      "medianHouseholdIncome": 62655,
-      "povertyRate": 18.6
-    },
-    "housing": {
-      "medianGrossRent": 1217,
-      "medianHomeValue": 260200,
-      "rentAsPercentOfIncome": 23.3,
-      "homeValueToIncome": 4.2
-    },
-    "transportation": {
-      "driveAlone": 71.9,
-      "publicTransit": 2.2,
-      "workFromHome": 1.9,
-      "averageCommuteMinutes": 24.4
-    },
-    "education": {
-      "highSchoolOrHigher": 87.6,
-      "bachelorsOrHigher": 33.4,
-      "attainment": {
-        "lessThanHighSchool": 12.4,
-        "highSchoolGraduate": 25.9,
-        "someCollegeOrAssociate": 28.2,
-        "bachelorsOrHigher": 33.4
-      }
-    }
-  },
-  {
-    "rank": 61,
-    "name": "Knoxville, TN Metro Area",
-    "slug": "knoxville",
-    "economics": {
-      "medianHouseholdIncome": 72422,
-      "povertyRate": 12.2
-    },
-    "housing": {
-      "medianGrossRent": 1145,
-      "medianHomeValue": 290200,
-      "rentAsPercentOfIncome": 19,
-      "homeValueToIncome": 4
-    },
-    "transportation": {
-      "driveAlone": 77.3,
-      "publicTransit": 0.3,
-      "workFromHome": 0.9,
-      "averageCommuteMinutes": 24.4
-    },
-    "education": {
-      "highSchoolOrHigher": 90.9,
-      "bachelorsOrHigher": 32.7,
-      "attainment": {
-        "lessThanHighSchool": 9.1,
-        "highSchoolGraduate": 30.2,
-        "someCollegeOrAssociate": 27.9,
-        "bachelorsOrHigher": 32.7
-      }
-    }
-  },
-  {
-    "rank": 62,
-    "name": "North Port-Bradenton-Sarasota, FL Metro Area",
-    "slug": "north-port-bradenton-sarasota",
-    "economics": {
-      "medianHouseholdIncome": 80859,
-      "povertyRate": 9.2
-    },
-    "housing": {
-      "medianGrossRent": 1747,
-      "medianHomeValue": 402200,
-      "rentAsPercentOfIncome": 25.9,
-      "homeValueToIncome": 5
-    },
-    "transportation": {
-      "driveAlone": 70.7,
-      "publicTransit": 0.4,
-      "workFromHome": 1.7,
-      "averageCommuteMinutes": 25.9
-    },
-    "education": {
-      "highSchoolOrHigher": 93,
-      "bachelorsOrHigher": 38.3,
-      "attainment": {
-        "lessThanHighSchool": 7.1,
-        "highSchoolGraduate": 26.1,
-        "someCollegeOrAssociate": 28.6,
-        "bachelorsOrHigher": 38.3
-      }
-    }
-  },
-  {
-    "rank": 63,
-    "name": "Bakersfield-Delano, CA Metro Area",
-    "slug": "bakersfield-delano",
-    "economics": {
-      "medianHouseholdIncome": 70210,
-      "povertyRate": 19.1
-    },
-    "housing": {
-      "medianGrossRent": 1300,
-      "medianHomeValue": 338300,
-      "rentAsPercentOfIncome": 22.2,
-      "homeValueToIncome": 4.8
-    },
-    "transportation": {
-      "driveAlone": 78.4,
-      "publicTransit": 0.4,
-      "workFromHome": 1.2,
-      "averageCommuteMinutes": 24.4
-    },
-    "education": {
-      "highSchoolOrHigher": 77,
-      "bachelorsOrHigher": 18.8,
-      "attainment": {
-        "lessThanHighSchool": 23,
-        "highSchoolGraduate": 27.9,
-        "someCollegeOrAssociate": 30.3,
-        "bachelorsOrHigher": 18.8
-      }
-    }
-  },
-  {
-    "rank": 64,
-    "name": "Albuquerque, NM Metro Area",
-    "slug": "albuquerque",
-    "economics": {
-      "medianHouseholdIncome": 70783,
-      "povertyRate": 14.6
-    },
-    "housing": {
-      "medianGrossRent": 1156,
-      "medianHomeValue": 287800,
-      "rentAsPercentOfIncome": 19.6,
-      "homeValueToIncome": 4.1
-    },
-    "transportation": {
-      "driveAlone": 71.3,
-      "publicTransit": 0.7,
-      "workFromHome": 1.4,
-      "averageCommuteMinutes": 24.8
-    },
-    "education": {
-      "highSchoolOrHigher": 90.6,
-      "bachelorsOrHigher": 35.6,
-      "attainment": {
-        "lessThanHighSchool": 9.4,
-        "highSchoolGraduate": 23.7,
-        "someCollegeOrAssociate": 31.3,
-        "bachelorsOrHigher": 35.6
-      }
-    }
-  },
-  {
-    "rank": 65,
-    "name": "McAllen-Edinburg-Mission, TX Metro Area",
-    "slug": "mcallen-edinburg-mission",
-    "economics": {
-      "medianHouseholdIncome": 54338,
-      "povertyRate": 26.7
-    },
-    "housing": {
-      "medianGrossRent": 957,
-      "medianHomeValue": 140900,
-      "rentAsPercentOfIncome": 21.1,
-      "homeValueToIncome": 2.6
-    },
-    "transportation": {
-      "driveAlone": 74.7,
-      "publicTransit": 0.2,
-      "workFromHome": 3.6,
-      "averageCommuteMinutes": 22.5
-    },
-    "education": {
-      "highSchoolOrHigher": 70.2,
-      "bachelorsOrHigher": 20.6,
-      "attainment": {
-        "lessThanHighSchool": 29.7,
-        "highSchoolGraduate": 26.1,
-        "someCollegeOrAssociate": 23.4,
-        "bachelorsOrHigher": 20.6
-      }
-    }
-  },
-  {
-    "rank": 66,
-    "name": "Albany-Schenectady-Troy, NY Metro Area",
-    "slug": "albany-schenectady-troy",
-    "economics": {
-      "medianHouseholdIncome": 88074,
-      "povertyRate": 11.2
-    },
-    "housing": {
-      "medianGrossRent": 1280,
-      "medianHomeValue": 285900,
-      "rentAsPercentOfIncome": 17.4,
-      "homeValueToIncome": 3.2
-    },
-    "transportation": {
-      "driveAlone": 70.6,
-      "publicTransit": 2.6,
-      "workFromHome": 1.1,
-      "averageCommuteMinutes": 23.5
-    },
-    "education": {
-      "highSchoolOrHigher": 93.3,
-      "bachelorsOrHigher": 42.1,
-      "attainment": {
-        "lessThanHighSchool": 6.7,
-        "highSchoolGraduate": 23.5,
-        "someCollegeOrAssociate": 27.7,
-        "bachelorsOrHigher": 42.1
-      }
-    }
-  },
-  {
-    "rank": 67,
-    "name": "Baton Rouge, LA Metro Area",
-    "slug": "baton-rouge",
-    "economics": {
-      "medianHouseholdIncome": 69599,
-      "povertyRate": 16.6
-    },
-    "housing": {
-      "medianGrossRent": 1135,
-      "medianHomeValue": 241100,
-      "rentAsPercentOfIncome": 19.6,
-      "homeValueToIncome": 3.5
-    },
-    "transportation": {
-      "driveAlone": 80,
-      "publicTransit": 0.7,
-      "workFromHome": 0.7,
-      "averageCommuteMinutes": 27.2
-    },
-    "education": {
-      "highSchoolOrHigher": 89,
-      "bachelorsOrHigher": 30.4,
-      "attainment": {
-        "lessThanHighSchool": 11,
-        "highSchoolGraduate": 31,
-        "someCollegeOrAssociate": 27.5,
-        "bachelorsOrHigher": 30.4
-      }
-    }
-  },
-  {
-    "rank": 68,
-    "name": "Allentown-Bethlehem-Easton, PA-NJ Metro Area",
-    "slug": "allentown-bethlehem-easton",
-    "economics": {
-      "medianHouseholdIncome": 84587,
-      "povertyRate": 10.2
-    },
-    "housing": {
-      "medianGrossRent": 1365,
-      "medianHomeValue": 300800,
-      "rentAsPercentOfIncome": 19.4,
-      "homeValueToIncome": 3.6
-    },
-    "transportation": {
-      "driveAlone": 74.2,
-      "publicTransit": 1.2,
-      "workFromHome": 1.5,
-      "averageCommuteMinutes": 27.5
-    },
-    "education": {
-      "highSchoolOrHigher": 91.8,
-      "bachelorsOrHigher": 33.5,
-      "attainment": {
-        "lessThanHighSchool": 8.1,
-        "highSchoolGraduate": 32.6,
-        "someCollegeOrAssociate": 25.7,
-        "bachelorsOrHigher": 33.5
-      }
-    }
-  },
-  {
-    "rank": 69,
-    "name": "Worcester, MA Metro Area",
-    "slug": "worcester",
-    "economics": {
-      "medianHouseholdIncome": 95939,
-      "povertyRate": 10.3
-    },
-    "housing": {
-      "medianGrossRent": 1426,
-      "medianHomeValue": 423700,
-      "rentAsPercentOfIncome": 17.8,
-      "homeValueToIncome": 4.4
-    },
-    "transportation": {
-      "driveAlone": 70.5,
-      "publicTransit": 1.5,
-      "workFromHome": 2.3,
-      "averageCommuteMinutes": 29.2
-    },
-    "education": {
-      "highSchoolOrHigher": 91.2,
-      "bachelorsOrHigher": 39.7,
-      "attainment": {
-        "lessThanHighSchool": 8.8,
-        "highSchoolGraduate": 26.3,
-        "someCollegeOrAssociate": 25.3,
-        "bachelorsOrHigher": 39.7
-      }
-    }
-  },
-  {
-    "rank": 70,
-    "name": "El Paso, TX Metro Area",
-    "slug": "el-paso",
-    "economics": {
-      "medianHouseholdIncome": 59751,
-      "povertyRate": 18.7
-    },
-    "housing": {
-      "medianGrossRent": 1079,
-      "medianHomeValue": 180200,
-      "rentAsPercentOfIncome": 21.7,
-      "homeValueToIncome": 3
-    },
-    "transportation": {
-      "driveAlone": 74.9,
-      "publicTransit": 0.8,
-      "workFromHome": 1.8,
-      "averageCommuteMinutes": 24.1
-    },
-    "education": {
-      "highSchoolOrHigher": 81,
-      "bachelorsOrHigher": 25.9,
-      "attainment": {
-        "lessThanHighSchool": 19,
-        "highSchoolGraduate": 25.2,
-        "someCollegeOrAssociate": 29.9,
-        "bachelorsOrHigher": 25.9
-      }
-    }
-  },
-  {
-    "rank": 71,
-    "name": "Charleston-North Charleston, SC Metro Area",
-    "slug": "charleston-north-charleston",
-    "economics": {
-      "medianHouseholdIncome": 85254,
-      "povertyRate": 10.9
-    },
-    "housing": {
-      "medianGrossRent": 1605,
-      "medianHomeValue": 377500,
-      "rentAsPercentOfIncome": 22.6,
-      "homeValueToIncome": 4.4
-    },
-    "transportation": {
-      "driveAlone": 72.9,
-      "publicTransit": 0.6,
-      "workFromHome": 1.3,
-      "averageCommuteMinutes": 27.7
-    },
-    "education": {
-      "highSchoolOrHigher": 92.6,
-      "bachelorsOrHigher": 40.8,
-      "attainment": {
-        "lessThanHighSchool": 7.5,
-        "highSchoolGraduate": 22.5,
-        "someCollegeOrAssociate": 29.3,
-        "bachelorsOrHigher": 40.8
-      }
-    }
-  },
-  {
-    "rank": 72,
-    "name": "Columbia, SC Metro Area",
-    "slug": "columbia",
-    "economics": {
-      "medianHouseholdIncome": 68359,
-      "povertyRate": 14.5
-    },
-    "housing": {
-      "medianGrossRent": 1193,
-      "medianHomeValue": 232400,
-      "rentAsPercentOfIncome": 20.9,
-      "homeValueToIncome": 3.4
-    },
-    "transportation": {
-      "driveAlone": 74.6,
-      "publicTransit": 0.4,
-      "workFromHome": 1.7,
-      "averageCommuteMinutes": 25
-    },
-    "education": {
-      "highSchoolOrHigher": 91.4,
-      "bachelorsOrHigher": 35.4,
-      "attainment": {
-        "lessThanHighSchool": 8.6,
-        "highSchoolGraduate": 25.6,
-        "someCollegeOrAssociate": 30.4,
-        "bachelorsOrHigher": 35.4
-      }
-    }
-  },
-  {
-    "rank": 73,
-    "name": "Cape Coral-Fort Myers, FL Metro Area",
-    "slug": "cape-coral-fort-myers",
-    "economics": {
-      "medianHouseholdIncome": 76107,
-      "povertyRate": 12
-    },
-    "housing": {
-      "medianGrossRent": 1712,
-      "medianHomeValue": 362200,
-      "rentAsPercentOfIncome": 27,
-      "homeValueToIncome": 4.8
-    },
-    "transportation": {
-      "driveAlone": 70.8,
-      "publicTransit": 0.5,
-      "workFromHome": 2,
-      "averageCommuteMinutes": 29.4
-    },
-    "education": {
-      "highSchoolOrHigher": 90.3,
-      "bachelorsOrHigher": 31.2,
-      "attainment": {
-        "lessThanHighSchool": 9.7,
-        "highSchoolGraduate": 29.9,
-        "someCollegeOrAssociate": 29.2,
-        "bachelorsOrHigher": 31.2
-      }
-    }
-  },
-  {
-    "rank": 74,
-    "name": "Lakeland-Winter Haven, FL Metro Area",
-    "slug": "lakeland-winter-haven",
-    "economics": {
-      "medianHouseholdIncome": 65978,
-      "povertyRate": 14.5
-    },
-    "housing": {
-      "medianGrossRent": 1363,
-      "medianHomeValue": 266500,
-      "rentAsPercentOfIncome": 24.8,
-      "homeValueToIncome": 4
-    },
-    "transportation": {
-      "driveAlone": 75,
-      "publicTransit": 0.4,
-      "workFromHome": 1.9,
-      "averageCommuteMinutes": 30.5
-    },
-    "education": {
-      "highSchoolOrHigher": 87.9,
-      "bachelorsOrHigher": 23.5,
-      "attainment": {
-        "lessThanHighSchool": 12.1,
-        "highSchoolGraduate": 33,
-        "someCollegeOrAssociate": 31.5,
-        "bachelorsOrHigher": 23.5
-      }
-    }
-  },
-  {
-    "rank": 75,
-    "name": "Boise City, ID Metro Area",
-    "slug": "boise-city",
-    "economics": {
-      "medianHouseholdIncome": 85987,
-      "povertyRate": 9.2
-    },
-    "housing": {
-      "medianGrossRent": 1487,
-      "medianHomeValue": 468900,
-      "rentAsPercentOfIncome": 20.8,
-      "homeValueToIncome": 5.5
-    },
-    "transportation": {
-      "driveAlone": 70.7,
-      "publicTransit": 0.3,
-      "workFromHome": 1.4,
-      "averageCommuteMinutes": 22.9
-    },
-    "education": {
-      "highSchoolOrHigher": 92.6,
-      "bachelorsOrHigher": 37.1,
-      "attainment": {
-        "lessThanHighSchool": 7.4,
-        "highSchoolGraduate": 23.9,
-        "someCollegeOrAssociate": 31.6,
-        "bachelorsOrHigher": 37.1
-      }
-    }
-  },
-  {
-    "rank": 76,
-    "name": "Oxnard-Thousand Oaks-Ventura, CA Metro Area",
-    "slug": "oxnard-thousand-oaks-ventura",
-    "economics": {
-      "medianHouseholdIncome": 109797,
-      "povertyRate": 9.3
-    },
-    "housing": {
-      "medianGrossRent": 2317,
-      "medianHomeValue": 822700,
-      "rentAsPercentOfIncome": 25.3,
-      "homeValueToIncome": 7.5
-    },
-    "transportation": {
-      "driveAlone": 70.4,
-      "publicTransit": 0.6,
-      "workFromHome": 1.2,
-      "averageCommuteMinutes": 25.6
-    },
-    "education": {
-      "highSchoolOrHigher": 85.1,
-      "bachelorsOrHigher": 36.1,
-      "attainment": {
-        "lessThanHighSchool": 14.9,
-        "highSchoolGraduate": 19.3,
-        "someCollegeOrAssociate": 29.7,
-        "bachelorsOrHigher": 36.1
-      }
-    }
-  },
-  {
-    "rank": 77,
-    "name": "Dayton-Kettering-Beavercreek, OH Metro Area",
-    "slug": "dayton-kettering-beavercreek",
-    "economics": {
-      "medianHouseholdIncome": 71739,
-      "povertyRate": 13.2
-    },
-    "housing": {
-      "medianGrossRent": 1039,
-      "medianHomeValue": 201100,
-      "rentAsPercentOfIncome": 17.4,
-      "homeValueToIncome": 2.8
-    },
-    "transportation": {
-      "driveAlone": 76.7,
-      "publicTransit": 0.9,
-      "workFromHome": 0.8,
-      "averageCommuteMinutes": 22
-    },
-    "education": {
-      "highSchoolOrHigher": 93,
-      "bachelorsOrHigher": 32.8,
-      "attainment": {
-        "lessThanHighSchool": 7.1,
-        "highSchoolGraduate": 28,
-        "someCollegeOrAssociate": 32.1,
-        "bachelorsOrHigher": 32.8
-      }
-    }
-  },
-  {
-    "rank": 78,
-    "name": "Stockton-Lodi, CA Metro Area",
-    "slug": "stockton-lodi",
-    "economics": {
-      "medianHouseholdIncome": 92179,
-      "povertyRate": 12.4
-    },
-    "housing": {
-      "medianGrossRent": 1734,
-      "medianHomeValue": 530700,
-      "rentAsPercentOfIncome": 22.6,
-      "homeValueToIncome": 5.8
-    },
-    "transportation": {
-      "driveAlone": 73.7,
-      "publicTransit": 0.9,
-      "workFromHome": 1.1,
-      "averageCommuteMinutes": 34.1
-    },
-    "education": {
-      "highSchoolOrHigher": 80.9,
-      "bachelorsOrHigher": 22.7,
-      "attainment": {
-        "lessThanHighSchool": 19.2,
-        "highSchoolGraduate": 27.5,
-        "someCollegeOrAssociate": 30.6,
-        "bachelorsOrHigher": 22.7
-      }
-    }
-  },
-  {
-    "rank": 79,
-    "name": "Greensboro-High Point, NC Metro Area",
-    "slug": "greensboro-high-point",
-    "economics": {
-      "medianHouseholdIncome": 65565,
-      "povertyRate": 14.8
-    },
-    "housing": {
-      "medianGrossRent": 1093,
-      "medianHomeValue": 231000,
-      "rentAsPercentOfIncome": 20,
-      "homeValueToIncome": 3.5
-    },
-    "transportation": {
-      "driveAlone": 75.6,
-      "publicTransit": 0.8,
-      "workFromHome": 1.4,
-      "averageCommuteMinutes": 23.2
-    },
-    "education": {
-      "highSchoolOrHigher": 88.9,
-      "bachelorsOrHigher": 32.2,
-      "attainment": {
-        "lessThanHighSchool": 11.1,
-        "highSchoolGraduate": 26.2,
-        "someCollegeOrAssociate": 30.5,
-        "bachelorsOrHigher": 32.2
-      }
-    }
-  },
-  {
-    "rank": 80,
-    "name": "Colorado Springs, CO Metro Area",
-    "slug": "colorado-springs",
-    "economics": {
-      "medianHouseholdIncome": 90144,
-      "povertyRate": 8.5
-    },
-    "housing": {
-      "medianGrossRent": 1699,
-      "medianHomeValue": 461800,
-      "rentAsPercentOfIncome": 22.6,
-      "homeValueToIncome": 5.1
-    },
-    "transportation": {
-      "driveAlone": 69.1,
-      "publicTransit": 0.4,
-      "workFromHome": 1.1,
-      "averageCommuteMinutes": 23.7
-    },
-    "education": {
-      "highSchoolOrHigher": 95.1,
-      "bachelorsOrHigher": 41.7,
-      "attainment": {
-        "lessThanHighSchool": 4.9,
-        "highSchoolGraduate": 19.7,
-        "someCollegeOrAssociate": 33.6,
-        "bachelorsOrHigher": 41.7
-      }
-    }
-  },
-  {
-    "rank": 81,
-    "name": "Little Rock-North Little Rock-Conway, AR Metro Area",
-    "slug": "little-rock-north-little-rock-conway",
-    "economics": {
-      "medianHouseholdIncome": 67154,
-      "povertyRate": 14.2
-    },
-    "housing": {
-      "medianGrossRent": 1055,
-      "medianHomeValue": 214100,
-      "rentAsPercentOfIncome": 18.9,
-      "homeValueToIncome": 3.2
-    },
-    "transportation": {
-      "driveAlone": 78.4,
-      "publicTransit": 0.4,
-      "workFromHome": 1.1,
-      "averageCommuteMinutes": 23.4
-    },
-    "education": {
-      "highSchoolOrHigher": 92.3,
-      "bachelorsOrHigher": 33.7,
-      "attainment": {
-        "lessThanHighSchool": 7.7,
-        "highSchoolGraduate": 28.5,
-        "someCollegeOrAssociate": 30.2,
-        "bachelorsOrHigher": 33.7
-      }
-    }
-  },
-  {
-    "rank": 82,
-    "name": "Provo-Orem-Lehi, UT Metro Area",
-    "slug": "provo-orem-lehi",
-    "economics": {
-      "medianHouseholdIncome": 100704,
-      "povertyRate": 8.7
-    },
-    "housing": {
-      "medianGrossRent": 1534,
-      "medianHomeValue": 535500,
-      "rentAsPercentOfIncome": 18.3,
-      "homeValueToIncome": 5.3
-    },
-    "transportation": {
-      "driveAlone": 65.5,
-      "publicTransit": 1.7,
-      "workFromHome": 1,
-      "averageCommuteMinutes": 22.6
-    },
-    "education": {
-      "highSchoolOrHigher": 95.1,
-      "bachelorsOrHigher": 43.9,
-      "attainment": {
-        "lessThanHighSchool": 4.9,
-        "highSchoolGraduate": 16.9,
-        "someCollegeOrAssociate": 34.3,
-        "bachelorsOrHigher": 43.9
-      }
-    }
-  },
-  {
-    "rank": 83,
-    "name": "Des Moines-West Des Moines, IA Metro Area",
-    "slug": "des-moines-west-des-moines",
-    "economics": {
-      "medianHouseholdIncome": 85890,
-      "povertyRate": 9.1
-    },
-    "housing": {
-      "medianGrossRent": 1150,
-      "medianHomeValue": 267400,
-      "rentAsPercentOfIncome": 16.1,
-      "homeValueToIncome": 3.1
-    },
-    "transportation": {
-      "driveAlone": 72.7,
-      "publicTransit": 0.4,
-      "workFromHome": 1.3,
-      "averageCommuteMinutes": 21
-    },
-    "education": {
-      "highSchoolOrHigher": 93.4,
-      "bachelorsOrHigher": 39.7,
-      "attainment": {
-        "lessThanHighSchool": 6.6,
-        "highSchoolGraduate": 24.4,
-        "someCollegeOrAssociate": 29.3,
-        "bachelorsOrHigher": 39.7
-      }
-    }
-  },
-  {
-    "rank": 84,
-    "name": "Deltona-Daytona Beach-Ormond Beach, FL Metro Area",
-    "slug": "deltona-daytona-beach-ormond-beach",
-    "economics": {
-      "medianHouseholdIncome": 71277,
-      "povertyRate": 11.5
-    },
-    "housing": {
-      "medianGrossRent": 1500,
-      "medianHomeValue": 324300,
-      "rentAsPercentOfIncome": 25.3,
-      "homeValueToIncome": 4.5
-    },
-    "transportation": {
-      "driveAlone": 71.8,
-      "publicTransit": 0.4,
-      "workFromHome": 1.7,
-      "averageCommuteMinutes": 27.5
-    },
-    "education": {
-      "highSchoolOrHigher": 92.3,
-      "bachelorsOrHigher": 28.9,
-      "attainment": {
-        "lessThanHighSchool": 7.7,
-        "highSchoolGraduate": 30,
-        "someCollegeOrAssociate": 33.4,
-        "bachelorsOrHigher": 28.9
-      }
-    }
-  },
-  {
-    "rank": 85,
-    "name": "Kiryas Joel-Poughkeepsie-Newburgh, NY Metro Area",
-    "slug": "kiryas-joel-poughkeepsie-newburgh",
-    "economics": {
-      "medianHouseholdIncome": 98233,
-      "povertyRate": 10.9
-    },
-    "housing": {
-      "medianGrossRent": 1638,
-      "medianHomeValue": 393600,
-      "rentAsPercentOfIncome": 20,
-      "homeValueToIncome": 4
-    },
-    "transportation": {
-      "driveAlone": 67.8,
-      "publicTransit": 4.3,
-      "workFromHome": 1.7,
-      "averageCommuteMinutes": 32.8
-    },
-    "education": {
-      "highSchoolOrHigher": 90.8,
-      "bachelorsOrHigher": 36.6,
-      "attainment": {
-        "lessThanHighSchool": 9.3,
-        "highSchoolGraduate": 26.5,
-        "someCollegeOrAssociate": 27.6,
-        "bachelorsOrHigher": 36.6
-      }
-    }
-  },
-  {
-    "rank": 86,
-    "name": "Madison, WI Metro Area",
-    "slug": "madison",
-    "economics": {
-      "medianHouseholdIncome": 88804,
-      "povertyRate": 10.1
-    },
-    "housing": {
-      "medianGrossRent": 1354,
-      "medianHomeValue": 372400,
-      "rentAsPercentOfIncome": 18.3,
-      "homeValueToIncome": 4.2
-    },
-    "transportation": {
-      "driveAlone": 65.9,
-      "publicTransit": 2.5,
-      "workFromHome": 1.1,
-      "averageCommuteMinutes": 21.5
-    },
-    "education": {
-      "highSchoolOrHigher": 96,
-      "bachelorsOrHigher": 50.1,
-      "attainment": {
-        "lessThanHighSchool": 3.9,
-        "highSchoolGraduate": 20,
-        "someCollegeOrAssociate": 25.9,
-        "bachelorsOrHigher": 50.1
-      }
-    }
-  },
-  {
-    "rank": 87,
-    "name": "Winston-Salem, NC Metro Area",
-    "slug": "winston-salem",
-    "economics": {
-      "medianHouseholdIncome": 65975,
-      "povertyRate": 13.5
-    },
-    "housing": {
-      "medianGrossRent": 1016,
-      "medianHomeValue": 233300,
-      "rentAsPercentOfIncome": 18.5,
-      "homeValueToIncome": 3.5
-    },
-    "transportation": {
-      "driveAlone": 76.6,
-      "publicTransit": 0.4,
-      "workFromHome": 1.1,
-      "averageCommuteMinutes": 24.4
-    },
-    "education": {
-      "highSchoolOrHigher": 89.8,
-      "bachelorsOrHigher": 30.8,
-      "attainment": {
-        "lessThanHighSchool": 10.2,
-        "highSchoolGraduate": 28,
-        "someCollegeOrAssociate": 31.1,
-        "bachelorsOrHigher": 30.8
-      }
-    }
-  },
-  {
-    "rank": 88,
-    "name": "Akron, OH Metro Area",
-    "slug": "akron",
-    "economics": {
-      "medianHouseholdIncome": 72371,
-      "povertyRate": 12.6
-    },
-    "housing": {
-      "medianGrossRent": 1033,
-      "medianHomeValue": 213000,
-      "rentAsPercentOfIncome": 17.1,
-      "homeValueToIncome": 2.9
-    },
-    "transportation": {
-      "driveAlone": 74.4,
-      "publicTransit": 0.8,
-      "workFromHome": 1,
-      "averageCommuteMinutes": 23.5
-    },
-    "education": {
-      "highSchoolOrHigher": 92.8,
-      "bachelorsOrHigher": 35.1,
-      "attainment": {
-        "lessThanHighSchool": 7.2,
-        "highSchoolGraduate": 30.1,
-        "someCollegeOrAssociate": 27.7,
-        "bachelorsOrHigher": 35.1
-      }
-    }
-  },
-  {
-    "rank": 89,
-    "name": "Ogden, UT Metro Area",
-    "slug": "ogden",
-    "economics": {
-      "medianHouseholdIncome": 101203,
-      "povertyRate": 7
-    },
-    "housing": {
-      "medianGrossRent": 1500,
-      "medianHomeValue": 471500,
-      "rentAsPercentOfIncome": 17.8,
-      "homeValueToIncome": 4.7
-    },
-    "transportation": {
-      "driveAlone": 71.4,
-      "publicTransit": 1.2,
-      "workFromHome": 0.8,
-      "averageCommuteMinutes": 23.1
-    },
-    "education": {
-      "highSchoolOrHigher": 94.3,
-      "bachelorsOrHigher": 34.7,
-      "attainment": {
-        "lessThanHighSchool": 5.7,
-        "highSchoolGraduate": 24.3,
-        "someCollegeOrAssociate": 35.3,
-        "bachelorsOrHigher": 34.7
-      }
-    }
-  },
-  {
-    "rank": 90,
-    "name": "Wichita, KS Metro Area",
-    "slug": "wichita",
-    "economics": {
-      "medianHouseholdIncome": 70655,
-      "povertyRate": 13
-    },
-    "housing": {
-      "medianGrossRent": 987,
-      "medianHomeValue": 201200,
-      "rentAsPercentOfIncome": 16.8,
-      "homeValueToIncome": 2.8
-    },
-    "transportation": {
-      "driveAlone": 79.5,
-      "publicTransit": 0.5,
-      "workFromHome": 1.3,
-      "averageCommuteMinutes": 20
-    },
-    "education": {
-      "highSchoolOrHigher": 90.4,
-      "bachelorsOrHigher": 31.8,
-      "attainment": {
-        "lessThanHighSchool": 9.6,
-        "highSchoolGraduate": 26.4,
-        "someCollegeOrAssociate": 32.2,
-        "bachelorsOrHigher": 31.8
-      }
-    }
-  },
-  {
-    "rank": 91,
-    "name": "Palm Bay-Melbourne-Titusville, FL Metro Area",
-    "slug": "palm-bay-melbourne-titusville",
-    "economics": {
-      "medianHouseholdIncome": 78476,
-      "povertyRate": 10.2
-    },
-    "housing": {
-      "medianGrossRent": 1556,
-      "medianHomeValue": 339600,
-      "rentAsPercentOfIncome": 23.8,
-      "homeValueToIncome": 4.3
-    },
-    "transportation": {
-      "driveAlone": 74.6,
-      "publicTransit": 0.5,
-      "workFromHome": 1.4,
-      "averageCommuteMinutes": 25.4
-    },
-    "education": {
-      "highSchoolOrHigher": 93.3,
-      "bachelorsOrHigher": 34.2,
-      "attainment": {
-        "lessThanHighSchool": 6.7,
-        "highSchoolGraduate": 25.8,
-        "someCollegeOrAssociate": 33.3,
-        "bachelorsOrHigher": 34.2
-      }
-    }
-  },
-  {
-    "rank": 92,
-    "name": "Syracuse, NY Metro Area",
-    "slug": "syracuse",
-    "economics": {
-      "medianHouseholdIncome": 75492,
-      "povertyRate": 13.9
-    },
-    "housing": {
-      "medianGrossRent": 1077,
-      "medianHomeValue": 187700,
-      "rentAsPercentOfIncome": 17.1,
-      "homeValueToIncome": 2.5
-    },
-    "transportation": {
-      "driveAlone": 73.2,
-      "publicTransit": 1.7,
-      "workFromHome": 1.5,
-      "averageCommuteMinutes": 21.4
-    },
-    "education": {
-      "highSchoolOrHigher": 91.6,
-      "bachelorsOrHigher": 35.1,
-      "attainment": {
-        "lessThanHighSchool": 8.4,
-        "highSchoolGraduate": 27.1,
-        "someCollegeOrAssociate": 29.3,
-        "bachelorsOrHigher": 35.1
-      }
-    }
-  },
-  {
-    "rank": 93,
-    "name": "Augusta-Richmond County, GA-SC Metro Area",
-    "slug": "augusta-richmond-county",
-    "economics": {
-      "medianHouseholdIncome": 69344,
-      "povertyRate": 14.9
-    },
-    "housing": {
-      "medianGrossRent": 1120,
-      "medianHomeValue": 226100,
-      "rentAsPercentOfIncome": 19.4,
-      "homeValueToIncome": 3.3
-    },
-    "transportation": {
-      "driveAlone": 78.5,
-      "publicTransit": 0.6,
-      "workFromHome": 1.8,
-      "averageCommuteMinutes": 23.9
-    },
-    "education": {
-      "highSchoolOrHigher": 89.4,
-      "bachelorsOrHigher": 29.5,
-      "attainment": {
-        "lessThanHighSchool": 10.6,
-        "highSchoolGraduate": 29.1,
-        "someCollegeOrAssociate": 30.7,
-        "bachelorsOrHigher": 29.5
-      }
-    }
-  },
-  {
-    "rank": 94,
-    "name": "Durham-Chapel Hill, NC Metro Area",
-    "slug": "durham-chapel-hill",
-    "economics": {
-      "medianHouseholdIncome": 83500,
-      "povertyRate": 12.1
-    },
-    "housing": {
-      "medianGrossRent": 1466,
-      "medianHomeValue": 396100,
-      "rentAsPercentOfIncome": 21.1,
-      "homeValueToIncome": 4.7
-    },
-    "transportation": {
-      "driveAlone": 62.4,
-      "publicTransit": 2.1,
-      "workFromHome": 1.5,
-      "averageCommuteMinutes": 24.1
-    },
-    "education": {
-      "highSchoolOrHigher": 91.6,
-      "bachelorsOrHigher": 53.4,
-      "attainment": {
-        "lessThanHighSchool": 8.3,
-        "highSchoolGraduate": 16.5,
-        "someCollegeOrAssociate": 21.7,
-        "bachelorsOrHigher": 53.4
-      }
-    }
-  },
-  {
-    "rank": 95,
-    "name": "Harrisburg-Carlisle, PA Metro Area",
-    "slug": "harrisburg-carlisle",
-    "economics": {
-      "medianHouseholdIncome": 80919,
-      "povertyRate": 10.1
-    },
-    "housing": {
-      "medianGrossRent": 1212,
-      "medianHomeValue": 253100,
-      "rentAsPercentOfIncome": 18,
-      "homeValueToIncome": 3.1
-    },
-    "transportation": {
-      "driveAlone": 70.1,
-      "publicTransit": 0.7,
-      "workFromHome": 1.6,
-      "averageCommuteMinutes": 22.5
-    },
-    "education": {
-      "highSchoolOrHigher": 92.2,
-      "bachelorsOrHigher": 35.8,
-      "attainment": {
-        "lessThanHighSchool": 7.8,
-        "highSchoolGraduate": 32.1,
-        "someCollegeOrAssociate": 24.3,
-        "bachelorsOrHigher": 35.8
-      }
-    }
-  },
-  {
-    "rank": 96,
-    "name": "Jackson, MS Metro Area",
-    "slug": "jackson",
-    "economics": {
-      "medianHouseholdIncome": 61177,
-      "povertyRate": 16.4
-    },
-    "housing": {
-      "medianGrossRent": 997,
-      "medianHomeValue": 185300,
-      "rentAsPercentOfIncome": 19.6,
-      "homeValueToIncome": 3
-    },
-    "transportation": {
-      "driveAlone": 79.7,
-      "publicTransit": 0.4,
-      "workFromHome": 2.2,
-      "averageCommuteMinutes": 22.9
-    },
-    "education": {
-      "highSchoolOrHigher": 89.7,
-      "bachelorsOrHigher": 23.7,
-      "attainment": {
-        "lessThanHighSchool": 10.3,
-        "highSchoolGraduate": 37.4,
-        "someCollegeOrAssociate": 28.6,
-        "bachelorsOrHigher": 23.7
-      }
-    }
-  },
-  {
-    "rank": 97,
-    "name": "Fayetteville-Springdale-Rogers, AR Metro Area",
-    "slug": "fayetteville-springdale-rogers",
-    "economics": {
-      "medianHouseholdIncome": 81650,
-      "povertyRate": 10.8
-    },
-    "housing": {
-      "medianGrossRent": 1157,
-      "medianHomeValue": 307200,
-      "rentAsPercentOfIncome": 17,
-      "homeValueToIncome": 3.8
-    },
-    "transportation": {
-      "driveAlone": 75.6,
-      "publicTransit": 0.3,
-      "workFromHome": 0.8,
-      "averageCommuteMinutes": 21.6
-    },
-    "education": {
-      "highSchoolOrHigher": 89.2,
-      "bachelorsOrHigher": 35.9,
-      "attainment": {
-        "lessThanHighSchool": 10.8,
-        "highSchoolGraduate": 29,
-        "someCollegeOrAssociate": 24.3,
-        "bachelorsOrHigher": 35.9
-      }
-    }
-  },
-  {
-    "rank": 98,
-    "name": "Spokane-Spokane Valley, WA Metro Area",
-    "slug": "spokane-spokane-valley",
-    "economics": {
-      "medianHouseholdIncome": 77488,
-      "povertyRate": 11.7
-    },
-    "housing": {
-      "medianGrossRent": 1264,
-      "medianHomeValue": 405300,
-      "rentAsPercentOfIncome": 19.6,
-      "homeValueToIncome": 5.2
-    },
-    "transportation": {
-      "driveAlone": 70.3,
-      "publicTransit": 1.7,
-      "workFromHome": 1.3,
-      "averageCommuteMinutes": 22.9
-    },
-    "education": {
-      "highSchoolOrHigher": 94.5,
-      "bachelorsOrHigher": 32.2,
-      "attainment": {
-        "lessThanHighSchool": 5.5,
-        "highSchoolGraduate": 24.7,
-        "someCollegeOrAssociate": 37.6,
-        "bachelorsOrHigher": 32.2
-      }
-    }
-  },
-  {
-    "rank": 99,
-    "name": "Toledo, OH Metro Area",
-    "slug": "toledo",
-    "economics": {
-      "medianHouseholdIncome": 65486,
-      "povertyRate": 16
-    },
-    "housing": {
-      "medianGrossRent": 939,
-      "medianHomeValue": 176300,
-      "rentAsPercentOfIncome": 17.2,
-      "homeValueToIncome": 2.7
-    },
-    "transportation": {
-      "driveAlone": 79.6,
-      "publicTransit": 0.6,
-      "workFromHome": 0.9,
-      "averageCommuteMinutes": 20.8
-    },
-    "education": {
-      "highSchoolOrHigher": 92.5,
-      "bachelorsOrHigher": 30.2,
-      "attainment": {
-        "lessThanHighSchool": 7.5,
-        "highSchoolGraduate": 30.4,
-        "someCollegeOrAssociate": 31.8,
-        "bachelorsOrHigher": 30.2
-      }
-    }
-  },
-  {
-    "rank": 100,
-    "name": "Chattanooga, TN-GA Metro Area",
-    "slug": "chattanooga",
-    "economics": {
-      "medianHouseholdIncome": 72161,
-      "povertyRate": 13
-    },
-    "housing": {
-      "medianGrossRent": 1163,
-      "medianHomeValue": 272400,
-      "rentAsPercentOfIncome": 19.3,
-      "homeValueToIncome": 3.8
-    },
-    "transportation": {
-      "driveAlone": 75,
-      "publicTransit": 0.4,
-      "workFromHome": 0.8,
-      "averageCommuteMinutes": 24.1
-    },
-    "education": {
-      "highSchoolOrHigher": 90,
-      "bachelorsOrHigher": 31.9,
-      "attainment": {
-        "lessThanHighSchool": 10,
-        "highSchoolGraduate": 27.2,
-        "someCollegeOrAssociate": 30.9,
-        "bachelorsOrHigher": 31.9
-      }
-    }
-  }
+    rank: 1,
+    name: "New York-Newark-Jersey City, NY-NJ Metro Area",
+    slug: "new-york-newark-jersey-city",
+    economics: {
+      medianHouseholdIncome: 99155,
+      povertyRate: 12.7,
+    },
+    housing: {
+      medianGrossRent: 1830,
+      medianHomeValue: 614200,
+      rentAsPercentOfIncome: 22.1,
+      homeValueToIncome: 6.2,
+    },
+    transportation: {
+      driveAlone: 44.6,
+      publicTransit: 24.1,
+      workFromHome: 2.3,
+      averageCommuteMinutes: 35.6,
+    },
+    education: {
+      highSchoolOrHigher: 87.6,
+      bachelorsOrHigher: 44.2,
+      attainment: {
+        lessThanHighSchool: 12.4,
+        highSchoolGraduate: 22.9,
+        someCollegeOrAssociate: 20.6,
+        bachelorsOrHigher: 44.2,
+      },
+    },
+  },
+  {
+    rank: 2,
+    name: "Los Angeles-Long Beach-Anaheim, CA Metro Area",
+    slug: "los-angeles-long-beach-anaheim",
+    economics: {
+      medianHouseholdIncome: 95958,
+      povertyRate: 12.7,
+    },
+    housing: {
+      medianGrossRent: 2063,
+      medianHomeValue: 871300,
+      rentAsPercentOfIncome: 25.8,
+      homeValueToIncome: 9.1,
+    },
+    transportation: {
+      driveAlone: 65.5,
+      publicTransit: 3.2,
+      workFromHome: 1.9,
+      averageCommuteMinutes: 29.5,
+    },
+    education: {
+      highSchoolOrHigher: 82.4,
+      bachelorsOrHigher: 38,
+      attainment: {
+        lessThanHighSchool: 17.7,
+        highSchoolGraduate: 19.6,
+        someCollegeOrAssociate: 24.8,
+        bachelorsOrHigher: 38,
+      },
+    },
+  },
+  {
+    rank: 3,
+    name: "Chicago-Naperville-Elgin, IL-IN Metro Area",
+    slug: "chicago-naperville-elgin",
+    economics: {
+      medianHouseholdIncome: 90887,
+      povertyRate: 11.2,
+    },
+    housing: {
+      medianGrossRent: 1430,
+      medianHomeValue: 323000,
+      rentAsPercentOfIncome: 18.9,
+      homeValueToIncome: 3.6,
+    },
+    transportation: {
+      driveAlone: 62.1,
+      publicTransit: 7.5,
+      workFromHome: 1.5,
+      averageCommuteMinutes: 30.3,
+    },
+    education: {
+      highSchoolOrHigher: 89.8,
+      bachelorsOrHigher: 41.6,
+      attainment: {
+        lessThanHighSchool: 10.1,
+        highSchoolGraduate: 23,
+        someCollegeOrAssociate: 25.3,
+        bachelorsOrHigher: 41.6,
+      },
+    },
+  },
+  {
+    rank: 4,
+    name: "Dallas-Fort Worth-Arlington, TX Metro Area",
+    slug: "dallas-fort-worth-arlington",
+    economics: {
+      medianHouseholdIncome: 90275,
+      povertyRate: 10.5,
+    },
+    housing: {
+      medianGrossRent: 1614,
+      medianHomeValue: 359500,
+      rentAsPercentOfIncome: 21.5,
+      homeValueToIncome: 4,
+    },
+    transportation: {
+      driveAlone: 69.2,
+      publicTransit: 0.7,
+      workFromHome: 1.4,
+      averageCommuteMinutes: 27.9,
+    },
+    education: {
+      highSchoolOrHigher: 87.6,
+      bachelorsOrHigher: 39.4,
+      attainment: {
+        lessThanHighSchool: 12.4,
+        highSchoolGraduate: 21.6,
+        someCollegeOrAssociate: 26.7,
+        bachelorsOrHigher: 39.4,
+      },
+    },
+  },
+  {
+    rank: 5,
+    name: "Houston-Pasadena-The Woodlands, TX Metro Area",
+    slug: "houston-pasadena-the-woodlands",
+    economics: {
+      medianHouseholdIncome: 82168,
+      povertyRate: 13.9,
+    },
+    housing: {
+      medianGrossRent: 1430,
+      medianHomeValue: 298000,
+      rentAsPercentOfIncome: 20.9,
+      homeValueToIncome: 3.6,
+    },
+    transportation: {
+      driveAlone: 71.6,
+      publicTransit: 1.5,
+      workFromHome: 2,
+      averageCommuteMinutes: 29.9,
+    },
+    education: {
+      highSchoolOrHigher: 85.1,
+      bachelorsOrHigher: 36,
+      attainment: {
+        lessThanHighSchool: 14.9,
+        highSchoolGraduate: 22.6,
+        someCollegeOrAssociate: 26.5,
+        bachelorsOrHigher: 36,
+      },
+    },
+  },
+  {
+    rank: 6,
+    name: "Atlanta-Sandy Springs-Roswell, GA Metro Area",
+    slug: "atlanta-sandy-springs-roswell",
+    economics: {
+      medianHouseholdIncome: 89724,
+      povertyRate: 11,
+    },
+    housing: {
+      medianGrossRent: 1672,
+      medianHomeValue: 367600,
+      rentAsPercentOfIncome: 22.4,
+      homeValueToIncome: 4.1,
+    },
+    transportation: {
+      driveAlone: 66.3,
+      publicTransit: 1.5,
+      workFromHome: 1.8,
+      averageCommuteMinutes: 31,
+    },
+    education: {
+      highSchoolOrHigher: 91,
+      bachelorsOrHigher: 42.2,
+      attainment: {
+        lessThanHighSchool: 9,
+        highSchoolGraduate: 22.8,
+        someCollegeOrAssociate: 26,
+        bachelorsOrHigher: 42.2,
+      },
+    },
+  },
+  {
+    rank: 7,
+    name: "Washington-Arlington-Alexandria, DC-VA-MD-WV Metro Area",
+    slug: "washington-arlington-alexandria",
+    economics: {
+      medianHouseholdIncome: 126684,
+      povertyRate: 8.1,
+    },
+    housing: {
+      medianGrossRent: 2027,
+      medianHomeValue: 579900,
+      rentAsPercentOfIncome: 19.2,
+      homeValueToIncome: 4.6,
+    },
+    transportation: {
+      driveAlone: 54.7,
+      publicTransit: 7,
+      workFromHome: 1.8,
+      averageCommuteMinutes: 32.4,
+    },
+    education: {
+      highSchoolOrHigher: 91.4,
+      bachelorsOrHigher: 54.4,
+      attainment: {
+        lessThanHighSchool: 8.6,
+        highSchoolGraduate: 17.2,
+        someCollegeOrAssociate: 19.9,
+        bachelorsOrHigher: 54.4,
+      },
+    },
+  },
+  {
+    rank: 8,
+    name: "Miami-Fort Lauderdale-West Palm Beach, FL Metro Area",
+    slug: "miami-fort-lauderdale-west-palm-beach",
+    economics: {
+      medianHouseholdIncome: 76527,
+      povertyRate: 13.1,
+    },
+    housing: {
+      medianGrossRent: 1869,
+      medianHomeValue: 443300,
+      rentAsPercentOfIncome: 29.3,
+      homeValueToIncome: 5.8,
+    },
+    transportation: {
+      driveAlone: 69.2,
+      publicTransit: 2.4,
+      workFromHome: 2.3,
+      averageCommuteMinutes: 29.3,
+    },
+    education: {
+      highSchoolOrHigher: 87.3,
+      bachelorsOrHigher: 36.7,
+      attainment: {
+        lessThanHighSchool: 12.7,
+        highSchoolGraduate: 25.7,
+        someCollegeOrAssociate: 24.9,
+        bachelorsOrHigher: 36.7,
+      },
+    },
+  },
+  {
+    rank: 9,
+    name: "Philadelphia-Camden-Wilmington, PA-NJ-DE-MD Metro Area",
+    slug: "philadelphia-camden-wilmington",
+    economics: {
+      medianHouseholdIncome: 91289,
+      povertyRate: 11.5,
+    },
+    housing: {
+      medianGrossRent: 1480,
+      medianHomeValue: 351900,
+      rentAsPercentOfIncome: 19.5,
+      homeValueToIncome: 3.9,
+    },
+    transportation: {
+      driveAlone: 62.8,
+      publicTransit: 6.1,
+      workFromHome: 1.5,
+      averageCommuteMinutes: 28.7,
+    },
+    education: {
+      highSchoolOrHigher: 92.3,
+      bachelorsOrHigher: 42.2,
+      attainment: {
+        lessThanHighSchool: 7.7,
+        highSchoolGraduate: 26.8,
+        someCollegeOrAssociate: 23.2,
+        bachelorsOrHigher: 42.2,
+      },
+    },
+  },
+  {
+    rank: 10,
+    name: "Phoenix-Mesa-Chandler, AZ Metro Area",
+    slug: "phoenix-mesa-chandler",
+    economics: {
+      medianHouseholdIncome: 88301,
+      povertyRate: 11,
+    },
+    housing: {
+      medianGrossRent: 1702,
+      medianHomeValue: 440900,
+      rentAsPercentOfIncome: 23.1,
+      homeValueToIncome: 5,
+    },
+    transportation: {
+      driveAlone: 65.1,
+      publicTransit: 1.1,
+      workFromHome: 2,
+      averageCommuteMinutes: 26.4,
+    },
+    education: {
+      highSchoolOrHigher: 89.7,
+      bachelorsOrHigher: 35.3,
+      attainment: {
+        lessThanHighSchool: 10.3,
+        highSchoolGraduate: 22.7,
+        someCollegeOrAssociate: 31.7,
+        bachelorsOrHigher: 35.3,
+      },
+    },
+  },
+  {
+    rank: 11,
+    name: "Boston-Cambridge-Newton, MA-NH Metro Area",
+    slug: "boston-cambridge-newton",
+    economics: {
+      medianHouseholdIncome: 115863,
+      povertyRate: 8.9,
+    },
+    housing: {
+      medianGrossRent: 2023,
+      medianHomeValue: 646300,
+      rentAsPercentOfIncome: 21,
+      homeValueToIncome: 5.6,
+    },
+    transportation: {
+      driveAlone: 57.1,
+      publicTransit: 8.3,
+      workFromHome: 1.8,
+      averageCommuteMinutes: 30.3,
+    },
+    education: {
+      highSchoolOrHigher: 92.2,
+      bachelorsOrHigher: 51.9,
+      attainment: {
+        lessThanHighSchool: 7.7,
+        highSchoolGraduate: 20.4,
+        someCollegeOrAssociate: 19.9,
+        bachelorsOrHigher: 51.9,
+      },
+    },
+  },
+  {
+    rank: 12,
+    name: "Riverside-San Bernardino-Ontario, CA Metro Area",
+    slug: "riverside-san-bernardino-ontario",
+    economics: {
+      medianHouseholdIncome: 89662,
+      povertyRate: 11.9,
+    },
+    housing: {
+      medianGrossRent: 1846,
+      medianHomeValue: 536300,
+      rentAsPercentOfIncome: 24.7,
+      homeValueToIncome: 6,
+    },
+    transportation: {
+      driveAlone: 73.7,
+      publicTransit: 0.8,
+      workFromHome: 1.2,
+      averageCommuteMinutes: 33.2,
+    },
+    education: {
+      highSchoolOrHigher: 83,
+      bachelorsOrHigher: 24.5,
+      attainment: {
+        lessThanHighSchool: 17,
+        highSchoolGraduate: 27.5,
+        someCollegeOrAssociate: 31.1,
+        bachelorsOrHigher: 24.5,
+      },
+    },
+  },
+  {
+    rank: 13,
+    name: "San Francisco-Oakland-Fremont, CA Metro Area",
+    slug: "san-francisco-oakland-fremont",
+    economics: {
+      medianHouseholdIncome: 136027,
+      povertyRate: 8.9,
+    },
+    housing: {
+      medianGrossRent: 2474,
+      medianHomeValue: 1140700,
+      rentAsPercentOfIncome: 21.8,
+      homeValueToIncome: 8.4,
+    },
+    transportation: {
+      driveAlone: 50.1,
+      publicTransit: 8.7,
+      workFromHome: 1.9,
+      averageCommuteMinutes: 31,
+    },
+    education: {
+      highSchoolOrHigher: 89.5,
+      bachelorsOrHigher: 52.9,
+      attainment: {
+        lessThanHighSchool: 10.5,
+        highSchoolGraduate: 14.8,
+        someCollegeOrAssociate: 21.8,
+        bachelorsOrHigher: 52.9,
+      },
+    },
+  },
+  {
+    rank: 14,
+    name: "Detroit-Warren-Dearborn, MI Metro Area",
+    slug: "detroit-warren-dearborn",
+    economics: {
+      medianHouseholdIncome: 76664,
+      povertyRate: 13.6,
+    },
+    housing: {
+      medianGrossRent: 1207,
+      medianHomeValue: 249700,
+      rentAsPercentOfIncome: 18.9,
+      homeValueToIncome: 3.3,
+    },
+    transportation: {
+      driveAlone: 73.2,
+      publicTransit: 0.9,
+      workFromHome: 1.3,
+      averageCommuteMinutes: 26,
+    },
+    education: {
+      highSchoolOrHigher: 91.3,
+      bachelorsOrHigher: 34.8,
+      attainment: {
+        lessThanHighSchool: 8.7,
+        highSchoolGraduate: 25.7,
+        someCollegeOrAssociate: 30.8,
+        bachelorsOrHigher: 34.8,
+      },
+    },
+  },
+  {
+    rank: 15,
+    name: "Seattle-Tacoma-Bellevue, WA Metro Area",
+    slug: "seattle-tacoma-bellevue",
+    economics: {
+      medianHouseholdIncome: 115177,
+      povertyRate: 8.5,
+    },
+    housing: {
+      medianGrossRent: 2000,
+      medianHomeValue: 717500,
+      rentAsPercentOfIncome: 20.8,
+      homeValueToIncome: 6.2,
+    },
+    transportation: {
+      driveAlone: 57.7,
+      publicTransit: 5,
+      workFromHome: 1.2,
+      averageCommuteMinutes: 29.2,
+    },
+    education: {
+      highSchoolOrHigher: 93.4,
+      bachelorsOrHigher: 47.2,
+      attainment: {
+        lessThanHighSchool: 6.6,
+        highSchoolGraduate: 18.5,
+        someCollegeOrAssociate: 27.6,
+        bachelorsOrHigher: 47.2,
+      },
+    },
+  },
+  {
+    rank: 16,
+    name: "Minneapolis-St. Paul-Bloomington, MN-WI Metro Area",
+    slug: "minneapolis-st-paul-bloomington",
+    economics: {
+      medianHouseholdIncome: 99833,
+      povertyRate: 8.2,
+    },
+    housing: {
+      medianGrossRent: 1440,
+      medianHomeValue: 374000,
+      rentAsPercentOfIncome: 17.3,
+      homeValueToIncome: 3.7,
+    },
+    transportation: {
+      driveAlone: 65.9,
+      publicTransit: 2.1,
+      workFromHome: 1.3,
+      averageCommuteMinutes: 23.9,
+    },
+    education: {
+      highSchoolOrHigher: 94.3,
+      bachelorsOrHigher: 45.4,
+      attainment: {
+        lessThanHighSchool: 5.7,
+        highSchoolGraduate: 20,
+        someCollegeOrAssociate: 28.9,
+        bachelorsOrHigher: 45.4,
+      },
+    },
+  },
+  {
+    rank: 17,
+    name: "Tampa-St. Petersburg-Clearwater, FL Metro Area",
+    slug: "tampa-st-petersburg-clearwater",
+    economics: {
+      medianHouseholdIncome: 74392,
+      povertyRate: 12,
+    },
+    housing: {
+      medianGrossRent: 1628,
+      medianHomeValue: 345100,
+      rentAsPercentOfIncome: 26.3,
+      homeValueToIncome: 4.6,
+    },
+    transportation: {
+      driveAlone: 67.3,
+      publicTransit: 0.8,
+      workFromHome: 1.8,
+      averageCommuteMinutes: 28.3,
+    },
+    education: {
+      highSchoolOrHigher: 91.1,
+      bachelorsOrHigher: 34.9,
+      attainment: {
+        lessThanHighSchool: 9,
+        highSchoolGraduate: 27.2,
+        someCollegeOrAssociate: 29,
+        bachelorsOrHigher: 34.9,
+      },
+    },
+  },
+  {
+    rank: 18,
+    name: "San Diego-Chula Vista-Carlsbad, CA Metro Area",
+    slug: "san-diego-chula-vista-carlsbad",
+    economics: {
+      medianHouseholdIncome: 106268,
+      povertyRate: 10.3,
+    },
+    housing: {
+      medianGrossRent: 2246,
+      medianHomeValue: 854700,
+      rentAsPercentOfIncome: 25.4,
+      homeValueToIncome: 8,
+    },
+    transportation: {
+      driveAlone: 65.9,
+      publicTransit: 1.9,
+      workFromHome: 1.7,
+      averageCommuteMinutes: 25.5,
+    },
+    education: {
+      highSchoolOrHigher: 89.1,
+      bachelorsOrHigher: 43.2,
+      attainment: {
+        lessThanHighSchool: 10.8,
+        highSchoolGraduate: 17.9,
+        someCollegeOrAssociate: 28.1,
+        bachelorsOrHigher: 43.2,
+      },
+    },
+  },
+  {
+    rank: 19,
+    name: "Denver-Aurora-Centennial, CO Metro Area",
+    slug: "denver-aurora-centennial",
+    economics: {
+      medianHouseholdIncome: 105762,
+      povertyRate: 8.4,
+    },
+    housing: {
+      medianGrossRent: 1874,
+      medianHomeValue: 603800,
+      rentAsPercentOfIncome: 21.3,
+      homeValueToIncome: 5.7,
+    },
+    transportation: {
+      driveAlone: 63.1,
+      publicTransit: 2.2,
+      workFromHome: 1.3,
+      averageCommuteMinutes: 27,
+    },
+    education: {
+      highSchoolOrHigher: 92.3,
+      bachelorsOrHigher: 49.4,
+      attainment: {
+        lessThanHighSchool: 7.7,
+        highSchoolGraduate: 18,
+        someCollegeOrAssociate: 24.9,
+        bachelorsOrHigher: 49.4,
+      },
+    },
+  },
+  {
+    rank: 20,
+    name: "Orlando-Kissimmee-Sanford, FL Metro Area",
+    slug: "orlando-kissimmee-sanford",
+    economics: {
+      medianHouseholdIncome: 78533,
+      povertyRate: 11.7,
+    },
+    housing: {
+      medianGrossRent: 1760,
+      medianHomeValue: 369800,
+      rentAsPercentOfIncome: 26.9,
+      homeValueToIncome: 4.7,
+    },
+    transportation: {
+      driveAlone: 69,
+      publicTransit: 1,
+      workFromHome: 1.9,
+      averageCommuteMinutes: 29.2,
+    },
+    education: {
+      highSchoolOrHigher: 91.1,
+      bachelorsOrHigher: 36.7,
+      attainment: {
+        lessThanHighSchool: 8.9,
+        highSchoolGraduate: 25,
+        someCollegeOrAssociate: 29.4,
+        bachelorsOrHigher: 36.7,
+      },
+    },
+  },
+  {
+    rank: 21,
+    name: "Charlotte-Concord-Gastonia, NC-SC Metro Area",
+    slug: "charlotte-concord-gastonia",
+    economics: {
+      medianHouseholdIncome: 83304,
+      povertyRate: 10.6,
+    },
+    housing: {
+      medianGrossRent: 1473,
+      medianHomeValue: 356400,
+      rentAsPercentOfIncome: 21.2,
+      homeValueToIncome: 4.3,
+    },
+    transportation: {
+      driveAlone: 66.9,
+      publicTransit: 0.9,
+      workFromHome: 1.3,
+      averageCommuteMinutes: 26.6,
+    },
+    education: {
+      highSchoolOrHigher: 90.6,
+      bachelorsOrHigher: 39.9,
+      attainment: {
+        lessThanHighSchool: 9.3,
+        highSchoolGraduate: 22.5,
+        someCollegeOrAssociate: 28.2,
+        bachelorsOrHigher: 39.9,
+      },
+    },
+  },
+  {
+    rank: 22,
+    name: "Baltimore-Columbia-Towson, MD Metro Area",
+    slug: "baltimore-columbia-towson",
+    economics: {
+      medianHouseholdIncome: 99470,
+      povertyRate: 9.8,
+    },
+    housing: {
+      medianGrossRent: 1611,
+      medianHomeValue: 391300,
+      rentAsPercentOfIncome: 19.4,
+      homeValueToIncome: 3.9,
+    },
+    transportation: {
+      driveAlone: 67.3,
+      publicTransit: 3.3,
+      workFromHome: 1.6,
+      averageCommuteMinutes: 29.4,
+    },
+    education: {
+      highSchoolOrHigher: 92.2,
+      bachelorsOrHigher: 44,
+      attainment: {
+        lessThanHighSchool: 7.7,
+        highSchoolGraduate: 23.3,
+        someCollegeOrAssociate: 24.9,
+        bachelorsOrHigher: 44,
+      },
+    },
+  },
+  {
+    rank: 23,
+    name: "St. Louis, MO-IL Metro Area",
+    slug: "st-louis",
+    economics: {
+      medianHouseholdIncome: 80196,
+      povertyRate: 10.5,
+    },
+    housing: {
+      medianGrossRent: 1113,
+      medianHomeValue: 244800,
+      rentAsPercentOfIncome: 16.7,
+      homeValueToIncome: 3.1,
+    },
+    transportation: {
+      driveAlone: 73.5,
+      publicTransit: 1.3,
+      workFromHome: 1,
+      averageCommuteMinutes: 24.9,
+    },
+    education: {
+      highSchoolOrHigher: 93.6,
+      bachelorsOrHigher: 38.2,
+      attainment: {
+        lessThanHighSchool: 6.4,
+        highSchoolGraduate: 25.4,
+        someCollegeOrAssociate: 30.1,
+        bachelorsOrHigher: 38.2,
+      },
+    },
+  },
+  {
+    rank: 24,
+    name: "San Antonio-New Braunfels, TX Metro Area",
+    slug: "san-antonio-new-braunfels",
+    economics: {
+      medianHouseholdIncome: 76213,
+      povertyRate: 13.4,
+    },
+    housing: {
+      medianGrossRent: 1363,
+      medianHomeValue: 278800,
+      rentAsPercentOfIncome: 21.5,
+      homeValueToIncome: 3.7,
+    },
+    transportation: {
+      driveAlone: 69.4,
+      publicTransit: 1.3,
+      workFromHome: 1.5,
+      averageCommuteMinutes: 26.8,
+    },
+    education: {
+      highSchoolOrHigher: 87.6,
+      bachelorsOrHigher: 32.3,
+      attainment: {
+        lessThanHighSchool: 12.4,
+        highSchoolGraduate: 25.3,
+        someCollegeOrAssociate: 30,
+        bachelorsOrHigher: 32.3,
+      },
+    },
+  },
+  {
+    rank: 25,
+    name: "Austin-Round Rock-San Marcos, TX Metro Area",
+    slug: "austin-round-rock-san-marcos",
+    economics: {
+      medianHouseholdIncome: 100431,
+      povertyRate: 9.8,
+    },
+    housing: {
+      medianGrossRent: 1726,
+      medianHomeValue: 465000,
+      rentAsPercentOfIncome: 20.6,
+      homeValueToIncome: 4.6,
+    },
+    transportation: {
+      driveAlone: 60.9,
+      publicTransit: 1.1,
+      workFromHome: 1.6,
+      averageCommuteMinutes: 27.3,
+    },
+    education: {
+      highSchoolOrHigher: 91.9,
+      bachelorsOrHigher: 50.9,
+      attainment: {
+        lessThanHighSchool: 8.1,
+        highSchoolGraduate: 16.8,
+        someCollegeOrAssociate: 24.2,
+        bachelorsOrHigher: 50.9,
+      },
+    },
+  },
+  {
+    rank: 26,
+    name: "Portland-Vancouver-Hillsboro, OR-WA Metro Area",
+    slug: "portland-vancouver-hillsboro",
+    economics: {
+      medianHouseholdIncome: 97436,
+      povertyRate: 9.5,
+    },
+    housing: {
+      medianGrossRent: 1724,
+      medianHomeValue: 559400,
+      rentAsPercentOfIncome: 21.2,
+      homeValueToIncome: 5.7,
+    },
+    transportation: {
+      driveAlone: 61.3,
+      publicTransit: 3.1,
+      workFromHome: 1.2,
+      averageCommuteMinutes: 25,
+    },
+    education: {
+      highSchoolOrHigher: 92.8,
+      bachelorsOrHigher: 42.5,
+      attainment: {
+        lessThanHighSchool: 7.3,
+        highSchoolGraduate: 19.8,
+        someCollegeOrAssociate: 30.4,
+        bachelorsOrHigher: 42.5,
+      },
+    },
+  },
+  {
+    rank: 27,
+    name: "Sacramento-Roseville-Folsom, CA Metro Area",
+    slug: "sacramento-roseville-folsom",
+    economics: {
+      medianHouseholdIncome: 97188,
+      povertyRate: 11.5,
+    },
+    housing: {
+      medianGrossRent: 1819,
+      medianHomeValue: 589500,
+      rentAsPercentOfIncome: 22.5,
+      homeValueToIncome: 6.1,
+    },
+    transportation: {
+      driveAlone: 65.9,
+      publicTransit: 1.3,
+      workFromHome: 1.6,
+      averageCommuteMinutes: 27.1,
+    },
+    education: {
+      highSchoolOrHigher: 90.1,
+      bachelorsOrHigher: 37.1,
+      attainment: {
+        lessThanHighSchool: 9.9,
+        highSchoolGraduate: 20.6,
+        someCollegeOrAssociate: 32.5,
+        bachelorsOrHigher: 37.1,
+      },
+    },
+  },
+  {
+    rank: 28,
+    name: "Pittsburgh, PA Metro Area",
+    slug: "pittsburgh",
+    economics: {
+      medianHouseholdIncome: 75762,
+      povertyRate: 11.1,
+    },
+    housing: {
+      medianGrossRent: 1053,
+      medianHomeValue: 215000,
+      rentAsPercentOfIncome: 16.7,
+      homeValueToIncome: 2.8,
+    },
+    transportation: {
+      driveAlone: 68.6,
+      publicTransit: 3.2,
+      workFromHome: 1.2,
+      averageCommuteMinutes: 25.8,
+    },
+    education: {
+      highSchoolOrHigher: 95.1,
+      bachelorsOrHigher: 38.2,
+      attainment: {
+        lessThanHighSchool: 4.9,
+        highSchoolGraduate: 31.1,
+        someCollegeOrAssociate: 25.7,
+        bachelorsOrHigher: 38.2,
+      },
+    },
+  },
+  {
+    rank: 29,
+    name: "Las Vegas-Henderson-North Las Vegas, NV Metro Area",
+    slug: "las-vegas-henderson-north-las-vegas",
+    economics: {
+      medianHouseholdIncome: 76472,
+      povertyRate: 13,
+    },
+    housing: {
+      medianGrossRent: 1626,
+      medianHomeValue: 431000,
+      rentAsPercentOfIncome: 25.5,
+      homeValueToIncome: 5.6,
+    },
+    transportation: {
+      driveAlone: 70.8,
+      publicTransit: 2.2,
+      workFromHome: 2.6,
+      averageCommuteMinutes: 25.1,
+    },
+    education: {
+      highSchoolOrHigher: 86.9,
+      bachelorsOrHigher: 27.8,
+      attainment: {
+        lessThanHighSchool: 13.1,
+        highSchoolGraduate: 27.7,
+        someCollegeOrAssociate: 31.4,
+        bachelorsOrHigher: 27.8,
+      },
+    },
+  },
+  {
+    rank: 30,
+    name: "Cincinnati, OH-KY-IN Metro Area",
+    slug: "cincinnati",
+    economics: {
+      medianHouseholdIncome: 81120,
+      povertyRate: 11.8,
+    },
+    housing: {
+      medianGrossRent: 1105,
+      medianHomeValue: 258600,
+      rentAsPercentOfIncome: 16.3,
+      homeValueToIncome: 3.2,
+    },
+    transportation: {
+      driveAlone: 73.9,
+      publicTransit: 1.1,
+      workFromHome: 1.3,
+      averageCommuteMinutes: 24.7,
+    },
+    education: {
+      highSchoolOrHigher: 92.5,
+      bachelorsOrHigher: 37.1,
+      attainment: {
+        lessThanHighSchool: 7.5,
+        highSchoolGraduate: 28.5,
+        someCollegeOrAssociate: 26.9,
+        bachelorsOrHigher: 37.1,
+      },
+    },
+  },
+  {
+    rank: 31,
+    name: "Kansas City, MO-KS Metro Area",
+    slug: "kansas-city",
+    economics: {
+      medianHouseholdIncome: 83460,
+      povertyRate: 10,
+    },
+    housing: {
+      medianGrossRent: 1249,
+      medianHomeValue: 287300,
+      rentAsPercentOfIncome: 18,
+      homeValueToIncome: 3.4,
+    },
+    transportation: {
+      driveAlone: 72.8,
+      publicTransit: 0.6,
+      workFromHome: 1.2,
+      averageCommuteMinutes: 23.2,
+    },
+    education: {
+      highSchoolOrHigher: 93.2,
+      bachelorsOrHigher: 39.8,
+      attainment: {
+        lessThanHighSchool: 6.8,
+        highSchoolGraduate: 24.6,
+        someCollegeOrAssociate: 28.8,
+        bachelorsOrHigher: 39.8,
+      },
+    },
+  },
+  {
+    rank: 32,
+    name: "Columbus, OH Metro Area",
+    slug: "columbus",
+    economics: {
+      medianHouseholdIncome: 81945,
+      povertyRate: 12.3,
+    },
+    housing: {
+      medianGrossRent: 1274,
+      medianHomeValue: 300800,
+      rentAsPercentOfIncome: 18.7,
+      homeValueToIncome: 3.7,
+    },
+    transportation: {
+      driveAlone: 70,
+      publicTransit: 1.1,
+      workFromHome: 1.1,
+      averageCommuteMinutes: 23.6,
+    },
+    education: {
+      highSchoolOrHigher: 92.2,
+      bachelorsOrHigher: 39.8,
+      attainment: {
+        lessThanHighSchool: 7.8,
+        highSchoolGraduate: 26.6,
+        someCollegeOrAssociate: 25.8,
+        bachelorsOrHigher: 39.8,
+      },
+    },
+  },
+  {
+    rank: 33,
+    name: "Indianapolis-Carmel-Greenwood, IN Metro Area",
+    slug: "indianapolis-carmel-greenwood",
+    economics: {
+      medianHouseholdIncome: 79852,
+      povertyRate: 10.7,
+    },
+    housing: {
+      medianGrossRent: 1191,
+      medianHomeValue: 265900,
+      rentAsPercentOfIncome: 17.9,
+      homeValueToIncome: 3.3,
+    },
+    transportation: {
+      driveAlone: 73.1,
+      publicTransit: 0.6,
+      workFromHome: 1,
+      averageCommuteMinutes: 25.5,
+    },
+    education: {
+      highSchoolOrHigher: 91.3,
+      bachelorsOrHigher: 38.5,
+      attainment: {
+        lessThanHighSchool: 8.7,
+        highSchoolGraduate: 26.4,
+        someCollegeOrAssociate: 26.3,
+        bachelorsOrHigher: 38.5,
+      },
+    },
+  },
+  {
+    rank: 34,
+    name: "Cleveland, OH Metro Area",
+    slug: "cleveland",
+    economics: {
+      medianHouseholdIncome: 66135,
+      povertyRate: 12.9,
+    },
+    housing: {
+      medianGrossRent: 1006,
+      medianHomeValue: 247000,
+      rentAsPercentOfIncome: 18.3,
+      homeValueToIncome: 3.7,
+    },
+    transportation: {
+      driveAlone: 79.1,
+      publicTransit: 0,
+      workFromHome: 0.2,
+      averageCommuteMinutes: 24.4,
+    },
+    education: {
+      highSchoolOrHigher: 88.4,
+      bachelorsOrHigher: 23.3,
+      attainment: {
+        lessThanHighSchool: 11.6,
+        highSchoolGraduate: 31.5,
+        someCollegeOrAssociate: 33.6,
+        bachelorsOrHigher: 23.3,
+      },
+    },
+  },
+  {
+    rank: 35,
+    name: "Nashville-Davidson--Murfreesboro--Franklin, TN Metro Area",
+    slug: "nashville-davidson-murfreesboro-franklin",
+    economics: {
+      medianHouseholdIncome: 85447,
+      povertyRate: 10.4,
+    },
+    housing: {
+      medianGrossRent: 1528,
+      medianHomeValue: 409600,
+      rentAsPercentOfIncome: 21.5,
+      homeValueToIncome: 4.8,
+    },
+    transportation: {
+      driveAlone: 70.7,
+      publicTransit: 0.6,
+      workFromHome: 1.2,
+      averageCommuteMinutes: 27.8,
+    },
+    education: {
+      highSchoolOrHigher: 91.9,
+      bachelorsOrHigher: 40.9,
+      attainment: {
+        lessThanHighSchool: 8.1,
+        highSchoolGraduate: 25.4,
+        someCollegeOrAssociate: 25.6,
+        bachelorsOrHigher: 40.9,
+      },
+    },
+  },
+  {
+    rank: 36,
+    name: "San Juan-Bayamón-Caguas, PR Metro Area",
+    slug: "san-juan-bayam-n-caguas",
+    economics: {
+      medianHouseholdIncome: 29276,
+      povertyRate: 37,
+    },
+    housing: {
+      medianGrossRent: 623,
+      medianHomeValue: 145900,
+      rentAsPercentOfIncome: 25.5,
+      homeValueToIncome: 5,
+    },
+    transportation: {
+      driveAlone: 81,
+      publicTransit: 1.1,
+      workFromHome: 2,
+      averageCommuteMinutes: 29.4,
+    },
+    education: {
+      highSchoolOrHigher: 83.3,
+      bachelorsOrHigher: 32.3,
+      attainment: {
+        lessThanHighSchool: 16.7,
+        highSchoolGraduate: 26.4,
+        someCollegeOrAssociate: 24.7,
+        bachelorsOrHigher: 32.3,
+      },
+    },
+  },
+  {
+    rank: 37,
+    name: "San Jose-Sunnyvale-Santa Clara, CA Metro Area",
+    slug: "san-jose-sunnyvale-santa-clara",
+    economics: {
+      medianHouseholdIncome: 162111,
+      povertyRate: 7.1,
+    },
+    housing: {
+      medianGrossRent: 2840,
+      medianHomeValue: 1447800,
+      rentAsPercentOfIncome: 21,
+      homeValueToIncome: 8.9,
+    },
+    transportation: {
+      driveAlone: 60.3,
+      publicTransit: 2.3,
+      workFromHome: 1.5,
+      averageCommuteMinutes: 26.6,
+    },
+    education: {
+      highSchoolOrHigher: 89.1,
+      bachelorsOrHigher: 55.5,
+      attainment: {
+        lessThanHighSchool: 10.9,
+        highSchoolGraduate: 13.8,
+        someCollegeOrAssociate: 19.8,
+        bachelorsOrHigher: 55.5,
+      },
+    },
+  },
+  {
+    rank: 38,
+    name: "Virginia Beach-Chesapeake-Norfolk, VA-NC Metro Area",
+    slug: "virginia-beach-chesapeake-norfolk",
+    economics: {
+      medianHouseholdIncome: 82330,
+      povertyRate: 10.8,
+    },
+    housing: {
+      medianGrossRent: 1478,
+      medianHomeValue: 340900,
+      rentAsPercentOfIncome: 21.5,
+      homeValueToIncome: 4.1,
+    },
+    transportation: {
+      driveAlone: 74.3,
+      publicTransit: 1.1,
+      workFromHome: 1.5,
+      averageCommuteMinutes: 24.9,
+    },
+    education: {
+      highSchoolOrHigher: 93,
+      bachelorsOrHigher: 35.8,
+      attainment: {
+        lessThanHighSchool: 7,
+        highSchoolGraduate: 25.2,
+        someCollegeOrAssociate: 32,
+        bachelorsOrHigher: 35.8,
+      },
+    },
+  },
+  {
+    rank: 39,
+    name: "Jacksonville, FL Metro Area",
+    slug: "jacksonville",
+    economics: {
+      medianHouseholdIncome: 68148,
+      povertyRate: 11.6,
+    },
+    housing: {
+      medianGrossRent: 1265,
+      medianHomeValue: 236400,
+      rentAsPercentOfIncome: 22.3,
+      homeValueToIncome: 3.5,
+    },
+    transportation: {
+      driveAlone: 65.7,
+      publicTransit: 0.2,
+      workFromHome: 2.2,
+      averageCommuteMinutes: 22.4,
+    },
+    education: {
+      highSchoolOrHigher: 93.3,
+      bachelorsOrHigher: 26,
+      attainment: {
+        lessThanHighSchool: 6.8,
+        highSchoolGraduate: 29.3,
+        someCollegeOrAssociate: 38.1,
+        bachelorsOrHigher: 26,
+      },
+    },
+  },
+  {
+    rank: 40,
+    name: "Providence-Warwick, RI-MA Metro Area",
+    slug: "providence-warwick",
+    economics: {
+      medianHouseholdIncome: 87040,
+      povertyRate: 11.2,
+    },
+    housing: {
+      medianGrossRent: 1307,
+      medianHomeValue: 422500,
+      rentAsPercentOfIncome: 18,
+      homeValueToIncome: 4.9,
+    },
+    transportation: {
+      driveAlone: 73.2,
+      publicTransit: 1.8,
+      workFromHome: 1.7,
+      averageCommuteMinutes: 26.6,
+    },
+    education: {
+      highSchoolOrHigher: 88.7,
+      bachelorsOrHigher: 35.3,
+      attainment: {
+        lessThanHighSchool: 11.3,
+        highSchoolGraduate: 27.9,
+        someCollegeOrAssociate: 25.4,
+        bachelorsOrHigher: 35.3,
+      },
+    },
+  },
+  {
+    rank: 41,
+    name: "Milwaukee-Waukesha, WI Metro Area",
+    slug: "milwaukee-waukesha",
+    economics: {
+      medianHouseholdIncome: 78218,
+      povertyRate: 12.3,
+    },
+    housing: {
+      medianGrossRent: 1139,
+      medianHomeValue: 306400,
+      rentAsPercentOfIncome: 17.5,
+      homeValueToIncome: 3.9,
+    },
+    transportation: {
+      driveAlone: 72.1,
+      publicTransit: 2,
+      workFromHome: 1,
+      averageCommuteMinutes: 22.7,
+    },
+    education: {
+      highSchoolOrHigher: 92.7,
+      bachelorsOrHigher: 39.6,
+      attainment: {
+        lessThanHighSchool: 7.2,
+        highSchoolGraduate: 25.2,
+        someCollegeOrAssociate: 27.9,
+        bachelorsOrHigher: 39.6,
+      },
+    },
+  },
+  {
+    rank: 42,
+    name: "Raleigh-Cary, NC Metro Area",
+    slug: "raleigh-cary",
+    economics: {
+      medianHouseholdIncome: 100103,
+      povertyRate: 8.7,
+    },
+    housing: {
+      medianGrossRent: 1573,
+      medianHomeValue: 418400,
+      rentAsPercentOfIncome: 18.9,
+      homeValueToIncome: 4.2,
+    },
+    transportation: {
+      driveAlone: 64.3,
+      publicTransit: 0.5,
+      workFromHome: 1.3,
+      averageCommuteMinutes: 26.8,
+    },
+    education: {
+      highSchoolOrHigher: 93.2,
+      bachelorsOrHigher: 51.2,
+      attainment: {
+        lessThanHighSchool: 6.9,
+        highSchoolGraduate: 17.1,
+        someCollegeOrAssociate: 24.9,
+        bachelorsOrHigher: 51.2,
+      },
+    },
+  },
+  {
+    rank: 43,
+    name: "Oklahoma City, OK Metro Area",
+    slug: "oklahoma-city",
+    economics: {
+      medianHouseholdIncome: 72094,
+      povertyRate: 13.9,
+    },
+    housing: {
+      medianGrossRent: 1124,
+      medianHomeValue: 230000,
+      rentAsPercentOfIncome: 18.7,
+      homeValueToIncome: 3.2,
+    },
+    transportation: {
+      driveAlone: 76.7,
+      publicTransit: 0.3,
+      workFromHome: 1.2,
+      averageCommuteMinutes: 23.4,
+    },
+    education: {
+      highSchoolOrHigher: 90,
+      bachelorsOrHigher: 34.1,
+      attainment: {
+        lessThanHighSchool: 10,
+        highSchoolGraduate: 25.9,
+        someCollegeOrAssociate: 30,
+        bachelorsOrHigher: 34.1,
+      },
+    },
+  },
+  {
+    rank: 44,
+    name: "Louisville/Jefferson County, KY-IN Metro Area",
+    slug: "louisville-jefferson-county",
+    economics: {
+      medianHouseholdIncome: 73863,
+      povertyRate: 12.3,
+    },
+    housing: {
+      medianGrossRent: 1116,
+      medianHomeValue: 248700,
+      rentAsPercentOfIncome: 18.1,
+      homeValueToIncome: 3.4,
+    },
+    transportation: {
+      driveAlone: 74.6,
+      publicTransit: 0.9,
+      workFromHome: 1.2,
+      averageCommuteMinutes: 24.1,
+    },
+    education: {
+      highSchoolOrHigher: 91.3,
+      bachelorsOrHigher: 32.9,
+      attainment: {
+        lessThanHighSchool: 8.7,
+        highSchoolGraduate: 29.1,
+        someCollegeOrAssociate: 29.3,
+        bachelorsOrHigher: 32.9,
+      },
+    },
+  },
+  {
+    rank: 45,
+    name: "Richmond, VA Metro Area",
+    slug: "richmond",
+    economics: {
+      medianHouseholdIncome: 86679,
+      povertyRate: 10,
+    },
+    housing: {
+      medianGrossRent: 1447,
+      medianHomeValue: 353500,
+      rentAsPercentOfIncome: 20,
+      homeValueToIncome: 4.1,
+    },
+    transportation: {
+      driveAlone: 69.6,
+      publicTransit: 1,
+      workFromHome: 1.2,
+      averageCommuteMinutes: 25.4,
+    },
+    education: {
+      highSchoolOrHigher: 92.2,
+      bachelorsOrHigher: 41.1,
+      attainment: {
+        lessThanHighSchool: 7.8,
+        highSchoolGraduate: 24.2,
+        someCollegeOrAssociate: 26.9,
+        bachelorsOrHigher: 41.1,
+      },
+    },
+  },
+  {
+    rank: 46,
+    name: "Memphis, TN-MS-AR Metro Area",
+    slug: "memphis",
+    economics: {
+      medianHouseholdIncome: 66401,
+      povertyRate: 16.5,
+    },
+    housing: {
+      medianGrossRent: 1220,
+      medianHomeValue: 245900,
+      rentAsPercentOfIncome: 22,
+      homeValueToIncome: 3.7,
+    },
+    transportation: {
+      driveAlone: 78,
+      publicTransit: 0.4,
+      workFromHome: 1.1,
+      averageCommuteMinutes: 24.3,
+    },
+    education: {
+      highSchoolOrHigher: 89.6,
+      bachelorsOrHigher: 31,
+      attainment: {
+        lessThanHighSchool: 10.4,
+        highSchoolGraduate: 29.1,
+        someCollegeOrAssociate: 29.5,
+        bachelorsOrHigher: 31,
+      },
+    },
+  },
+  {
+    rank: 47,
+    name: "Salt Lake City-Murray, UT Metro Area",
+    slug: "salt-lake-city-murray",
+    economics: {
+      medianHouseholdIncome: 98083,
+      povertyRate: 8,
+    },
+    housing: {
+      medianGrossRent: 1583,
+      medianHomeValue: 515400,
+      rentAsPercentOfIncome: 19.4,
+      homeValueToIncome: 5.3,
+    },
+    transportation: {
+      driveAlone: 64.8,
+      publicTransit: 2.1,
+      workFromHome: 1.1,
+      averageCommuteMinutes: 22.8,
+    },
+    education: {
+      highSchoolOrHigher: 91.9,
+      bachelorsOrHigher: 38.4,
+      attainment: {
+        lessThanHighSchool: 8.1,
+        highSchoolGraduate: 22.5,
+        someCollegeOrAssociate: 31,
+        bachelorsOrHigher: 38.4,
+      },
+    },
+  },
+  {
+    rank: 48,
+    name: "Fresno, CA Metro Area",
+    slug: "fresno",
+    economics: {
+      medianHouseholdIncome: 74468,
+      povertyRate: 18.4,
+    },
+    housing: {
+      medianGrossRent: 1392,
+      medianHomeValue: 389400,
+      rentAsPercentOfIncome: 22.4,
+      homeValueToIncome: 5.2,
+    },
+    transportation: {
+      driveAlone: 73,
+      publicTransit: 0.7,
+      workFromHome: 2.5,
+      averageCommuteMinutes: 24,
+    },
+    education: {
+      highSchoolOrHigher: 78.3,
+      bachelorsOrHigher: 23.4,
+      attainment: {
+        lessThanHighSchool: 21.7,
+        highSchoolGraduate: 23.5,
+        someCollegeOrAssociate: 31.3,
+        bachelorsOrHigher: 23.4,
+      },
+    },
+  },
+  {
+    rank: 49,
+    name: "Birmingham, AL Metro Area",
+    slug: "birmingham",
+    economics: {
+      medianHouseholdIncome: 71498,
+      povertyRate: 13.8,
+    },
+    housing: {
+      medianGrossRent: 1172,
+      medianHomeValue: 240200,
+      rentAsPercentOfIncome: 19.7,
+      homeValueToIncome: 3.4,
+    },
+    transportation: {
+      driveAlone: 77.9,
+      publicTransit: 0.4,
+      workFromHome: 1,
+      averageCommuteMinutes: 27,
+    },
+    education: {
+      highSchoolOrHigher: 90.4,
+      bachelorsOrHigher: 33.7,
+      attainment: {
+        lessThanHighSchool: 9.6,
+        highSchoolGraduate: 27.7,
+        someCollegeOrAssociate: 29,
+        bachelorsOrHigher: 33.7,
+      },
+    },
+  },
+  {
+    rank: 50,
+    name: "Grand Rapids-Wyoming-Kentwood, MI Metro Area",
+    slug: "grand-rapids-wyoming-kentwood",
+    economics: {
+      medianHouseholdIncome: 82874,
+      povertyRate: 9.7,
+    },
+    housing: {
+      medianGrossRent: 1202,
+      medianHomeValue: 285300,
+      rentAsPercentOfIncome: 17.4,
+      homeValueToIncome: 3.4,
+    },
+    transportation: {
+      driveAlone: 75.3,
+      publicTransit: 1.1,
+      workFromHome: 0.9,
+      averageCommuteMinutes: 22,
+    },
+    education: {
+      highSchoolOrHigher: 92.6,
+      bachelorsOrHigher: 36.5,
+      attainment: {
+        lessThanHighSchool: 7.4,
+        highSchoolGraduate: 26.4,
+        someCollegeOrAssociate: 29.6,
+        bachelorsOrHigher: 36.5,
+      },
+    },
+  },
+  {
+    rank: 51,
+    name: "Hartford-West Hartford-East Hartford, CT Metro Area",
+    slug: "hartford-west-hartford-east-hartford",
+    economics: {
+      medianHouseholdIncome: 95118,
+      povertyRate: 9.8,
+    },
+    housing: {
+      medianGrossRent: 1416,
+      medianHomeValue: 333500,
+      rentAsPercentOfIncome: 17.9,
+      homeValueToIncome: 3.5,
+    },
+    transportation: {
+      driveAlone: 70,
+      publicTransit: 2.5,
+      workFromHome: 1.4,
+      averageCommuteMinutes: 24,
+    },
+    education: {
+      highSchoolOrHigher: 92.1,
+      bachelorsOrHigher: 42.7,
+      attainment: {
+        lessThanHighSchool: 7.9,
+        highSchoolGraduate: 24.8,
+        someCollegeOrAssociate: 24.5,
+        bachelorsOrHigher: 42.7,
+      },
+    },
+  },
+  {
+    rank: 52,
+    name: "Buffalo-Cheektowaga, NY Metro Area",
+    slug: "buffalo-cheektowaga",
+    economics: {
+      medianHouseholdIncome: 72237,
+      povertyRate: 13.8,
+    },
+    housing: {
+      medianGrossRent: 1057,
+      medianHomeValue: 226100,
+      rentAsPercentOfIncome: 17.6,
+      homeValueToIncome: 3.1,
+    },
+    transportation: {
+      driveAlone: 73.2,
+      publicTransit: 2.4,
+      workFromHome: 1.4,
+      averageCommuteMinutes: 21.5,
+    },
+    education: {
+      highSchoolOrHigher: 92.4,
+      bachelorsOrHigher: 36.2,
+      attainment: {
+        lessThanHighSchool: 7.6,
+        highSchoolGraduate: 26.5,
+        someCollegeOrAssociate: 29.8,
+        bachelorsOrHigher: 36.2,
+      },
+    },
+  },
+  {
+    rank: 53,
+    name: "Tucson, AZ Metro Area",
+    slug: "tucson",
+    economics: {
+      medianHouseholdIncome: 70315,
+      povertyRate: 14.3,
+    },
+    housing: {
+      medianGrossRent: 1212,
+      medianHomeValue: 319700,
+      rentAsPercentOfIncome: 20.7,
+      homeValueToIncome: 4.5,
+    },
+    transportation: {
+      driveAlone: 69.3,
+      publicTransit: 1.5,
+      workFromHome: 1.4,
+      averageCommuteMinutes: 24.3,
+    },
+    education: {
+      highSchoolOrHigher: 90.5,
+      bachelorsOrHigher: 36.8,
+      attainment: {
+        lessThanHighSchool: 9.4,
+        highSchoolGraduate: 21.1,
+        someCollegeOrAssociate: 32.6,
+        bachelorsOrHigher: 36.8,
+      },
+    },
+  },
+  {
+    rank: 54,
+    name: "Tulsa, OK Metro Area",
+    slug: "tulsa",
+    economics: {
+      medianHouseholdIncome: 69359,
+      povertyRate: 13.8,
+    },
+    housing: {
+      medianGrossRent: 1078,
+      medianHomeValue: 221700,
+      rentAsPercentOfIncome: 18.7,
+      homeValueToIncome: 3.2,
+    },
+    transportation: {
+      driveAlone: 77.1,
+      publicTransit: 0.3,
+      workFromHome: 1.2,
+      averageCommuteMinutes: 22.1,
+    },
+    education: {
+      highSchoolOrHigher: 90.4,
+      bachelorsOrHigher: 30.5,
+      attainment: {
+        lessThanHighSchool: 9.6,
+        highSchoolGraduate: 28.4,
+        someCollegeOrAssociate: 31.4,
+        bachelorsOrHigher: 30.5,
+      },
+    },
+  },
+  {
+    rank: 55,
+    name: "Rochester, NY Metro Area",
+    slug: "rochester",
+    economics: {
+      medianHouseholdIncome: 76284,
+      povertyRate: 12.8,
+    },
+    housing: {
+      medianGrossRent: 1143,
+      medianHomeValue: 204600,
+      rentAsPercentOfIncome: 18,
+      homeValueToIncome: 2.7,
+    },
+    transportation: {
+      driveAlone: 72.3,
+      publicTransit: 1.4,
+      workFromHome: 1.3,
+      averageCommuteMinutes: 21,
+    },
+    education: {
+      highSchoolOrHigher: 91.9,
+      bachelorsOrHigher: 38.2,
+      attainment: {
+        lessThanHighSchool: 8,
+        highSchoolGraduate: 25.2,
+        someCollegeOrAssociate: 28.5,
+        bachelorsOrHigher: 38.2,
+      },
+    },
+  },
+  {
+    rank: 56,
+    name: "Omaha, NE-IA Metro Area",
+    slug: "omaha",
+    economics: {
+      medianHouseholdIncome: 84829,
+      povertyRate: 10,
+    },
+    housing: {
+      medianGrossRent: 1192,
+      medianHomeValue: 268600,
+      rentAsPercentOfIncome: 16.9,
+      homeValueToIncome: 3.2,
+    },
+    transportation: {
+      driveAlone: 74.3,
+      publicTransit: 0.6,
+      workFromHome: 1.2,
+      averageCommuteMinutes: 20.9,
+    },
+    education: {
+      highSchoolOrHigher: 92.7,
+      bachelorsOrHigher: 39.3,
+      attainment: {
+        lessThanHighSchool: 7.3,
+        highSchoolGraduate: 22.6,
+        someCollegeOrAssociate: 30.8,
+        bachelorsOrHigher: 39.3,
+      },
+    },
+  },
+  {
+    rank: 57,
+    name: "Greenville-Anderson-Greer, SC Metro Area",
+    slug: "greenville-anderson-greer",
+    economics: {
+      medianHouseholdIncome: 71240,
+      povertyRate: 13,
+    },
+    housing: {
+      medianGrossRent: 1150,
+      medianHomeValue: 264600,
+      rentAsPercentOfIncome: 19.4,
+      homeValueToIncome: 3.7,
+    },
+    transportation: {
+      driveAlone: 76.7,
+      publicTransit: 0.3,
+      workFromHome: 1.5,
+      averageCommuteMinutes: 24.6,
+    },
+    education: {
+      highSchoolOrHigher: 89.4,
+      bachelorsOrHigher: 34.6,
+      attainment: {
+        lessThanHighSchool: 10.5,
+        highSchoolGraduate: 26.4,
+        someCollegeOrAssociate: 28.4,
+        bachelorsOrHigher: 34.6,
+      },
+    },
+  },
+  {
+    rank: 58,
+    name: "Urban Honolulu, HI Metro Area",
+    slug: "urban-honolulu",
+    economics: {
+      medianHouseholdIncome: 106195,
+      povertyRate: 9.2,
+    },
+    housing: {
+      medianGrossRent: 2083,
+      medianHomeValue: 897500,
+      rentAsPercentOfIncome: 23.5,
+      homeValueToIncome: 8.5,
+    },
+    transportation: {
+      driveAlone: 63.4,
+      publicTransit: 4.9,
+      workFromHome: 2.5,
+      averageCommuteMinutes: 26.7,
+    },
+    education: {
+      highSchoolOrHigher: 93.2,
+      bachelorsOrHigher: 38.5,
+      attainment: {
+        lessThanHighSchool: 6.8,
+        highSchoolGraduate: 25.1,
+        someCollegeOrAssociate: 29.6,
+        bachelorsOrHigher: 38.5,
+      },
+    },
+  },
+  {
+    rank: 59,
+    name: "Bridgeport-Stamford-Danbury, CT Metro Area",
+    slug: "bridgeport-stamford-danbury",
+    economics: {
+      medianHouseholdIncome: 114565,
+      povertyRate: 9.2,
+    },
+    housing: {
+      medianGrossRent: 1875,
+      medianHomeValue: 564500,
+      rentAsPercentOfIncome: 19.6,
+      homeValueToIncome: 4.9,
+    },
+    transportation: {
+      driveAlone: 60.9,
+      publicTransit: 6.6,
+      workFromHome: 1.5,
+      averageCommuteMinutes: 31,
+    },
+    education: {
+      highSchoolOrHigher: 90.2,
+      bachelorsOrHigher: 50.9,
+      attainment: {
+        lessThanHighSchool: 9.8,
+        highSchoolGraduate: 19.9,
+        someCollegeOrAssociate: 19.5,
+        bachelorsOrHigher: 50.9,
+      },
+    },
+  },
+  {
+    rank: 60,
+    name: "New Orleans-Metairie, LA Metro Area",
+    slug: "new-orleans-metairie",
+    economics: {
+      medianHouseholdIncome: 62655,
+      povertyRate: 18.6,
+    },
+    housing: {
+      medianGrossRent: 1217,
+      medianHomeValue: 260200,
+      rentAsPercentOfIncome: 23.3,
+      homeValueToIncome: 4.2,
+    },
+    transportation: {
+      driveAlone: 71.9,
+      publicTransit: 2.2,
+      workFromHome: 1.9,
+      averageCommuteMinutes: 24.4,
+    },
+    education: {
+      highSchoolOrHigher: 87.6,
+      bachelorsOrHigher: 33.4,
+      attainment: {
+        lessThanHighSchool: 12.4,
+        highSchoolGraduate: 25.9,
+        someCollegeOrAssociate: 28.2,
+        bachelorsOrHigher: 33.4,
+      },
+    },
+  },
+  {
+    rank: 61,
+    name: "Knoxville, TN Metro Area",
+    slug: "knoxville",
+    economics: {
+      medianHouseholdIncome: 72422,
+      povertyRate: 12.2,
+    },
+    housing: {
+      medianGrossRent: 1145,
+      medianHomeValue: 290200,
+      rentAsPercentOfIncome: 19,
+      homeValueToIncome: 4,
+    },
+    transportation: {
+      driveAlone: 77.3,
+      publicTransit: 0.3,
+      workFromHome: 0.9,
+      averageCommuteMinutes: 24.4,
+    },
+    education: {
+      highSchoolOrHigher: 90.9,
+      bachelorsOrHigher: 32.7,
+      attainment: {
+        lessThanHighSchool: 9.1,
+        highSchoolGraduate: 30.2,
+        someCollegeOrAssociate: 27.9,
+        bachelorsOrHigher: 32.7,
+      },
+    },
+  },
+  {
+    rank: 62,
+    name: "North Port-Bradenton-Sarasota, FL Metro Area",
+    slug: "north-port-bradenton-sarasota",
+    economics: {
+      medianHouseholdIncome: 80859,
+      povertyRate: 9.2,
+    },
+    housing: {
+      medianGrossRent: 1747,
+      medianHomeValue: 402200,
+      rentAsPercentOfIncome: 25.9,
+      homeValueToIncome: 5,
+    },
+    transportation: {
+      driveAlone: 70.7,
+      publicTransit: 0.4,
+      workFromHome: 1.7,
+      averageCommuteMinutes: 25.9,
+    },
+    education: {
+      highSchoolOrHigher: 93,
+      bachelorsOrHigher: 38.3,
+      attainment: {
+        lessThanHighSchool: 7.1,
+        highSchoolGraduate: 26.1,
+        someCollegeOrAssociate: 28.6,
+        bachelorsOrHigher: 38.3,
+      },
+    },
+  },
+  {
+    rank: 63,
+    name: "Bakersfield-Delano, CA Metro Area",
+    slug: "bakersfield-delano",
+    economics: {
+      medianHouseholdIncome: 70210,
+      povertyRate: 19.1,
+    },
+    housing: {
+      medianGrossRent: 1300,
+      medianHomeValue: 338300,
+      rentAsPercentOfIncome: 22.2,
+      homeValueToIncome: 4.8,
+    },
+    transportation: {
+      driveAlone: 78.4,
+      publicTransit: 0.4,
+      workFromHome: 1.2,
+      averageCommuteMinutes: 24.4,
+    },
+    education: {
+      highSchoolOrHigher: 77,
+      bachelorsOrHigher: 18.8,
+      attainment: {
+        lessThanHighSchool: 23,
+        highSchoolGraduate: 27.9,
+        someCollegeOrAssociate: 30.3,
+        bachelorsOrHigher: 18.8,
+      },
+    },
+  },
+  {
+    rank: 64,
+    name: "Albuquerque, NM Metro Area",
+    slug: "albuquerque",
+    economics: {
+      medianHouseholdIncome: 70783,
+      povertyRate: 14.6,
+    },
+    housing: {
+      medianGrossRent: 1156,
+      medianHomeValue: 287800,
+      rentAsPercentOfIncome: 19.6,
+      homeValueToIncome: 4.1,
+    },
+    transportation: {
+      driveAlone: 71.3,
+      publicTransit: 0.7,
+      workFromHome: 1.4,
+      averageCommuteMinutes: 24.8,
+    },
+    education: {
+      highSchoolOrHigher: 90.6,
+      bachelorsOrHigher: 35.6,
+      attainment: {
+        lessThanHighSchool: 9.4,
+        highSchoolGraduate: 23.7,
+        someCollegeOrAssociate: 31.3,
+        bachelorsOrHigher: 35.6,
+      },
+    },
+  },
+  {
+    rank: 65,
+    name: "McAllen-Edinburg-Mission, TX Metro Area",
+    slug: "mcallen-edinburg-mission",
+    economics: {
+      medianHouseholdIncome: 54338,
+      povertyRate: 26.7,
+    },
+    housing: {
+      medianGrossRent: 957,
+      medianHomeValue: 140900,
+      rentAsPercentOfIncome: 21.1,
+      homeValueToIncome: 2.6,
+    },
+    transportation: {
+      driveAlone: 74.7,
+      publicTransit: 0.2,
+      workFromHome: 3.6,
+      averageCommuteMinutes: 22.5,
+    },
+    education: {
+      highSchoolOrHigher: 70.2,
+      bachelorsOrHigher: 20.6,
+      attainment: {
+        lessThanHighSchool: 29.7,
+        highSchoolGraduate: 26.1,
+        someCollegeOrAssociate: 23.4,
+        bachelorsOrHigher: 20.6,
+      },
+    },
+  },
+  {
+    rank: 66,
+    name: "Albany-Schenectady-Troy, NY Metro Area",
+    slug: "albany-schenectady-troy",
+    economics: {
+      medianHouseholdIncome: 88074,
+      povertyRate: 11.2,
+    },
+    housing: {
+      medianGrossRent: 1280,
+      medianHomeValue: 285900,
+      rentAsPercentOfIncome: 17.4,
+      homeValueToIncome: 3.2,
+    },
+    transportation: {
+      driveAlone: 70.6,
+      publicTransit: 2.6,
+      workFromHome: 1.1,
+      averageCommuteMinutes: 23.5,
+    },
+    education: {
+      highSchoolOrHigher: 93.3,
+      bachelorsOrHigher: 42.1,
+      attainment: {
+        lessThanHighSchool: 6.7,
+        highSchoolGraduate: 23.5,
+        someCollegeOrAssociate: 27.7,
+        bachelorsOrHigher: 42.1,
+      },
+    },
+  },
+  {
+    rank: 67,
+    name: "Baton Rouge, LA Metro Area",
+    slug: "baton-rouge",
+    economics: {
+      medianHouseholdIncome: 69599,
+      povertyRate: 16.6,
+    },
+    housing: {
+      medianGrossRent: 1135,
+      medianHomeValue: 241100,
+      rentAsPercentOfIncome: 19.6,
+      homeValueToIncome: 3.5,
+    },
+    transportation: {
+      driveAlone: 80,
+      publicTransit: 0.7,
+      workFromHome: 0.7,
+      averageCommuteMinutes: 27.2,
+    },
+    education: {
+      highSchoolOrHigher: 89,
+      bachelorsOrHigher: 30.4,
+      attainment: {
+        lessThanHighSchool: 11,
+        highSchoolGraduate: 31,
+        someCollegeOrAssociate: 27.5,
+        bachelorsOrHigher: 30.4,
+      },
+    },
+  },
+  {
+    rank: 68,
+    name: "Allentown-Bethlehem-Easton, PA-NJ Metro Area",
+    slug: "allentown-bethlehem-easton",
+    economics: {
+      medianHouseholdIncome: 84587,
+      povertyRate: 10.2,
+    },
+    housing: {
+      medianGrossRent: 1365,
+      medianHomeValue: 300800,
+      rentAsPercentOfIncome: 19.4,
+      homeValueToIncome: 3.6,
+    },
+    transportation: {
+      driveAlone: 74.2,
+      publicTransit: 1.2,
+      workFromHome: 1.5,
+      averageCommuteMinutes: 27.5,
+    },
+    education: {
+      highSchoolOrHigher: 91.8,
+      bachelorsOrHigher: 33.5,
+      attainment: {
+        lessThanHighSchool: 8.1,
+        highSchoolGraduate: 32.6,
+        someCollegeOrAssociate: 25.7,
+        bachelorsOrHigher: 33.5,
+      },
+    },
+  },
+  {
+    rank: 69,
+    name: "Worcester, MA Metro Area",
+    slug: "worcester",
+    economics: {
+      medianHouseholdIncome: 95939,
+      povertyRate: 10.3,
+    },
+    housing: {
+      medianGrossRent: 1426,
+      medianHomeValue: 423700,
+      rentAsPercentOfIncome: 17.8,
+      homeValueToIncome: 4.4,
+    },
+    transportation: {
+      driveAlone: 70.5,
+      publicTransit: 1.5,
+      workFromHome: 2.3,
+      averageCommuteMinutes: 29.2,
+    },
+    education: {
+      highSchoolOrHigher: 91.2,
+      bachelorsOrHigher: 39.7,
+      attainment: {
+        lessThanHighSchool: 8.8,
+        highSchoolGraduate: 26.3,
+        someCollegeOrAssociate: 25.3,
+        bachelorsOrHigher: 39.7,
+      },
+    },
+  },
+  {
+    rank: 70,
+    name: "El Paso, TX Metro Area",
+    slug: "el-paso",
+    economics: {
+      medianHouseholdIncome: 59751,
+      povertyRate: 18.7,
+    },
+    housing: {
+      medianGrossRent: 1079,
+      medianHomeValue: 180200,
+      rentAsPercentOfIncome: 21.7,
+      homeValueToIncome: 3,
+    },
+    transportation: {
+      driveAlone: 74.9,
+      publicTransit: 0.8,
+      workFromHome: 1.8,
+      averageCommuteMinutes: 24.1,
+    },
+    education: {
+      highSchoolOrHigher: 81,
+      bachelorsOrHigher: 25.9,
+      attainment: {
+        lessThanHighSchool: 19,
+        highSchoolGraduate: 25.2,
+        someCollegeOrAssociate: 29.9,
+        bachelorsOrHigher: 25.9,
+      },
+    },
+  },
+  {
+    rank: 71,
+    name: "Charleston-North Charleston, SC Metro Area",
+    slug: "charleston-north-charleston",
+    economics: {
+      medianHouseholdIncome: 85254,
+      povertyRate: 10.9,
+    },
+    housing: {
+      medianGrossRent: 1605,
+      medianHomeValue: 377500,
+      rentAsPercentOfIncome: 22.6,
+      homeValueToIncome: 4.4,
+    },
+    transportation: {
+      driveAlone: 72.9,
+      publicTransit: 0.6,
+      workFromHome: 1.3,
+      averageCommuteMinutes: 27.7,
+    },
+    education: {
+      highSchoolOrHigher: 92.6,
+      bachelorsOrHigher: 40.8,
+      attainment: {
+        lessThanHighSchool: 7.5,
+        highSchoolGraduate: 22.5,
+        someCollegeOrAssociate: 29.3,
+        bachelorsOrHigher: 40.8,
+      },
+    },
+  },
+  {
+    rank: 72,
+    name: "Columbia, SC Metro Area",
+    slug: "columbia",
+    economics: {
+      medianHouseholdIncome: 68359,
+      povertyRate: 14.5,
+    },
+    housing: {
+      medianGrossRent: 1193,
+      medianHomeValue: 232400,
+      rentAsPercentOfIncome: 20.9,
+      homeValueToIncome: 3.4,
+    },
+    transportation: {
+      driveAlone: 74.6,
+      publicTransit: 0.4,
+      workFromHome: 1.7,
+      averageCommuteMinutes: 25,
+    },
+    education: {
+      highSchoolOrHigher: 91.4,
+      bachelorsOrHigher: 35.4,
+      attainment: {
+        lessThanHighSchool: 8.6,
+        highSchoolGraduate: 25.6,
+        someCollegeOrAssociate: 30.4,
+        bachelorsOrHigher: 35.4,
+      },
+    },
+  },
+  {
+    rank: 73,
+    name: "Cape Coral-Fort Myers, FL Metro Area",
+    slug: "cape-coral-fort-myers",
+    economics: {
+      medianHouseholdIncome: 76107,
+      povertyRate: 12,
+    },
+    housing: {
+      medianGrossRent: 1712,
+      medianHomeValue: 362200,
+      rentAsPercentOfIncome: 27,
+      homeValueToIncome: 4.8,
+    },
+    transportation: {
+      driveAlone: 70.8,
+      publicTransit: 0.5,
+      workFromHome: 2,
+      averageCommuteMinutes: 29.4,
+    },
+    education: {
+      highSchoolOrHigher: 90.3,
+      bachelorsOrHigher: 31.2,
+      attainment: {
+        lessThanHighSchool: 9.7,
+        highSchoolGraduate: 29.9,
+        someCollegeOrAssociate: 29.2,
+        bachelorsOrHigher: 31.2,
+      },
+    },
+  },
+  {
+    rank: 74,
+    name: "Lakeland-Winter Haven, FL Metro Area",
+    slug: "lakeland-winter-haven",
+    economics: {
+      medianHouseholdIncome: 65978,
+      povertyRate: 14.5,
+    },
+    housing: {
+      medianGrossRent: 1363,
+      medianHomeValue: 266500,
+      rentAsPercentOfIncome: 24.8,
+      homeValueToIncome: 4,
+    },
+    transportation: {
+      driveAlone: 75,
+      publicTransit: 0.4,
+      workFromHome: 1.9,
+      averageCommuteMinutes: 30.5,
+    },
+    education: {
+      highSchoolOrHigher: 87.9,
+      bachelorsOrHigher: 23.5,
+      attainment: {
+        lessThanHighSchool: 12.1,
+        highSchoolGraduate: 33,
+        someCollegeOrAssociate: 31.5,
+        bachelorsOrHigher: 23.5,
+      },
+    },
+  },
+  {
+    rank: 75,
+    name: "Boise City, ID Metro Area",
+    slug: "boise-city",
+    economics: {
+      medianHouseholdIncome: 85987,
+      povertyRate: 9.2,
+    },
+    housing: {
+      medianGrossRent: 1487,
+      medianHomeValue: 468900,
+      rentAsPercentOfIncome: 20.8,
+      homeValueToIncome: 5.5,
+    },
+    transportation: {
+      driveAlone: 70.7,
+      publicTransit: 0.3,
+      workFromHome: 1.4,
+      averageCommuteMinutes: 22.9,
+    },
+    education: {
+      highSchoolOrHigher: 92.6,
+      bachelorsOrHigher: 37.1,
+      attainment: {
+        lessThanHighSchool: 7.4,
+        highSchoolGraduate: 23.9,
+        someCollegeOrAssociate: 31.6,
+        bachelorsOrHigher: 37.1,
+      },
+    },
+  },
+  {
+    rank: 76,
+    name: "Oxnard-Thousand Oaks-Ventura, CA Metro Area",
+    slug: "oxnard-thousand-oaks-ventura",
+    economics: {
+      medianHouseholdIncome: 109797,
+      povertyRate: 9.3,
+    },
+    housing: {
+      medianGrossRent: 2317,
+      medianHomeValue: 822700,
+      rentAsPercentOfIncome: 25.3,
+      homeValueToIncome: 7.5,
+    },
+    transportation: {
+      driveAlone: 70.4,
+      publicTransit: 0.6,
+      workFromHome: 1.2,
+      averageCommuteMinutes: 25.6,
+    },
+    education: {
+      highSchoolOrHigher: 85.1,
+      bachelorsOrHigher: 36.1,
+      attainment: {
+        lessThanHighSchool: 14.9,
+        highSchoolGraduate: 19.3,
+        someCollegeOrAssociate: 29.7,
+        bachelorsOrHigher: 36.1,
+      },
+    },
+  },
+  {
+    rank: 77,
+    name: "Dayton-Kettering-Beavercreek, OH Metro Area",
+    slug: "dayton-kettering-beavercreek",
+    economics: {
+      medianHouseholdIncome: 71739,
+      povertyRate: 13.2,
+    },
+    housing: {
+      medianGrossRent: 1039,
+      medianHomeValue: 201100,
+      rentAsPercentOfIncome: 17.4,
+      homeValueToIncome: 2.8,
+    },
+    transportation: {
+      driveAlone: 76.7,
+      publicTransit: 0.9,
+      workFromHome: 0.8,
+      averageCommuteMinutes: 22,
+    },
+    education: {
+      highSchoolOrHigher: 93,
+      bachelorsOrHigher: 32.8,
+      attainment: {
+        lessThanHighSchool: 7.1,
+        highSchoolGraduate: 28,
+        someCollegeOrAssociate: 32.1,
+        bachelorsOrHigher: 32.8,
+      },
+    },
+  },
+  {
+    rank: 78,
+    name: "Stockton-Lodi, CA Metro Area",
+    slug: "stockton-lodi",
+    economics: {
+      medianHouseholdIncome: 92179,
+      povertyRate: 12.4,
+    },
+    housing: {
+      medianGrossRent: 1734,
+      medianHomeValue: 530700,
+      rentAsPercentOfIncome: 22.6,
+      homeValueToIncome: 5.8,
+    },
+    transportation: {
+      driveAlone: 73.7,
+      publicTransit: 0.9,
+      workFromHome: 1.1,
+      averageCommuteMinutes: 34.1,
+    },
+    education: {
+      highSchoolOrHigher: 80.9,
+      bachelorsOrHigher: 22.7,
+      attainment: {
+        lessThanHighSchool: 19.2,
+        highSchoolGraduate: 27.5,
+        someCollegeOrAssociate: 30.6,
+        bachelorsOrHigher: 22.7,
+      },
+    },
+  },
+  {
+    rank: 79,
+    name: "Greensboro-High Point, NC Metro Area",
+    slug: "greensboro-high-point",
+    economics: {
+      medianHouseholdIncome: 65565,
+      povertyRate: 14.8,
+    },
+    housing: {
+      medianGrossRent: 1093,
+      medianHomeValue: 231000,
+      rentAsPercentOfIncome: 20,
+      homeValueToIncome: 3.5,
+    },
+    transportation: {
+      driveAlone: 75.6,
+      publicTransit: 0.8,
+      workFromHome: 1.4,
+      averageCommuteMinutes: 23.2,
+    },
+    education: {
+      highSchoolOrHigher: 88.9,
+      bachelorsOrHigher: 32.2,
+      attainment: {
+        lessThanHighSchool: 11.1,
+        highSchoolGraduate: 26.2,
+        someCollegeOrAssociate: 30.5,
+        bachelorsOrHigher: 32.2,
+      },
+    },
+  },
+  {
+    rank: 80,
+    name: "Colorado Springs, CO Metro Area",
+    slug: "colorado-springs",
+    economics: {
+      medianHouseholdIncome: 90144,
+      povertyRate: 8.5,
+    },
+    housing: {
+      medianGrossRent: 1699,
+      medianHomeValue: 461800,
+      rentAsPercentOfIncome: 22.6,
+      homeValueToIncome: 5.1,
+    },
+    transportation: {
+      driveAlone: 69.1,
+      publicTransit: 0.4,
+      workFromHome: 1.1,
+      averageCommuteMinutes: 23.7,
+    },
+    education: {
+      highSchoolOrHigher: 95.1,
+      bachelorsOrHigher: 41.7,
+      attainment: {
+        lessThanHighSchool: 4.9,
+        highSchoolGraduate: 19.7,
+        someCollegeOrAssociate: 33.6,
+        bachelorsOrHigher: 41.7,
+      },
+    },
+  },
+  {
+    rank: 81,
+    name: "Little Rock-North Little Rock-Conway, AR Metro Area",
+    slug: "little-rock-north-little-rock-conway",
+    economics: {
+      medianHouseholdIncome: 67154,
+      povertyRate: 14.2,
+    },
+    housing: {
+      medianGrossRent: 1055,
+      medianHomeValue: 214100,
+      rentAsPercentOfIncome: 18.9,
+      homeValueToIncome: 3.2,
+    },
+    transportation: {
+      driveAlone: 78.4,
+      publicTransit: 0.4,
+      workFromHome: 1.1,
+      averageCommuteMinutes: 23.4,
+    },
+    education: {
+      highSchoolOrHigher: 92.3,
+      bachelorsOrHigher: 33.7,
+      attainment: {
+        lessThanHighSchool: 7.7,
+        highSchoolGraduate: 28.5,
+        someCollegeOrAssociate: 30.2,
+        bachelorsOrHigher: 33.7,
+      },
+    },
+  },
+  {
+    rank: 82,
+    name: "Provo-Orem-Lehi, UT Metro Area",
+    slug: "provo-orem-lehi",
+    economics: {
+      medianHouseholdIncome: 100704,
+      povertyRate: 8.7,
+    },
+    housing: {
+      medianGrossRent: 1534,
+      medianHomeValue: 535500,
+      rentAsPercentOfIncome: 18.3,
+      homeValueToIncome: 5.3,
+    },
+    transportation: {
+      driveAlone: 65.5,
+      publicTransit: 1.7,
+      workFromHome: 1,
+      averageCommuteMinutes: 22.6,
+    },
+    education: {
+      highSchoolOrHigher: 95.1,
+      bachelorsOrHigher: 43.9,
+      attainment: {
+        lessThanHighSchool: 4.9,
+        highSchoolGraduate: 16.9,
+        someCollegeOrAssociate: 34.3,
+        bachelorsOrHigher: 43.9,
+      },
+    },
+  },
+  {
+    rank: 83,
+    name: "Des Moines-West Des Moines, IA Metro Area",
+    slug: "des-moines-west-des-moines",
+    economics: {
+      medianHouseholdIncome: 85890,
+      povertyRate: 9.1,
+    },
+    housing: {
+      medianGrossRent: 1150,
+      medianHomeValue: 267400,
+      rentAsPercentOfIncome: 16.1,
+      homeValueToIncome: 3.1,
+    },
+    transportation: {
+      driveAlone: 72.7,
+      publicTransit: 0.4,
+      workFromHome: 1.3,
+      averageCommuteMinutes: 21,
+    },
+    education: {
+      highSchoolOrHigher: 93.4,
+      bachelorsOrHigher: 39.7,
+      attainment: {
+        lessThanHighSchool: 6.6,
+        highSchoolGraduate: 24.4,
+        someCollegeOrAssociate: 29.3,
+        bachelorsOrHigher: 39.7,
+      },
+    },
+  },
+  {
+    rank: 84,
+    name: "Deltona-Daytona Beach-Ormond Beach, FL Metro Area",
+    slug: "deltona-daytona-beach-ormond-beach",
+    economics: {
+      medianHouseholdIncome: 71277,
+      povertyRate: 11.5,
+    },
+    housing: {
+      medianGrossRent: 1500,
+      medianHomeValue: 324300,
+      rentAsPercentOfIncome: 25.3,
+      homeValueToIncome: 4.5,
+    },
+    transportation: {
+      driveAlone: 71.8,
+      publicTransit: 0.4,
+      workFromHome: 1.7,
+      averageCommuteMinutes: 27.5,
+    },
+    education: {
+      highSchoolOrHigher: 92.3,
+      bachelorsOrHigher: 28.9,
+      attainment: {
+        lessThanHighSchool: 7.7,
+        highSchoolGraduate: 30,
+        someCollegeOrAssociate: 33.4,
+        bachelorsOrHigher: 28.9,
+      },
+    },
+  },
+  {
+    rank: 85,
+    name: "Kiryas Joel-Poughkeepsie-Newburgh, NY Metro Area",
+    slug: "kiryas-joel-poughkeepsie-newburgh",
+    economics: {
+      medianHouseholdIncome: 98233,
+      povertyRate: 10.9,
+    },
+    housing: {
+      medianGrossRent: 1638,
+      medianHomeValue: 393600,
+      rentAsPercentOfIncome: 20,
+      homeValueToIncome: 4,
+    },
+    transportation: {
+      driveAlone: 67.8,
+      publicTransit: 4.3,
+      workFromHome: 1.7,
+      averageCommuteMinutes: 32.8,
+    },
+    education: {
+      highSchoolOrHigher: 90.8,
+      bachelorsOrHigher: 36.6,
+      attainment: {
+        lessThanHighSchool: 9.3,
+        highSchoolGraduate: 26.5,
+        someCollegeOrAssociate: 27.6,
+        bachelorsOrHigher: 36.6,
+      },
+    },
+  },
+  {
+    rank: 86,
+    name: "Madison, WI Metro Area",
+    slug: "madison",
+    economics: {
+      medianHouseholdIncome: 88804,
+      povertyRate: 10.1,
+    },
+    housing: {
+      medianGrossRent: 1354,
+      medianHomeValue: 372400,
+      rentAsPercentOfIncome: 18.3,
+      homeValueToIncome: 4.2,
+    },
+    transportation: {
+      driveAlone: 65.9,
+      publicTransit: 2.5,
+      workFromHome: 1.1,
+      averageCommuteMinutes: 21.5,
+    },
+    education: {
+      highSchoolOrHigher: 96,
+      bachelorsOrHigher: 50.1,
+      attainment: {
+        lessThanHighSchool: 3.9,
+        highSchoolGraduate: 20,
+        someCollegeOrAssociate: 25.9,
+        bachelorsOrHigher: 50.1,
+      },
+    },
+  },
+  {
+    rank: 87,
+    name: "Winston-Salem, NC Metro Area",
+    slug: "winston-salem",
+    economics: {
+      medianHouseholdIncome: 65975,
+      povertyRate: 13.5,
+    },
+    housing: {
+      medianGrossRent: 1016,
+      medianHomeValue: 233300,
+      rentAsPercentOfIncome: 18.5,
+      homeValueToIncome: 3.5,
+    },
+    transportation: {
+      driveAlone: 76.6,
+      publicTransit: 0.4,
+      workFromHome: 1.1,
+      averageCommuteMinutes: 24.4,
+    },
+    education: {
+      highSchoolOrHigher: 89.8,
+      bachelorsOrHigher: 30.8,
+      attainment: {
+        lessThanHighSchool: 10.2,
+        highSchoolGraduate: 28,
+        someCollegeOrAssociate: 31.1,
+        bachelorsOrHigher: 30.8,
+      },
+    },
+  },
+  {
+    rank: 88,
+    name: "Akron, OH Metro Area",
+    slug: "akron",
+    economics: {
+      medianHouseholdIncome: 72371,
+      povertyRate: 12.6,
+    },
+    housing: {
+      medianGrossRent: 1033,
+      medianHomeValue: 213000,
+      rentAsPercentOfIncome: 17.1,
+      homeValueToIncome: 2.9,
+    },
+    transportation: {
+      driveAlone: 74.4,
+      publicTransit: 0.8,
+      workFromHome: 1,
+      averageCommuteMinutes: 23.5,
+    },
+    education: {
+      highSchoolOrHigher: 92.8,
+      bachelorsOrHigher: 35.1,
+      attainment: {
+        lessThanHighSchool: 7.2,
+        highSchoolGraduate: 30.1,
+        someCollegeOrAssociate: 27.7,
+        bachelorsOrHigher: 35.1,
+      },
+    },
+  },
+  {
+    rank: 89,
+    name: "Ogden, UT Metro Area",
+    slug: "ogden",
+    economics: {
+      medianHouseholdIncome: 101203,
+      povertyRate: 7,
+    },
+    housing: {
+      medianGrossRent: 1500,
+      medianHomeValue: 471500,
+      rentAsPercentOfIncome: 17.8,
+      homeValueToIncome: 4.7,
+    },
+    transportation: {
+      driveAlone: 71.4,
+      publicTransit: 1.2,
+      workFromHome: 0.8,
+      averageCommuteMinutes: 23.1,
+    },
+    education: {
+      highSchoolOrHigher: 94.3,
+      bachelorsOrHigher: 34.7,
+      attainment: {
+        lessThanHighSchool: 5.7,
+        highSchoolGraduate: 24.3,
+        someCollegeOrAssociate: 35.3,
+        bachelorsOrHigher: 34.7,
+      },
+    },
+  },
+  {
+    rank: 90,
+    name: "Wichita, KS Metro Area",
+    slug: "wichita",
+    economics: {
+      medianHouseholdIncome: 70655,
+      povertyRate: 13,
+    },
+    housing: {
+      medianGrossRent: 987,
+      medianHomeValue: 201200,
+      rentAsPercentOfIncome: 16.8,
+      homeValueToIncome: 2.8,
+    },
+    transportation: {
+      driveAlone: 79.5,
+      publicTransit: 0.5,
+      workFromHome: 1.3,
+      averageCommuteMinutes: 20,
+    },
+    education: {
+      highSchoolOrHigher: 90.4,
+      bachelorsOrHigher: 31.8,
+      attainment: {
+        lessThanHighSchool: 9.6,
+        highSchoolGraduate: 26.4,
+        someCollegeOrAssociate: 32.2,
+        bachelorsOrHigher: 31.8,
+      },
+    },
+  },
+  {
+    rank: 91,
+    name: "Palm Bay-Melbourne-Titusville, FL Metro Area",
+    slug: "palm-bay-melbourne-titusville",
+    economics: {
+      medianHouseholdIncome: 78476,
+      povertyRate: 10.2,
+    },
+    housing: {
+      medianGrossRent: 1556,
+      medianHomeValue: 339600,
+      rentAsPercentOfIncome: 23.8,
+      homeValueToIncome: 4.3,
+    },
+    transportation: {
+      driveAlone: 74.6,
+      publicTransit: 0.5,
+      workFromHome: 1.4,
+      averageCommuteMinutes: 25.4,
+    },
+    education: {
+      highSchoolOrHigher: 93.3,
+      bachelorsOrHigher: 34.2,
+      attainment: {
+        lessThanHighSchool: 6.7,
+        highSchoolGraduate: 25.8,
+        someCollegeOrAssociate: 33.3,
+        bachelorsOrHigher: 34.2,
+      },
+    },
+  },
+  {
+    rank: 92,
+    name: "Syracuse, NY Metro Area",
+    slug: "syracuse",
+    economics: {
+      medianHouseholdIncome: 75492,
+      povertyRate: 13.9,
+    },
+    housing: {
+      medianGrossRent: 1077,
+      medianHomeValue: 187700,
+      rentAsPercentOfIncome: 17.1,
+      homeValueToIncome: 2.5,
+    },
+    transportation: {
+      driveAlone: 73.2,
+      publicTransit: 1.7,
+      workFromHome: 1.5,
+      averageCommuteMinutes: 21.4,
+    },
+    education: {
+      highSchoolOrHigher: 91.6,
+      bachelorsOrHigher: 35.1,
+      attainment: {
+        lessThanHighSchool: 8.4,
+        highSchoolGraduate: 27.1,
+        someCollegeOrAssociate: 29.3,
+        bachelorsOrHigher: 35.1,
+      },
+    },
+  },
+  {
+    rank: 93,
+    name: "Augusta-Richmond County, GA-SC Metro Area",
+    slug: "augusta-richmond-county",
+    economics: {
+      medianHouseholdIncome: 69344,
+      povertyRate: 14.9,
+    },
+    housing: {
+      medianGrossRent: 1120,
+      medianHomeValue: 226100,
+      rentAsPercentOfIncome: 19.4,
+      homeValueToIncome: 3.3,
+    },
+    transportation: {
+      driveAlone: 78.5,
+      publicTransit: 0.6,
+      workFromHome: 1.8,
+      averageCommuteMinutes: 23.9,
+    },
+    education: {
+      highSchoolOrHigher: 89.4,
+      bachelorsOrHigher: 29.5,
+      attainment: {
+        lessThanHighSchool: 10.6,
+        highSchoolGraduate: 29.1,
+        someCollegeOrAssociate: 30.7,
+        bachelorsOrHigher: 29.5,
+      },
+    },
+  },
+  {
+    rank: 94,
+    name: "Durham-Chapel Hill, NC Metro Area",
+    slug: "durham-chapel-hill",
+    economics: {
+      medianHouseholdIncome: 83500,
+      povertyRate: 12.1,
+    },
+    housing: {
+      medianGrossRent: 1466,
+      medianHomeValue: 396100,
+      rentAsPercentOfIncome: 21.1,
+      homeValueToIncome: 4.7,
+    },
+    transportation: {
+      driveAlone: 62.4,
+      publicTransit: 2.1,
+      workFromHome: 1.5,
+      averageCommuteMinutes: 24.1,
+    },
+    education: {
+      highSchoolOrHigher: 91.6,
+      bachelorsOrHigher: 53.4,
+      attainment: {
+        lessThanHighSchool: 8.3,
+        highSchoolGraduate: 16.5,
+        someCollegeOrAssociate: 21.7,
+        bachelorsOrHigher: 53.4,
+      },
+    },
+  },
+  {
+    rank: 95,
+    name: "Harrisburg-Carlisle, PA Metro Area",
+    slug: "harrisburg-carlisle",
+    economics: {
+      medianHouseholdIncome: 80919,
+      povertyRate: 10.1,
+    },
+    housing: {
+      medianGrossRent: 1212,
+      medianHomeValue: 253100,
+      rentAsPercentOfIncome: 18,
+      homeValueToIncome: 3.1,
+    },
+    transportation: {
+      driveAlone: 70.1,
+      publicTransit: 0.7,
+      workFromHome: 1.6,
+      averageCommuteMinutes: 22.5,
+    },
+    education: {
+      highSchoolOrHigher: 92.2,
+      bachelorsOrHigher: 35.8,
+      attainment: {
+        lessThanHighSchool: 7.8,
+        highSchoolGraduate: 32.1,
+        someCollegeOrAssociate: 24.3,
+        bachelorsOrHigher: 35.8,
+      },
+    },
+  },
+  {
+    rank: 96,
+    name: "Jackson, MS Metro Area",
+    slug: "jackson",
+    economics: {
+      medianHouseholdIncome: 61177,
+      povertyRate: 16.4,
+    },
+    housing: {
+      medianGrossRent: 997,
+      medianHomeValue: 185300,
+      rentAsPercentOfIncome: 19.6,
+      homeValueToIncome: 3,
+    },
+    transportation: {
+      driveAlone: 79.7,
+      publicTransit: 0.4,
+      workFromHome: 2.2,
+      averageCommuteMinutes: 22.9,
+    },
+    education: {
+      highSchoolOrHigher: 89.7,
+      bachelorsOrHigher: 23.7,
+      attainment: {
+        lessThanHighSchool: 10.3,
+        highSchoolGraduate: 37.4,
+        someCollegeOrAssociate: 28.6,
+        bachelorsOrHigher: 23.7,
+      },
+    },
+  },
+  {
+    rank: 97,
+    name: "Fayetteville-Springdale-Rogers, AR Metro Area",
+    slug: "fayetteville-springdale-rogers",
+    economics: {
+      medianHouseholdIncome: 81650,
+      povertyRate: 10.8,
+    },
+    housing: {
+      medianGrossRent: 1157,
+      medianHomeValue: 307200,
+      rentAsPercentOfIncome: 17,
+      homeValueToIncome: 3.8,
+    },
+    transportation: {
+      driveAlone: 75.6,
+      publicTransit: 0.3,
+      workFromHome: 0.8,
+      averageCommuteMinutes: 21.6,
+    },
+    education: {
+      highSchoolOrHigher: 89.2,
+      bachelorsOrHigher: 35.9,
+      attainment: {
+        lessThanHighSchool: 10.8,
+        highSchoolGraduate: 29,
+        someCollegeOrAssociate: 24.3,
+        bachelorsOrHigher: 35.9,
+      },
+    },
+  },
+  {
+    rank: 98,
+    name: "Spokane-Spokane Valley, WA Metro Area",
+    slug: "spokane-spokane-valley",
+    economics: {
+      medianHouseholdIncome: 77488,
+      povertyRate: 11.7,
+    },
+    housing: {
+      medianGrossRent: 1264,
+      medianHomeValue: 405300,
+      rentAsPercentOfIncome: 19.6,
+      homeValueToIncome: 5.2,
+    },
+    transportation: {
+      driveAlone: 70.3,
+      publicTransit: 1.7,
+      workFromHome: 1.3,
+      averageCommuteMinutes: 22.9,
+    },
+    education: {
+      highSchoolOrHigher: 94.5,
+      bachelorsOrHigher: 32.2,
+      attainment: {
+        lessThanHighSchool: 5.5,
+        highSchoolGraduate: 24.7,
+        someCollegeOrAssociate: 37.6,
+        bachelorsOrHigher: 32.2,
+      },
+    },
+  },
+  {
+    rank: 99,
+    name: "Toledo, OH Metro Area",
+    slug: "toledo",
+    economics: {
+      medianHouseholdIncome: 65486,
+      povertyRate: 16,
+    },
+    housing: {
+      medianGrossRent: 939,
+      medianHomeValue: 176300,
+      rentAsPercentOfIncome: 17.2,
+      homeValueToIncome: 2.7,
+    },
+    transportation: {
+      driveAlone: 79.6,
+      publicTransit: 0.6,
+      workFromHome: 0.9,
+      averageCommuteMinutes: 20.8,
+    },
+    education: {
+      highSchoolOrHigher: 92.5,
+      bachelorsOrHigher: 30.2,
+      attainment: {
+        lessThanHighSchool: 7.5,
+        highSchoolGraduate: 30.4,
+        someCollegeOrAssociate: 31.8,
+        bachelorsOrHigher: 30.2,
+      },
+    },
+  },
+  {
+    rank: 100,
+    name: "Chattanooga, TN-GA Metro Area",
+    slug: "chattanooga",
+    economics: {
+      medianHouseholdIncome: 72161,
+      povertyRate: 13,
+    },
+    housing: {
+      medianGrossRent: 1163,
+      medianHomeValue: 272400,
+      rentAsPercentOfIncome: 19.3,
+      homeValueToIncome: 3.8,
+    },
+    transportation: {
+      driveAlone: 75,
+      publicTransit: 0.4,
+      workFromHome: 0.8,
+      averageCommuteMinutes: 24.1,
+    },
+    education: {
+      highSchoolOrHigher: 90,
+      bachelorsOrHigher: 31.9,
+      attainment: {
+        lessThanHighSchool: 10,
+        highSchoolGraduate: 27.2,
+        someCollegeOrAssociate: 30.9,
+        bachelorsOrHigher: 31.9,
+      },
+    },
+  },
 ];
