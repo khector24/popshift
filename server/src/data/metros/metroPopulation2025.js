@@ -1,0 +1,2204 @@
+export const metroPopulationYears = [2020,2021,2022,2023,2024,2025];
+
+export const metroPopulation = [
+  {
+    "rank": 1,
+    "name": "New York-Newark-Jersey City, NY-NJ Metro Area",
+    "slug": "new-york-newark-jersey-city",
+    "population": 20112448,
+    "populationByYear": {
+      "2020": 19999993,
+      "2021": 19704474,
+      "2022": 19629390,
+      "2023": 19788976,
+      "2024": 20080087,
+      "2025": 20112448
+    },
+    "yearlyGrowth": {
+      "amount": 32361,
+      "percent": 0.2
+    },
+    "growthSince2020": {
+      "amount": 112455,
+      "percent": 0.6
+    }
+  },
+  {
+    "rank": 2,
+    "name": "Los Angeles-Long Beach-Anaheim, CA Metro Area",
+    "slug": "los-angeles-long-beach-anaheim",
+    "population": 12844441,
+    "populationByYear": {
+      "2020": 13182677,
+      "2021": 12971258,
+      "2022": 12904776,
+      "2023": 12881909,
+      "2024": 12906895,
+      "2025": 12844441
+    },
+    "yearlyGrowth": {
+      "amount": -62454,
+      "percent": -0.5
+    },
+    "growthSince2020": {
+      "amount": -338236,
+      "percent": -2.6
+    }
+  },
+  {
+    "rank": 3,
+    "name": "Chicago-Naperville-Elgin, IL-IN Metro Area",
+    "slug": "chicago-naperville-elgin",
+    "population": 9434123,
+    "populationByYear": {
+      "2020": 9435971,
+      "2021": 9365495,
+      "2022": 9303151,
+      "2023": 9335921,
+      "2024": 9411198,
+      "2025": 9434123
+    },
+    "yearlyGrowth": {
+      "amount": 22925,
+      "percent": 0.2
+    },
+    "growthSince2020": {
+      "amount": -1848,
+      "percent": 0
+    }
+  },
+  {
+    "rank": 4,
+    "name": "Dallas-Fort Worth-Arlington, TX Metro Area",
+    "slug": "dallas-fort-worth-arlington",
+    "population": 8477157,
+    "populationByYear": {
+      "2020": 7667416,
+      "2021": 7777844,
+      "2022": 7972652,
+      "2023": 8164140,
+      "2024": 8353600,
+      "2025": 8477157
+    },
+    "yearlyGrowth": {
+      "amount": 123557,
+      "percent": 1.5
+    },
+    "growthSince2020": {
+      "amount": 809741,
+      "percent": 10.6
+    }
+  },
+  {
+    "rank": 5,
+    "name": "Houston-Pasadena-The Woodlands, TX Metro Area",
+    "slug": "houston-pasadena-the-woodlands",
+    "population": 7904627,
+    "populationByYear": {
+      "2020": 7169284,
+      "2021": 7248044,
+      "2022": 7406285,
+      "2023": 7587646,
+      "2024": 7777907,
+      "2025": 7904627
+    },
+    "yearlyGrowth": {
+      "amount": 126720,
+      "percent": 1.6
+    },
+    "growthSince2020": {
+      "amount": 735343,
+      "percent": 10.3
+    }
+  },
+  {
+    "rank": 6,
+    "name": "Atlanta-Sandy Springs-Roswell, GA Metro Area",
+    "slug": "atlanta-sandy-springs-roswell",
+    "population": 6482182,
+    "populationByYear": {
+      "2020": 6120770,
+      "2021": 6160335,
+      "2022": 6250876,
+      "2023": 6333350,
+      "2024": 6420229,
+      "2025": 6482182
+    },
+    "yearlyGrowth": {
+      "amount": 61953,
+      "percent": 1
+    },
+    "growthSince2020": {
+      "amount": 361412,
+      "percent": 5.9
+    }
+  },
+  {
+    "rank": 7,
+    "name": "Washington-Arlington-Alexandria, DC-VA-MD-WV Metro Area",
+    "slug": "washington-arlington-alexandria",
+    "population": 6465724,
+    "populationByYear": {
+      "2020": 6260638,
+      "2021": 6259621,
+      "2022": 6280312,
+      "2023": 6328730,
+      "2024": 6415518,
+      "2025": 6465724
+    },
+    "yearlyGrowth": {
+      "amount": 50206,
+      "percent": 0.8
+    },
+    "growthSince2020": {
+      "amount": 205086,
+      "percent": 3.3
+    }
+  },
+  {
+    "rank": 8,
+    "name": "Miami-Fort Lauderdale-West Palm Beach, FL Metro Area",
+    "slug": "miami-fort-lauderdale-west-palm-beach",
+    "population": 6391072,
+    "populationByYear": {
+      "2020": 6133159,
+      "2021": 6110225,
+      "2022": 6233455,
+      "2023": 6353900,
+      "2024": 6399981,
+      "2025": 6391072
+    },
+    "yearlyGrowth": {
+      "amount": -8909,
+      "percent": -0.1
+    },
+    "growthSince2020": {
+      "amount": 257913,
+      "percent": 4.2
+    }
+  },
+  {
+    "rank": 9,
+    "name": "Philadelphia-Camden-Wilmington, PA-NJ-DE-MD Metro Area",
+    "slug": "philadelphia-camden-wilmington",
+    "population": 6329118,
+    "populationByYear": {
+      "2020": 6242164,
+      "2021": 6255303,
+      "2022": 6254276,
+      "2023": 6277370,
+      "2024": 6313158,
+      "2025": 6329118
+    },
+    "yearlyGrowth": {
+      "amount": 15960,
+      "percent": 0.3
+    },
+    "growthSince2020": {
+      "amount": 86954,
+      "percent": 1.4
+    }
+  },
+  {
+    "rank": 10,
+    "name": "Phoenix-Mesa-Chandler, AZ Metro Area",
+    "slug": "phoenix-mesa-chandler",
+    "population": 5228938,
+    "populationByYear": {
+      "2020": 4875256,
+      "2021": 4949187,
+      "2022": 5025111,
+      "2023": 5087631,
+      "2024": 5169873,
+      "2025": 5228938
+    },
+    "yearlyGrowth": {
+      "amount": 59065,
+      "percent": 1.1
+    },
+    "growthSince2020": {
+      "amount": 353682,
+      "percent": 7.3
+    }
+  },
+  {
+    "rank": 11,
+    "name": "Boston-Cambridge-Newton, MA-NH Metro Area",
+    "slug": "boston-cambridge-newton",
+    "population": 5034221,
+    "populationByYear": {
+      "2020": 4921409,
+      "2021": 4907671,
+      "2022": 4933469,
+      "2023": 4970657,
+      "2024": 5022230,
+      "2025": 5034221
+    },
+    "yearlyGrowth": {
+      "amount": 11991,
+      "percent": 0.2
+    },
+    "growthSince2020": {
+      "amount": 112812,
+      "percent": 2.3
+    }
+  },
+  {
+    "rank": 12,
+    "name": "Riverside-San Bernardino-Ontario, CA Metro Area",
+    "slug": "riverside-san-bernardino-ontario",
+    "population": 4769007,
+    "populationByYear": {
+      "2020": 4607646,
+      "2021": 4644896,
+      "2022": 4675606,
+      "2023": 4707448,
+      "2024": 4747876,
+      "2025": 4769007
+    },
+    "yearlyGrowth": {
+      "amount": 21131,
+      "percent": 0.4
+    },
+    "growthSince2020": {
+      "amount": 161361,
+      "percent": 3.5
+    }
+  },
+  {
+    "rank": 13,
+    "name": "San Francisco-Oakland-Fremont, CA Metro Area",
+    "slug": "san-francisco-oakland-fremont",
+    "population": 4630041,
+    "populationByYear": {
+      "2020": 4745853,
+      "2021": 4623626,
+      "2022": 4595850,
+      "2023": 4601326,
+      "2024": 4623434,
+      "2025": 4630041
+    },
+    "yearlyGrowth": {
+      "amount": 6607,
+      "percent": 0.1
+    },
+    "growthSince2020": {
+      "amount": -115812,
+      "percent": -2.4
+    }
+  },
+  {
+    "rank": 14,
+    "name": "Detroit-Warren-Dearborn, MI Metro Area",
+    "slug": "detroit-warren-dearborn",
+    "population": 4390913,
+    "populationByYear": {
+      "2020": 4385353,
+      "2021": 4370695,
+      "2022": 4354135,
+      "2023": 4356818,
+      "2024": 4377045,
+      "2025": 4390913
+    },
+    "yearlyGrowth": {
+      "amount": 13868,
+      "percent": 0.3
+    },
+    "growthSince2020": {
+      "amount": 5560,
+      "percent": 0.1
+    }
+  },
+  {
+    "rank": 15,
+    "name": "Seattle-Tacoma-Bellevue, WA Metro Area",
+    "slug": "seattle-tacoma-bellevue",
+    "population": 4161883,
+    "populationByYear": {
+      "2020": 4027814,
+      "2021": 4017597,
+      "2022": 4034138,
+      "2023": 4062857,
+      "2024": 4118815,
+      "2025": 4161883
+    },
+    "yearlyGrowth": {
+      "amount": 43068,
+      "percent": 1
+    },
+    "growthSince2020": {
+      "amount": 134069,
+      "percent": 3.3
+    }
+  },
+  {
+    "rank": 16,
+    "name": "Minneapolis-St. Paul-Bloomington, MN-WI Metro Area",
+    "slug": "minneapolis-st-paul-bloomington",
+    "population": 3790295,
+    "populationByYear": {
+      "2020": 3694131,
+      "2021": 3692614,
+      "2022": 3700187,
+      "2023": 3721774,
+      "2024": 3760895,
+      "2025": 3790295
+    },
+    "yearlyGrowth": {
+      "amount": 29400,
+      "percent": 0.8
+    },
+    "growthSince2020": {
+      "amount": 96164,
+      "percent": 2.6
+    }
+  },
+  {
+    "rank": 17,
+    "name": "Tampa-St. Petersburg-Clearwater, FL Metro Area",
+    "slug": "tampa-st-petersburg-clearwater",
+    "population": 3418895,
+    "populationByYear": {
+      "2020": 3187831,
+      "2021": 3230962,
+      "2022": 3307164,
+      "2023": 3370351,
+      "2024": 3405357,
+      "2025": 3418895
+    },
+    "yearlyGrowth": {
+      "amount": 13538,
+      "percent": 0.4
+    },
+    "growthSince2020": {
+      "amount": 231064,
+      "percent": 7.2
+    }
+  },
+  {
+    "rank": 18,
+    "name": "San Diego-Chula Vista-Carlsbad, CA Metro Area",
+    "slug": "san-diego-chula-vista-carlsbad",
+    "population": 3282248,
+    "populationByYear": {
+      "2020": 3301110,
+      "2021": 3272601,
+      "2022": 3279089,
+      "2023": 3279736,
+      "2024": 3287542,
+      "2025": 3282248
+    },
+    "yearlyGrowth": {
+      "amount": -5294,
+      "percent": -0.2
+    },
+    "growthSince2020": {
+      "amount": -18862,
+      "percent": -0.6
+    }
+  },
+  {
+    "rank": 19,
+    "name": "Denver-Aurora-Centennial, CO Metro Area",
+    "slug": "denver-aurora-centennial",
+    "population": 3092037,
+    "populationByYear": {
+      "2020": 2970099,
+      "2021": 2978802,
+      "2022": 2994295,
+      "2023": 3031278,
+      "2024": 3081092,
+      "2025": 3092037
+    },
+    "yearlyGrowth": {
+      "amount": 10945,
+      "percent": 0.4
+    },
+    "growthSince2020": {
+      "amount": 121938,
+      "percent": 4.1
+    }
+  },
+  {
+    "rank": 20,
+    "name": "Orlando-Kissimmee-Sanford, FL Metro Area",
+    "slug": "orlando-kissimmee-sanford",
+    "population": 2957672,
+    "populationByYear": {
+      "2020": 2680430,
+      "2021": 2699589,
+      "2022": 2786534,
+      "2023": 2863651,
+      "2024": 2919982,
+      "2025": 2957672
+    },
+    "yearlyGrowth": {
+      "amount": 37690,
+      "percent": 1.3
+    },
+    "growthSince2020": {
+      "amount": 277242,
+      "percent": 10.3
+    }
+  },
+  {
+    "rank": 21,
+    "name": "Charlotte-Concord-Gastonia, NC-SC Metro Area",
+    "slug": "charlotte-concord-gastonia",
+    "population": 2938830,
+    "populationByYear": {
+      "2020": 2668342,
+      "2021": 2706093,
+      "2022": 2758749,
+      "2023": 2818271,
+      "2024": 2884708,
+      "2025": 2938830
+    },
+    "yearlyGrowth": {
+      "amount": 54122,
+      "percent": 1.9
+    },
+    "growthSince2020": {
+      "amount": 270488,
+      "percent": 10.1
+    }
+  },
+  {
+    "rank": 22,
+    "name": "Baltimore-Columbia-Towson, MD Metro Area",
+    "slug": "baltimore-columbia-towson",
+    "population": 2857781,
+    "populationByYear": {
+      "2020": 2847138,
+      "2021": 2845979,
+      "2022": 2843177,
+      "2023": 2843966,
+      "2024": 2853522,
+      "2025": 2857781
+    },
+    "yearlyGrowth": {
+      "amount": 4259,
+      "percent": 0.1
+    },
+    "growthSince2020": {
+      "amount": 10643,
+      "percent": 0.4
+    }
+  },
+  {
+    "rank": 23,
+    "name": "St. Louis, MO-IL Metro Area",
+    "slug": "st-louis",
+    "population": 2814421,
+    "populationByYear": {
+      "2020": 2819811,
+      "2021": 2814042,
+      "2022": 2803083,
+      "2023": 2804698,
+      "2024": 2811394,
+      "2025": 2814421
+    },
+    "yearlyGrowth": {
+      "amount": 3027,
+      "percent": 0.1
+    },
+    "growthSince2020": {
+      "amount": -5390,
+      "percent": -0.2
+    }
+  },
+  {
+    "rank": 24,
+    "name": "San Antonio-New Braunfels, TX Metro Area",
+    "slug": "san-antonio-new-braunfels",
+    "population": 2813140,
+    "populationByYear": {
+      "2020": 2568772,
+      "2021": 2605822,
+      "2022": 2661946,
+      "2023": 2719892,
+      "2024": 2774738,
+      "2025": 2813140
+    },
+    "yearlyGrowth": {
+      "amount": 38402,
+      "percent": 1.4
+    },
+    "growthSince2020": {
+      "amount": 244368,
+      "percent": 9.5
+    }
+  },
+  {
+    "rank": 25,
+    "name": "Austin-Round Rock-San Marcos, TX Metro Area",
+    "slug": "austin-round-rock-san-marcos",
+    "population": 2620945,
+    "populationByYear": {
+      "2020": 2300172,
+      "2021": 2359313,
+      "2022": 2434592,
+      "2023": 2498809,
+      "2024": 2567149,
+      "2025": 2620945
+    },
+    "yearlyGrowth": {
+      "amount": 53796,
+      "percent": 2.1
+    },
+    "growthSince2020": {
+      "amount": 320773,
+      "percent": 13.9
+    }
+  },
+  {
+    "rank": 26,
+    "name": "Portland-Vancouver-Hillsboro, OR-WA Metro Area",
+    "slug": "portland-vancouver-hillsboro",
+    "population": 2542282,
+    "populationByYear": {
+      "2020": 2517518,
+      "2021": 2517451,
+      "2022": 2509813,
+      "2023": 2519045,
+      "2024": 2531245,
+      "2025": 2542282
+    },
+    "yearlyGrowth": {
+      "amount": 11037,
+      "percent": 0.4
+    },
+    "growthSince2020": {
+      "amount": 24764,
+      "percent": 1
+    }
+  },
+  {
+    "rank": 27,
+    "name": "Sacramento-Roseville-Folsom, CA Metro Area",
+    "slug": "sacramento-roseville-folsom",
+    "population": 2477274,
+    "populationByYear": {
+      "2020": 2401737,
+      "2021": 2409135,
+      "2022": 2422944,
+      "2023": 2435884,
+      "2024": 2459807,
+      "2025": 2477274
+    },
+    "yearlyGrowth": {
+      "amount": 17467,
+      "percent": 0.7
+    },
+    "growthSince2020": {
+      "amount": 75537,
+      "percent": 3.1
+    }
+  },
+  {
+    "rank": 28,
+    "name": "Pittsburgh, PA Metro Area",
+    "slug": "pittsburgh",
+    "population": 2421992,
+    "populationByYear": {
+      "2020": 2455193,
+      "2021": 2450852,
+      "2022": 2433371,
+      "2023": 2428225,
+      "2024": 2425152,
+      "2025": 2421992
+    },
+    "yearlyGrowth": {
+      "amount": -3160,
+      "percent": -0.1
+    },
+    "growthSince2020": {
+      "amount": -33201,
+      "percent": -1.4
+    }
+  },
+  {
+    "rank": 29,
+    "name": "Las Vegas-Henderson-North Las Vegas, NV Metro Area",
+    "slug": "las-vegas-henderson-north-las-vegas",
+    "population": 2407226,
+    "populationByYear": {
+      "2020": 2275833,
+      "2021": 2296793,
+      "2022": 2323145,
+      "2023": 2351008,
+      "2024": 2385746,
+      "2025": 2407226
+    },
+    "yearlyGrowth": {
+      "amount": 21480,
+      "percent": 0.9
+    },
+    "growthSince2020": {
+      "amount": 131393,
+      "percent": 5.8
+    }
+  },
+  {
+    "rank": 30,
+    "name": "Cincinnati, OH-KY-IN Metro Area",
+    "slug": "cincinnati",
+    "population": 2312858,
+    "populationByYear": {
+      "2020": 2251978,
+      "2021": 2251965,
+      "2022": 2261603,
+      "2023": 2281096,
+      "2024": 2299751,
+      "2025": 2312858
+    },
+    "yearlyGrowth": {
+      "amount": 13107,
+      "percent": 0.6
+    },
+    "growthSince2020": {
+      "amount": 60880,
+      "percent": 2.7
+    }
+  },
+  {
+    "rank": 31,
+    "name": "Kansas City, MO-KS Metro Area",
+    "slug": "kansas-city",
+    "population": 2270682,
+    "populationByYear": {
+      "2020": 2195241,
+      "2021": 2204025,
+      "2022": 2210616,
+      "2023": 2229173,
+      "2024": 2253287,
+      "2025": 2270682
+    },
+    "yearlyGrowth": {
+      "amount": 17395,
+      "percent": 0.8
+    },
+    "growthSince2020": {
+      "amount": 75441,
+      "percent": 3.4
+    }
+  },
+  {
+    "rank": 32,
+    "name": "Columbus, OH Metro Area",
+    "slug": "columbus",
+    "population": 2242028,
+    "populationByYear": {
+      "2020": 2141983,
+      "2021": 2146774,
+      "2022": 2166993,
+      "2023": 2192164,
+      "2024": 2220716,
+      "2025": 2242028
+    },
+    "yearlyGrowth": {
+      "amount": 21312,
+      "percent": 1
+    },
+    "growthSince2020": {
+      "amount": 100045,
+      "percent": 4.7
+    }
+  },
+  {
+    "rank": 33,
+    "name": "Indianapolis-Carmel-Greenwood, IN Metro Area",
+    "slug": "indianapolis-carmel-greenwood",
+    "population": 2205695,
+    "populationByYear": {
+      "2020": 2092783,
+      "2021": 2106709,
+      "2022": 2126489,
+      "2023": 2152012,
+      "2024": 2183424,
+      "2025": 2205695
+    },
+    "yearlyGrowth": {
+      "amount": 22271,
+      "percent": 1
+    },
+    "growthSince2020": {
+      "amount": 112912,
+      "percent": 5.4
+    }
+  },
+  {
+    "rank": 34,
+    "name": "Nashville-Davidson--Murfreesboro--Franklin, TN Metro Area",
+    "slug": "nashville-davidson-murfreesboro-franklin",
+    "population": 2197416,
+    "populationByYear": {
+      "2020": 2021837,
+      "2021": 2034309,
+      "2022": 2078824,
+      "2023": 2116786,
+      "2024": 2162758,
+      "2025": 2197416
+    },
+    "yearlyGrowth": {
+      "amount": 34658,
+      "percent": 1.6
+    },
+    "growthSince2020": {
+      "amount": 175579,
+      "percent": 8.7
+    }
+  },
+  {
+    "rank": 35,
+    "name": "Cleveland, OH Metro Area",
+    "slug": "cleveland",
+    "population": 2165775,
+    "populationByYear": {
+      "2020": 2184166,
+      "2021": 2169628,
+      "2022": 2160973,
+      "2023": 2161313,
+      "2024": 2163236,
+      "2025": 2165775
+    },
+    "yearlyGrowth": {
+      "amount": 2539,
+      "percent": 0.1
+    },
+    "growthSince2020": {
+      "amount": -18391,
+      "percent": -0.8
+    }
+  },
+  {
+    "rank": 36,
+    "name": "San Juan-Bayamón-Caguas, PR Metro Area",
+    "slug": "san-juan-bayam-n-caguas",
+    "population": 2024195,
+    "populationByYear": {
+      "2020": 2078866,
+      "2021": 2068747,
+      "2022": 2042268,
+      "2023": 2033567,
+      "2024": 2034053,
+      "2025": 2024195
+    },
+    "yearlyGrowth": {
+      "amount": -9858,
+      "percent": -0.5
+    },
+    "growthSince2020": {
+      "amount": -54671,
+      "percent": -2.6
+    }
+  },
+  {
+    "rank": 37,
+    "name": "San Jose-Sunnyvale-Santa Clara, CA Metro Area",
+    "slug": "san-jose-sunnyvale-santa-clara",
+    "population": 1984473,
+    "populationByYear": {
+      "2020": 1995874,
+      "2021": 1949222,
+      "2022": 1947825,
+      "2023": 1958644,
+      "2024": 1976995,
+      "2025": 1984473
+    },
+    "yearlyGrowth": {
+      "amount": 7478,
+      "percent": 0.4
+    },
+    "growthSince2020": {
+      "amount": -11401,
+      "percent": -0.6
+    }
+  },
+  {
+    "rank": 38,
+    "name": "Virginia Beach-Chesapeake-Norfolk, VA-NC Metro Area",
+    "slug": "virginia-beach-chesapeake-norfolk",
+    "population": 1797213,
+    "populationByYear": {
+      "2020": 1781673,
+      "2021": 1786134,
+      "2022": 1785777,
+      "2023": 1789325,
+      "2024": 1793439,
+      "2025": 1797213
+    },
+    "yearlyGrowth": {
+      "amount": 3774,
+      "percent": 0.2
+    },
+    "growthSince2020": {
+      "amount": 15540,
+      "percent": 0.9
+    }
+  },
+  {
+    "rank": 39,
+    "name": "Jacksonville, FL Metro Area",
+    "slug": "jacksonville",
+    "population": 1785500,
+    "populationByYear": {
+      "2020": 1613022,
+      "2021": 1642298,
+      "2022": 1683120,
+      "2023": 1726282,
+      "2024": 1759347,
+      "2025": 1785500
+    },
+    "yearlyGrowth": {
+      "amount": 26153,
+      "percent": 1.5
+    },
+    "growthSince2020": {
+      "amount": 172478,
+      "percent": 10.7
+    }
+  },
+  {
+    "rank": 40,
+    "name": "Providence-Warwick, RI-MA Metro Area",
+    "slug": "providence-warwick",
+    "population": 1708161,
+    "populationByYear": {
+      "2020": 1673210,
+      "2021": 1677080,
+      "2022": 1679873,
+      "2023": 1687365,
+      "2024": 1701280,
+      "2025": 1708161
+    },
+    "yearlyGrowth": {
+      "amount": 6881,
+      "percent": 0.4
+    },
+    "growthSince2020": {
+      "amount": 34951,
+      "percent": 2.1
+    }
+  },
+  {
+    "rank": 41,
+    "name": "Raleigh-Cary, NC Metro Area",
+    "slug": "raleigh-cary",
+    "population": 1595720,
+    "populationByYear": {
+      "2020": 1417382,
+      "2021": 1451713,
+      "2022": 1481995,
+      "2023": 1519679,
+      "2024": 1558927,
+      "2025": 1595720
+    },
+    "yearlyGrowth": {
+      "amount": 36793,
+      "percent": 2.4
+    },
+    "growthSince2020": {
+      "amount": 178338,
+      "percent": 12.6
+    }
+  },
+  {
+    "rank": 42,
+    "name": "Milwaukee-Waukesha, WI Metro Area",
+    "slug": "milwaukee-waukesha",
+    "population": 1575010,
+    "populationByYear": {
+      "2020": 1574549,
+      "2021": 1563919,
+      "2022": 1563459,
+      "2023": 1567195,
+      "2024": 1572498,
+      "2025": 1575010
+    },
+    "yearlyGrowth": {
+      "amount": 2512,
+      "percent": 0.2
+    },
+    "growthSince2020": {
+      "amount": 461,
+      "percent": 0
+    }
+  },
+  {
+    "rank": 43,
+    "name": "Oklahoma City, OK Metro Area",
+    "slug": "oklahoma-city",
+    "population": 1512813,
+    "populationByYear": {
+      "2020": 1430019,
+      "2021": 1444349,
+      "2022": 1462720,
+      "2023": 1481123,
+      "2024": 1499068,
+      "2025": 1512813
+    },
+    "yearlyGrowth": {
+      "amount": 13745,
+      "percent": 0.9
+    },
+    "growthSince2020": {
+      "amount": 82794,
+      "percent": 5.8
+    }
+  },
+  {
+    "rank": 44,
+    "name": "Louisville/Jefferson County, KY-IN Metro Area",
+    "slug": "louisville-jefferson-county",
+    "population": 1402509,
+    "populationByYear": {
+      "2020": 1362981,
+      "2021": 1361919,
+      "2022": 1367581,
+      "2023": 1378949,
+      "2024": 1395134,
+      "2025": 1402509
+    },
+    "yearlyGrowth": {
+      "amount": 7375,
+      "percent": 0.5
+    },
+    "growthSince2020": {
+      "amount": 39528,
+      "percent": 2.9
+    }
+  },
+  {
+    "rank": 45,
+    "name": "Richmond, VA Metro Area",
+    "slug": "richmond",
+    "population": 1389338,
+    "populationByYear": {
+      "2020": 1316683,
+      "2021": 1326763,
+      "2022": 1340131,
+      "2023": 1354817,
+      "2024": 1374727,
+      "2025": 1389338
+    },
+    "yearlyGrowth": {
+      "amount": 14611,
+      "percent": 1.1
+    },
+    "growthSince2020": {
+      "amount": 72655,
+      "percent": 5.5
+    }
+  },
+  {
+    "rank": 46,
+    "name": "Memphis, TN-MS-AR Metro Area",
+    "slug": "memphis",
+    "population": 1341412,
+    "populationByYear": {
+      "2020": 1346138,
+      "2021": 1342504,
+      "2022": 1341834,
+      "2023": 1342386,
+      "2024": 1345629,
+      "2025": 1341412
+    },
+    "yearlyGrowth": {
+      "amount": -4217,
+      "percent": -0.3
+    },
+    "growthSince2020": {
+      "amount": -4726,
+      "percent": -0.4
+    }
+  },
+  {
+    "rank": 47,
+    "name": "Salt Lake City-Murray, UT Metro Area",
+    "slug": "salt-lake-city-murray",
+    "population": 1308377,
+    "populationByYear": {
+      "2020": 1260358,
+      "2021": 1263430,
+      "2022": 1274775,
+      "2023": 1287775,
+      "2024": 1302282,
+      "2025": 1308377
+    },
+    "yearlyGrowth": {
+      "amount": 6095,
+      "percent": 0.5
+    },
+    "growthSince2020": {
+      "amount": 48019,
+      "percent": 3.8
+    }
+  },
+  {
+    "rank": 48,
+    "name": "Fresno, CA Metro Area",
+    "slug": "fresno",
+    "population": 1203383,
+    "populationByYear": {
+      "2020": 1165959,
+      "2021": 1171964,
+      "2022": 1178247,
+      "2023": 1188936,
+      "2024": 1199830,
+      "2025": 1203383
+    },
+    "yearlyGrowth": {
+      "amount": 3553,
+      "percent": 0.3
+    },
+    "growthSince2020": {
+      "amount": 37424,
+      "percent": 3.2
+    }
+  },
+  {
+    "rank": 49,
+    "name": "Birmingham, AL Metro Area",
+    "slug": "birmingham",
+    "population": 1197766,
+    "populationByYear": {
+      "2020": 1181801,
+      "2021": 1181352,
+      "2022": 1181493,
+      "2023": 1186458,
+      "2024": 1194316,
+      "2025": 1197766
+    },
+    "yearlyGrowth": {
+      "amount": 3450,
+      "percent": 0.3
+    },
+    "growthSince2020": {
+      "amount": 15965,
+      "percent": 1.4
+    }
+  },
+  {
+    "rank": 50,
+    "name": "Grand Rapids-Wyoming-Kentwood, MI Metro Area",
+    "slug": "grand-rapids-wyoming-kentwood",
+    "population": 1183645,
+    "populationByYear": {
+      "2020": 1151530,
+      "2021": 1154812,
+      "2022": 1158072,
+      "2023": 1165657,
+      "2024": 1175992,
+      "2025": 1183645
+    },
+    "yearlyGrowth": {
+      "amount": 7653,
+      "percent": 0.7
+    },
+    "growthSince2020": {
+      "amount": 32115,
+      "percent": 2.8
+    }
+  },
+  {
+    "rank": 51,
+    "name": "Hartford-West Hartford-East Hartford, CT Metro Area",
+    "slug": "hartford-west-hartford-east-hartford",
+    "population": 1171426,
+    "populationByYear": {
+      "2020": 1137300,
+      "2021": 1147484,
+      "2022": 1151169,
+      "2023": 1158194,
+      "2024": 1166241,
+      "2025": 1171426
+    },
+    "yearlyGrowth": {
+      "amount": 5185,
+      "percent": 0.4
+    },
+    "growthSince2020": {
+      "amount": 34126,
+      "percent": 3
+    }
+  },
+  {
+    "rank": 52,
+    "name": "Buffalo-Cheektowaga, NY Metro Area",
+    "slug": "buffalo-cheektowaga",
+    "population": 1155653,
+    "populationByYear": {
+      "2020": 1164609,
+      "2021": 1164503,
+      "2022": 1159679,
+      "2023": 1156869,
+      "2024": 1157163,
+      "2025": 1155653
+    },
+    "yearlyGrowth": {
+      "amount": -1510,
+      "percent": -0.1
+    },
+    "growthSince2020": {
+      "amount": -8956,
+      "percent": -0.8
+    }
+  },
+  {
+    "rank": 53,
+    "name": "Tucson, AZ Metro Area",
+    "slug": "tucson",
+    "population": 1074685,
+    "populationByYear": {
+      "2020": 1045245,
+      "2021": 1049271,
+      "2022": 1058224,
+      "2023": 1065239,
+      "2024": 1073456,
+      "2025": 1074685
+    },
+    "yearlyGrowth": {
+      "amount": 1229,
+      "percent": 0.1
+    },
+    "growthSince2020": {
+      "amount": 29440,
+      "percent": 2.8
+    }
+  },
+  {
+    "rank": 54,
+    "name": "Tulsa, OK Metro Area",
+    "slug": "tulsa",
+    "population": 1069273,
+    "populationByYear": {
+      "2020": 1017349,
+      "2021": 1026070,
+      "2022": 1036172,
+      "2023": 1048254,
+      "2024": 1061080,
+      "2025": 1069273
+    },
+    "yearlyGrowth": {
+      "amount": 8193,
+      "percent": 0.8
+    },
+    "growthSince2020": {
+      "amount": 51924,
+      "percent": 5.1
+    }
+  },
+  {
+    "rank": 55,
+    "name": "Rochester, NY Metro Area",
+    "slug": "rochester",
+    "population": 1056149,
+    "populationByYear": {
+      "2020": 1063676,
+      "2021": 1059896,
+      "2022": 1054673,
+      "2023": 1052803,
+      "2024": 1055265,
+      "2025": 1056149
+    },
+    "yearlyGrowth": {
+      "amount": 884,
+      "percent": 0.1
+    },
+    "growthSince2020": {
+      "amount": -7527,
+      "percent": -0.7
+    }
+  },
+  {
+    "rank": 56,
+    "name": "Greenville-Anderson-Greer, SC Metro Area",
+    "slug": "greenville-anderson-greer",
+    "population": 1014101,
+    "populationByYear": {
+      "2020": 930749,
+      "2021": 941780,
+      "2022": 961476,
+      "2023": 980934,
+      "2024": 999627,
+      "2025": 1014101
+    },
+    "yearlyGrowth": {
+      "amount": 14474,
+      "percent": 1.4
+    },
+    "growthSince2020": {
+      "amount": 83352,
+      "percent": 9
+    }
+  },
+  {
+    "rank": 57,
+    "name": "Omaha, NE-IA Metro Area",
+    "slug": "omaha",
+    "population": 1009836,
+    "populationByYear": {
+      "2020": 969154,
+      "2021": 973018,
+      "2022": 978383,
+      "2023": 988504,
+      "2024": 1000266,
+      "2025": 1009836
+    },
+    "yearlyGrowth": {
+      "amount": 9570,
+      "percent": 1
+    },
+    "growthSince2020": {
+      "amount": 40682,
+      "percent": 4.2
+    }
+  },
+  {
+    "rank": 58,
+    "name": "Urban Honolulu, HI Metro Area",
+    "slug": "urban-honolulu",
+    "population": 988703,
+    "populationByYear": {
+      "2020": 1012334,
+      "2021": 1004238,
+      "2022": 993798,
+      "2023": 989698,
+      "2024": 990142,
+      "2025": 988703
+    },
+    "yearlyGrowth": {
+      "amount": -1439,
+      "percent": -0.1
+    },
+    "growthSince2020": {
+      "amount": -23631,
+      "percent": -2.3
+    }
+  },
+  {
+    "rank": 59,
+    "name": "Bridgeport-Stamford-Danbury, CT Metro Area",
+    "slug": "bridgeport-stamford-danbury",
+    "population": 978179,
+    "populationByYear": {
+      "2020": 943100,
+      "2021": 950952,
+      "2022": 955142,
+      "2023": 962351,
+      "2024": 974112,
+      "2025": 978179
+    },
+    "yearlyGrowth": {
+      "amount": 4067,
+      "percent": 0.4
+    },
+    "growthSince2020": {
+      "amount": 35079,
+      "percent": 3.7
+    }
+  },
+  {
+    "rank": 60,
+    "name": "New Orleans-Metairie, LA Metro Area",
+    "slug": "new-orleans-metairie",
+    "population": 970849,
+    "populationByYear": {
+      "2020": 1005404,
+      "2021": 993881,
+      "2022": 978983,
+      "2023": 972093,
+      "2024": 973384,
+      "2025": 970849
+    },
+    "yearlyGrowth": {
+      "amount": -2535,
+      "percent": -0.3
+    },
+    "growthSince2020": {
+      "amount": -34555,
+      "percent": -3.4
+    }
+  },
+  {
+    "rank": 61,
+    "name": "Knoxville, TN Metro Area",
+    "slug": "knoxville",
+    "population": 968137,
+    "populationByYear": {
+      "2020": 906075,
+      "2021": 916760,
+      "2022": 933723,
+      "2023": 947525,
+      "2024": 959488,
+      "2025": 968137
+    },
+    "yearlyGrowth": {
+      "amount": 8649,
+      "percent": 0.9
+    },
+    "growthSince2020": {
+      "amount": 62062,
+      "percent": 6.8
+    }
+  },
+  {
+    "rank": 62,
+    "name": "North Port-Bradenton-Sarasota, FL Metro Area",
+    "slug": "north-port-bradenton-sarasota",
+    "population": 948158,
+    "populationByYear": {
+      "2020": 837884,
+      "2021": 862683,
+      "2022": 895487,
+      "2023": 917527,
+      "2024": 934945,
+      "2025": 948158
+    },
+    "yearlyGrowth": {
+      "amount": 13213,
+      "percent": 1.4
+    },
+    "growthSince2020": {
+      "amount": 110274,
+      "percent": 13.2
+    }
+  },
+  {
+    "rank": 63,
+    "name": "Bakersfield-Delano, CA Metro Area",
+    "slug": "bakersfield-delano",
+    "population": 927068,
+    "populationByYear": {
+      "2020": 905960,
+      "2021": 912765,
+      "2022": 917074,
+      "2023": 917599,
+      "2024": 924648,
+      "2025": 927068
+    },
+    "yearlyGrowth": {
+      "amount": 2420,
+      "percent": 0.3
+    },
+    "growthSince2020": {
+      "amount": 21108,
+      "percent": 2.3
+    }
+  },
+  {
+    "rank": 64,
+    "name": "Albuquerque, NM Metro Area",
+    "slug": "albuquerque",
+    "population": 925279,
+    "populationByYear": {
+      "2020": 917692,
+      "2021": 919732,
+      "2022": 919656,
+      "2023": 922544,
+      "2024": 924628,
+      "2025": 925279
+    },
+    "yearlyGrowth": {
+      "amount": 651,
+      "percent": 0.1
+    },
+    "growthSince2020": {
+      "amount": 7587,
+      "percent": 0.8
+    }
+  },
+  {
+    "rank": 65,
+    "name": "McAllen-Edinburg-Mission, TX Metro Area",
+    "slug": "mcallen-edinburg-mission",
+    "population": 921549,
+    "populationByYear": {
+      "2020": 872753,
+      "2021": 879576,
+      "2022": 888619,
+      "2023": 901096,
+      "2024": 913612,
+      "2025": 921549
+    },
+    "yearlyGrowth": {
+      "amount": 7937,
+      "percent": 0.9
+    },
+    "growthSince2020": {
+      "amount": 48796,
+      "percent": 5.6
+    }
+  },
+  {
+    "rank": 66,
+    "name": "Albany-Schenectady-Troy, NY Metro Area",
+    "slug": "albany-schenectady-troy",
+    "population": 915835,
+    "populationByYear": {
+      "2020": 898629,
+      "2021": 904711,
+      "2022": 903349,
+      "2023": 906163,
+      "2024": 911532,
+      "2025": 915835
+    },
+    "yearlyGrowth": {
+      "amount": 4303,
+      "percent": 0.5
+    },
+    "growthSince2020": {
+      "amount": 17206,
+      "percent": 1.9
+    }
+  },
+  {
+    "rank": 67,
+    "name": "Charleston-North Charleston, SC Metro Area",
+    "slug": "charleston-north-charleston",
+    "population": 889263,
+    "populationByYear": {
+      "2020": 803468,
+      "2021": 815088,
+      "2022": 832106,
+      "2023": 853040,
+      "2024": 874088,
+      "2025": 889263
+    },
+    "yearlyGrowth": {
+      "amount": 15175,
+      "percent": 1.7
+    },
+    "growthSince2020": {
+      "amount": 85795,
+      "percent": 10.7
+    }
+  },
+  {
+    "rank": 68,
+    "name": "Baton Rouge, LA Metro Area",
+    "slug": "baton-rouge",
+    "population": 888699,
+    "populationByYear": {
+      "2020": 870264,
+      "2021": 872899,
+      "2022": 874642,
+      "2023": 878512,
+      "2024": 884447,
+      "2025": 888699
+    },
+    "yearlyGrowth": {
+      "amount": 4252,
+      "percent": 0.5
+    },
+    "growthSince2020": {
+      "amount": 18435,
+      "percent": 2.1
+    }
+  },
+  {
+    "rank": 69,
+    "name": "Worcester, MA Metro Area",
+    "slug": "worcester",
+    "population": 888502,
+    "populationByYear": {
+      "2020": 857028,
+      "2021": 862157,
+      "2022": 866439,
+      "2023": 874225,
+      "2024": 883722,
+      "2025": 888502
+    },
+    "yearlyGrowth": {
+      "amount": 4780,
+      "percent": 0.5
+    },
+    "growthSince2020": {
+      "amount": 31474,
+      "percent": 3.7
+    }
+  },
+  {
+    "rank": 70,
+    "name": "Allentown-Bethlehem-Easton, PA-NJ Metro Area",
+    "slug": "allentown-bethlehem-easton",
+    "population": 887615,
+    "populationByYear": {
+      "2020": 861454,
+      "2021": 870224,
+      "2022": 871372,
+      "2023": 878155,
+      "2024": 884157,
+      "2025": 887615
+    },
+    "yearlyGrowth": {
+      "amount": 3458,
+      "percent": 0.4
+    },
+    "growthSince2020": {
+      "amount": 26161,
+      "percent": 3
+    }
+  },
+  {
+    "rank": 71,
+    "name": "El Paso, TX Metro Area",
+    "slug": "el-paso",
+    "population": 881291,
+    "populationByYear": {
+      "2020": 869771,
+      "2021": 870833,
+      "2022": 871730,
+      "2023": 876641,
+      "2024": 883344,
+      "2025": 881291
+    },
+    "yearlyGrowth": {
+      "amount": -2053,
+      "percent": -0.2
+    },
+    "growthSince2020": {
+      "amount": 11520,
+      "percent": 1.3
+    }
+  },
+  {
+    "rank": 72,
+    "name": "Columbia, SC Metro Area",
+    "slug": "columbia",
+    "population": 879918,
+    "populationByYear": {
+      "2020": 830251,
+      "2021": 838314,
+      "2022": 848826,
+      "2023": 859091,
+      "2024": 871029,
+      "2025": 879918
+    },
+    "yearlyGrowth": {
+      "amount": 8889,
+      "percent": 1
+    },
+    "growthSince2020": {
+      "amount": 49667,
+      "percent": 6
+    }
+  },
+  {
+    "rank": 73,
+    "name": "Cape Coral-Fort Myers, FL Metro Area",
+    "slug": "cape-coral-fort-myers",
+    "population": 875607,
+    "populationByYear": {
+      "2020": 765575,
+      "2021": 791169,
+      "2022": 828059,
+      "2023": 846125,
+      "2024": 861667,
+      "2025": 875607
+    },
+    "yearlyGrowth": {
+      "amount": 13940,
+      "percent": 1.6
+    },
+    "growthSince2020": {
+      "amount": 110032,
+      "percent": 14.4
+    }
+  },
+  {
+    "rank": 74,
+    "name": "Lakeland-Winter Haven, FL Metro Area",
+    "slug": "lakeland-winter-haven",
+    "population": 874790,
+    "populationByYear": {
+      "2020": 730148,
+      "2021": 755803,
+      "2022": 790796,
+      "2023": 824794,
+      "2024": 851434,
+      "2025": 874790
+    },
+    "yearlyGrowth": {
+      "amount": 23356,
+      "percent": 2.7
+    },
+    "growthSince2020": {
+      "amount": 144642,
+      "percent": 19.8
+    }
+  },
+  {
+    "rank": 75,
+    "name": "Boise City, ID Metro Area",
+    "slug": "boise-city",
+    "population": 864243,
+    "populationByYear": {
+      "2020": 770194,
+      "2021": 797111,
+      "2022": 813450,
+      "2023": 827672,
+      "2024": 845389,
+      "2025": 864243
+    },
+    "yearlyGrowth": {
+      "amount": 18854,
+      "percent": 2.2
+    },
+    "growthSince2020": {
+      "amount": 94049,
+      "percent": 12.2
+    }
+  },
+  {
+    "rank": 76,
+    "name": "Oxnard-Thousand Oaks-Ventura, CA Metro Area",
+    "slug": "oxnard-thousand-oaks-ventura",
+    "population": 830851,
+    "populationByYear": {
+      "2020": 843793,
+      "2021": 839956,
+      "2022": 834675,
+      "2023": 832071,
+      "2024": 833431,
+      "2025": 830851
+    },
+    "yearlyGrowth": {
+      "amount": -2580,
+      "percent": -0.3
+    },
+    "growthSince2020": {
+      "amount": -12942,
+      "percent": -1.5
+    }
+  },
+  {
+    "rank": 77,
+    "name": "Dayton-Kettering-Beavercreek, OH Metro Area",
+    "slug": "dayton-kettering-beavercreek",
+    "population": 826554,
+    "populationByYear": {
+      "2020": 814230,
+      "2021": 813698,
+      "2022": 813396,
+      "2023": 815907,
+      "2024": 820950,
+      "2025": 826554
+    },
+    "yearlyGrowth": {
+      "amount": 5604,
+      "percent": 0.7
+    },
+    "growthSince2020": {
+      "amount": 12324,
+      "percent": 1.5
+    }
+  },
+  {
+    "rank": 78,
+    "name": "Stockton-Lodi, CA Metro Area",
+    "slug": "stockton-lodi",
+    "population": 823815,
+    "populationByYear": {
+      "2020": 780618,
+      "2021": 788040,
+      "2022": 795443,
+      "2023": 806055,
+      "2024": 817149,
+      "2025": 823815
+    },
+    "yearlyGrowth": {
+      "amount": 6666,
+      "percent": 0.8
+    },
+    "growthSince2020": {
+      "amount": 43197,
+      "percent": 5.5
+    }
+  },
+  {
+    "rank": 79,
+    "name": "Greensboro-High Point, NC Metro Area",
+    "slug": "greensboro-high-point",
+    "population": 805945,
+    "populationByYear": {
+      "2020": 774328,
+      "2021": 778524,
+      "2022": 784794,
+      "2023": 791773,
+      "2024": 799545,
+      "2025": 805945
+    },
+    "yearlyGrowth": {
+      "amount": 6400,
+      "percent": 0.8
+    },
+    "growthSince2020": {
+      "amount": 31617,
+      "percent": 4.1
+    }
+  },
+  {
+    "rank": 80,
+    "name": "Colorado Springs, CO Metro Area",
+    "slug": "colorado-springs",
+    "population": 781796,
+    "populationByYear": {
+      "2020": 758467,
+      "2021": 763359,
+      "2022": 766673,
+      "2023": 770497,
+      "2024": 777099,
+      "2025": 781796
+    },
+    "yearlyGrowth": {
+      "amount": 4697,
+      "percent": 0.6
+    },
+    "growthSince2020": {
+      "amount": 23329,
+      "percent": 3.1
+    }
+  },
+  {
+    "rank": 81,
+    "name": "Little Rock-North Little Rock-Conway, AR Metro Area",
+    "slug": "little-rock-north-little-rock-conway",
+    "population": 777607,
+    "populationByYear": {
+      "2020": 748989,
+      "2021": 751980,
+      "2022": 758829,
+      "2023": 765621,
+      "2024": 772588,
+      "2025": 777607
+    },
+    "yearlyGrowth": {
+      "amount": 5019,
+      "percent": 0.6
+    },
+    "growthSince2020": {
+      "amount": 28618,
+      "percent": 3.8
+    }
+  },
+  {
+    "rank": 82,
+    "name": "Provo-Orem-Lehi, UT Metro Area",
+    "slug": "provo-orem-lehi",
+    "population": 773426,
+    "populationByYear": {
+      "2020": 675397,
+      "2021": 698249,
+      "2022": 717814,
+      "2023": 739116,
+      "2024": 758992,
+      "2025": 773426
+    },
+    "yearlyGrowth": {
+      "amount": 14434,
+      "percent": 1.9
+    },
+    "growthSince2020": {
+      "amount": 98029,
+      "percent": 14.5
+    }
+  },
+  {
+    "rank": 83,
+    "name": "Des Moines-West Des Moines, IA Metro Area",
+    "slug": "des-moines-west-des-moines",
+    "population": 758539,
+    "populationByYear": {
+      "2020": 711197,
+      "2021": 720947,
+      "2022": 729291,
+      "2023": 739208,
+      "2024": 750777,
+      "2025": 758539
+    },
+    "yearlyGrowth": {
+      "amount": 7762,
+      "percent": 1
+    },
+    "growthSince2020": {
+      "amount": 47342,
+      "percent": 6.7
+    }
+  },
+  {
+    "rank": 84,
+    "name": "Deltona-Daytona Beach-Ormond Beach, FL Metro Area",
+    "slug": "deltona-daytona-beach-ormond-beach",
+    "population": 746933,
+    "populationByYear": {
+      "2020": 671822,
+      "2021": 687610,
+      "2022": 707523,
+      "2023": 723779,
+      "2024": 737391,
+      "2025": 746933
+    },
+    "yearlyGrowth": {
+      "amount": 9542,
+      "percent": 1.3
+    },
+    "growthSince2020": {
+      "amount": 75111,
+      "percent": 11.2
+    }
+  },
+  {
+    "rank": 85,
+    "name": "Kiryas Joel-Poughkeepsie-Newburgh, NY Metro Area",
+    "slug": "kiryas-joel-poughkeepsie-newburgh",
+    "population": 718377,
+    "populationByYear": {
+      "2020": 697282,
+      "2021": 702792,
+      "2022": 704528,
+      "2023": 707630,
+      "2024": 714344,
+      "2025": 718377
+    },
+    "yearlyGrowth": {
+      "amount": 4033,
+      "percent": 0.6
+    },
+    "growthSince2020": {
+      "amount": 21095,
+      "percent": 3
+    }
+  },
+  {
+    "rank": 86,
+    "name": "Winston-Salem, NC Metro Area",
+    "slug": "winston-salem",
+    "population": 712206,
+    "populationByYear": {
+      "2020": 676371,
+      "2021": 681982,
+      "2022": 688548,
+      "2023": 696653,
+      "2024": 705337,
+      "2025": 712206
+    },
+    "yearlyGrowth": {
+      "amount": 6869,
+      "percent": 1
+    },
+    "growthSince2020": {
+      "amount": 35835,
+      "percent": 5.3
+    }
+  },
+  {
+    "rank": 87,
+    "name": "Madison, WI Metro Area",
+    "slug": "madison",
+    "population": 709685,
+    "populationByYear": {
+      "2020": 681904,
+      "2021": 681156,
+      "2022": 689975,
+      "2023": 698155,
+      "2024": 705542,
+      "2025": 709685
+    },
+    "yearlyGrowth": {
+      "amount": 4143,
+      "percent": 0.6
+    },
+    "growthSince2020": {
+      "amount": 27781,
+      "percent": 4.1
+    }
+  },
+  {
+    "rank": 88,
+    "name": "Akron, OH Metro Area",
+    "slug": "akron",
+    "population": 701780,
+    "populationByYear": {
+      "2020": 701686,
+      "2021": 696259,
+      "2022": 697697,
+      "2023": 698608,
+      "2024": 700152,
+      "2025": 701780
+    },
+    "yearlyGrowth": {
+      "amount": 1628,
+      "percent": 0.2
+    },
+    "growthSince2020": {
+      "amount": 94,
+      "percent": 0
+    }
+  },
+  {
+    "rank": 89,
+    "name": "Ogden, UT Metro Area",
+    "slug": "ogden",
+    "population": 672784,
+    "populationByYear": {
+      "2020": 639140,
+      "2021": 646856,
+      "2022": 653184,
+      "2023": 660366,
+      "2024": 667789,
+      "2025": 672784
+    },
+    "yearlyGrowth": {
+      "amount": 4995,
+      "percent": 0.7
+    },
+    "growthSince2020": {
+      "amount": 33644,
+      "percent": 5.3
+    }
+  },
+  {
+    "rank": 90,
+    "name": "Palm Bay-Melbourne-Titusville, FL Metro Area",
+    "slug": "palm-bay-melbourne-titusville",
+    "population": 663982,
+    "populationByYear": {
+      "2020": 608765,
+      "2021": 618088,
+      "2022": 631833,
+      "2023": 646015,
+      "2024": 656254,
+      "2025": 663982
+    },
+    "yearlyGrowth": {
+      "amount": 7728,
+      "percent": 1.2
+    },
+    "growthSince2020": {
+      "amount": 55217,
+      "percent": 9.1
+    }
+  },
+  {
+    "rank": 91,
+    "name": "Wichita, KS Metro Area",
+    "slug": "wichita",
+    "population": 663809,
+    "populationByYear": {
+      "2020": 648556,
+      "2021": 648758,
+      "2022": 649765,
+      "2023": 654057,
+      "2024": 659504,
+      "2025": 663809
+    },
+    "yearlyGrowth": {
+      "amount": 4305,
+      "percent": 0.7
+    },
+    "growthSince2020": {
+      "amount": 15253,
+      "percent": 2.4
+    }
+  },
+  {
+    "rank": 92,
+    "name": "Syracuse, NY Metro Area",
+    "slug": "syracuse",
+    "population": 652273,
+    "populationByYear": {
+      "2020": 660808,
+      "2021": 657291,
+      "2022": 655119,
+      "2023": 653705,
+      "2024": 653548,
+      "2025": 652273
+    },
+    "yearlyGrowth": {
+      "amount": -1275,
+      "percent": -0.2
+    },
+    "growthSince2020": {
+      "amount": -8535,
+      "percent": -1.3
+    }
+  },
+  {
+    "rank": 93,
+    "name": "Augusta-Richmond County, GA-SC Metro Area",
+    "slug": "augusta-richmond-county",
+    "population": 641231,
+    "populationByYear": {
+      "2020": 612228,
+      "2021": 616227,
+      "2022": 624073,
+      "2023": 629988,
+      "2024": 635550,
+      "2025": 641231
+    },
+    "yearlyGrowth": {
+      "amount": 5681,
+      "percent": 0.9
+    },
+    "growthSince2020": {
+      "amount": 29003,
+      "percent": 4.7
+    }
+  },
+  {
+    "rank": 94,
+    "name": "Durham-Chapel Hill, NC Metro Area",
+    "slug": "durham-chapel-hill",
+    "population": 625485,
+    "populationByYear": {
+      "2020": 582060,
+      "2021": 592945,
+      "2022": 601130,
+      "2023": 609280,
+      "2024": 618157,
+      "2025": 625485
+    },
+    "yearlyGrowth": {
+      "amount": 7328,
+      "percent": 1.2
+    },
+    "growthSince2020": {
+      "amount": 43425,
+      "percent": 7.5
+    }
+  },
+  {
+    "rank": 95,
+    "name": "Fayetteville-Springdale-Rogers, AR Metro Area",
+    "slug": "fayetteville-springdale-rogers",
+    "population": 622177,
+    "populationByYear": {
+      "2020": 549908,
+      "2021": 562819,
+      "2022": 578071,
+      "2023": 591086,
+      "2024": 607433,
+      "2025": 622177
+    },
+    "yearlyGrowth": {
+      "amount": 14744,
+      "percent": 2.4
+    },
+    "growthSince2020": {
+      "amount": 72269,
+      "percent": 13.1
+    }
+  },
+  {
+    "rank": 96,
+    "name": "Harrisburg-Carlisle, PA Metro Area",
+    "slug": "harrisburg-carlisle",
+    "population": 617427,
+    "populationByYear": {
+      "2020": 592775,
+      "2021": 599815,
+      "2022": 603719,
+      "2023": 608434,
+      "2024": 614139,
+      "2025": 617427
+    },
+    "yearlyGrowth": {
+      "amount": 3288,
+      "percent": 0.5
+    },
+    "growthSince2020": {
+      "amount": 24652,
+      "percent": 4.2
+    }
+  },
+  {
+    "rank": 97,
+    "name": "Jackson, MS Metro Area",
+    "slug": "jackson",
+    "population": 609847,
+    "populationByYear": {
+      "2020": 618845,
+      "2021": 612680,
+      "2022": 609829,
+      "2023": 609365,
+      "2024": 608497,
+      "2025": 609847
+    },
+    "yearlyGrowth": {
+      "amount": 1350,
+      "percent": 0.2
+    },
+    "growthSince2020": {
+      "amount": -8998,
+      "percent": -1.5
+    }
+  },
+  {
+    "rank": 98,
+    "name": "Spokane-Spokane Valley, WA Metro Area",
+    "slug": "spokane-spokane-valley",
+    "population": 608012,
+    "populationByYear": {
+      "2020": 587729,
+      "2021": 593137,
+      "2022": 597884,
+      "2023": 601370,
+      "2024": 604663,
+      "2025": 608012
+    },
+    "yearlyGrowth": {
+      "amount": 3349,
+      "percent": 0.6
+    },
+    "growthSince2020": {
+      "amount": 20283,
+      "percent": 3.5
+    }
+  },
+  {
+    "rank": 99,
+    "name": "Toledo, OH Metro Area",
+    "slug": "toledo",
+    "population": 599376,
+    "populationByYear": {
+      "2020": 605724,
+      "2021": 601901,
+      "2022": 600271,
+      "2023": 599751,
+      "2024": 599402,
+      "2025": 599376
+    },
+    "yearlyGrowth": {
+      "amount": -26,
+      "percent": 0
+    },
+    "growthSince2020": {
+      "amount": -6348,
+      "percent": -1
+    }
+  },
+  {
+    "rank": 100,
+    "name": "Chattanooga, TN-GA Metro Area",
+    "slug": "chattanooga",
+    "population": 594530,
+    "populationByYear": {
+      "2020": 564631,
+      "2021": 568306,
+      "2022": 575681,
+      "2023": 582536,
+      "2024": 589864,
+      "2025": 594530
+    },
+    "yearlyGrowth": {
+      "amount": 4666,
+      "percent": 0.8
+    },
+    "growthSince2020": {
+      "amount": 29899,
+      "percent": 5.3
+    }
+  }
+];
