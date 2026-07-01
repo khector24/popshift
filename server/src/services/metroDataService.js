@@ -1,14 +1,14 @@
-import { topMetros } from "../data/metros/topMetros";
-import { metroStates } from "../data/metros/metroStates";
+import { topMetros } from "../data/metros/topMetros.js";
+import { metroStates } from "../data/metros/metroStates.js";
 import {
   metroPopulationYears,
   metroPopulation,
-} from "../data/metros/metroPopulation2025";
+} from "../data/metros/metroPopulation2025.js";
 import {
   metroACSYear,
   nationalACS,
   metroACS,
-} from "../data/metros/metroACS2024";
+} from "../data/metros/metroACS2024.js";
 
 function getMetroStatesBySlug(slug) {
   const metroStateRecord = metroStates.find((metro) => metro.slug === slug);

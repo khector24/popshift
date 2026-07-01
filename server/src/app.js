@@ -1,6 +1,7 @@
 import express from "express";
 import dotenv from "dotenv";
 import statesRoutes from "./routes/states.routes.js";
+import metroRoutes from "./routes/metros.routes.js";
 import cors from "cors";
 
 dotenv.config();
@@ -16,6 +17,7 @@ const PORT = process.env.PORT || 3000;
 
 // routes
 app.use("/api/states", statesRoutes);
+app.use("/api/metros", metroRoutes);
 
 // start server
 app.listen(PORT, () => {
