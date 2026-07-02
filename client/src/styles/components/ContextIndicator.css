@@ -1,0 +1,30 @@
+.context-indicator {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.context-indicator__icon,
+.context-indicator__value {
+  flex-shrink: 0;
+  font-weight: 800;
+}
+
+.context-indicator__icon {
+  font-size: 0.75rem;
+}
+
+.context-indicator--positive .context-indicator__icon,
+.context-indicator--positive .context-indicator__value {
+  color: var(--positive);
+}
+
+.context-indicator--negative .context-indicator__icon,
+.context-indicator--negative .context-indicator__value {
+  color: var(--negative);
+}
+
+.context-indicator--neutral .context-indicator__icon,
+.context-indicator--neutral .context-indicator__value {
+  color: var(--text-muted);
+}

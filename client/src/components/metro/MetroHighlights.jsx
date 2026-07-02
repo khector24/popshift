@@ -1,38 +1,31 @@
 import MetroStatCard from "./MetroStatCard";
+import ContextIndicator from "../ui/ContextIndicator.jsx";
+
 import {
   FaUsers,
   FaArrowTrendUp,
   FaDollarSign,
   FaPeopleRoof,
-  FaArrowUp,
-  FaArrowDown,
 } from "react-icons/fa6";
 
 import "../../styles/components/metro/MetroHighlights.css";
-import {
-  formatPercentDifference,
-  formatPointDifference,
-} from "../../utils/metroContextUtils";
 
 export default function MetroHighlights({ metro }) {
   const populationSubtitle = `#${metro.rank} Largest Metro in the U.S.`;
 
+  const growthAmount = metro.yearlyGrowth.amount;
+  const growthIsPositive = growthAmount >= 0;
+
   const medianHouseholdIncome = metro.economics.medianHouseholdIncome;
   const nationalIncome = metro.nationalAverages.economics.medianHouseholdIncome;
-  const medianIncomeSubtitle = formatPercentDifference(
-    medianHouseholdIncome,
-    nationalIncome,
-  );
+  const incomeDifferencePercent =
+    ((medianHouseholdIncome - nationalIncome) / nationalIncome) * 100;
+  const incomeIsAbove = incomeDifferencePercent >= 0;
 
   const metroPovertyRate = metro.economics.povertyRate;
   const nationalPovertyRate = metro.nationalAverages.economics.povertyRate;
-  const povertyRateSubtitle = formatPointDifference(
-    metroPovertyRate,
-    nationalPovertyRate,
-  );
-
-  const growthIsPositive = metro.yearlyGrowth.amount >= 0;
-  const GrowthArrow = growthIsPositive ? FaArrowUp : FaArrowDown;
+  const povertyDifference = metroPovertyRate - nationalPovertyRate;
+  const povertyIsAbove = povertyDifference >= 0;
 
   return (
     <section className="metro-highlights">
@@ -49,11 +42,12 @@ export default function MetroHighlights({ metro }) {
         title="Yearly Growth"
         value={`${metro.yearlyGrowth.percent}%`}
         subtitle={
-          <>
-            <GrowthArrow className="metro-stat-card__change-icon" />{" "}
-            {Math.abs(metro.yearlyGrowth.amount).toLocaleString()} people since
-            2024
-          </>
+          <ContextIndicator
+            direction={growthIsPositive ? "up" : "down"}
+            tone={growthIsPositive ? "positive" : "negative"}
+            value={Math.abs(growthAmount).toLocaleString()}
+            text="people since 2024"
+          />
         }
         iconClass="green"
       />
@@ -62,7 +56,17 @@ export default function MetroHighlights({ metro }) {
         icon={<FaDollarSign />}
         title="Median Household Income"
         value={`$${medianHouseholdIncome.toLocaleString()}`}
-        subtitle={`${medianIncomeSubtitle} (${nationalIncome.toLocaleString()})`}
+        subtitle={
+          <>
+            <ContextIndicator
+              direction={incomeIsAbove ? "up" : "down"}
+              tone={incomeIsAbove ? "positive" : "negative"}
+              value={`${Math.abs(incomeDifferencePercent).toFixed(0)}%`}
+              text={`${incomeIsAbove ? "above" : "below"} U.S. metro avg`}
+            />
+            <span> (${nationalIncome.toLocaleString()})</span>
+          </>
+        }
         iconClass="green"
       />
 
@@ -70,7 +74,17 @@ export default function MetroHighlights({ metro }) {
         icon={<FaPeopleRoof />}
         title="Poverty Rate"
         value={`${metroPovertyRate}%`}
-        subtitle={`${povertyRateSubtitle} (${nationalPovertyRate})`}
+        subtitle={
+          <>
+            <ContextIndicator
+              direction={povertyIsAbove ? "up" : "down"}
+              tone={povertyIsAbove ? "negative" : "positive"}
+              value={`${Math.abs(povertyDifference).toFixed(1)} pp`}
+              text={`${povertyIsAbove ? "above" : "below"} U.S. metro avg`}
+            />
+            <span> ({nationalPovertyRate}%)</span>
+          </>
+        }
         iconClass="orange"
       />
     </section>
