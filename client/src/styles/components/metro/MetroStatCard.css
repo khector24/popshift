@@ -1,0 +1,112 @@
+.metro-stat-card {
+  display: flex;
+  gap: 16px;
+  align-items: flex-start;
+
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 20px;
+}
+
+.metro-stat-card__icon {
+  width: 52px;
+  height: 52px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 10px;
+
+  font-size: 1.5rem;
+}
+
+.metro-stat-card__icon.purple {
+  background: rgba(139, 92, 246, 0.18);
+  color: #8b5cf6;
+}
+
+.metro-stat-card__icon.green {
+  background: rgba(34, 197, 94, 0.18);
+  color: #22c55e;
+}
+
+.metro-stat-card__icon.orange {
+  background: rgba(249, 115, 22, 0.18);
+  color: #f97316;
+}
+
+.metro-stat-card__content {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  min-width: 0;
+}
+
+.metro-stat-card__title {
+  margin: 0;
+  color: var(--text-muted);
+  font-size: 0.9rem;
+  font-weight: 600;
+}
+
+.metro-stat-card__value {
+  margin: 0;
+  color: var(--text);
+  font-size: 2.35rem;
+  font-weight: 800;
+  line-height: 1.1;
+  white-space: nowrap;
+}
+
+.metro-stat-card__subtitle {
+  margin: 0;
+  color: var(--text-muted);
+  font-size: 0.85rem;
+}
+
+@media (max-width: 1200px) {
+  .metro-stat-card {
+    gap: 12px;
+    padding: 16px;
+  }
+
+  .metro-stat-card__icon {
+    width: 44px;
+    height: 44px;
+    font-size: 1.25rem;
+  }
+
+  .metro-stat-card__value {
+    font-size: 1.9rem;
+  }
+
+  .metro-stat-card__title {
+    font-size: 0.82rem;
+  }
+
+  .metro-stat-card__subtitle {
+    font-size: 0.78rem;
+  }
+}
+
+@media (max-width: 1000px) {
+  .metro-stat-card {
+    padding: 14px;
+  }
+
+  .metro-stat-card__icon {
+    width: 40px;
+    height: 40px;
+    font-size: 1.1rem;
+  }
+
+  .metro-stat-card__value {
+    font-size: 1.65rem;
+  }
+
+  .metro-stat-card__subtitle {
+    font-size: 0.75rem;
+  }
+}

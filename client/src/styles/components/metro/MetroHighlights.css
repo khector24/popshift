@@ -1,0 +1,25 @@
+/* MetroHighlights.css */
+.metro-highlights {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 16px;
+  margin-bottom: 32px;
+}
+
+@media (max-width: 1200px) {
+  .metro-highlights {
+    gap: 14px;
+  }
+}
+
+@media (max-width: 900px) {
+  .metro-highlights {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 600px) {
+  .metro-highlights {
+    grid-template-columns: 1fr;
+  }
+}

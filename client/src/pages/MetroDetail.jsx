@@ -4,6 +4,7 @@ import { useParams } from "react-router-dom";
 import { getMetrosBySlug } from "../services/metrosApi.js";
 
 import MetroHero from "../components/metro/MetroHero";
+import MetroHighlights from "../components/metro/MetroHighlights.jsx";
 
 import "../styles/pages/MetroDetail.css";
 
@@ -42,6 +43,7 @@ export default function MetroDetail() {
   return (
     <main className="metro-detail">
       <MetroHero metro={metro} />
+      <MetroHighlights metro={metro} />
     </main>
   );
 }
