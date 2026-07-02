@@ -25,6 +25,9 @@ function Navbar() {
         <NavLink to="/methodology" className="navbar__link">
           Methodology
         </NavLink>
+
+        {/* Temporary */}
+        <NavLink to="/metros/new-york-newark-jersey-city">Metros</NavLink>
       </div>
     </nav>
   );

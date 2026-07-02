@@ -9,4 +9,6 @@
   --positive: #4ade80;
   --negative: #f87171;
   --neutral: var(--text-muted);
+  --metro-accent: #8b5cf6;
+  --metro-purple: #7c3aed;
 }
