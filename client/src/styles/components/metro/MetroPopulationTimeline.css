@@ -1,0 +1,32 @@
+.metro-population-timeline {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 20px;
+}
+
+.metro-population-timeline__header h2 {
+  margin: 0;
+  color: var(--metro-purple);
+  font-size: 1.15rem;
+}
+
+.metro-population-timeline__header p {
+  margin: 4px 0 16px;
+  color: var(--text-muted);
+  font-size: 0.85rem;
+}
+
+.metro-population-timeline__chart {
+  width: 100%;
+}
+
+.metro-population-timeline__change {
+  margin: 8px 0 0;
+  color: var(--text);
+  font-size: 0.85rem;
+
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
