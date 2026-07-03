@@ -1,0 +1,23 @@
+.metro-at-a-glance {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 20px;
+}
+
+.metro-at-a-glance h2 {
+  margin: 0 0 14px;
+  color: var(--metro-purple);
+  font-size: 1.15rem;
+}
+
+.metro-at-a-glance p {
+  margin: 0 0 14px;
+  color: var(--text);
+  line-height: 1.6;
+  font-size: 0.95rem;
+}
+
+.metro-at-a-glance p:last-child {
+  margin-bottom: 0;
+}

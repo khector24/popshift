@@ -1,0 +1,12 @@
+.metro-population-section {
+  display: grid;
+  grid-template-columns: minmax(0, 3fr) minmax(280px, 2fr);
+  gap: 16px;
+  margin-bottom: 16px;
+}
+
+@media (max-width: 900px) {
+  .metro-population-section {
+    grid-template-columns: 1fr;
+  }
+}
