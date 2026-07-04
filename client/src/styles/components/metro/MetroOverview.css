@@ -1,0 +1,23 @@
+.metro-overview {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 24px;
+
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.metro-overview h2 {
+  margin: 0;
+}
+
+.metro-overview__content {
+  flex: 1;
+}
+
+.metro-overview__bottom {
+  border-top: 1px solid var(--border);
+  padding-top: 20px;
+}

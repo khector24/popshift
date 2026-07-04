@@ -1,0 +1,10 @@
+.metro-related-articles {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 24px;
+}
+
+.metro-related-articles h2 {
+  margin: 0;
+}

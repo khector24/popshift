@@ -1,11 +1,13 @@
+import MetroOverview from "./MetroOverview";
+import MetroRelatedArticles from "./MetroRelatedArticles";
+
+import "../../styles/components/metro/MetroBottomSection.css";
+
 export default function MetroBottomSection({ metro }) {
   return (
     <section className="metro-bottom-section">
-      <div>
-        Metro Overview
-        <h2>{metro.name}</h2>
-      </div>
-      <div>Related Articles</div>
+      <MetroOverview metro={metro} />
+      <MetroRelatedArticles />
     </section>
   );
 }
