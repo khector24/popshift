@@ -20,11 +20,11 @@ import InfoToolTip from "../components/ui/InfoTooltip.jsx";
 import MigrationTimeline from "../components/ui/MigrationTimeline.jsx";
 import MigrationHistoryTable from "../components/ui/MigrationHistoryTable.jsx";
 import EducationSnapshot from "../components/ui/EducationSnapshot.jsx";
+import NetMigrationSummary from "../components/ui/NetMigrationSummary.jsx";
 
 import "../styles/pages/StateDetail.css";
 
 import { FaWallet, FaBuilding, FaHouse } from "react-icons/fa6";
-import { FaRegArrowAltCircleUp, FaRegArrowAltCircleDown } from "react-icons/fa";
 
 function StateDetail() {
   const { code } = useParams();
@@ -121,14 +121,6 @@ function StateDetail() {
   const totalInbound = latestMigration?.totalInbound ?? 0;
   const totalOutbound = latestMigration?.totalOutbound ?? 0;
   const netMigration = latestMigration?.netMigration ?? 0;
-
-  const netMigrationTone =
-    netMigration > 0 ? "positive" : netMigration < 0 ? "negative" : "neutral";
-
-  const netMigrationLabel =
-    netMigration > 0 ? "Positive" : netMigration < 0 ? "Negative" : "Neutral";
-
-  const netMigrationAmount = Math.abs(netMigration).toLocaleString();
 
   const migrationHistory = stateMigration?.data?.years || [];
 
@@ -273,62 +265,10 @@ function StateDetail() {
 
               {stateMigration?.data && (
                 <div className="state-detail__migration-net">
-                  <div className="state-detail__migration-net-summary">
-                    <span
-                      className={`state-detail__migration-net-icon state-detail__migration-net-icon--${netMigrationTone}`}
-                    >
-                      {netMigrationTone === "positive" ? (
-                        <FaRegArrowAltCircleUp />
-                      ) : (
-                        <FaRegArrowAltCircleDown />
-                      )}
-                    </span>
-
-                    <span className="state-detail__migration-net-label">
-                      Net migration:
-                    </span>
-
-                    <span
-                      className={`state-detail__migration-net-badge state-detail__migration-net-badge--${netMigrationTone}`}
-                    >
-                      {netMigrationLabel}
-                    </span>
-
-                    <span className="state-detail__migration-net-divider"></span>
-
-                    <span>
-                      {netMigration > 0 && (
-                        <>
-                          {stateData.name} gained{" "}
-                          <span
-                            className={`state-detail__migration-net-number state-detail__migration-net-number--${netMigrationTone}`}
-                          >
-                            {netMigrationAmount}
-                          </span>{" "}
-                          more people than it lost to other states.
-                        </>
-                      )}
-
-                      {netMigration < 0 && (
-                        <>
-                          {stateData.name} lost{" "}
-                          <span
-                            className={`state-detail__migration-net-number state-detail__migration-net-number--${netMigrationTone}`}
-                          >
-                            {netMigrationAmount}
-                          </span>{" "}
-                          more people than it gained from other states.
-                        </>
-                      )}
-
-                      {netMigration === 0 && (
-                        <>
-                          {stateData.name} had no net migration change with
-                          other states.
-                        </>
-                      )}
-                    </span>
-                  </div>
+                  <NetMigrationSummary
+                    geographyName={stateData.name}
+                    netMigration={netMigration}
+                  />
                 </div>
               )}
             </section>

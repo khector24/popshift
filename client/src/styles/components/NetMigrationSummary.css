@@ -1,0 +1,60 @@
+.net-migration-summary {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 14px;
+  flex-wrap: wrap;
+  color: var(--text);
+  text-align: center;
+}
+
+.net-migration-summary__icon {
+  display: inline-flex;
+  font-size: 1.2rem;
+}
+
+.net-migration-summary__icon--positive,
+.net-migration-summary__number--positive {
+  color: var(--positive);
+}
+
+.net-migration-summary__icon--negative,
+.net-migration-summary__number--negative {
+  color: var(--negative);
+}
+
+.net-migration-summary__label {
+  font-weight: 700;
+}
+
+.net-migration-summary__badge {
+  border-radius: 999px;
+  padding: 3px 10px;
+  font-size: 0.78rem;
+  font-weight: 800;
+}
+
+.net-migration-summary__badge--positive {
+  color: var(--positive);
+  background: rgba(34, 197, 94, 0.15);
+}
+
+.net-migration-summary__badge--negative {
+  color: var(--negative);
+  background: rgba(248, 113, 113, 0.15);
+}
+
+.net-migration-summary__badge--neutral {
+  color: var(--text-muted);
+  background: rgba(148, 163, 184, 0.15);
+}
+
+.net-migration-summary__divider {
+  width: 1px;
+  height: 18px;
+  background: var(--border);
+}
+
+.net-migration-summary__number {
+  font-weight: 800;
+}
