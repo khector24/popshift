@@ -1,10 +1,13 @@
+import MetroEducationSnapshot from "./MetroEducationSnapshot.jsx";
+import MetroMigrationSnapshot from "./MetroMigrationSnapshot.jsx";
+
+import "../../styles/components/metro/MetroEducationMigrationSection.css";
+
 export default function MetroEducationMigrationSection({ metro }) {
   return (
     <section className="metro-education-migration-section">
-      <div>
-        Education Snapshot<h2>{metro.name}</h2>
-      </div>
-      <div>Migration Snapshot</div>
+      <MetroEducationSnapshot metro={metro} />
+      <MetroMigrationSnapshot metro={metro} />
     </section>
   );
 }
