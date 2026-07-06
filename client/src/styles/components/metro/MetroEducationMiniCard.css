@@ -1,0 +1,32 @@
+.metro-education-mini-card__icon {
+  width: 34px;
+  height: 34px;
+  border-radius: 8px;
+  background: rgba(139, 92, 246, 0.18);
+  color: var(--metro-purple);
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  flex-shrink: 0;
+}
+
+.metro-education-mini-card strong {
+  display: block;
+  color: var(--text);
+  font-size: 1.2rem;
+}
+
+.metro-education-mini-card p {
+  margin: 2px 0 4px;
+  color: var(--text);
+  font-size: 0.8rem;
+}
+
+.metro-education-mini-card .context-indicator {
+  margin-top: 2px;
+  font-size: 0.68rem;
+  line-height: 1.05;
+  color: var(--text-subtle);
+}
