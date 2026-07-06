@@ -1,5 +1,6 @@
 import { FaUserGraduate, FaSchool } from "react-icons/fa6";
 import MetroEducationMiniCard from "./MetroEducationMiniCard.jsx";
+import EducationAttainmentTable from "../ui/EducationAttainmentTable.jsx";
 import "../../styles/components/metro/MetroEducationSnapshot.css";
 
 function getPointContext(value, average) {
@@ -10,9 +11,20 @@ function getPointContext(value, average) {
     direction: isAbove ? "up" : "down",
     tone: isAbove ? "positive" : "negative",
     value: `${Math.abs(difference).toFixed(1)} pp`,
-    text: `${isAbove ? "above" : "below"} U.S. metro avg (${average}%)`,
+    text: `${isAbove ? "above" : "below"} U.S. avg (${average}%)`,
   };
 }
+
+const metroAttainmentRows = [
+  { label: "Less than High School Diploma", key: "lessThanHighSchool" },
+  { label: "High School Graduate", key: "highSchoolGraduate" },
+  { label: "Some College or Associate Degree", key: "someCollegeOrAssociate" },
+  {
+    label: "Bachelor's Degree or Higher",
+    key: "bachelorsOrHigher",
+    highlight: true,
+  },
+];
 
 export default function MetroEducationSnapshot({
   education,
@@ -47,15 +59,14 @@ export default function MetroEducationSnapshot({
           />
         </div>
 
-        <table>
-          <thead>
-            <tr>
-              <th>Educational Attainment</th>
-              <th>Metro Area</th>
-              <th>U.S. Average</th>
-            </tr>
-          </thead>
-        </table>
+        <div className="metro-education-snapshot__table">
+          <EducationAttainmentTable
+            areaName="Metro Area"
+            attainment={education.attainment}
+            nationalAttainment={nationalAverages.attainment}
+            attainmentRows={metroAttainmentRows}
+          />
+        </div>
       </div>
     </article>
   );

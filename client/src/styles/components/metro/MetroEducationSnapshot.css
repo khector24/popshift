@@ -34,3 +34,15 @@
   display: flex;
   gap: 12px;
 }
+
+.metro-education-snapshot__table {
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 0 14px;
+  background: rgba(255, 255, 255, 0.02);
+}
+
+.metro-education-snapshot .education-attainment-table {
+  width: 100%;
+  margin: 0 auto;
+}

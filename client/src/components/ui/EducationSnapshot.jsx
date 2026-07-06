@@ -11,6 +11,26 @@ import {
   FaCalculator,
 } from "react-icons/fa6";
 
+const attainmentRows = [
+  {
+    label: "Less than High School Diploma",
+    key: "lessThanHighSchool",
+  },
+  {
+    label: "High School Graduate (or GED)",
+    key: "highSchoolGraduate",
+  },
+  {
+    label: "Some College or Associate Degree",
+    key: "someCollegeOrAssociate",
+  },
+  {
+    label: "Bachelor's Degree or Higher",
+    key: "bachelorsOrHigher",
+    highlight: true,
+  },
+];
+
 export default function EducationSnapshot({
   education,
   national,
@@ -95,6 +115,7 @@ export default function EducationSnapshot({
             stateName={education.name}
             attainment={education.attainment}
             nationalAttainment={national.attainment}
+            attainmentRows={attainmentRows}
           />
 
           <p className="education-snapshot__panel-source">
