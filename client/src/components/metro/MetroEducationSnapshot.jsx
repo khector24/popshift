@@ -1,6 +1,7 @@
 import { FaUserGraduate, FaSchool } from "react-icons/fa6";
 import MetroEducationMiniCard from "./MetroEducationMiniCard.jsx";
 import EducationAttainmentTable from "../ui/EducationAttainmentTable.jsx";
+import ResourceLink from "../ui/ResourceLink.jsx";
 import "../../styles/components/metro/MetroEducationSnapshot.css";
 
 function getPointContext(value, average) {
@@ -68,6 +69,12 @@ export default function MetroEducationSnapshot({
           />
         </div>
       </div>
+
+      <ResourceLink
+        label="Source"
+        text="2024 ACS 5-Year Table S1501"
+        url="https://data.census.gov/table?q=S1501"
+      />
     </article>
   );
 }
