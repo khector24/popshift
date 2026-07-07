@@ -1,8 +1,9 @@
 import { Link } from "react-router-dom";
-import { FaRoute } from "react-icons/fa6";
+import { FaRoute, FaMapLocationDot } from "react-icons/fa6";
 import "../../styles/components/metro/MetroHero.css";
 
 export default function MetroHero({ metro }) {
+  const counties = metro.counties;
   const states = metro.states || [];
   const stateCodes = states.map((state) => state.abbreviation).join(", ");
 
@@ -23,9 +24,17 @@ export default function MetroHero({ metro }) {
 
         <div className="metro-hero__meta">
           <span>
+            <FaMapLocationDot className="metro-hero__icon" /> Metro Code:{" "}
+            {counties.cbsa}
+          </span>
+          <span className="metro-hero__dot" aria-hidden="true"></span>
+
+          <span>{counties.countyCount} Counties</span>
+          <span className="metro-hero__dot" aria-hidden="true"></span>
+
+          <span>
             {states.length} States ({stateCodes})
           </span>
-
           <span className="metro-hero__dot" aria-hidden="true"></span>
 
           <span>{latestPopulationYear} Population Estimate</span>

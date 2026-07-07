@@ -51,6 +51,10 @@
   font-weight: 600;
 }
 
+.metro-hero__icon {
+  color: var(--metro-purple);
+}
+
 .metro-hero__dot {
   width: 6px;
   height: 6px;
