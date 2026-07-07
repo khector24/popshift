@@ -9,10 +9,14 @@ import {
   nationalACS,
   metroACS,
 } from "../data/metros/metroACS2024.js";
+import { metroCounties } from "../data/metros/metroCounties.js";
+import {
+  metroMigrationYear,
+  metroMigration,
+} from "../data/metros/metroMigration2023.js";
 
 function getMetroStatesBySlug(slug) {
   const metroStateRecord = metroStates.find((metro) => metro.slug === slug);
-
   return metroStateRecord?.states || [];
 }
 
@@ -42,6 +46,29 @@ function getMetroACSBySlug(slug) {
   };
 }
 
+function getMetroCountiesBySlug(slug) {
+  return (
+    metroCounties[slug] ?? {
+      cbsa: null,
+      countyCount: 0,
+      counties: [],
+    }
+  );
+}
+
+function getMetroMigrationBySlug(slug) {
+  return {
+    metroMigrationYear,
+    ...(metroMigration[slug] ?? {
+      inbound: [],
+      outbound: [],
+      totalInbound: 0,
+      totalOutbound: 0,
+      netMigration: 0,
+    }),
+  };
+}
+
 function buildMetro() {
   const metros = [];
   const nationalAverages = nationalACS;
@@ -57,6 +84,9 @@ function buildMetro() {
       nationalAverages,
     };
 
+    const countiesRecord = getMetroCountiesBySlug(slug);
+    const migrationRecord = getMetroMigrationBySlug(slug);
+
     const newMetro = {
       rank,
       name,
@@ -69,10 +99,12 @@ function buildMetro() {
       },
 
       ...populationRecord,
-
       ...acsRecord,
 
       states,
+
+      counties: countiesRecord,
+      migration: migrationRecord,
     };
 
     metros.push(newMetro);
