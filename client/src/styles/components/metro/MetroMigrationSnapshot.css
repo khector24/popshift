@@ -16,3 +16,59 @@
   color: var(--text-muted);
   font-size: 0.8rem;
 }
+
+.metro-migration-snapshot__grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px;
+  margin-top: 18px;
+}
+
+.metro-migration-snapshot__net {
+  margin-top: 12px;
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 10px;
+  background: rgba(255, 255, 255, 0.03);
+}
+
+.metro-migration-snapshot .migration-flow-card {
+  padding: 14px;
+}
+
+.metro-migration-snapshot .migration-flow-card h3 {
+  font-size: 1rem;
+  line-height: 1.15;
+  margin-bottom: 14px;
+}
+
+.metro-migration-snapshot .migration-flow-card th {
+  font-size: 0.72rem;
+  padding: 8px 0;
+}
+
+.metro-migration-snapshot .migration-flow-card td {
+  font-size: 0.82rem;
+  padding: 9px 0;
+  color: var(--text-muted);
+}
+
+.metro-migration-snapshot .migration-flow-card td:nth-child(2) {
+  color: var(--text);
+}
+
+.metro-migration-snapshot .migration-flow-card__total {
+  font-size: 0.76rem;
+  margin-top: 12px;
+}
+
+.metro-migration-snapshot .net-migration-summary {
+  gap: 10px;
+  font-size: 12px;
+}
+
+@media (max-width: 700px) {
+  .metro-migration-snapshot__grid {
+    grid-template-columns: 1fr;
+  }
+}

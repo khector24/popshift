@@ -4,8 +4,9 @@ export default function MigrationFlowCard({
   label,
   subLabel,
   migrationType,
-  flows,
-  totalMovers,
+  flows = [],
+  totalMovers = 0,
+  nameHeader = "State",
 }) {
   return (
     <div
@@ -18,16 +19,18 @@ export default function MigrationFlowCard({
         <thead>
           <tr>
             <th>#</th>
-            <th>State</th>
+            <th>{nameHeader}</th>
             <th>Movers</th>
           </tr>
         </thead>
 
         <tbody>
           {flows.map((flow, index) => (
-            <tr key={flow.code}>
+            <tr key={flow.slug || flow.code || flow.name || index}>
               <td>{index + 1}</td>
-              <td>{flow.state}</td>
+              <td>
+                {flow.shortName || flow.displayName || flow.name || flow.state}
+              </td>
               <td>{flow.movers.toLocaleString()}</td>
             </tr>
           ))}

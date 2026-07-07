@@ -2,7 +2,12 @@ import { FaRegArrowAltCircleUp, FaRegArrowAltCircleDown } from "react-icons/fa";
 
 import "../../styles/components/NetMigrationSummary.css";
 
-export default function NetMigrationSummary({ geographyName, netMigration }) {
+export default function NetMigrationSummary({
+  geographyName,
+  netMigration,
+  comparisonLabel = "other states",
+  hideGeographyName = false,
+}) {
   const tone =
     netMigration > 0 ? "positive" : netMigration < 0 ? "negative" : "neutral";
 
@@ -10,6 +15,7 @@ export default function NetMigrationSummary({ geographyName, netMigration }) {
     netMigration > 0 ? "Positive" : netMigration < 0 ? "Negative" : "Neutral";
 
   const amount = Math.abs(netMigration).toLocaleString();
+  const subject = hideGeographyName ? "" : `${geographyName} `;
 
   return (
     <div className="net-migration-summary">
@@ -36,30 +42,32 @@ export default function NetMigrationSummary({ geographyName, netMigration }) {
       <span>
         {netMigration > 0 && (
           <>
-            {geographyName} gained{" "}
+            {subject}gained{" "}
             <span
               className={`net-migration-summary__number net-migration-summary__number--${tone}`}
             >
               {amount}
             </span>{" "}
-            more people than it lost to other states.
+            more people than it lost to {comparisonLabel}.
           </>
         )}
 
         {netMigration < 0 && (
           <>
-            {geographyName} lost{" "}
+            {subject}lost{" "}
             <span
               className={`net-migration-summary__number net-migration-summary__number--${tone}`}
             >
               {amount}
             </span>{" "}
-            more people than it gained from other states.
+            more people than it gained from {comparisonLabel}.
           </>
         )}
 
         {netMigration === 0 && (
-          <>{geographyName} had no net migration change with other states.</>
+          <>
+            {subject}had no net migration change with {comparisonLabel}.
+          </>
         )}
       </span>
     </div>
