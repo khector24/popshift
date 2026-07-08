@@ -23,18 +23,23 @@
 }
 
 .metro-stat-card__icon.purple {
-  background: rgba(139, 92, 246, 0.18);
-  color: #8b5cf6;
+  background: var(--metro-purple-bg);
+  color: var(--metro-purple);
 }
 
-.metro-stat-card__icon.green {
-  background: rgba(34, 197, 94, 0.18);
-  color: #22c55e;
+.metro-stat-card__icon.positive {
+  background: var(--positive-bg);
+  color: var(--positive);
 }
 
-.metro-stat-card__icon.orange {
-  background: rgba(249, 115, 22, 0.18);
-  color: #f97316;
+.metro-stat-card__icon.negative {
+  background: var(--negative-bg);
+  color: var(--negative);
+}
+
+.metro-stat-card__icon.warning {
+  background: var(--warning-bg);
+  color: var(--warning);
 }
 
 .metro-stat-card__content {

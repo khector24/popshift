@@ -4,6 +4,7 @@ import ContextIndicator from "../ui/ContextIndicator.jsx";
 import {
   FaUsers,
   FaArrowTrendUp,
+  FaArrowTrendDown,
   FaDollarSign,
   FaPeopleRoof,
 } from "react-icons/fa6";
@@ -38,7 +39,7 @@ export default function MetroHighlights({ metro }) {
       />
 
       <MetroStatCard
-        icon={<FaArrowTrendUp />}
+        icon={growthIsPositive ? <FaArrowTrendUp /> : <FaArrowTrendDown />}
         title="Yearly Growth"
         value={`${metro.yearlyGrowth.percent}%`}
         subtitle={
@@ -49,7 +50,7 @@ export default function MetroHighlights({ metro }) {
             text="people since 2024"
           />
         }
-        iconClass="green"
+        iconClass={growthIsPositive ? "positive" : "negative"}
       />
 
       <MetroStatCard
@@ -67,7 +68,7 @@ export default function MetroHighlights({ metro }) {
             <span> (${nationalIncome.toLocaleString()})</span>
           </>
         }
-        iconClass="green"
+        iconClass="positive"
       />
 
       <MetroStatCard
@@ -85,7 +86,7 @@ export default function MetroHighlights({ metro }) {
             <span> ({nationalPovertyRate}%)</span>
           </>
         }
-        iconClass="orange"
+        iconClass="warning"
       />
     </section>
   );
