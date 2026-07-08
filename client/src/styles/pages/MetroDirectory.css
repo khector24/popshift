@@ -1,0 +1,12 @@
+.metro-directory-page {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+}
+
+.metro-directory-page__layout {
+  display: grid;
+  grid-template-columns: 280px 1fr;
+  gap: 32px;
+  align-items: start;
+}
