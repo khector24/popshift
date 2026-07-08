@@ -1,6 +1,8 @@
 import "../../styles/components/metro-directory/MetroFilters.css";
 
 export default function MetroFilters({ states }) {
+  const filteredStates = states.filter((state) => state.name !== "Puerto Rico");
+
   return (
     <aside className="metro-filters">
       <div className="metro-filters__header">
@@ -56,7 +58,7 @@ export default function MetroFilters({ states }) {
           <span>All States</span>
         </label>
 
-        {states.map((state) => (
+        {filteredStates.map((state) => (
           <label className="metro-filters__checkbox-row" key={state.code}>
             <input type="checkbox" />
             <span>{state.name}</span>
