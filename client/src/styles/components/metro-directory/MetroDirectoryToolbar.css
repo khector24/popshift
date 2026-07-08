@@ -1,0 +1,88 @@
+.metro-directory-toolbar {
+  display: grid;
+  grid-template-columns: 170px minmax(260px, 1fr) 320px;
+  gap: 24px;
+  align-items: center;
+}
+
+.metro-directory-toolbar__filters-toggle {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+}
+
+.metro-directory-toolbar__filters-toggle span {
+  width: 24px;
+  height: 24px;
+  border-radius: 999px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--metro-purple);
+  color: var(--text);
+  font-size: 0.8rem;
+  font-weight: 700;
+  line-height: 1;
+}
+
+.metro-directory-toolbar__filters-toggle,
+.metro-directory-toolbar__search input,
+.metro-directory-toolbar__sort {
+  height: 48px;
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  background: var(--surface);
+  color: var(--text);
+}
+
+.metro-directory-toolbar__search {
+  position: relative;
+}
+
+.metro-directory-toolbar__search input {
+  width: 100%;
+  padding: 0 16px 0 42px;
+}
+
+.metro-directory-toolbar__search-icon {
+  position: absolute;
+  left: 16px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: var(--text-subtle);
+  font-size: 0.9rem;
+}
+
+.metro-directory-toolbar__search input::placeholder {
+  color: var(--text-subtle);
+}
+
+.metro-directory-toolbar__sort {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 0 14px;
+}
+
+.metro-directory-toolbar__sort span {
+  color: var(--text-muted);
+  font-size: 0.9rem;
+  white-space: nowrap;
+}
+
+.metro-directory-toolbar__sort select {
+  flex: 1;
+  min-width: 0;
+  border: none;
+  outline: none;
+  background: transparent;
+  color: var(--text);
+  font: inherit;
+  cursor: pointer;
+}
+
+.metro-directory-toolbar__sort select option {
+  background: var(--surface);
+  color: var(--text);
+}

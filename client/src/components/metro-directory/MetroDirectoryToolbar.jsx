@@ -1,11 +1,39 @@
 import "../../styles/components/metro-directory/MetroDirectoryToolbar.css";
+import { FaMagnifyingGlass, FaSliders } from "react-icons/fa6";
 
 export default function MetroDirectoryToolbar() {
   return (
     <section className="metro-directory-toolbar">
-      <div className="metro-directory-toolbar__search">Search</div>
+      <div className="metro-directory-toolbar__filters-toggle">
+        <FaSliders />
+        <p>Hide Filters</p>
+        <span>3</span>
+      </div>
 
-      <div className="metro-directory-toolbar__sort">Sort</div>
+      <div className="metro-directory-toolbar__search">
+        <input
+          id="metro-search"
+          name="search"
+          type="text"
+          placeholder="Search metros..."
+        />
+
+        <FaMagnifyingGlass className="metro-directory-toolbar__search-icon" />
+      </div>
+
+      <label className="metro-directory-toolbar__sort">
+        <span>Sort by:</span>
+
+        <select id="metro-sort" name="sort" defaultValue="population-desc">
+          <option value="population-desc">Population (High to Low)</option>
+          <option value="population-asc">Population (Low to High)</option>
+          <option value="growth-desc">Growth Since 2020 (High to Low)</option>
+          <option value="growth-asc">Growth Since 2020 (Low to High)</option>
+          <option value="income-desc">Median Income (High to Low)</option>
+          <option value="rent-desc">Median Rent (High to Low)</option>
+          <option value="home-value-desc">Home Value (High to Low)</option>
+        </select>
+      </label>
     </section>
   );
 }
