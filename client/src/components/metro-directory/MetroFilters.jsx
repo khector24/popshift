@@ -58,13 +58,15 @@ export default function MetroFilters({ states }) {
           <span>All States</span>
         </label>
 
-        {filteredStates.map((state) => (
-          <label className="metro-filters__checkbox-row" key={state.code}>
-            <input type="checkbox" />
-            <span>{state.name}</span>
-            <strong>12</strong>
-          </label>
-        ))}
+        <div className="metro-filters__state-list">
+          {filteredStates.map((state) => (
+            <label className="metro-filters__checkbox-row" key={state.code}>
+              <input type="checkbox" />
+              <span>{state.name}</span>
+              <strong>12</strong>
+            </label>
+          ))}
+        </div>
       </section>
 
       <section className="metro-filters__section">

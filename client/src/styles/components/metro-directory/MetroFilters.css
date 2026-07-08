@@ -70,6 +70,36 @@
   accent-color: var(--metro-purple);
 }
 
+.metro-filters__state-list {
+  max-height: 240px;
+  overflow-y: auto;
+  padding-right: 4px;
+
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+
+  scrollbar-width: thin;
+  scrollbar-color: rgba(139, 92, 246, 0.7) transparent;
+}
+
+.metro-filters__state-list::-webkit-scrollbar {
+  width: 5px;
+}
+
+.metro-filters__state-list::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.metro-filters__state-list::-webkit-scrollbar-thumb {
+  background: rgba(139, 92, 246, 0.55);
+  border-radius: 999px;
+}
+
+.metro-filters__state-list::-webkit-scrollbar-thumb:hover {
+  background: rgba(139, 92, 246, 0.85);
+}
+
 .metro-filters__checkbox-row {
   display: grid;
   grid-template-columns: auto 1fr auto;
