@@ -11,13 +11,123 @@
 
 .metro-overview h2 {
   margin: 0;
+  color: var(--metro-purple);
 }
 
 .metro-overview__content {
-  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.metro-overview__content p {
+  margin: 0;
+  color: var(--text-muted);
+  line-height: 1.75;
 }
 
 .metro-overview__bottom {
   border-top: 1px solid var(--border);
   padding-top: 20px;
+
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 32px;
+}
+
+.metro-overview__section h3 {
+  margin: 0 0 14px;
+  color: var(--metro-purple);
+  font-size: 1rem;
+}
+
+.metro-overview__list {
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  max-height: 220px;
+  overflow-y: auto;
+  color: var(--text-subtle);
+  scrollbar-width: thin; /* Firefox */
+  scrollbar-color: var(--metro-purple) transparent;
+}
+
+.metro-overview__list li {
+  transition: color 0.2s;
+}
+
+.metro-overview__list li:hover {
+  color: var(--text-muted);
+}
+
+/* Chrome, Edge, Safari */
+.metro-overview__list::-webkit-scrollbar {
+  width: 6px;
+}
+
+.metro-overview__list::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.15);
+  border-radius: 999px;
+}
+
+.metro-overview__list::-webkit-scrollbar-thumb:hover {
+  background: rgba(139, 92, 246, 0.5);
+}
+
+.metro-overview__states {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.metro-overview__state {
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 8px 10px;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  color: var(--text);
+  text-decoration: none;
+  background: rgba(139, 92, 246, 0.08);
+  transition:
+    color 0.2s,
+    border-color 0.2s,
+    background 0.2s,
+    transform 0.2s;
+}
+
+.metro-overview__state:hover {
+  color: var(--metro-purple);
+  border-color: var(--metro-purple);
+  background: rgba(139, 92, 246, 0.14);
+  transform: translateX(2px);
+}
+
+.metro-overview__population {
+  margin-top: 20px;
+  padding-top: 16px;
+  border-top: 1px solid var(--border);
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.metro-overview__population span {
+  color: var(--text-muted);
+}
+
+.metro-overview__population strong {
+  font-size: 1.1rem;
+  color: var(--text);
+}
+
+@media (max-width: 900px) {
+  .metro-overview__bottom {
+    grid-template-columns: 1fr;
+  }
 }
