@@ -1,6 +1,6 @@
 import "../../styles/components/metro-directory/MetroFilters.css";
 
-export default function MetroFilters() {
+export default function MetroFilters({ states }) {
   return (
     <aside className="metro-filters">
       <div className="metro-filters__header">
@@ -56,23 +56,13 @@ export default function MetroFilters() {
           <span>All States</span>
         </label>
 
-        <label className="metro-filters__checkbox-row">
-          <input type="checkbox" />
-          <span>Alabama</span>
-          <strong>11</strong>
-        </label>
-
-        <label className="metro-filters__checkbox-row">
-          <input type="checkbox" />
-          <span>Alaska</span>
-          <strong>2</strong>
-        </label>
-
-        <label className="metro-filters__checkbox-row">
-          <input type="checkbox" />
-          <span>Arizona</span>
-          <strong>12</strong>
-        </label>
+        {states.map((state) => (
+          <label className="metro-filters__checkbox-row" key={state.code}>
+            <input type="checkbox" />
+            <span>{state.name}</span>
+            <strong>12</strong>
+          </label>
+        ))}
       </section>
 
       <section className="metro-filters__section">

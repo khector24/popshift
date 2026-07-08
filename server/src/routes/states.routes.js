@@ -35,11 +35,16 @@ router.get("/", (req, res) => {
   const field = req.query.sortBy || req.query.sortby;
   if (field) {
     data.sort((a, b) => {
-      if (req.query.order === "asc") {
-        return a[field] - b[field];
-      } else {
-        return b[field] - a[field];
+      const aValue = a[field];
+      const bValue = b[field];
+
+      if (typeof aValue === "string" && typeof bValue === "string") {
+        return req.query.order === "asc"
+          ? aValue.localeCompare(bValue)
+          : bValue.localeCompare(aValue);
       }
+
+      return req.query.order === "asc" ? aValue - bValue : bValue - aValue;
     });
   }
 

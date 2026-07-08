@@ -1,13 +1,13 @@
 const API_URL = "http://localhost:3000";
 
 export async function getStates({
-  sortBy,
-  order,
+  sortBy = "population",
+  order = "desc",
   region,
   search,
   limit,
   page,
-}) {
+} = {}) {
   const params = new URLSearchParams({
     sortBy,
     order,
