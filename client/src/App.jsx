@@ -11,9 +11,7 @@ import StateDetail from "./pages/StateDetail";
 import Compare from "./pages/Compare";
 import About from "./pages/About";
 import Methodology from "./pages/Methodology";
-
-// Temporary
-import MetroDetail from "./pages/MetroDetail";
+import MetroDirectory from "./pages/MetroDirectory";
 
 function App() {
   return (
@@ -30,8 +28,7 @@ function App() {
             <Route path="/compare" element={<Compare />} />
             <Route path="/about" element={<About />} />
             <Route path="/methodology" element={<Methodology />} />
-            {/* Temporary */}
-            <Route path="/metros/:slug" element={<MetroDetail />} />
+            <Route path="/metros/" element={<MetroDirectory />} />
           </Routes>
         </main>
 
