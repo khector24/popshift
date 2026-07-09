@@ -5,6 +5,11 @@ export default function MetroFilters({ states }) {
   const filteredStates = states.filter((state) => state.name !== "Puerto Rico");
 
   const [selectedStates, setSelectedStates] = useState([]);
+  const [searchStateText, setSearchStateText] = useState("");
+
+  const visibleStates = filteredStates.filter((state) =>
+    state.name.toLowerCase().includes(searchStateText.toLowerCase()),
+  );
 
   function handleStateToggle(stateCode) {
     if (selectedStates.includes(stateCode)) {
@@ -14,11 +19,13 @@ export default function MetroFilters({ states }) {
     }
   }
 
+  const allVisibleStatesSelected =
+    visibleStates.length > 0 &&
+    visibleStates.every((state) => selectedStates.includes(state.code));
+
   function handleAllStatesToggle() {
-    setSelectedStates((prev) =>
-      prev.length === filteredStates.length
-        ? []
-        : filteredStates.map((state) => state.code),
+    setSelectedStates(
+      allVisibleStatesSelected ? [] : visibleStates.map((state) => state.code),
     );
   }
 
@@ -68,21 +75,23 @@ export default function MetroFilters({ states }) {
 
         <input
           className="metro-filters__search"
+          value={searchStateText}
           type="text"
+          onChange={(e) => setSearchStateText(e.target.value)}
           placeholder="Search states..."
         />
 
         <label className="metro-filters__checkbox-row">
           <input
             type="checkbox"
-            checked={selectedStates.length === filteredStates.length}
+            checked={allVisibleStatesSelected}
             onChange={handleAllStatesToggle}
           />
           <span>All States</span>
         </label>
 
         <div className="metro-filters__state-list">
-          {filteredStates.map((state) => (
+          {visibleStates.map((state) => (
             <label className="metro-filters__checkbox-row" key={state.code}>
               <input
                 type="checkbox"
