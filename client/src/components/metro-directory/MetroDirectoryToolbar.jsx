@@ -7,7 +7,10 @@ export default function MetroDirectoryToolbar() {
       <div className="metro-directory-toolbar__filters-toggle">
         <FaSliders />
         <p>Hide Filters</p>
-        <span>3</span>
+
+        {/* TODO: Show active filter count badge when filters are fully implemented. 
+          EX: <span>3</span>
+          */}
       </div>
 
       <div className="metro-directory-toolbar__search">
