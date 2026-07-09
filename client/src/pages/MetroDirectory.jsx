@@ -23,6 +23,12 @@ export default function MetroDirectory() {
   const [selectedGrowth, setSelectedGrowth] = useState([]);
   const [maxPopulation, setMaxPopulation] = useState(DEFAULT_MAX_POPULATION);
 
+  const filteredStates = states.filter((state) => state.name !== "Puerto Rico");
+
+  const regionByStateCode = Object.fromEntries(
+    filteredStates.map((state) => [state.code, state.region]),
+  );
+
   useEffect(() => {
     async function fetchData() {
       const metroResult = await getMetros();
@@ -50,11 +56,34 @@ export default function MetroDirectory() {
       const isDeclining = growthPercent < 0;
       const isNoChange = growthPercent === 0;
 
-      if (selectedGrowth.includes("growing") && isGrowing) return true;
-      if (selectedGrowth.includes("declining") && isDeclining) return true;
-      if (selectedGrowth.includes("no-change") && isNoChange) return true;
+      const matchesGrowth =
+        (selectedGrowth.includes("growing") && isGrowing) ||
+        (selectedGrowth.includes("declining") && isDeclining) ||
+        (selectedGrowth.includes("no-change") && isNoChange);
 
-      return false;
+      if (!matchesGrowth) {
+        return false;
+      }
+    }
+
+    if (selectedStates.length > 0) {
+      const matchesState = metro.states.some((state) =>
+        selectedStates.includes(state.code),
+      );
+
+      if (!matchesState) {
+        return false;
+      }
+    }
+
+    if (selectedRegions.length > 0) {
+      const matchesRegion = metro.states.some((state) =>
+        selectedRegions.includes(regionByStateCode[state.code]),
+      );
+
+      if (!matchesRegion) {
+        return false;
+      }
     }
 
     return true;
@@ -76,12 +105,13 @@ export default function MetroDirectory() {
       >
         {showFilters && (
           <MetroFilters
-            states={states}
             metros={metros}
+            filteredStates={filteredStates}
             selectedStates={selectedStates}
             setSelectedStates={setSelectedStates}
             selectedRegions={selectedRegions}
             setSelectedRegions={setSelectedRegions}
+            regionByStateCode={regionByStateCode}
             selectedGrowth={selectedGrowth}
             setSelectedGrowth={setSelectedGrowth}
             maxPopulation={maxPopulation}

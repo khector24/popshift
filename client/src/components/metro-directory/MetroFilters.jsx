@@ -6,12 +6,13 @@ import "../../styles/components/metro-directory/MetroFilters.css";
 const REGIONS = ["Northeast", "Midwest", "South", "West"];
 
 export default function MetroFilters({
-  states,
   metros,
+  filteredStates,
   selectedStates,
   setSelectedStates,
   selectedRegions,
   setSelectedRegions,
+  regionByStateCode,
   selectedGrowth,
   setSelectedGrowth,
   maxPopulation,
@@ -20,8 +21,6 @@ export default function MetroFilters({
   maxPopulationLimit,
 }) {
   const [searchStateText, setSearchStateText] = useState("");
-
-  const filteredStates = states.filter((state) => state.name !== "Puerto Rico");
 
   const visibleStates = filteredStates.filter((state) =>
     state.name.toLowerCase().includes(searchStateText.toLowerCase()),
@@ -35,10 +34,6 @@ export default function MetroFilters({
         (metroCountByStateCode[state.code] || 0) + 1;
     }
   }
-
-  const regionByStateCode = Object.fromEntries(
-    filteredStates.map((state) => [state.code, state.region]),
-  );
 
   const metroCountByRegion = {};
 
