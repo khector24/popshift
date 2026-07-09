@@ -1,7 +1,26 @@
+import { useState } from "react";
 import "../../styles/components/metro-directory/MetroFilters.css";
 
 export default function MetroFilters({ states }) {
   const filteredStates = states.filter((state) => state.name !== "Puerto Rico");
+
+  const [selectedStates, setSelectedStates] = useState([]);
+
+  function handleStateToggle(stateCode) {
+    if (selectedStates.includes(stateCode)) {
+      setSelectedStates((prev) => prev.filter((code) => code !== stateCode));
+    } else {
+      setSelectedStates((prev) => [...prev, stateCode]);
+    }
+  }
+
+  function handleAllStatesToggle() {
+    setSelectedStates((prev) =>
+      prev.length === filteredStates.length
+        ? []
+        : filteredStates.map((state) => state.code),
+    );
+  }
 
   return (
     <aside className="metro-filters">
@@ -54,14 +73,22 @@ export default function MetroFilters({ states }) {
         />
 
         <label className="metro-filters__checkbox-row">
-          <input type="checkbox" />
+          <input
+            type="checkbox"
+            checked={selectedStates.length === filteredStates.length}
+            onChange={handleAllStatesToggle}
+          />
           <span>All States</span>
         </label>
 
         <div className="metro-filters__state-list">
           {filteredStates.map((state) => (
             <label className="metro-filters__checkbox-row" key={state.code}>
-              <input type="checkbox" />
+              <input
+                type="checkbox"
+                checked={selectedStates.includes(state.code)}
+                onChange={() => handleStateToggle(state.code)}
+              />
               <span>{state.name}</span>
               <strong>12</strong>
             </label>
