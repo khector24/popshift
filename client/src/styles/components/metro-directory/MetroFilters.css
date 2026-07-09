@@ -45,7 +45,7 @@
 
 .metro-filters__range-row {
   display: grid;
-  grid-template-columns: 78px auto 78px;
+  grid-template-columns: 90px auto 90px;
   gap: 10px;
   align-items: center;
 }
@@ -58,6 +58,10 @@
   background: rgba(255, 255, 255, 0.03);
   color: var(--text);
   padding: 0 10px;
+}
+
+.metro-filters__range-row input {
+  text-align: center;
 }
 
 .metro-filters__range-row span {
@@ -145,6 +149,10 @@
   color: var(--text-muted);
   font-size: 0.85rem;
   font-weight: 500;
+}
+
+.metro-filters__positive {
+  color: var(--positive) !important;
 }
 
 .metro-filters__negative {

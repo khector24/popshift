@@ -10,6 +10,7 @@ export default function MetroFilters({ states, metros }) {
   const [searchStateText, setSearchStateText] = useState("");
   const [selectedRegions, setSelectedRegions] = useState([]);
   const [selectedGrowth, setSelectedGrowth] = useState([]);
+  const [maxPopulation, setMaxPopulation] = useState(13000000);
 
   const filteredStates = states.filter((state) => state.name !== "Puerto Rico");
 
@@ -117,10 +118,26 @@ export default function MetroFilters({ states, metros }) {
         <div className="metro-filters__range-row">
           <input type="text" value="0" readOnly />
           <span>to</span>
-          <input type="text" value="20M+" readOnly />
+          <input
+            type="text"
+            value={
+              maxPopulation >= 20000000
+                ? "20M+"
+                : maxPopulation.toLocaleString()
+            }
+            readOnly
+          />
         </div>
 
-        <input className="metro-filters__range" type="range" />
+        <input
+          className="metro-filters__range"
+          type="range"
+          min="0"
+          max="20000000"
+          step="500000"
+          value={maxPopulation}
+          onChange={(e) => setMaxPopulation(Number(e.target.value))}
+        />
       </section>
 
       <section className="metro-filters__section">
