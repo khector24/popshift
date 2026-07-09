@@ -23,6 +23,8 @@ export default function MetroDirectory() {
   const [selectedGrowth, setSelectedGrowth] = useState([]);
   const [maxPopulation, setMaxPopulation] = useState(DEFAULT_MAX_POPULATION);
 
+  const [metroSearchText, setMetroSearchText] = useState("");
+
   const filteredStates = states.filter((state) => state.name !== "Puerto Rico");
 
   const regionByStateCode = Object.fromEntries(
@@ -86,6 +88,13 @@ export default function MetroDirectory() {
       }
     }
 
+    if (
+      metroSearchText &&
+      !metro.name.toLowerCase().includes(metroSearchText.toLowerCase())
+    ) {
+      return false;
+    }
+
     return true;
   });
 
@@ -96,6 +105,8 @@ export default function MetroDirectory() {
       <MetroDirectoryToolbar
         showFilters={showFilters}
         onToggleFilters={() => setShowFilters((prev) => !prev)}
+        metroSearchText={metroSearchText}
+        setMetroSearchText={setMetroSearchText}
       />
 
       <div

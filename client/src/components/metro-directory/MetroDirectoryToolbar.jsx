@@ -4,6 +4,8 @@ import { FaMagnifyingGlass, FaSliders } from "react-icons/fa6";
 export default function MetroDirectoryToolbar({
   showFilters,
   onToggleFilters,
+  metroSearchText,
+  setMetroSearchText,
 }) {
   return (
     <section className="metro-directory-toolbar">
@@ -25,6 +27,8 @@ export default function MetroDirectoryToolbar({
           id="metro-search"
           name="search"
           type="text"
+          value={metroSearchText}
+          onChange={(e) => setMetroSearchText(e.target.value)}
           placeholder="Search metros..."
         />
 
