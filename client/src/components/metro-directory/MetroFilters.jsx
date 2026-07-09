@@ -6,11 +6,12 @@ import "../../styles/components/metro-directory/MetroFilters.css";
 const REGIONS = ["Northeast", "Midwest", "South", "West"];
 
 export default function MetroFilters({ states, metros }) {
+  const DEFAULT_MAX_POPULATION = 13000000;
   const [selectedStates, setSelectedStates] = useState([]);
   const [searchStateText, setSearchStateText] = useState("");
   const [selectedRegions, setSelectedRegions] = useState([]);
   const [selectedGrowth, setSelectedGrowth] = useState([]);
-  const [maxPopulation, setMaxPopulation] = useState(13000000);
+  const [maxPopulation, setMaxPopulation] = useState(DEFAULT_MAX_POPULATION);
 
   const filteredStates = states.filter((state) => state.name !== "Puerto Rico");
 
@@ -105,11 +106,21 @@ export default function MetroFilters({ states, metros }) {
     }
   }
 
+  function handleClearFilters() {
+    setSelectedStates([]);
+    setSearchStateText("");
+    setSelectedRegions([]);
+    setSelectedGrowth([]);
+    setMaxPopulation(DEFAULT_MAX_POPULATION);
+  }
+
   return (
     <aside className="metro-filters">
       <div className="metro-filters__header">
         <h2>Filters</h2>
-        <button type="button">Clear all</button>
+        <button type="button" onClick={handleClearFilters}>
+          Clear all
+        </button>
       </div>
 
       <section className="metro-filters__section">
