@@ -5,7 +5,7 @@ import "../../styles/components/metro-directory/MetroFilters.css";
 
 const REGIONS = ["Northeast", "Midwest", "South", "West"];
 
-export default function MetroFilters({ states }) {
+export default function MetroFilters({ states, metros }) {
   const [selectedStates, setSelectedStates] = useState([]);
   const [searchStateText, setSearchStateText] = useState("");
   const [selectedRegions, setSelectedRegions] = useState([]);
@@ -15,6 +15,33 @@ export default function MetroFilters({ states }) {
   const visibleStates = filteredStates.filter((state) =>
     state.name.toLowerCase().includes(searchStateText.toLowerCase()),
   );
+
+  const metroCountByStateCode = {};
+
+  for (const metro of metros) {
+    for (const state of metro.states) {
+      metroCountByStateCode[state.code] =
+        (metroCountByStateCode[state.code] || 0) + 1;
+    }
+  }
+
+  const regionByStateCode = Object.fromEntries(
+    filteredStates.map((state) => [state.code, state.region]),
+  );
+
+  const metroCountByRegion = {};
+
+  for (const metro of metros) {
+    const metroRegions = new Set(
+      metro.states.map((state) => regionByStateCode[state.code]),
+    );
+
+    for (const region of metroRegions) {
+      if (!region) continue;
+
+      metroCountByRegion[region] = (metroCountByRegion[region] || 0) + 1;
+    }
+  }
 
   const selectedStateCount = selectedStates.length;
 
@@ -136,7 +163,7 @@ export default function MetroFilters({ states }) {
                 onChange={() => handleStateToggle(state.code)}
               />
               <span>{state.name}</span>
-              <strong>12</strong>
+              <strong>{metroCountByStateCode[state.code] || 0}</strong>
             </label>
           ))}
         </div>
@@ -163,7 +190,7 @@ export default function MetroFilters({ states }) {
               onChange={() => handleRegionToggle(region)}
             />
             <span>{region}</span>
-            <strong>74</strong>
+            <strong>{metroCountByRegion[region] || 0}</strong>
           </label>
         ))}
       </section>
