@@ -1,16 +1,30 @@
 import { useState } from "react";
 import { FaXmark } from "react-icons/fa6";
+
 import "../../styles/components/metro-directory/MetroFilters.css";
 
-export default function MetroFilters({ states }) {
-  const filteredStates = states.filter((state) => state.name !== "Puerto Rico");
+const REGIONS = ["Northeast", "Midwest", "South", "West"];
 
+export default function MetroFilters({ states }) {
   const [selectedStates, setSelectedStates] = useState([]);
   const [searchStateText, setSearchStateText] = useState("");
+  const [selectedRegions, setSelectedRegions] = useState([]);
+
+  const filteredStates = states.filter((state) => state.name !== "Puerto Rico");
 
   const visibleStates = filteredStates.filter((state) =>
     state.name.toLowerCase().includes(searchStateText.toLowerCase()),
   );
+
+  const selectedStateCount = selectedStates.length;
+
+  const allVisibleStatesSelected =
+    visibleStates.length > 0 &&
+    visibleStates.every((state) => selectedStates.includes(state.code));
+
+  const allRegionsSelected =
+    REGIONS.length > 0 &&
+    REGIONS.every((region) => selectedRegions.includes(region));
 
   function handleStateToggle(stateCode) {
     if (selectedStates.includes(stateCode)) {
@@ -20,14 +34,22 @@ export default function MetroFilters({ states }) {
     }
   }
 
-  const allVisibleStatesSelected =
-    visibleStates.length > 0 &&
-    visibleStates.every((state) => selectedStates.includes(state.code));
-
   function handleAllStatesToggle() {
     setSelectedStates(
       allVisibleStatesSelected ? [] : visibleStates.map((state) => state.code),
     );
+  }
+
+  function handleRegionToggle(region) {
+    if (selectedRegions.includes(region)) {
+      setSelectedRegions((prev) => prev.filter((item) => item !== region));
+    } else {
+      setSelectedRegions((prev) => [...prev, region]);
+    }
+  }
+
+  function handleAllRegionsToggle() {
+    setSelectedRegions(allRegionsSelected ? [] : REGIONS);
   }
 
   return (
@@ -102,6 +124,7 @@ export default function MetroFilters({ states }) {
             onChange={handleAllStatesToggle}
           />
           <span>All States</span>
+          <strong>{selectedStateCount}</strong>
         </label>
 
         <div className="metro-filters__state-list">
@@ -123,28 +146,26 @@ export default function MetroFilters({ states }) {
         <h3>Region</h3>
 
         <label className="metro-filters__checkbox-row">
-          <input type="checkbox" />
-          <span>Northeast</span>
-          <strong>74</strong>
+          <input
+            type="checkbox"
+            checked={allRegionsSelected}
+            onChange={handleAllRegionsToggle}
+          />
+          <span>All Regions</span>
+          <strong>{selectedRegions.length}</strong>
         </label>
 
-        <label className="metro-filters__checkbox-row">
-          <input type="checkbox" />
-          <span>Midwest</span>
-          <strong>85</strong>
-        </label>
-
-        <label className="metro-filters__checkbox-row">
-          <input type="checkbox" />
-          <span>South</span>
-          <strong>142</strong>
-        </label>
-
-        <label className="metro-filters__checkbox-row">
-          <input type="checkbox" />
-          <span>West</span>
-          <strong>80</strong>
-        </label>
+        {REGIONS.map((region) => (
+          <label className="metro-filters__checkbox-row" key={region}>
+            <input
+              type="checkbox"
+              checked={selectedRegions.includes(region)}
+              onChange={() => handleRegionToggle(region)}
+            />
+            <span>{region}</span>
+            <strong>74</strong>
+          </label>
+        ))}
       </section>
 
       <button className="metro-filters__apply" type="button">
