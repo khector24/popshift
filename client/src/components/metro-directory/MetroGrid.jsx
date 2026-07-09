@@ -1,16 +1,12 @@
 import MetroCard from "./MetroCard";
-
 import "../../styles/components/metro-directory/MetroGrid.css";
 
-export default function MetroGrid() {
+export default function MetroGrid({ metros }) {
   return (
     <section className="metro-grid">
-      <MetroCard />
-      <MetroCard />
-      <MetroCard />
-      <MetroCard />
-      <MetroCard />
-      <MetroCard />
+      {metros.map((metro) => (
+        <MetroCard key={metro.slug} metro={metro} />
+      ))}
     </section>
   );
 }

@@ -38,7 +38,7 @@ export default function MetroDirectory() {
       <div className="metro-directory-page__layout">
         <MetroFilters states={states} metros={metros} />
 
-        <MetroGrid />
+        <MetroGrid metros={metros} />
       </div>
 
       <MetroPagination />
