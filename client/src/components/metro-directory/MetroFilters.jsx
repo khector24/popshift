@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { FaXmark } from "react-icons/fa6";
 import "../../styles/components/metro-directory/MetroFilters.css";
 
 export default function MetroFilters({ states }) {
@@ -73,13 +74,26 @@ export default function MetroFilters({ states }) {
       <section className="metro-filters__section">
         <h3>States</h3>
 
-        <input
-          className="metro-filters__search"
-          value={searchStateText}
-          type="text"
-          onChange={(e) => setSearchStateText(e.target.value)}
-          placeholder="Search states..."
-        />
+        <div className="metro-filters__search-wrap">
+          <input
+            className="metro-filters__search"
+            value={searchStateText}
+            type="text"
+            onChange={(e) => setSearchStateText(e.target.value)}
+            placeholder="Search states..."
+          />
+
+          {searchStateText && (
+            <button
+              className="metro-filters__search-clear"
+              type="button"
+              onClick={() => setSearchStateText("")}
+              aria-label="Clear state search"
+            >
+              <FaXmark />
+            </button>
+          )}
+        </div>
 
         <label className="metro-filters__checkbox-row">
           <input

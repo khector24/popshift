@@ -70,6 +70,33 @@
   accent-color: var(--metro-purple);
 }
 
+.metro-filters__search-wrap {
+  position: relative;
+}
+
+.metro-filters__search {
+  width: 100%;
+  padding-right: 34px;
+}
+
+.metro-filters__search-clear {
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+
+  border: none;
+  background: transparent;
+  color: var(--text-subtle);
+  cursor: pointer;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  padding: 0;
+}
+
 .metro-filters__state-list {
   max-height: 240px;
   overflow-y: auto;
