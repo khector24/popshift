@@ -12,6 +12,7 @@ import Compare from "./pages/Compare";
 import About from "./pages/About";
 import Methodology from "./pages/Methodology";
 import MetroDirectory from "./pages/MetroDirectory";
+import MetroDetail from "./pages/MetroDetail";
 
 function App() {
   return (
@@ -29,6 +30,7 @@ function App() {
             <Route path="/about" element={<About />} />
             <Route path="/methodology" element={<Methodology />} />
             <Route path="/metros/" element={<MetroDirectory />} />
+            <Route path="/metros/:slug" element={<MetroDetail />} />
           </Routes>
         </main>
 

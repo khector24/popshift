@@ -266,10 +266,6 @@ export default function MetroFilters({
           </label>
         ))}
       </section>
-
-      <button className="metro-filters__apply" type="button">
-        Apply Filters
-      </button>
     </aside>
   );
 }

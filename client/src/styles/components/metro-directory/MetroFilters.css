@@ -158,13 +158,3 @@
 .metro-filters__negative {
   color: var(--negative) !important;
 }
-
-.metro-filters__apply {
-  height: 44px;
-  border: none;
-  border-radius: 10px;
-  background: var(--metro-purple);
-  color: var(--text);
-  font-weight: 700;
-  cursor: pointer;
-}
