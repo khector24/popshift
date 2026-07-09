@@ -5,13 +5,21 @@ import "../../styles/components/metro-directory/MetroFilters.css";
 
 const REGIONS = ["Northeast", "Midwest", "South", "West"];
 
-export default function MetroFilters({ states, metros }) {
-  const DEFAULT_MAX_POPULATION = 13000000;
-  const [selectedStates, setSelectedStates] = useState([]);
+export default function MetroFilters({
+  states,
+  metros,
+  selectedStates,
+  setSelectedStates,
+  selectedRegions,
+  setSelectedRegions,
+  selectedGrowth,
+  setSelectedGrowth,
+  maxPopulation,
+  setMaxPopulation,
+  defaultMaxPopulation,
+  maxPopulationLimit,
+}) {
   const [searchStateText, setSearchStateText] = useState("");
-  const [selectedRegions, setSelectedRegions] = useState([]);
-  const [selectedGrowth, setSelectedGrowth] = useState([]);
-  const [maxPopulation, setMaxPopulation] = useState(DEFAULT_MAX_POPULATION);
 
   const filteredStates = states.filter((state) => state.name !== "Puerto Rico");
 
@@ -111,7 +119,7 @@ export default function MetroFilters({ states, metros }) {
     setSearchStateText("");
     setSelectedRegions([]);
     setSelectedGrowth([]);
-    setMaxPopulation(DEFAULT_MAX_POPULATION);
+    setMaxPopulation(defaultMaxPopulation);
   }
 
   return (
@@ -132,8 +140,8 @@ export default function MetroFilters({ states, metros }) {
           <input
             type="text"
             value={
-              maxPopulation >= 20000000
-                ? "20M+"
+              maxPopulation >= maxPopulationLimit
+                ? `${maxPopulationLimit / 1000000}M+`
                 : maxPopulation.toLocaleString()
             }
             readOnly
@@ -144,7 +152,7 @@ export default function MetroFilters({ states, metros }) {
           className="metro-filters__range"
           type="range"
           min="0"
-          max="20000000"
+          max={maxPopulationLimit}
           step="500000"
           value={maxPopulation}
           onChange={(e) => setMaxPopulation(Number(e.target.value))}

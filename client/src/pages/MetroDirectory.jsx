@@ -10,10 +10,18 @@ import MetroPagination from "../components/metro-directory/MetroPagination";
 
 import "../styles/pages/MetroDirectory.css";
 
+const MAX_POPULATION = 25000000;
+const DEFAULT_MAX_POPULATION = MAX_POPULATION * 0.85;
+
 export default function MetroDirectory() {
   const [metros, setMetros] = useState([]);
   const [states, setStates] = useState([]);
   const [showFilters, setShowFilters] = useState(true);
+
+  const [selectedStates, setSelectedStates] = useState([]);
+  const [selectedRegions, setSelectedRegions] = useState([]);
+  const [selectedGrowth, setSelectedGrowth] = useState([]);
+  const [maxPopulation, setMaxPopulation] = useState(DEFAULT_MAX_POPULATION);
 
   useEffect(() => {
     async function fetchData() {
@@ -30,6 +38,28 @@ export default function MetroDirectory() {
     fetchData();
   }, []);
 
+  const filteredMetros = metros.filter((metro) => {
+    if (metro.population > maxPopulation) {
+      return false;
+    }
+
+    if (selectedGrowth.length > 0) {
+      const growthPercent = metro.growthSince2020?.percent ?? 0;
+
+      const isGrowing = growthPercent > 0;
+      const isDeclining = growthPercent < 0;
+      const isNoChange = growthPercent === 0;
+
+      if (selectedGrowth.includes("growing") && isGrowing) return true;
+      if (selectedGrowth.includes("declining") && isDeclining) return true;
+      if (selectedGrowth.includes("no-change") && isNoChange) return true;
+
+      return false;
+    }
+
+    return true;
+  });
+
   return (
     <main className="metro-directory-page">
       <MetroDirectoryHero />
@@ -44,9 +74,24 @@ export default function MetroDirectory() {
           !showFilters ? "metro-directory-page__layout--filters-hidden" : ""
         }`}
       >
-        {showFilters && <MetroFilters states={states} metros={metros} />}
+        {showFilters && (
+          <MetroFilters
+            states={states}
+            metros={metros}
+            selectedStates={selectedStates}
+            setSelectedStates={setSelectedStates}
+            selectedRegions={selectedRegions}
+            setSelectedRegions={setSelectedRegions}
+            selectedGrowth={selectedGrowth}
+            setSelectedGrowth={setSelectedGrowth}
+            maxPopulation={maxPopulation}
+            setMaxPopulation={setMaxPopulation}
+            defaultMaxPopulation={DEFAULT_MAX_POPULATION}
+            maxPopulationLimit={MAX_POPULATION}
+          />
+        )}
 
-        <MetroGrid metros={metros} />
+        <MetroGrid metros={filteredMetros} />
       </div>
 
       <MetroPagination />
