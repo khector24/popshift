@@ -6,6 +6,8 @@ export default function MetroDirectoryToolbar({
   onToggleFilters,
   metroSearchText,
   setMetroSearchText,
+  sortBy,
+  setSortBy,
 }) {
   return (
     <section className="metro-directory-toolbar">
@@ -38,14 +40,19 @@ export default function MetroDirectoryToolbar({
       <label className="metro-directory-toolbar__sort">
         <span>Sort by:</span>
 
-        <select id="metro-sort" name="sort" defaultValue="population-desc">
+        <select
+          id="metro-sort"
+          name="sort"
+          value={sortBy}
+          onChange={(e) => setSortBy(e.target.value)}
+        >
           <option value="population-desc">Population (High to Low)</option>
           <option value="population-asc">Population (Low to High)</option>
           <option value="growth-desc">Growth Since 2020 (High to Low)</option>
           <option value="growth-asc">Growth Since 2020 (Low to High)</option>
-          <option value="income-desc">Median Income (High to Low)</option>
+          {/* <option value="income-desc">Median Income (High to Low)</option>
           <option value="rent-desc">Median Rent (High to Low)</option>
-          <option value="home-value-desc">Home Value (High to Low)</option>
+          <option value="home-value-desc">Home Value (High to Low)</option> */}
         </select>
       </label>
     </section>

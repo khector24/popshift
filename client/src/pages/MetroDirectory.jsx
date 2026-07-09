@@ -25,6 +25,8 @@ export default function MetroDirectory() {
 
   const [metroSearchText, setMetroSearchText] = useState("");
 
+  const [sortBy, setSortBy] = useState("population-desc");
+
   const filteredStates = states.filter((state) => state.name !== "Puerto Rico");
 
   const regionByStateCode = Object.fromEntries(
@@ -98,6 +100,21 @@ export default function MetroDirectory() {
     return true;
   });
 
+  const sortedMetros = [...filteredMetros].sort((a, b) => {
+    if (sortBy === "population-desc") return b.population - a.population;
+    if (sortBy === "population-asc") return a.population - b.population;
+
+    if (sortBy === "growth-desc") {
+      return b.growthSince2020.percent - a.growthSince2020.percent;
+    }
+
+    if (sortBy === "growth-asc") {
+      return a.growthSince2020.percent - b.growthSince2020.percent;
+    }
+
+    return 0;
+  });
+
   return (
     <main className="metro-directory-page">
       <MetroDirectoryHero />
@@ -107,6 +124,8 @@ export default function MetroDirectory() {
         onToggleFilters={() => setShowFilters((prev) => !prev)}
         metroSearchText={metroSearchText}
         setMetroSearchText={setMetroSearchText}
+        sortBy={sortBy}
+        setSortBy={setSortBy}
       />
 
       <div
@@ -132,7 +151,7 @@ export default function MetroDirectory() {
           />
         )}
 
-        <MetroGrid metros={filteredMetros} />
+        <MetroGrid metros={sortedMetros} />
       </div>
 
       <MetroPagination />
