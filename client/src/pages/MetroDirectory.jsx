@@ -13,6 +13,7 @@ import "../styles/pages/MetroDirectory.css";
 export default function MetroDirectory() {
   const [metros, setMetros] = useState([]);
   const [states, setStates] = useState([]);
+  const [showFilters, setShowFilters] = useState(true);
 
   useEffect(() => {
     async function fetchData() {
@@ -33,10 +34,17 @@ export default function MetroDirectory() {
     <main className="metro-directory-page">
       <MetroDirectoryHero />
 
-      <MetroDirectoryToolbar />
+      <MetroDirectoryToolbar
+        showFilters={showFilters}
+        onToggleFilters={() => setShowFilters((prev) => !prev)}
+      />
 
-      <div className="metro-directory-page__layout">
-        <MetroFilters states={states} metros={metros} />
+      <div
+        className={`metro-directory-page__layout ${
+          !showFilters ? "metro-directory-page__layout--filters-hidden" : ""
+        }`}
+      >
+        {showFilters && <MetroFilters states={states} metros={metros} />}
 
         <MetroGrid metros={metros} />
       </div>

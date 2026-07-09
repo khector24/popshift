@@ -1,17 +1,24 @@
 import "../../styles/components/metro-directory/MetroDirectoryToolbar.css";
 import { FaMagnifyingGlass, FaSliders } from "react-icons/fa6";
 
-export default function MetroDirectoryToolbar() {
+export default function MetroDirectoryToolbar({
+  showFilters,
+  onToggleFilters,
+}) {
   return (
     <section className="metro-directory-toolbar">
-      <div className="metro-directory-toolbar__filters-toggle">
+      <button
+        className="metro-directory-toolbar__filters-toggle"
+        type="button"
+        onClick={onToggleFilters}
+      >
         <FaSliders />
-        <p>Hide Filters</p>
+        <p>{showFilters ? "Hide Filters" : "Show Filters"}</p>
 
         {/* TODO: Show active filter count badge when filters are fully implemented. 
           EX: <span>3</span>
           */}
-      </div>
+      </button>
 
       <div className="metro-directory-toolbar__search">
         <input

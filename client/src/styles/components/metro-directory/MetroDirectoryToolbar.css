@@ -10,6 +10,9 @@
   align-items: center;
   justify-content: center;
   gap: 10px;
+
+  font: inherit;
+  cursor: pointer;
 }
 
 .metro-directory-toolbar__filters-toggle span {

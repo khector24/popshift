@@ -13,3 +13,7 @@
   gap: 32px;
   align-items: start;
 }
+
+.metro-directory-page__layout--filters-hidden {
+  grid-template-columns: 1fr;
+}
