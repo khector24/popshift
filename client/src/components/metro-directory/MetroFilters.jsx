@@ -9,6 +9,7 @@ export default function MetroFilters({ states, metros }) {
   const [selectedStates, setSelectedStates] = useState([]);
   const [searchStateText, setSearchStateText] = useState("");
   const [selectedRegions, setSelectedRegions] = useState([]);
+  const [selectedGrowth, setSelectedGrowth] = useState([]);
 
   const filteredStates = states.filter((state) => state.name !== "Puerto Rico");
 
@@ -79,6 +80,30 @@ export default function MetroFilters({ states, metros }) {
     setSelectedRegions(allRegionsSelected ? [] : REGIONS);
   }
 
+  let growingMetroCount = 0;
+  let decliningMetroCount = 0;
+  let noChangeMetroCount = 0;
+
+  for (const metro of metros) {
+    const growthPercent = metro.growthSince2020.percent;
+
+    if (growthPercent > 0) {
+      growingMetroCount++;
+    } else if (growthPercent < 0) {
+      decliningMetroCount++;
+    } else {
+      noChangeMetroCount++;
+    }
+  }
+
+  function handleGrowthToggle(growthType) {
+    if (selectedGrowth.includes(growthType)) {
+      setSelectedGrowth((prev) => prev.filter((item) => item !== growthType));
+    } else {
+      setSelectedGrowth((prev) => [...prev, growthType]);
+    }
+  }
+
   return (
     <aside className="metro-filters">
       <div className="metro-filters__header">
@@ -102,21 +127,37 @@ export default function MetroFilters({ states, metros }) {
         <h3>Growth Since 2020</h3>
 
         <label className="metro-filters__checkbox-row">
-          <input type="checkbox" />
+          <input
+            type="checkbox"
+            checked={selectedGrowth.includes("growing")}
+            onChange={() => handleGrowthToggle("growing")}
+          />
           <span>Growing</span>
-          <strong>247</strong>
+          <strong className="metro-filters__positive">
+            {growingMetroCount}
+          </strong>
         </label>
 
         <label className="metro-filters__checkbox-row">
-          <input type="checkbox" />
+          <input
+            type="checkbox"
+            checked={selectedGrowth.includes("declining")}
+            onChange={() => handleGrowthToggle("declining")}
+          />
           <span>Declining</span>
-          <strong className="metro-filters__negative">59</strong>
+          <strong className="metro-filters__negative">
+            {decliningMetroCount}
+          </strong>
         </label>
 
         <label className="metro-filters__checkbox-row">
-          <input type="checkbox" />
+          <input
+            type="checkbox"
+            checked={selectedGrowth.includes("no-change")}
+            onChange={() => handleGrowthToggle("no-change")}
+          />
           <span>No Change</span>
-          <strong>75</strong>
+          <strong>{noChangeMetroCount}</strong>
         </label>
       </section>
 
