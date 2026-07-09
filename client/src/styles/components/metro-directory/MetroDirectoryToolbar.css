@@ -61,6 +61,24 @@
   color: var(--text-subtle);
 }
 
+.metro-directory__search-clear {
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+
+  border: none;
+  background: transparent;
+  color: var(--text-subtle);
+  cursor: pointer;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  padding: 0;
+}
+
 .metro-directory-toolbar__sort {
   display: flex;
   align-items: center;

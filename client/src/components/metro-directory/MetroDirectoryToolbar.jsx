@@ -1,5 +1,5 @@
 import "../../styles/components/metro-directory/MetroDirectoryToolbar.css";
-import { FaMagnifyingGlass, FaSliders } from "react-icons/fa6";
+import { FaMagnifyingGlass, FaSliders, FaXmark } from "react-icons/fa6";
 
 export default function MetroDirectoryToolbar({
   showFilters,
@@ -35,6 +35,17 @@ export default function MetroDirectoryToolbar({
         />
 
         <FaMagnifyingGlass className="metro-directory-toolbar__search-icon" />
+
+        {metroSearchText && (
+          <button
+            className="metro-directory__search-clear"
+            type="button"
+            onClick={() => setMetroSearchText("")}
+            aria-label="Clear metro search"
+          >
+            <FaXmark />
+          </button>
+        )}
       </div>
 
       <label className="metro-directory-toolbar__sort">
