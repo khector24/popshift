@@ -112,6 +112,20 @@ export default function MetroDirectory() {
       return a.growthSince2020.percent - b.growthSince2020.percent;
     }
 
+    if (sortBy === "income-desc") {
+      return (
+        b.economics.medianHouseholdIncome - a.economics.medianHouseholdIncome
+      );
+    }
+
+    if (sortBy === "rent-desc") {
+      return b.housing.medianGrossRent - a.housing.medianGrossRent;
+    }
+
+    if (sortBy === "home-value-desc") {
+      return b.housing.medianHomeValue - a.housing.medianHomeValue;
+    }
+
     return 0;
   });
 

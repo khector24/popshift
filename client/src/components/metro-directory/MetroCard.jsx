@@ -6,6 +6,10 @@ export default function MetroCard({ metro }) {
   const isGrowing = growthPercent > 0;
   const isDeclining = growthPercent < 0;
 
+  const stateLabels = metro.states
+    .map((state) => state.abbreviation)
+    .join(", ");
+
   return (
     <article className="metro-card">
       <div className="metro-card__image-wrap">
@@ -27,7 +31,7 @@ export default function MetroCard({ metro }) {
             <strong>{metro.population.toLocaleString()}</strong>
           </div>
 
-          <div>
+          <div className="metro-card__stat--right">
             <span>Growth Since 2020</span>
             <strong
               className={
@@ -43,18 +47,23 @@ export default function MetroCard({ metro }) {
               {isDeclining && <FaArrowTrendDown />}
             </strong>
           </div>
+
+          <div>
+            <span>Median Income</span>
+            <strong>
+              ${metro.economics.medianHouseholdIncome.toLocaleString()}
+            </strong>
+          </div>
+
+          <div className="metro-card__stat--right">
+            <span>Home Value</span>
+            <strong>${metro.housing.medianHomeValue.toLocaleString()}</strong>
+          </div>
         </div>
 
-        <div className="metro-card__meta">
-          <div>
-            <span>Counties</span>
-            <strong>{metro.countyCount}</strong>
-          </div>
-
-          <div>
-            <span>States</span>
-            <strong>{metro.stateCount}</strong>
-          </div>
+        <div className="metro-card__footer">
+          <span>{metro.counties.countyCount} counties</span>
+          <span>{stateLabels}</span>
         </div>
       </div>
     </article>

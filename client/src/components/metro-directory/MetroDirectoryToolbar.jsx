@@ -50,9 +50,9 @@ export default function MetroDirectoryToolbar({
           <option value="population-asc">Population (Low to High)</option>
           <option value="growth-desc">Growth Since 2020 (High to Low)</option>
           <option value="growth-asc">Growth Since 2020 (Low to High)</option>
-          {/* <option value="income-desc">Median Income (High to Low)</option>
+          <option value="income-desc">Median Income (High to Low)</option>
           <option value="rent-desc">Median Rent (High to Low)</option>
-          <option value="home-value-desc">Home Value (High to Low)</option> */}
+          <option value="home-value-desc">Home Value (High to Low)</option>
         </select>
       </label>
     </section>
