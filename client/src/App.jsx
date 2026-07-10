@@ -6,7 +6,7 @@ import Footer from "./components/layout/Footer";
 
 import Home from "./pages/Home";
 import Dashboard from "./pages/Dashboard";
-import Rankings from "./pages/Rankings";
+import States from "./pages/States";
 import StateDetail from "./pages/StateDetail";
 import Compare from "./pages/Compare";
 import About from "./pages/About";
@@ -24,7 +24,7 @@ function App() {
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/dashboard" element={<Dashboard />} />
-            <Route path="/rankings" element={<Rankings />} />
+            <Route path="/states" element={<States />} />
             <Route path="/states/:code" element={<StateDetail />} />
             <Route path="/compare" element={<Compare />} />
             <Route path="/about" element={<About />} />

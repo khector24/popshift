@@ -1,14 +1,17 @@
-import { useState, useEffect } from "react";
+import { useEffect, useState } from "react";
 import { useNavigate, useSearchParams } from "react-router-dom";
-import "../styles/pages/Rankings.css";
+
 import { getStates } from "../services/statesApi.js";
 import { formatGrowth } from "../utils/growthUtils.js";
 
 import StatusMessage from "../components/ui/StatusMessage.jsx";
 import InfoTooltip from "../components/ui/InfoTooltip.jsx";
 
-function Rankings() {
+import "../styles/pages/States.css";
+
+export default function States() {
   const [searchParams, setSearchParams] = useSearchParams();
+  const navigate = useNavigate();
 
   const [sortBy, setSortBy] = useState(
     searchParams.get("sortBy") || "population",
@@ -24,8 +27,6 @@ function Rankings() {
 
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState("");
-
-  const navigate = useNavigate();
 
   useEffect(() => {
     async function fetchStates() {
@@ -69,21 +70,20 @@ function Rankings() {
   }, [sortBy, order, region, search, limit, page, setSearchParams]);
 
   return (
-    <div className="rankings">
-      <div className="rankings__header-block">
-        <h1>State Rankings</h1>
-        <p>
-          Compare states by population, yearly growth, U.S. population share,
-          and region.
-        </p>
+    <div className="states">
+      <div className="states__header-block">
+        <h1>States</h1>
+
+        <p>Explore population, growth, and regional data for all 50 states.</p>
       </div>
 
-      <div className="rankings__controls">
-        <div className="rankings__control">
+      <div className="states__controls">
+        <div className="states__control">
           <label htmlFor="sort">Sort By</label>
+
           <select
-            name="sort"
             id="sort"
+            name="sort"
             value={sortBy}
             onChange={(event) => {
               setSortBy(event.target.value);
@@ -96,8 +96,9 @@ function Rankings() {
           </select>
         </div>
 
-        <div className="rankings__control">
+        <div className="states__control">
           <label htmlFor="order">Order</label>
+
           <select
             id="order"
             name="order"
@@ -112,8 +113,9 @@ function Rankings() {
           </select>
         </div>
 
-        <div className="rankings__control">
+        <div className="states__control">
           <label htmlFor="region">Region</label>
+
           <select
             id="region"
             name="region"
@@ -131,7 +133,7 @@ function Rankings() {
           </select>
         </div>
 
-        <div className="rankings__control">
+        <div className="states__control">
           <label htmlFor="search">Search</label>
 
           <input
@@ -147,7 +149,7 @@ function Rankings() {
           />
         </div>
 
-        <div className="rankings__control">
+        <div className="states__control">
           <label htmlFor="limit">Limit</label>
 
           <select
@@ -171,15 +173,15 @@ function Rankings() {
       {loading && (
         <StatusMessage
           type="loading"
-          title="Loading rankings..."
-          message="Fetching the latest census ranking data."
+          title="Loading states..."
+          message="Fetching the latest state population data."
         />
       )}
 
       {error && (
         <StatusMessage
           type="error"
-          title="Unable to load rankings"
+          title="Unable to load states"
           message={error}
         />
       )}
@@ -194,20 +196,22 @@ function Rankings() {
             />
           ) : (
             <>
-              <div className="rankings__table">
-                <div className="rankings__row rankings__header">
+              <div className="states__table">
+                <div className="states__row states__header">
                   <span>Rank</span>
-
                   <span>State</span>
                   <span>Population</span>
-                  <span className="rankings__tooltip-label">
+
+                  <span className="states__tooltip-label">
                     Growth
-                    <InfoTooltip text="Growth compares the 2025 population estimate against the 2024 estimate." />{" "}
+                    <InfoTooltip text="Growth compares the 2025 population estimate against the 2024 estimate." />
                   </span>
-                  <span className="rankings__tooltip-label">
+
+                  <span className="states__tooltip-label">
                     Share
                     <InfoTooltip text="Share is the state's percentage of the tracked U.S. population total." />
                   </span>
+
                   <span>Region</span>
                   <span>Year</span>
                   <span>Code</span>
@@ -220,13 +224,13 @@ function Rankings() {
 
                   return (
                     <div
-                      className="rankings__row"
+                      className="states__row"
                       key={state.code}
                       onClick={() =>
                         navigate(`/states/${state.code}`, {
                           state: {
-                            from: `/rankings${window.location.search}`,
-                            label: "Rankings",
+                            from: `/states${window.location.search}`,
+                            label: "States",
                           },
                         })
                       }
@@ -244,7 +248,7 @@ function Rankings() {
                 })}
               </div>
 
-              <div className="rankings__pagination">
+              <div className="states__pagination">
                 <button
                   type="button"
                   onClick={() => setPage(page - 1)}
@@ -272,5 +276,3 @@ function Rankings() {
     </div>
   );
 }
-
-export default Rankings;

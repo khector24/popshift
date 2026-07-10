@@ -29,8 +29,8 @@ import { FaWallet, FaBuilding, FaHouse } from "react-icons/fa6";
 function StateDetail() {
   const { code } = useParams();
   const location = useLocation();
-  const backLink = location.state?.from || `/rankings${location.search}`;
-  const backLabel = location.state?.label || "Rankings";
+  const backLink = location.state?.from || `/states${location.search}`;
+  const backLabel = location.state?.label || "States";
 
   const [stateData, setStateData] = useState(null);
   const [history, setHistory] = useState([]);
