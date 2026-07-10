@@ -13,8 +13,8 @@ function Navbar() {
         <NavLink to="/dashboard" className="navbar__link">
           Dashboard
         </NavLink>
-        <NavLink to="/rankings" className="navbar__link">
-          Rankings
+        <NavLink to="/states" className="navbar__link">
+          States
         </NavLink>
         <NavLink to="/compare" className="navbar__link">
           Compare
