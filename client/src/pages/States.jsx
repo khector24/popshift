@@ -9,6 +9,8 @@ import InfoTooltip from "../components/ui/InfoTooltip.jsx";
 
 import "../styles/pages/States.css";
 
+import stateCodeToAbbreviation from "../utils/stateCodeToAbbreviation.js";
+
 export default function States() {
   const [searchParams, setSearchParams] = useSearchParams();
   const navigate = useNavigate();
@@ -222,6 +224,8 @@ export default function States() {
                     state.growth,
                   );
 
+                  const flagAbbreviation = stateCodeToAbbreviation[state.code];
+
                   return (
                     <div
                       className="states__row"
@@ -236,7 +240,16 @@ export default function States() {
                       }
                     >
                       <span>{(page - 1) * limit + index + 1}</span>
-                      <span>{state.name}</span>
+
+                      <div className="states__state-cell">
+                        <img
+                          className="states__flag"
+                          src={`/images/flags/${flagAbbreviation}.svg`}
+                          alt={`${state.name} flag`}
+                        />
+
+                        <span>{state.name}</span>
+                      </div>
                       <span>{state.population.toLocaleString()}</span>
                       <span className={growthClassName}>{growthValue}</span>
                       <span>{state.share}%</span>
