@@ -1,8 +1,10 @@
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 
 import "../../styles/components/metro/MetroOverview.css";
 
 export default function MetroOverview({ metro }) {
+  const location = useLocation();
+
   const firstYear = metro.populationYears[0];
   const lastYear = metro.populationYears.at(-1);
 
@@ -62,6 +64,10 @@ export default function MetroOverview({ metro }) {
                 key={state.code}
                 className="metro-overview__state"
                 to={`/states/${state.code}`}
+                state={{
+                  from: `${location.pathname}${location.search}`,
+                  label: metro.name.replace(" Metro Area", ""),
+                }}
               >
                 <span>{state.name}</span>
                 <span aria-hidden="true">→</span>
