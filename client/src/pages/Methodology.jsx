@@ -1,56 +1,103 @@
+import { Link } from "react-router-dom";
+
 import "../styles/pages/Methodology.css";
 
-function Methodology() {
+export default function Methodology() {
   return (
-    <div className="methodology">
-      <div className="methodology__header">
+    <main className="methodology">
+      <header className="methodology__header">
         <h1>Methodology</h1>
 
         <p>
-          PopShift uses Census-backed population data to compare state
-          population totals, growth, and population share. This page explains
-          where the data comes from, how key values are calculated, and what
-          limitations currently exist.
+          PopShift combines multiple public datasets to describe population,
+          migration, economics, housing, education, transportation, and
+          geographic relationships across U.S. states and metropolitan areas.
+          This page explains how the application processes and presents that
+          information.
         </p>
-      </div>
+      </header>
 
       <section className="methodology__section">
-        <h2>Data Source</h2>
+        <h2>Data Processing</h2>
 
         <p>
-          PopShift uses annual population estimates published by the U.S. Census
-          Bureau. Earlier versions of PopShift retrieved population data
-          directly from the Census Population Estimates API. As the project
-          grew, the backend was migrated to use locally processed Census Vintage
-          2025 data files.
+          Most PopShift datasets are downloaded from their original source and
+          processed locally during development. Build scripts clean the source
+          files, match geographic identifiers, calculate derived values, and
+          generate JavaScript data files used by the Express backend.
         </p>
 
         <p>
-          The raw Census data is downloaded from the U.S. Census Bureau and
-          converted into a JavaScript data file during development. This removes
-          API limitations, improves performance, and allows PopShift to support
-          annual state population estimates from 2020 through 2025.
+          The React frontend requests these processed datasets from PopShift’s
+          own API rather than repeatedly requesting the original source on every
+          page visit.
+        </p>
+
+        <p>
+          This improves application performance and makes the data structures
+          used throughout the state and metro pages more consistent.
         </p>
       </section>
 
       <section className="methodology__section">
-        <h2>Growth Calculation</h2>
+        <h2>Population Estimates</h2>
 
         <p>
-          Population growth compares the ending population against the starting
-          population for the selected years.
+          State and metro population figures represent annual population
+          estimates rather than complete counts from the decennial census.
+        </p>
+
+        <p>
+          The current population history covers 2020 through 2025. The latest
+          population displayed on a profile is the ending value in that
+          timeline.
+        </p>
+
+        <p>
+          Estimates can be revised when the Census Bureau publishes a newer
+          vintage. As a result, a historical estimate shown in a newer dataset
+          may differ slightly from an estimate released in an earlier year.
+        </p>
+      </section>
+
+      <section className="methodology__section">
+        <h2>Annual Population Growth</h2>
+
+        <p>
+          Annual population growth compares the latest population estimate with
+          the immediately preceding year.
         </p>
 
         <div className="methodology__formula">
-          growth = ((ending population - starting population) / starting
+          annual growth = ((current population - previous population) / previous
           population) × 100
         </div>
 
         <p>
-          In the Rankings page, year-over-year growth compares the latest
-          available estimate, 2025, against the previous estimate, 2024. On the
-          Dashboard, users can compare any available years from 2020 through
-          2025.
+          A positive value indicates estimated population growth. A negative
+          value indicates estimated population decline. A value of zero
+          indicates no change after rounding.
+        </p>
+      </section>
+
+      <section className="methodology__section">
+        <h2>Growth Since 2020</h2>
+
+        <p>
+          Metro directory cards and other long-range comparisons may show
+          population growth from the 2020 baseline through the latest available
+          estimate.
+        </p>
+
+        <div className="methodology__formula">
+          growth since 2020 = ((latest population - 2020 population) / 2020
+          population) × 100
+        </div>
+
+        <p>
+          The displayed amount represents the numeric population difference,
+          while the percentage represents the size of that change relative to
+          the starting population.
         </p>
       </section>
 
@@ -58,124 +105,233 @@ function Methodology() {
         <h2>Population Share</h2>
 
         <p>
-          Population share shows how much of the tracked U.S. population belongs
-          to each state.
+          Population share shows the percentage of the tracked national
+          population represented by a state.
         </p>
 
         <div className="methodology__formula">
-          share = (state population / total U.S. population) × 100
+          population share = (state population / tracked U.S. population) × 100
         </div>
 
         <p>
-          Values are rounded for display so the interface stays readable and
-          easy to compare.
+          Percentages are rounded for display. Because of rounding, displayed
+          state shares may not add to exactly 100%.
         </p>
       </section>
 
       <section className="methodology__section">
-        <h2>Economic Metrics</h2>
+        <h2>Economic and Housing Measures</h2>
 
         <p>
-          PopShift also includes selected state-level economic and housing
-          metrics from the Census Bureau&apos;s 2024 American Community Survey
-          1-Year Estimates.
+          State and metro profiles include selected American Community Survey
+          measures such as:
         </p>
 
         <ul>
           <li>Median household income</li>
+          <li>Poverty rate</li>
           <li>Median gross rent</li>
           <li>Median owner-occupied home value</li>
         </ul>
 
         <p>
-          These values use the latest available ACS 1-year estimates and may
-          have a different data year than the population estimates.
+          Median values describe the midpoint of the reported distribution, not
+          an average. Half of the measured households or housing units fall
+          above the median and half fall below it.
+        </p>
+
+        <p>
+          ACS estimates are survey-based and contain sampling uncertainty. Small
+          differences between two places should not automatically be treated as
+          statistically meaningful.
         </p>
       </section>
 
       <section className="methodology__section">
-        <h2>Data and Visualization Resources</h2>
+        <h2>National Comparisons</h2>
 
         <p>
-          PopShift uses a few different resources to collect, process, and
-          visualize the population data shown throughout the app.
+          Some state profile cards compare a state value with the corresponding
+          national value.
         </p>
 
-        <h3>Census population data</h3>
+        <div className="methodology__formula">
+          difference from national value = state value - national value
+        </div>
+
         <p>
-          The population data displayed throughout PopShift originates from the
-          U.S. Census Bureau&apos;s Population Estimates Program. PopShift uses
-          a local copy of the Census Vintage 2025 state population dataset,
-          which is processed by the backend and used to power the dashboard,
-          rankings, comparison tools, and state detail pages.
+          The wording used to describe that difference depends on the measure.
+          For income, a higher value is described as above the national figure.
+          For rent or home value, the comparison describes whether the measured
+          cost is higher or lower.
         </p>
 
-        <ul>
-          <li>
-            U.S. Census Population Estimates Program:
-            https://www.census.gov/programs-surveys/popest.html
-          </li>
-          <li>
-            Vintage 2025 State Population Tables:
-            https://www.census.gov/data/tables/time-series/demo/popest/2020s-state-total.html
-          </li>
-        </ul>
-
-        <h3>ACS economic and housing data</h3>
         <p>
-          PopShift uses the Census Bureau&apos;s 2024 American Community Survey
-          1-Year Estimates for median household income, median gross rent, and
-          median owner-occupied home value. The ACS response is saved locally
-          and processed into a JavaScript data file during development.
+          These labels provide context but do not by themselves determine
+          affordability or quality of life.
+        </p>
+      </section>
+
+      <section className="methodology__section">
+        <h2>Migration Data</h2>
+
+        <p>
+          State migration sections summarize estimated moves between U.S.
+          states. Inbound flows describe where current residents moved from,
+          while outbound flows describe where former residents moved to.
         </p>
 
-        <ul>
-          <li>ACS 1-Year Data: https://api.census.gov/data/2024/acs/acs1</li>
-        </ul>
+        <div className="methodology__formula">
+          net migration = total inbound movers - total outbound movers
+        </div>
 
-        <h3>Map geography data</h3>
         <p>
-          The population change map uses a TopoJSON map file from the us-atlas
-          package. This file provides the state shapes that PopShift colors
-          based on each state&apos;s percentage population change.
+          A positive result means estimated inbound migration exceeded outbound
+          migration. A negative result means estimated outbound migration
+          exceeded inbound migration.
         </p>
 
-        <ul>
-          <li>us-atlas: https://www.npmjs.com/package/us-atlas</li>
-          <li>
-            states-10m.json:
-            https://cdn.jsdelivr.net/npm/us-atlas@3/states-10m.json
-          </li>
-        </ul>
-
-        <h3>Map rendering</h3>
         <p>
-          PopShift uses react19-simple-maps to render the interactive U.S. map
-          inside React. The topojson-client package converts the downloaded
-          TopoJSON map data into GeoJSON features that the map component can
-          render.
+          Metro migration sections use processed geographic flow data to
+          summarize movement between metropolitan areas. Metro boundaries can
+          cross state lines, and flows are grouped according to the geographic
+          definitions used during processing.
         </p>
 
-        <ul>
-          <li>
-            react19-simple-maps:
-            https://www.npmjs.com/package/@vnedyalk0v/react19-simple-maps
-          </li>
-          <li>
-            topojson-client: https://www.npmjs.com/package/topojson-client
-          </li>
-        </ul>
-
-        <h3>Charts</h3>
         <p>
-          The population timeline chart is built with Recharts. Recharts handles
-          the responsive chart layout, axes, area chart, gradient fill, and line
-          rendering used in the dashboard.
+          Migration estimates describe movement during a specified period. They
+          should not be interpreted as a live count of every person currently
+          entering or leaving a place.
+        </p>
+      </section>
+
+      <section className="methodology__section">
+        <h2>Education Measures</h2>
+
+        <p>
+          PopShift combines two different types of education data for state
+          profiles: adult educational attainment from the American Community
+          Survey and student assessment results from the National Assessment of
+          Educational Progress.
+        </p>
+
+        <p>
+          Educational-attainment measures come from the American Community
+          Survey 5-Year Estimates. These measures describe the civilian
+          population age 25 and older and include:
         </p>
 
         <ul>
-          <li>Recharts: https://recharts.org/</li>
+          <li>Less than a high school diploma</li>
+          <li>High school graduate or GED</li>
+          <li>Some college or an associate degree</li>
+          <li>Bachelor&apos;s degree or higher</li>
+          <li>High school graduate or higher</li>
         </ul>
+
+        <p>
+          Reading and mathematics scores come from the National Assessment of
+          Educational Progress, commonly known as NAEP or The Nation&apos;s
+          Report Card. PopShift currently displays average Grade 8 reading and
+          mathematics scores on a 0–500 scale.
+        </p>
+
+        <p>
+          State education cards may also show a state&apos;s national rank and
+          its difference from the corresponding U.S. average.
+        </p>
+
+        <div className="methodology__formula">
+          difference from U.S. average = state value - U.S. average
+        </div>
+
+        <p>
+          ACS attainment percentages and NAEP assessment scores measure
+          different populations and should not be interpreted as interchangeable
+          measures. Educational attainment describes credentials held by adults,
+          while NAEP measures student performance on standardized assessments.
+        </p>
+
+        <p>
+          NAEP scores are estimates based on samples of students rather than
+          test results for every student in a state. Rankings should therefore
+          be interpreted alongside the underlying scores, assessment year, and
+          NAEP documentation.
+        </p>
+      </section>
+
+      <section className="methodology__section">
+        <h2>Transportation Measures</h2>
+
+        <p>
+          Metro profiles include selected commuting measures such as driving
+          alone, public-transit use, working from home, and average commute
+          time.
+        </p>
+
+        <p>
+          Transportation percentages describe the measured worker population in
+          the underlying survey. They do not describe every trip taken within a
+          metro area or the full quality of its transportation network.
+        </p>
+      </section>
+
+      <section className="methodology__section">
+        <h2>Metro and State Geography</h2>
+
+        <p>
+          States use Census geographic codes. Metropolitan areas use Core Based
+          Statistical Area identifiers and may contain counties from more than
+          one state.
+        </p>
+
+        <p>
+          A metro appearing under multiple states is counted once in the metro
+          directory but can match each state or region represented in its
+          geographic coverage.
+        </p>
+
+        <p>
+          Metro boundaries are statistical definitions and are not necessarily
+          the same as city limits, local cultural definitions, or media-market
+          boundaries.
+        </p>
+      </section>
+
+      <section className="methodology__section">
+        <h2>Rankings, Filtering, and Sorting</h2>
+
+        <p>
+          State ranks are calculated from the currently requested sort order.
+          Directory filters narrow the available records before pagination is
+          applied.
+        </p>
+
+        <p>
+          Metro results are filtered first, sorted second, and divided into
+          pages last. When a filter or sorting option changes, the directory
+          returns to the first page so that the current page remains valid.
+        </p>
+
+        <p>
+          Search, filter, sort, and page selections may be stored in URL query
+          parameters so users can return to the same directory view.
+        </p>
+      </section>
+
+      <section className="methodology__section">
+        <h2>Rounding and Display Formatting</h2>
+
+        <p>
+          PopShift rounds many percentages to one decimal place and adds
+          thousands separators to large values. Some headline numbers may be
+          abbreviated using thousands or millions.
+        </p>
+
+        <p>
+          Formatting affects how a value is displayed but does not change the
+          underlying stored number used for sorting or calculations.
+        </p>
       </section>
 
       <section className="methodology__section">
@@ -183,36 +339,43 @@ function Methodology() {
 
         <ul>
           <li>
-            The app currently focuses on state-level population estimates.
+            Different features may use different source years because datasets
+            are not all released on the same schedule.
           </li>
-          <li>County, city, and metro-level data are not included yet.</li>
-          <li>The current historical range covers 2020 through 2025.</li>
-          <li>Longer historical coverage may be added in a future version.</li>
+
           <li>
-            Growth and share values are rounded, so displayed percentages may
-            not show every decimal place.
+            Survey estimates contain uncertainty and may later be revised.
+          </li>
+
+          <li>
+            National and state-level figures may hide important local
+            differences within a geography.
+          </li>
+
+          <li>
+            Metro definitions can change when official geographic definitions
+            are updated.
+          </li>
+
+          <li>Migration flows do not explain every reason a person moved.</li>
+
+          <li>
+            PopShift does not yet provide a complete measure of affordability,
+            opportunity, transportation quality, school quality, or overall
+            quality of life.
           </li>
         </ul>
       </section>
 
       <section className="methodology__section">
-        <h2>Future Improvements</h2>
+        <h2>Sources and Documentation</h2>
 
         <p>
-          Future versions of PopShift may include expanded historical data,
-          regional summaries, charts, mobile-friendly ranking layouts, and
-          stronger visual tools for comparing population changes over time.
-        </p>
-
-        <p>
-          Future versions of PopShift may also include additional demographic
-          and quality-of-life datasets such as median income, wage trends,
-          climate data, housing trends, migration patterns, and other
-          state-level analytics.
+          A complete list of the major government datasets, geographic
+          resources, visualization libraries, and image sources used by PopShift
+          is available on the <Link to="/data-sources">Data Sources</Link> page.
         </p>
       </section>
-    </div>
+    </main>
   );
 }
-
-export default Methodology;

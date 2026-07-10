@@ -15,7 +15,7 @@ function Footer() {
 
         <div className="footer__right">
           <NavLink to="/methodology">Methodology</NavLink>
-
+          <NavLink to="/data-sources">Data Sources</NavLink>
           {/* Later */}
           {/* <NavLink to="/data-sources">Data Sources</NavLink> */}
           {/* <NavLink to="/privacy">Privacy</NavLink> */}

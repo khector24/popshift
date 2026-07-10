@@ -17,6 +17,7 @@ import StateDetail from "./pages/StateDetail";
 
 import About from "./pages/About";
 import Methodology from "./pages/Methodology";
+import DataSources from "./pages/DataSources";
 import MetroDirectory from "./pages/MetroDirectory";
 import MetroDetail from "./pages/MetroDetail";
 
@@ -35,6 +36,7 @@ function App() {
             {/* <Route path="/compare" element={<Compare />} /> */}
             <Route path="/about" element={<About />} />
             <Route path="/methodology" element={<Methodology />} />
+            <Route path="/data-sources" element={<DataSources />} />
             <Route path="/metros/" element={<MetroDirectory />} />
             <Route path="/metros/:slug" element={<MetroDetail />} />
           </Routes>
