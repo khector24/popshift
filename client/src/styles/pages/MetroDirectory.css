@@ -17,3 +17,9 @@
 .metro-directory-page__layout--filters-hidden {
   grid-template-columns: 1fr;
 }
+
+.metro-directory-page__results {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}

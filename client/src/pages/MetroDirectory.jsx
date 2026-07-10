@@ -22,10 +22,10 @@ export default function MetroDirectory() {
   const [selectedRegions, setSelectedRegions] = useState([]);
   const [selectedGrowth, setSelectedGrowth] = useState([]);
   const [maxPopulation, setMaxPopulation] = useState(DEFAULT_MAX_POPULATION);
-
   const [metroSearchText, setMetroSearchText] = useState("");
-
   const [sortBy, setSortBy] = useState("population-desc");
+
+  const [currentPage, setCurrentPage] = useState(1);
 
   const filteredStates = states.filter((state) => state.name !== "Puerto Rico");
 
@@ -129,6 +129,15 @@ export default function MetroDirectory() {
     return 0;
   });
 
+  const METROS_PER_PAGE = 12;
+
+  const totalPages = Math.ceil(sortedMetros.length / METROS_PER_PAGE);
+
+  const paginatedMetros = sortedMetros.slice(
+    (currentPage - 1) * METROS_PER_PAGE,
+    currentPage * METROS_PER_PAGE,
+  );
+
   return (
     <main className="metro-directory-page">
       <MetroDirectoryHero />
@@ -137,9 +146,15 @@ export default function MetroDirectory() {
         showFilters={showFilters}
         onToggleFilters={() => setShowFilters((prev) => !prev)}
         metroSearchText={metroSearchText}
-        setMetroSearchText={setMetroSearchText}
+        setMetroSearchText={(value) => {
+          setMetroSearchText(value);
+          setCurrentPage(1);
+        }}
         sortBy={sortBy}
-        setSortBy={setSortBy}
+        setSortBy={(value) => {
+          setSortBy(value);
+          setCurrentPage(1);
+        }}
       />
 
       <div
@@ -152,23 +167,41 @@ export default function MetroDirectory() {
             metros={metros}
             filteredStates={filteredStates}
             selectedStates={selectedStates}
-            setSelectedStates={setSelectedStates}
+            setSelectedStates={(value) => {
+              setSelectedStates(value);
+              setCurrentPage(1);
+            }}
             selectedRegions={selectedRegions}
-            setSelectedRegions={setSelectedRegions}
+            setSelectedRegions={(value) => {
+              setSelectedRegions(value);
+              setCurrentPage(1);
+            }}
             regionByStateCode={regionByStateCode}
             selectedGrowth={selectedGrowth}
-            setSelectedGrowth={setSelectedGrowth}
+            setSelectedGrowth={(value) => {
+              setSelectedGrowth(value);
+              setCurrentPage(1);
+            }}
             maxPopulation={maxPopulation}
-            setMaxPopulation={setMaxPopulation}
+            setMaxPopulation={(value) => {
+              setMaxPopulation(value);
+              setCurrentPage(1);
+            }}
             defaultMaxPopulation={DEFAULT_MAX_POPULATION}
             maxPopulationLimit={MAX_POPULATION}
           />
         )}
 
-        <MetroGrid metros={sortedMetros} />
-      </div>
+        <div className="metro-directory-page__results">
+          <MetroGrid metros={paginatedMetros} />
 
-      <MetroPagination />
+          <MetroPagination
+            currentPage={currentPage}
+            totalPages={totalPages}
+            onPageChange={setCurrentPage}
+          />
+        </div>
+      </div>
     </main>
   );
 }
