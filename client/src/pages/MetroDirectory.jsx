@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import { useSearchParams } from "react-router-dom";
 import { getStates } from "../services/statesApi.js";
 import { getMetros } from "../services/metrosApi.js";
 
@@ -14,18 +15,39 @@ const MAX_POPULATION = 25000000;
 const DEFAULT_MAX_POPULATION = MAX_POPULATION * 0.85;
 
 export default function MetroDirectory() {
+  const [searchParams, setSearchParams] = useSearchParams();
+
   const [metros, setMetros] = useState([]);
   const [states, setStates] = useState([]);
   const [showFilters, setShowFilters] = useState(true);
 
-  const [selectedStates, setSelectedStates] = useState([]);
-  const [selectedRegions, setSelectedRegions] = useState([]);
-  const [selectedGrowth, setSelectedGrowth] = useState([]);
-  const [maxPopulation, setMaxPopulation] = useState(DEFAULT_MAX_POPULATION);
-  const [metroSearchText, setMetroSearchText] = useState("");
-  const [sortBy, setSortBy] = useState("population-desc");
+  const [selectedStates, setSelectedStates] = useState(
+    searchParams.get("states") ? searchParams.get("states").split(",") : [],
+  );
 
-  const [currentPage, setCurrentPage] = useState(1);
+  const [selectedRegions, setSelectedRegions] = useState(
+    searchParams.get("regions") ? searchParams.get("regions").split(",") : [],
+  );
+
+  const [selectedGrowth, setSelectedGrowth] = useState(
+    searchParams.get("growth") ? searchParams.get("growth").split(",") : [],
+  );
+
+  const [maxPopulation, setMaxPopulation] = useState(
+    Number(searchParams.get("maxPopulation")) || DEFAULT_MAX_POPULATION,
+  );
+
+  const [metroSearchText, setMetroSearchText] = useState(
+    searchParams.get("search") || "",
+  );
+
+  const [sortBy, setSortBy] = useState(
+    searchParams.get("sortBy") || "population-desc",
+  );
+
+  const [currentPage, setCurrentPage] = useState(
+    Number(searchParams.get("page")) || 1,
+  );
 
   const filteredStates = states.filter((state) => state.name !== "Puerto Rico");
 
@@ -47,6 +69,49 @@ export default function MetroDirectory() {
 
     fetchData();
   }, []);
+
+  useEffect(() => {
+    const params = {};
+
+    if (selectedStates.length > 0) {
+      params.states = selectedStates.join(",");
+    }
+
+    if (selectedRegions.length > 0) {
+      params.regions = selectedRegions.join(",");
+    }
+
+    if (selectedGrowth.length > 0) {
+      params.growth = selectedGrowth.join(",");
+    }
+
+    if (maxPopulation !== DEFAULT_MAX_POPULATION) {
+      params.maxPopulation = String(maxPopulation);
+    }
+
+    if (metroSearchText) {
+      params.search = metroSearchText;
+    }
+
+    if (sortBy !== "population-desc") {
+      params.sortBy = sortBy;
+    }
+
+    if (currentPage !== 1) {
+      params.page = String(currentPage);
+    }
+
+    setSearchParams(params, { replace: true });
+  }, [
+    selectedStates,
+    selectedRegions,
+    selectedGrowth,
+    maxPopulation,
+    metroSearchText,
+    sortBy,
+    currentPage,
+    setSearchParams,
+  ]);
 
   const filteredMetros = metros.filter((metro) => {
     if (metro.population > maxPopulation) {
@@ -130,7 +195,6 @@ export default function MetroDirectory() {
   });
 
   const METROS_PER_PAGE = 12;
-
   const totalPages = Math.ceil(sortedMetros.length / METROS_PER_PAGE);
 
   const paginatedMetros = sortedMetros.slice(
