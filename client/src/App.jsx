@@ -5,10 +5,16 @@ import Navbar from "./components/layout/Navbar";
 import Footer from "./components/layout/Footer";
 
 import Home from "./pages/Home";
-import Dashboard from "./pages/Dashboard";
+
+// TBD if I want to merge it with home page.
+// import Dashboard from "./pages/Dashboard";
+
 import States from "./pages/States";
 import StateDetail from "./pages/StateDetail";
-import Compare from "./pages/Compare";
+
+// Later implementtion
+// import Compare from "./pages/Compare";
+
 import About from "./pages/About";
 import Methodology from "./pages/Methodology";
 import MetroDirectory from "./pages/MetroDirectory";
@@ -23,10 +29,10 @@ function App() {
         <main className="app__main">
           <Routes>
             <Route path="/" element={<Home />} />
-            <Route path="/dashboard" element={<Dashboard />} />
+            {/* <Route path="/dashboard" element={<Dashboard />} /> */}
             <Route path="/states" element={<States />} />
             <Route path="/states/:code" element={<StateDetail />} />
-            <Route path="/compare" element={<Compare />} />
+            {/* <Route path="/compare" element={<Compare />} /> */}
             <Route path="/about" element={<About />} />
             <Route path="/methodology" element={<Methodology />} />
             <Route path="/metros/" element={<MetroDirectory />} />

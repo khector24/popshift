@@ -10,23 +10,21 @@ function Navbar() {
         <NavLink to="/" className="navbar__link">
           Home
         </NavLink>
-        <NavLink to="/dashboard" className="navbar__link">
-          Dashboard
-        </NavLink>
         <NavLink to="/states" className="navbar__link">
           States
         </NavLink>
-        <NavLink to="/compare" className="navbar__link">
-          Compare
-        </NavLink>
-        <NavLink to="/about" className="navbar__link">
-          About
-        </NavLink>
-        <NavLink to="/methodology" className="navbar__link">
-          Methodology
-        </NavLink>
         <NavLink to="/metros/" className="navbar__link">
           Metros
+        </NavLink>
+        {/* <NavLink to="/dashboard" className="navbar__link">
+          Dashboard
+        </NavLink> */}
+
+        {/* <NavLink to="/compare" className="navbar__link">
+          Compare
+        </NavLink> */}
+        <NavLink to="/about" className="navbar__link">
+          About
         </NavLink>
       </div>
     </nav>
