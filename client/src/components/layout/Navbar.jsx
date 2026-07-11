@@ -1,31 +1,25 @@
 import { NavLink } from "react-router-dom";
+import GlobalSearch from "./GlobalSearch";
 import "../../styles/components/Navbar.css";
 
 function Navbar() {
   return (
     <nav className="navbar">
-      <h2 className="navbar__brand">PopShift</h2>
+      <div className="navbar__content">
+        <NavLink className="navbar__logo" to="/">
+          PopShift
+        </NavLink>
 
-      <div className="navbar__links">
-        <NavLink to="/" className="navbar__link">
-          Home
-        </NavLink>
-        <NavLink to="/states" className="navbar__link">
-          States
-        </NavLink>
-        <NavLink to="/metros/" className="navbar__link">
-          Metros
-        </NavLink>
-        {/* <NavLink to="/dashboard" className="navbar__link">
-          Dashboard
-        </NavLink> */}
+        <GlobalSearch />
 
-        {/* <NavLink to="/compare" className="navbar__link">
-          Compare
-        </NavLink> */}
-        <NavLink to="/about" className="navbar__link">
-          About
-        </NavLink>
+        <div className="navbar__links">
+          <NavLink to="/states">States</NavLink>
+          <NavLink to="/metros">Metros</NavLink>
+          {/* Future */}
+          {/* <NavLink to="/explore-moving">Explore Moving</NavLink>
+          <NavLink to="/articles">Articles</NavLink> */}
+          <NavLink to="/about">About</NavLink>
+        </div>
       </div>
     </nav>
   );
