@@ -6,9 +6,10 @@ import BigPicture from "../components/home/BigPicture";
 
 import { getStates, getStateEconomics } from "../services/statesApi";
 
+import "../styles/pages/Home.css";
+
 export default function Home() {
   const [loading, setLoading] = useState(true);
-
   const [states, setStates] = useState([]);
   const [economics, setEconomics] = useState(null);
 
@@ -22,6 +23,8 @@ export default function Home() {
 
         setStates(statesResponse.data);
         setEconomics(economicsResponse.national);
+      } catch (error) {
+        console.error("Failed to load homepage data:", error);
       } finally {
         setLoading(false);
       }
@@ -35,12 +38,12 @@ export default function Home() {
   }
 
   return (
-    <>
+    <main className="home">
       <HeroSection />
 
       <FeatureCards />
 
       <BigPicture states={states} economics={economics} />
-    </>
+    </main>
   );
 }

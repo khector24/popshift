@@ -1,6 +1,10 @@
 .home {
+  width: 100%;
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 64px 24px 80px;
+
   display: flex;
   flex-direction: column;
-  gap: 5rem;
-  padding-bottom: 5rem;
+  gap: 70px;
 }
