@@ -20,7 +20,7 @@ export default function BigPicture({ states, economics }) {
     {
       icon: <FaUsers />,
       title: "U.S. Population",
-      value: totalPopulation.toLocaleString(),
+      value: `${(totalPopulation / 1_000_000).toFixed(2)}M`,
       subtitle: "People",
     },
     {
