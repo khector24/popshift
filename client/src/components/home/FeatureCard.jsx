@@ -7,8 +7,17 @@ export default function FeatureCard({
   icon,
   buttonText,
   to,
+  color = "blue",
   disabled = false,
 }) {
+  const cardClassName = [
+    "feature-card",
+    `feature-card--${color}`,
+    disabled ? "feature-card--disabled" : "",
+  ]
+    .filter(Boolean)
+    .join(" ");
+
   const cardContent = (
     <>
       <div className="feature-card__icon">{icon}</div>
@@ -27,15 +36,11 @@ export default function FeatureCard({
   );
 
   if (disabled) {
-    return (
-      <article className="feature-card feature-card--disabled">
-        {cardContent}
-      </article>
-    );
+    return <article className={cardClassName}>{cardContent}</article>;
   }
 
   return (
-    <Link to={to} className="feature-card">
+    <Link to={to} className={cardClassName}>
       {cardContent}
     </Link>
   );

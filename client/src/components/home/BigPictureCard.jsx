@@ -6,9 +6,10 @@ export default function BigPictureCard({
   value,
   subtitle,
   context,
+  color = "blue",
 }) {
   return (
-    <article className="big-picture-card">
+    <article className={`big-picture-card big-picture-card--${color}`}>
       <div className="big-picture-card__icon">{icon}</div>
 
       <div className="big-picture-card__content">

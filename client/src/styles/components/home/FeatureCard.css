@@ -27,10 +27,51 @@
   justify-content: center;
 
   border-radius: 12px;
-  background: rgba(77, 163, 255, 0.12);
-
-  color: var(--accent);
   font-size: 1.25rem;
+}
+
+/* State Profiles */
+.feature-card--blue .feature-card__icon {
+  background: rgba(77, 163, 255, 0.14);
+  color: var(--accent);
+}
+
+.feature-card--blue .feature-card__button {
+  color: var(--accent);
+}
+
+/* Metro Profiles */
+.feature-card--purple .feature-card__icon {
+  background: var(--metro-purple-bg);
+  color: var(--metro-purple);
+}
+
+.feature-card--purple .feature-card__button {
+  color: var(--metro-purple);
+}
+
+/* Explore Moving */
+.feature-card--green .feature-card__icon {
+  background: var(--positive-bg);
+  color: var(--positive);
+}
+
+.feature-card--green .feature-card__button {
+  color: var(--positive);
+}
+
+/* Articles */
+.feature-card--orange .feature-card__icon {
+  background: var(--warning-bg);
+  color: var(--warning);
+}
+
+.feature-card--orange .feature-card__button {
+  color: var(--warning);
+}
+
+.feature-card--disabled .feature-card__button {
+  color: var(--text-subtle);
 }
 
 .feature-card__content {

@@ -38,7 +38,7 @@
 }
 
 .hero-title span {
-  color: var(--accent);
+  color: var(--metro-purple);
 }
 
 .hero-description {
@@ -69,17 +69,45 @@
   font-size: 0.9rem;
   font-weight: 600;
   text-decoration: none;
+
+  transition:
+    transform 0.15s ease,
+    background-color 0.15s ease,
+    border-color 0.15s ease,
+    color 0.15s ease,
+    filter 0.15s ease;
+}
+
+.hero-actions .btn:hover {
+  transform: translateY(-1px);
 }
 
 .hero-actions .btn-primary {
-  background: var(--accent);
-  border-color: var(--accent);
-  color: var(--bg);
+  background: var(--metro-purple);
+  border-color: var(--metro-purple);
+  color: var(--text);
+}
+
+.hero-actions .btn-primary:hover {
+  background: var(--metro-purple);
+  border-color: var(--metro-purple);
+  color: var(--text);
+  filter: brightness(1.06);
 }
 
 .hero-actions .btn-secondary {
   background: var(--surface);
   color: var(--text);
+}
+
+.hero-actions .btn-secondary:hover {
+  background: var(--surface);
+  border-color: var(--metro-purple);
+  color: var(--metro-purple);
+}
+
+.hero-actions .btn:active {
+  transform: translateY(0);
 }
 
 .hero-note {

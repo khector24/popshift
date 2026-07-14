@@ -24,10 +24,27 @@
   justify-content: center;
 
   border-radius: 12px;
-  background: rgba(77, 163, 255, 0.12);
-
-  color: var(--accent);
   font-size: 1.15rem;
+}
+
+.big-picture-card--blue .big-picture-card__icon {
+  background: rgba(77, 163, 255, 0.14);
+  color: var(--accent);
+}
+
+.big-picture-card--purple .big-picture-card__icon {
+  background: var(--metro-purple-bg);
+  color: var(--metro-purple);
+}
+
+.big-picture-card--green .big-picture-card__icon {
+  background: var(--positive-bg);
+  color: var(--positive);
+}
+
+.big-picture-card--orange .big-picture-card__icon {
+  background: var(--warning-bg);
+  color: var(--warning);
 }
 
 .big-picture-card__content {

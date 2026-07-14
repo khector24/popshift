@@ -22,6 +22,7 @@ export default function BigPicture({ states, economics }) {
       icon: <FaUsers />,
       title: "U.S. Population",
       value: `${(totalPopulation / 1_000_000).toFixed(2)}M`,
+      color: "purple",
       context: {
         icon: <TbTriangleFilled />,
         text: "11.2M People",
@@ -32,26 +33,31 @@ export default function BigPicture({ states, economics }) {
       title: "Net Migration",
       value: "+1.6M",
       subtitle: "People",
+      color: "green",
     },
     {
       icon: <FaDollarSign />,
       title: "Median Household Income",
       value: `$${economics.medianIncome.toLocaleString()}`,
+      color: "green",
     },
     {
       icon: <FaHouse />,
       title: "Median Home Value",
       value: `$${economics.medianHomeValue.toLocaleString()}`,
+      color: "blue",
     },
     {
       icon: <FaBuilding />,
       title: "Median Gross Rent",
       value: `$${economics.medianRent.toLocaleString()}`,
+      color: "orange",
     },
     {
       icon: <FaGraduationCap />,
       title: "College Degree (25+)",
       value: "36.1%",
+      color: "purple",
     },
   ];
 

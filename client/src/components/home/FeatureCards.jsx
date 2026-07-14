@@ -25,6 +25,7 @@ export default function FeatureCards() {
           description="Deep dives into all 50 states with population, migration, economics, housing, and education data."
           buttonText="Explore States"
           to="/states"
+          color="blue"
         />
 
         <FeatureCard
@@ -33,6 +34,7 @@ export default function FeatureCards() {
           description="Explore major metro areas with population, weather, commute, transit, and growth trends."
           buttonText="Explore Metros"
           to="/metros"
+          color="purple"
         />
 
         <FeatureCard
@@ -41,6 +43,7 @@ export default function FeatureCards() {
           description="Compare two places side-by-side to see how they stack up on what matters most."
           buttonText="Coming Soon"
           to="#"
+          color="green"
           disabled
         />
 
@@ -50,6 +53,7 @@ export default function FeatureCards() {
           description="In-depth analysis and stories about the trends shaping where Americans live and move."
           buttonText="Coming Soon"
           to="#"
+          color="orange"
           disabled
         />
       </div>
