@@ -11,7 +11,7 @@ import "../../styles/components/PopulationChangeMap.css";
 
 const geoUrl = "/maps/states-10m.json";
 
-export default function PopulationChangeMap({ states }) {
+export default function PopulationChangeMap({ states, showLegend = true }) {
   const navigate = useNavigate();
 
   const location = useLocation();
@@ -58,29 +58,31 @@ export default function PopulationChangeMap({ states }) {
   return (
     <div className="population-change-map">
       <div className="population-change-map__content">
-        <div className="population-change-map__legend">
-          <div>
-            <span style={{ background: "#2563eb" }}></span>5%+
+        {showLegend && (
+          <div className="population-change-map__legend">
+            <div>
+              <span style={{ background: "#2563eb" }}></span>5%+
+            </div>
+            <div>
+              <span style={{ background: "#60a5fa" }}></span>2.5% to 5%
+            </div>
+            <div>
+              <span style={{ background: "#bfdbfe" }}></span>0% to 2.5%
+            </div>
+            <div>
+              <span style={{ background: "#cbd5e1" }}></span>0%
+            </div>
+            <div>
+              <span style={{ background: "#fca5a5" }}></span>-2.5% to 0%
+            </div>
+            <div>
+              <span style={{ background: "#f87171" }}></span>-5% to -2.5%
+            </div>
+            <div>
+              <span style={{ background: "#ef4444" }}></span>-5% or less
+            </div>
           </div>
-          <div>
-            <span style={{ background: "#60a5fa" }}></span>2.5% to 5%
-          </div>
-          <div>
-            <span style={{ background: "#bfdbfe" }}></span>0% to 2.5%
-          </div>
-          <div>
-            <span style={{ background: "#cbd5e1" }}></span>0%
-          </div>
-          <div>
-            <span style={{ background: "#fca5a5" }}></span>-2.5% to 0%
-          </div>
-          <div>
-            <span style={{ background: "#f87171" }}></span>-5% to -2.5%
-          </div>
-          <div>
-            <span style={{ background: "#ef4444" }}></span>-5% or less
-          </div>
-        </div>
+        )}
 
         <ComposableMap projection="geoAlbersUsa">
           <Geographies geography={geographyData}>

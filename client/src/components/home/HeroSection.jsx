@@ -40,7 +40,7 @@ export default function HeroSection({ summaryData }) {
       </div>
 
       <div className="hero-map">
-        <PopulationChangeMap states={mapStates} />
+        <PopulationChangeMap states={mapStates} showLegend={false} />
       </div>
 
       <div className="hero-visual__movers">

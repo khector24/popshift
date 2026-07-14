@@ -112,7 +112,7 @@
 
 .hero-map {
   min-width: 0;
-  padding: 14px;
+  padding: 6px;
 }
 
 .hero-map .population-change-map {
@@ -120,19 +120,28 @@
 }
 
 .hero-map .population-change-map__content {
-  width: 100%;
+  display: flex;
+  justify-content: flex-end;
 }
 
-.hero-map .population-change-map__legend {
-  font-size: 0.65rem;
+.hero-map .population-change-map__content svg {
+  width: 400px;
+  max-width: none;
+  height: auto;
+  display: block;
 }
 
 .hero-map .population-change-map__scale {
-  margin-top: 4px;
+  width: 72%;
+  margin: 0 auto;
+}
+
+.hero-map .population-change-map__gradient {
+  height: 5px;
 }
 
 .hero-map .population-change-map__scale-labels {
-  font-size: 0.68rem;
+  font-size: 0.62rem;
 }
 
 /* Right growing-states column */
@@ -221,5 +230,14 @@
 
   .hero-title {
     font-size: 2.6rem;
+  }
+
+  .hero-map .population-change-map__content {
+    justify-content: center;
+  }
+
+  .hero-map .population-change-map__content svg {
+    width: 100%;
+    max-width: 500px;
   }
 }
