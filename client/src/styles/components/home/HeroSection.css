@@ -133,12 +133,13 @@
   max-width: none;
   height: auto;
 
-  margin-top: -40px;
+  transform: translateY(-40px);
 }
 
 .hero-map .population-change-map__scale {
   width: 68%;
-  margin: -20px auto;
+  margin: 0 auto;
+  transform: translateY(-60px);
 }
 
 .hero-map .population-change-map__gradient {
