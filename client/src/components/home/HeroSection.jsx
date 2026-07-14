@@ -63,12 +63,14 @@ export default function HeroSection({ summaryData }) {
         <h2>
           Top Growing States <span>(2020–2025)</span>
         </h2>
-
         <MoverSection
           title="Biggest Gains"
           states={topGainers}
           type="positive"
         />
+        <Link to="/dashboard" className="hero-visual__dashboard-link">
+          View Dashboard <span aria-hidden="true">→</span>
+        </Link>
       </div>
     </section>
   );

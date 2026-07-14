@@ -138,12 +138,14 @@
 
 .hero-map .population-change-map__scale {
   width: 68%;
-  margin: 0 auto;
+  margin: -20px auto;
 }
 
 .hero-map .population-change-map__gradient {
   height: 4px;
-  opacity: 0.65;
+  opacity: 0.75;
+
+  background: linear-gradient(to right, #1d2237, #2b294f, #393064);
 }
 
 .hero-map .population-change-map__scale-labels {
@@ -153,9 +155,12 @@
 /* Top growing states */
 .hero-visual__movers {
   width: 260px;
-  height: 320px;
+  height: 300px;
   min-width: 0;
   padding: 14px 16px;
+
+  display: flex;
+  flex-direction: column;
 
   align-self: start;
 
@@ -183,7 +188,9 @@
 }
 
 .hero-visual__movers .dashboard__movers-section {
+  padding-bottom: 0;
   width: 100%;
+  flex: 1;
 }
 
 .hero-visual__movers .dashboard__movers-section-header {
@@ -241,6 +248,41 @@
   color: var(--positive);
   font-weight: 600;
   white-space: nowrap;
+}
+
+.hero-visual__dashboard-link {
+  width: 100%;
+  min-height: 38px;
+  margin-top: 12px;
+
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+
+  background: rgba(139, 92, 246, 0.08);
+  border: 1px solid rgba(139, 92, 246, 0.2);
+  border-radius: 8px;
+
+  color: var(--metro-purple);
+  font-size: 0.72rem;
+  font-weight: 600;
+  text-decoration: none;
+
+  transition:
+    background-color 0.15s ease,
+    border-color 0.15s ease,
+    transform 0.15s ease;
+}
+
+.hero-visual__dashboard-link:hover {
+  background: rgba(139, 92, 246, 0.14);
+  border-color: rgba(139, 92, 246, 0.38);
+  transform: translateY(-1px);
+}
+
+.hero-visual__dashboard-link:active {
+  transform: translateY(0);
 }
 
 /* Medium screens */
