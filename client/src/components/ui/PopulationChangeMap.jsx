@@ -11,7 +11,12 @@ import "../../styles/components/PopulationChangeMap.css";
 
 const geoUrl = "/maps/states-10m.json";
 
-export default function PopulationChangeMap({ states, showLegend = true }) {
+export default function PopulationChangeMap({
+  states,
+  showLegend = true,
+  getColor,
+  hoverColor = "#60a5fa",
+}) {
   const navigate = useNavigate();
 
   const location = useLocation();
@@ -44,7 +49,7 @@ export default function PopulationChangeMap({ states, showLegend = true }) {
     statesByCode[state.code] = state;
   });
 
-  function getMapColor(growth) {
+  function getDefaultMapColor(growth) {
     if (growth === undefined || growth === null) return "#94a3b8";
     if (growth >= 5) return "#2563eb";
     if (growth >= 2.5) return "#60a5fa";
@@ -54,6 +59,8 @@ export default function PopulationChangeMap({ states, showLegend = true }) {
     if (growth > -5) return "#f87171";
     return "#ef4444";
   }
+
+  const getMapColor = getColor || getDefaultMapColor;
 
   return (
     <div className="population-change-map">
@@ -113,7 +120,7 @@ export default function PopulationChangeMap({ states, showLegend = true }) {
                         cursor: stateData ? "pointer" : "default",
                       },
                       hover: {
-                        fill: "#60a5fa",
+                        fill: hoverColor,
                         outline: "none",
                         cursor: stateData ? "pointer" : "default",
                       },

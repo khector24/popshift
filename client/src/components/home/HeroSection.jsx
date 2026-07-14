@@ -9,6 +9,17 @@ export default function HeroSection({ summaryData }) {
   const mapStates = summaryData.states || [];
   const topGainers = summaryData.topGainers || [];
 
+  function getHeroMapColor(growth) {
+    if (growth === undefined || growth === null) return "#172039";
+    if (growth >= 5) return "#393064";
+    if (growth >= 2.5) return "#332b5a";
+    if (growth > 0) return "#2b294f";
+    if (growth === 0) return "#202840";
+    if (growth > -2.5) return "#252943";
+    if (growth > -5) return "#22263d";
+    return "#1d2237";
+  }
+
   return (
     <section className="hero-section">
       <div className="hero-content">
@@ -40,12 +51,18 @@ export default function HeroSection({ summaryData }) {
       </div>
 
       <div className="hero-map">
-        <PopulationChangeMap states={mapStates} showLegend={false} />
+        <PopulationChangeMap
+          states={mapStates}
+          showLegend={false}
+          getColor={getHeroMapColor}
+          hoverColor="#514378"
+        />
       </div>
 
       <div className="hero-visual__movers">
-        <h2>Top Growing States</h2>
-        <p className="hero-visual__movers-range">2020–2025</p>
+        <h2>
+          Top Growing States <span>(2020–2025)</span>
+        </h2>
 
         <MoverSection
           title="Biggest Gains"

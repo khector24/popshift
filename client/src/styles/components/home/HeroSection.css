@@ -2,12 +2,13 @@
   width: 100%;
 
   display: grid;
-  grid-template-columns: minmax(300px, 1.05fr) minmax(360px, 1.35fr) minmax(
-      250px,
-      0.85fr
-    );
-  align-items: center;
-  gap: 24px;
+  grid-template-columns:
+    minmax(340px, 1fr)
+    600px
+    260px;
+
+  align-items: start;
+  column-gap: 5px;
 }
 
 .hero-content {
@@ -22,7 +23,7 @@
   margin: 0;
 
   color: var(--text);
-  font-size: clamp(2.6rem, 4vw, 4.2rem);
+  font-size: clamp(3rem, 5vw, 5rem);
   font-weight: 800;
   line-height: 1.05;
 }
@@ -108,15 +109,16 @@
   font-size: 0.78rem;
 }
 
-/* Middle map column */
+/* Map */
 
 .hero-map {
   min-width: 0;
-  padding: 6px;
+  margin-left: 20px;
+  padding: 0;
 }
 
 .hero-map .population-change-map {
-  width: 100%;
+  width: 600px;
 }
 
 .hero-map .population-change-map__content {
@@ -125,111 +127,130 @@
 }
 
 .hero-map .population-change-map__content svg {
-  width: 400px;
+  display: block;
+
+  width: 600px;
   max-width: none;
   height: auto;
-  display: block;
+
+  margin-top: -40px;
 }
 
 .hero-map .population-change-map__scale {
-  width: 72%;
+  width: 68%;
   margin: 0 auto;
 }
 
 .hero-map .population-change-map__gradient {
-  height: 5px;
+  height: 4px;
+  opacity: 0.65;
 }
 
 .hero-map .population-change-map__scale-labels {
-  font-size: 0.62rem;
+  font-size: 0.6rem;
 }
 
-/* Right growing-states column */
-
+/* Top growing states */
 .hero-visual__movers {
+  width: 260px;
+  height: 320px;
   min-width: 0;
-  padding: 18px;
+  padding: 14px 16px;
 
-  background: var(--surface);
-  border: 1px solid var(--border);
-  border-radius: 18px;
+  align-self: start;
+
+  background: rgba(18, 26, 43, 0.56);
+  border: 1px solid rgba(139, 92, 246, 0.18);
+  border-radius: 16px;
+
+  overflow: hidden;
 }
 
 .hero-visual__movers > h2 {
-  margin: 0;
+  margin: 0 0 8px;
 
   color: var(--text);
-  font-size: 1.05rem;
+  font-size: 0.95rem;
+  font-weight: 700;
   line-height: 1.3;
+  white-space: nowrap;
 }
 
-.hero-visual__movers-range {
-  margin: 4px 0 14px;
-
+.hero-visual__movers > h2 span {
   color: var(--text-subtle);
-  font-size: 0.75rem;
+  font-size: 0.72rem;
+  font-weight: 500;
 }
-
-/* Compact the existing MoverSection inside the hero */
 
 .hero-visual__movers .dashboard__movers-section {
   width: 100%;
 }
 
 .hero-visual__movers .dashboard__movers-section-header {
-  margin-bottom: 8px;
-}
-
-.hero-visual__movers .dashboard__movers-section-header h3 {
-  margin: 0;
-  font-size: 0.82rem;
-}
-
-.hero-visual__movers .dashboard__movers-column-labels {
-  font-size: 0.62rem;
+  display: none;
 }
 
 .hero-visual__movers .dashboard__mover-row {
-  gap: 8px;
-  padding: 8px 0;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto auto;
+  align-items: center;
+  gap: 7px;
 
-  font-size: 0.72rem;
+  padding: 10px 0;
+
+  border-bottom: 1px solid rgba(108, 125, 159, 0.2);
+
+  font-size: 0.7rem;
+}
+
+.hero-visual__movers .dashboard__mover-row:last-child {
+  border-bottom: 0;
 }
 
 .hero-visual__movers .dashboard__mover-name {
   min-width: 0;
+
+  display: flex;
+  align-items: center;
+  gap: 7px;
+
+  color: var(--text-muted);
+}
+
+.hero-visual__movers .dashboard__mover-name > span:last-child {
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .hero-visual__movers .dashboard__mover-rank {
-  width: 20px;
-  height: 20px;
+  flex: 0 0 auto;
 
-  font-size: 0.65rem;
+  width: 17px;
+  height: 17px;
+
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  color: var(--metro-purple);
+  font-size: 0.6rem;
 }
 
-/* Stack only when three columns can no longer fit comfortably */
-
-@media (max-width: 1100px) {
-  .hero-section {
-    grid-template-columns: 1fr 1fr;
-  }
-
-  .hero-content {
-    grid-column: 1 / -1;
-  }
+.hero-visual__movers .dashboard__mover-row > span:nth-child(2),
+.hero-visual__movers .dashboard__mover-row > span:nth-child(3) {
+  color: var(--positive);
+  font-weight: 600;
+  white-space: nowrap;
 }
+
+/* Medium screens */
+
+/* Small screens */
 
 @media (max-width: 760px) {
   .hero-section {
     grid-template-columns: 1fr;
-  }
-
-  .hero-content {
-    grid-column: auto;
-  }
-
-  .hero-title {
-    font-size: 2.6rem;
+    gap: 36px;
   }
 
   .hero-map .population-change-map__content {
@@ -238,6 +259,21 @@
 
   .hero-map .population-change-map__content svg {
     width: 100%;
-    max-width: 500px;
+    max-width: 540px;
+  }
+
+  .hero-map .population-change-map__scale {
+    width: min(80%, 420px);
+  }
+
+  .hero-visual__movers {
+    grid-column: auto;
+
+    width: 100%;
+    justify-self: stretch;
+  }
+
+  .hero-title {
+    font-size: clamp(2.6rem, 12vw, 4rem);
   }
 }
