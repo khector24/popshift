@@ -7,7 +7,7 @@ import Footer from "./components/layout/Footer";
 import Home from "./pages/Home";
 
 // TBD if I want to merge it with home page.
-// import Dashboard from "./pages/Dashboard";
+import Dashboard from "./pages/Dashboard";
 
 import States from "./pages/States";
 import StateDetail from "./pages/StateDetail";
@@ -30,7 +30,7 @@ function App() {
         <main className="app__main">
           <Routes>
             <Route path="/" element={<Home />} />
-            {/* <Route path="/dashboard" element={<Dashboard />} /> */}
+            <Route path="/dashboard" element={<Dashboard />} />
             <Route path="/states" element={<States />} />
             <Route path="/states/:code" element={<StateDetail />} />
             {/* <Route path="/compare" element={<Compare />} /> */}

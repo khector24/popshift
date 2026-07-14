@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import {
   ComposableMap,
   Geographies,
@@ -13,6 +13,15 @@ const geoUrl = "/maps/states-10m.json";
 
 export default function PopulationChangeMap({ states }) {
   const navigate = useNavigate();
+
+  const location = useLocation();
+
+  const backLabel =
+    location.pathname === "/"
+      ? "Home"
+      : location.pathname === "/dashboard"
+        ? "Dashboard"
+        : "States";
 
   const [geographyData, setGeographyData] = useState([]);
 
@@ -89,8 +98,8 @@ export default function PopulationChangeMap({ states }) {
                       if (stateData?.code) {
                         navigate(`/states/${stateData.code}`, {
                           state: {
-                            from: "/dashboard",
-                            label: "Dashboard",
+                            from: `${location.pathname}${location.search}`,
+                            label: backLabel,
                           },
                         });
                       }

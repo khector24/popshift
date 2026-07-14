@@ -19,6 +19,7 @@ function Navbar() {
           {/* <NavLink to="/explore-moving">Explore Moving</NavLink>
           <NavLink to="/articles">Articles</NavLink> */}
           <NavLink to="/about">About</NavLink>
+          <NavLink to="/dashboard">dashboard</NavLink>
         </div>
       </div>
     </nav>

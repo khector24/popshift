@@ -1,16 +1,21 @@
 import { Link } from "react-router-dom";
+
+import PopulationChangeMap from "../ui/PopulationChangeMap";
+import MoverSection from "../ui/MoverSection";
+
 import "../../styles/components/home/HeroSection.css";
 
-export default function HeroSection() {
+export default function HeroSection({ summaryData }) {
+  const mapStates = summaryData.states || [];
+  const topGainers = summaryData.topGainers || [];
+
   return (
     <section className="hero-section">
       <div className="hero-content">
-        {/* <span className="hero-badge">Population • Migration • Economics</span> */}
-
         <h1 className="hero-title">
           Understand
           <br />
-          <span>America's Movement.</span>
+          <span>America&apos;s Movement.</span>
         </h1>
 
         <p className="hero-description">
@@ -34,7 +39,20 @@ export default function HeroSection() {
         </p>
       </div>
 
-      <div className="hero-visual">{/* Map image goes here later */}</div>
+      <div className="hero-map">
+        <PopulationChangeMap states={mapStates} />
+      </div>
+
+      <div className="hero-visual__movers">
+        <h2>Top Growing States</h2>
+        <p className="hero-visual__movers-range">2020–2025</p>
+
+        <MoverSection
+          title="Biggest Gains"
+          states={topGainers}
+          type="positive"
+        />
+      </div>
     </section>
   );
 }
