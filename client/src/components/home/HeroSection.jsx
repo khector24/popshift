@@ -5,7 +5,7 @@ export default function HeroSection() {
   return (
     <section className="hero-section">
       <div className="hero-content">
-        <span className="hero-badge">Population • Migration • Economics</span>
+        {/* <span className="hero-badge">Population • Migration • Economics</span> */}
 
         <h1 className="hero-title">
           Understand
