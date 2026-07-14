@@ -1,5 +1,5 @@
-import { BsTriangleFill } from "react-icons/bs";
-import { VscTriangleDown } from "react-icons/vsc";
+import { TbTriangleFilled } from "react-icons/tb";
+import { TbTriangleInvertedFilled } from "react-icons/tb";
 
 import "../../styles/components/ContextIndicator.css";
 
@@ -9,7 +9,8 @@ export default function ContextIndicator({
   value,
   text,
 }) {
-  const Icon = direction === "down" ? VscTriangleDown : BsTriangleFill;
+  const Icon =
+    direction === "down" ? TbTriangleInvertedFilled : TbTriangleFilled;
 
   return (
     <span className={`context-indicator context-indicator--${tone}`}>

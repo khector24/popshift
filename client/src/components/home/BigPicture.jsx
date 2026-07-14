@@ -6,6 +6,7 @@ import {
   FaBuilding,
   FaGraduationCap,
 } from "react-icons/fa6";
+import { TbTriangleFilled } from "react-icons/tb";
 
 import BigPictureCard from "./BigPictureCard";
 import "../../styles/components/home/BigPicture.css";
@@ -21,7 +22,10 @@ export default function BigPicture({ states, economics }) {
       icon: <FaUsers />,
       title: "U.S. Population",
       value: `${(totalPopulation / 1_000_000).toFixed(2)}M`,
-      subtitle: "People",
+      context: {
+        icon: <TbTriangleFilled />,
+        text: "11.2M People",
+      },
     },
     {
       icon: <FaArrowTrendUp />,

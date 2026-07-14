@@ -52,6 +52,22 @@
   white-space: nowrap;
 }
 
+.big-picture-card__context {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+
+  margin-top: 4px;
+
+  color: var(--positive);
+  font-size: 0.78rem;
+  font-weight: 600;
+}
+
+.big-picture-card__context svg {
+  font-size: 0.72rem;
+}
+
 .big-picture-card__subtitle {
   color: var(--text-subtle);
   font-size: 0.72rem;
