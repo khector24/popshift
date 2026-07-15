@@ -286,14 +286,151 @@
   transform: translateY(0);
 }
 
-/* Medium screens */
+/* Smaller desktop screens */
 
-/* Small screens */
+@media (max-width: 1280px) {
+  .hero-section {
+    grid-template-columns:
+      minmax(280px, 1fr)
+      480px
+      220px;
 
-@media (max-width: 760px) {
+    column-gap: 4px;
+  }
+
+  .hero-title {
+    font-size: clamp(2.7rem, 4.5vw, 4.2rem);
+  }
+
+  .hero-description {
+    max-width: 460px;
+    font-size: 0.92rem;
+  }
+
+  .hero-map {
+    margin-left: 12px;
+  }
+
+  .hero-map .population-change-map {
+    width: 480px;
+  }
+
+  .hero-map .population-change-map__content svg {
+    width: 480px;
+    transform: translateY(-30px);
+  }
+
+  .hero-map .population-change-map__scale {
+    width: 66%;
+    transform: translateY(-45px);
+  }
+
+  .hero-visual__movers {
+    width: 220px;
+    height: 285px;
+    padding: 12px 14px;
+  }
+
+  .hero-visual__movers > h2 {
+    font-size: 0.84rem;
+  }
+
+  .hero-visual__movers > h2 span {
+    font-size: 0.64rem;
+  }
+
+  .hero-visual__movers .dashboard__mover-row {
+    gap: 5px;
+    padding: 9px 0;
+    font-size: 0.64rem;
+  }
+
+  .hero-visual__dashboard-link {
+    min-height: 34px;
+    margin-top: 8px;
+    font-size: 0.68rem;
+  }
+}
+
+/* Tablet: introduction and map only */
+
+@media (min-width: 781px) and (max-width: 900px) {
+  .hero-section {
+    grid-template-columns:
+      minmax(280px, 1fr)
+      minmax(380px, 1.25fr);
+
+    column-gap: 20px;
+  }
+
+  .hero-visual__movers {
+    display: none;
+  }
+
+  .hero-map {
+    margin-left: 0;
+  }
+
+  .hero-map .population-change-map {
+    width: 100%;
+  }
+
+  .hero-map .population-change-map__content {
+    justify-content: flex-end;
+  }
+
+  .hero-map .population-change-map__content svg {
+    width: 440px;
+    max-width: 100%;
+  }
+}
+
+/* Mobile and narrow tablets */
+@media (max-width: 780px) {
   .hero-section {
     grid-template-columns: 1fr;
-    gap: 36px;
+    gap: 0;
+
+    padding-bottom: 36px;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .hero-content {
+    width: 100%;
+    align-items: center;
+    text-align: center;
+
+    padding-bottom: 36px;
+
+    border-bottom: 1px solid var(--border);
+  }
+
+  .hero-title {
+    font-size: clamp(4rem, 12vw, 4.4rem);
+  }
+
+  .hero-description {
+    max-width: 600px;
+    font-size: 0.95rem;
+    text-align: center;
+  }
+
+  .hero-actions {
+    justify-content: center;
+  }
+
+  .hero-map {
+    width: 100%;
+    margin: 40px 0 12px;
+    padding: 0;
+  }
+
+  .hero-note {
+    text-align: center;
+  }
+
+  .hero-map .population-change-map {
+    width: 100%;
   }
 
   .hero-map .population-change-map__content {
@@ -302,21 +439,52 @@
 
   .hero-map .population-change-map__content svg {
     width: 100%;
-    max-width: 540px;
+    max-width: 600px;
+
+    transform: none;
   }
 
   .hero-map .population-change-map__scale {
-    width: min(80%, 420px);
+    width: min(76%, 430px);
+    transform: translateY(-24px);
   }
 
   .hero-visual__movers {
-    grid-column: auto;
+    display: flex;
 
-    width: 100%;
-    justify-self: stretch;
+    width: min(100%, 420px);
+    height: 300px;
+    margin-bottom: 0;
+
+    justify-self: center;
+  }
+}
+
+/* Phones */
+
+@media (max-width: 520px) {
+  .hero-title {
+    font-size: clamp(2.35rem, 12vw, 3.25rem);
   }
 
-  .hero-title {
-    font-size: clamp(2.6rem, 12vw, 4rem);
+  .hero-actions {
+    width: 100%;
+  }
+
+  .hero-actions .btn {
+    flex: 1;
+  }
+
+  .hero-note {
+    line-height: 1.5;
+  }
+
+  .hero-map {
+    margin-top: 28px;
+  }
+
+  .hero-visual__movers {
+    height: 300px;
+    padding: 14px;
   }
 }
