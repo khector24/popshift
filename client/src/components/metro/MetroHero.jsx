@@ -40,9 +40,14 @@ export default function MetroHero({ metro }) {
           <span>{latestPopulationYear} Population Estimate</span>
         </div>
 
-        <button className="metro-hero__button">
-          <FaRoute /> Explore Moving
-        </button>
+        {/* TODO (V1.1): Re-enable when the Explore Moving page is built.
+
+<button className="metro-hero__button">
+  <FaRoute />
+  Explore Moving
+</button>
+
+*/}
       </div>
 
       <img
