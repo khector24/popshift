@@ -1,12 +1,18 @@
 import { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
 
 import StatCard from "../components/ui/StatCard";
 import MoverSection from "../components/ui/MoverSection";
 import PopulationTimeline from "../components/ui/PopulationTimeline.jsx";
 import PopulationChangeMap from "../components/ui/PopulationChangeMap.jsx";
 import InfoTooltip from "../components/ui/InfoTooltip.jsx";
+import DashboardInsights from "../components/dashboard/DashboardInsights.jsx";
 
-import { getDashboardSummary } from "../services/statesApi.js";
+import {
+  getDashboardSummary,
+  getStateEconomics,
+  getStateEducation,
+} from "../services/statesApi.js";
 import {
   formatPopulation,
   formatPopulationChange,
@@ -20,6 +26,14 @@ function Dashboard() {
   const availableYears = [2020, 2021, 2022, 2023, 2024, 2025];
 
   const [summaryData, setSummaryData] = useState({});
+
+  const [educationData, setEducationData] = useState({});
+  const [economicsData, setEconomicsData] = useState([]);
+
+  const [educationYear, setEducationYear] = useState(null);
+  const [economicsYear, setEconomicsYear] = useState(null);
+
+  const [insightsLoading, setInsightsLoading] = useState(true);
 
   const [startYear, setStartYear] = useState(2020);
   const [endYear, setEndYear] = useState(2025);
@@ -36,6 +50,31 @@ function Dashboard() {
 
     fetchDashboardSummary();
   }, [startYear, endYear]);
+
+  useEffect(() => {
+    async function fetchDashboardInsights() {
+      try {
+        setInsightsLoading(true);
+
+        const [educationResponse, economicsResponse] = await Promise.all([
+          getStateEducation(),
+          getStateEconomics(),
+        ]);
+
+        setEducationData(educationResponse.data || {});
+        setEducationYear(educationResponse.year || null);
+
+        setEconomicsData(economicsResponse.data || []);
+        setEconomicsYear(economicsResponse.year || null);
+      } catch (error) {
+        console.error("Failed to load dashboard insights:", error);
+      } finally {
+        setInsightsLoading(false);
+      }
+    }
+
+    fetchDashboardInsights();
+  }, []);
 
   const dashboardStats = [
     {
@@ -233,11 +272,19 @@ function Dashboard() {
         </div>
       </section>
 
+      <DashboardInsights
+        educationData={educationData}
+        economicsData={economicsData}
+        educationYear={educationYear}
+        economicsYear={economicsYear}
+        loading={insightsLoading}
+      />
+
       <div className="dashboard__explore-link">
         <span className="dashboard__explore-icon">💡</span>
 
         <p>
-          Explore the <a href="/rankings">Rankings</a> page to dive deeper into
+          Explore the <Link to="/states">States</Link> page to dive deeper into
           state-by-state data.
         </p>
       </div>

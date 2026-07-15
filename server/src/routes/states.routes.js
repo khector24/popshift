@@ -12,8 +12,10 @@ import {
 } from "../services/economicsDataService.js";
 
 import { getStateMigrationByCode } from "../services/migrationDataService.js";
-import { getStateEducationByCode } from "../services/educationDataService.js";
-
+import {
+  getStateEducation,
+  getStateEducationByCode,
+} from "../services/educationDataService.js";
 const router = express.Router();
 
 // GET /api/states
@@ -93,7 +95,14 @@ router.get("/economics", (req, res) => {
     });
   }
 
-  res.json(economics);
+  const filteredEconomics = economics.data.filter(
+    (state) => state.code !== "72",
+  );
+
+  res.json({
+    ...economics,
+    data: filteredEconomics,
+  });
 });
 
 // GET /api/states/:code/economics
@@ -124,6 +133,24 @@ router.get("/:code/migration", (req, res) => {
   }
 
   res.json(stateMigration);
+});
+
+// GET /api/states/education
+router.get("/education", (req, res) => {
+  const education = getStateEducation();
+
+  if (!education.data) {
+    return res.status(404).json({
+      message: "States education data not found",
+    });
+  }
+
+  const { 72: puertoRico, ...filteredEducation } = education.data;
+
+  res.json({
+    ...education,
+    data: filteredEducation,
+  });
 });
 
 // GET /api/states/:code/education
