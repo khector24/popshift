@@ -9,7 +9,7 @@ export default function Methodology() {
         <h1>Methodology</h1>
 
         <p>
-          PopShift combines multiple public datasets to describe population,
+          RegionLore combines multiple public datasets to describe population,
           migration, economics, housing, education, transportation, and
           geographic relationships across U.S. states and metropolitan areas.
           This page explains how the application processes and presents that
@@ -21,14 +21,14 @@ export default function Methodology() {
         <h2>Data Processing</h2>
 
         <p>
-          Most PopShift datasets are downloaded from their original source and
+          Most RegionLore datasets are downloaded from their original source and
           processed locally during development. Build scripts clean the source
           files, match geographic identifiers, calculate derived values, and
           generate JavaScript data files used by the Express backend.
         </p>
 
         <p>
-          The React frontend requests these processed datasets from PopShift’s
+          The React frontend requests these processed datasets from RegionLore’s
           own API rather than repeatedly requesting the original source on every
           page visit.
         </p>
@@ -209,7 +209,7 @@ export default function Methodology() {
         <h2>Education Measures</h2>
 
         <p>
-          PopShift combines two different types of education data for state
+          RegionLore combines two different types of education data for state
           profiles: adult educational attainment from the American Community
           Survey and student assessment results from the National Assessment of
           Educational Progress.
@@ -232,7 +232,7 @@ export default function Methodology() {
         <p>
           Reading and mathematics scores come from the National Assessment of
           Educational Progress, commonly known as NAEP or The Nation&apos;s
-          Report Card. PopShift currently displays average Grade 8 reading and
+          Report Card. RegionLore currently displays average Grade 8 reading and
           mathematics scores on a 0–500 scale.
         </p>
 
@@ -323,7 +323,7 @@ export default function Methodology() {
         <h2>Rounding and Display Formatting</h2>
 
         <p>
-          PopShift rounds many percentages to one decimal place and adds
+          RegionLore rounds many percentages to one decimal place and adds
           thousands separators to large values. Some headline numbers may be
           abbreviated using thousands or millions.
         </p>
@@ -360,7 +360,7 @@ export default function Methodology() {
           <li>Migration flows do not explain every reason a person moved.</li>
 
           <li>
-            PopShift does not yet provide a complete measure of affordability,
+            RegionLore does not yet provide a complete measure of affordability,
             opportunity, transportation quality, school quality, or overall
             quality of life.
           </li>
@@ -372,8 +372,9 @@ export default function Methodology() {
 
         <p>
           A complete list of the major government datasets, geographic
-          resources, visualization libraries, and image sources used by PopShift
-          is available on the <Link to="/data-sources">Data Sources</Link> page.
+          resources, visualization libraries, and image sources used by
+          RegionLore is available on the{" "}
+          <Link to="/data-sources">Data Sources</Link> page.
         </p>
       </section>
     </main>

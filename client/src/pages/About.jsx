@@ -6,27 +6,27 @@ export default function About() {
   return (
     <main className="about">
       <header>
-        <h1>About PopShift</h1>
+        <h1>About RegionLore</h1>
 
         <p>
-          PopShift is a U.S. population and migration analytics platform
+          RegionLore is a U.S. population and migration analytics platform
           designed to make public data easier to explore, compare, and
           understand.
         </p>
       </header>
 
       <section>
-        <h2>What Is PopShift?</h2>
+        <h2>What Is RegionLore?</h2>
 
         <p>
-          PopShift brings together population, migration, economic, housing,
+          RegionLore brings together population, migration, economic, housing,
           education, transportation, and geographic data for U.S. states and
           metropolitan areas.
         </p>
 
         <p>
           Instead of requiring users to search through large government tables
-          and disconnected datasets, PopShift organizes important information
+          and disconnected datasets, RegionLore organizes important information
           into searchable directories, interactive profiles, charts, tables,
           rankings, and migration summaries.
         </p>
@@ -80,7 +80,7 @@ export default function About() {
         <h2>Current Scope</h2>
 
         <p>
-          PopShift currently focuses on the 50 U.S. states, the District of
+          RegionLore currently focuses on the 50 U.S. states, the District of
           Columbia, and a directory of major U.S. metropolitan statistical
           areas.
         </p>
@@ -102,9 +102,9 @@ export default function About() {
         <h2>How the Data Is Used</h2>
 
         <p>
-          PopShift uses publicly available datasets from organizations such as
+          RegionLore uses publicly available datasets from organizations such as
           the U.S. Census Bureau. Source files are downloaded and processed into
-          application-ready datasets before being served by the PopShift
+          application-ready datasets before being served by the RegionLore
           backend.
         </p>
 
@@ -123,10 +123,10 @@ export default function About() {
       </section>
 
       <section>
-        <h2>What PopShift Is Not</h2>
+        <h2>What RegionLore Is Not</h2>
 
         <p>
-          PopShift is an informational and exploratory project. It is not an
+          RegionLore is an informational and exploratory project. It is not an
           official government website, and it does not provide financial, legal,
           real-estate, or relocation advice.
         </p>
@@ -149,7 +149,7 @@ export default function About() {
         </p>
 
         <p>
-          PopShift may also expand its coverage of housing, education, taxes,
+          RegionLore may also expand its coverage of housing, education, taxes,
           climate, transportation, demographics, and the reasons people choose
           to move.
         </p>
@@ -159,7 +159,7 @@ export default function About() {
         <h2>Technology</h2>
 
         <p>
-          PopShift is built with React, React Router, Node.js, Express, custom
+          RegionLore is built with React, React Router, Node.js, Express, custom
           data-processing scripts, locally generated JavaScript datasets,
           Recharts, React-based mapping tools, and custom CSS.
         </p>

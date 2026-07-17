@@ -19,7 +19,8 @@ export default function MetroHero({ metro }) {
         </h1>
 
         <p className="metro-hero__description">
-          The {metroName} is one of the largest metro areas tracked by PopShift.
+          The {metroName} is one of the largest metro areas tracked by
+          RegionLore.
         </p>
 
         <div className="metro-hero__meta">

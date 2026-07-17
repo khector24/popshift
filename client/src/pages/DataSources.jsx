@@ -95,7 +95,7 @@ const sourceGroups = [
   {
     title: "Geographic Boundaries and Maps",
     description:
-      "Geographic files provide the state shapes used by PopShift’s interactive map visualizations.",
+      "Geographic files provide the state shapes used by RegionLore’s interactive map visualizations.",
     sources: [
       {
         name: "us-atlas",
@@ -151,7 +151,7 @@ const sourceGroups = [
   {
     title: "Visualization and Application Libraries",
     description:
-      "Open-source libraries support PopShift’s charts, maps, routing, icons, and user-interface components.",
+      "Open-source libraries support RegionLore’s charts, maps, routing, icons, and user-interface components.",
     sources: [
       {
         name: "Recharts",
@@ -171,7 +171,7 @@ const sourceGroups = [
         name: "React Icons",
         organization: "React Icons",
         description:
-          "Icon library used throughout PopShift’s cards, controls, navigation, and data summaries.",
+          "Icon library used throughout RegionLore’s cards, controls, navigation, and data summaries.",
         url: "https://react-icons.github.io/react-icons/",
       },
     ],
@@ -185,7 +185,7 @@ export default function DataSources() {
         <h1>Data Sources</h1>
 
         <p>
-          PopShift combines public government datasets, geographic resources,
+          RegionLore combines public government datasets, geographic resources,
           open-source software, and properly attributed visual assets. This page
           identifies the principal sources used throughout the application.
         </p>
@@ -198,7 +198,7 @@ export default function DataSources() {
           Government datasets are published on different schedules. Population,
           migration, economic, housing, education, and transportation values
           shown together on a profile may therefore represent different years.
-          PopShift displays the applicable year near each section whenever
+          RegionLore displays the applicable year near each section whenever
           possible.
         </p>
       </section>
@@ -240,14 +240,14 @@ export default function DataSources() {
         <h2>Independent Project</h2>
 
         <p>
-          PopShift is an independent project and is not affiliated with,
+          RegionLore is an independent project and is not affiliated with,
           sponsored by, or endorsed by the U.S. Census Bureau or any other
           organization listed on this page.
         </p>
 
         <p>
           Source organizations retain responsibility for their original data and
-          documentation. PopShift is responsible for its own processing,
+          documentation. RegionLore is responsible for its own processing,
           calculations, presentation, and any errors introduced during those
           steps.
         </p>

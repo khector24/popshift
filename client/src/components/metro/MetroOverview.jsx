@@ -24,7 +24,7 @@ export default function MetroOverview({ metro }) {
           <strong>{metro.states.length}</strong>{" "}
           {metro.states.length === 1 ? "state" : "states"} and ranks{" "}
           <strong>#{metro.rank}</strong> among the largest metropolitan areas
-          tracked by PopShift.
+          tracked by RegionLore.
         </p>
 
         <p>
@@ -37,7 +37,7 @@ export default function MetroOverview({ metro }) {
         </p>
 
         <p>
-          PopShift combines Census population estimates, American Community
+          RegionLore combines Census population estimates, American Community
           Survey data, and IRS migration statistics to help explore population,
           housing, economics, education, transportation, and migration trends
           across U.S. metropolitan areas.

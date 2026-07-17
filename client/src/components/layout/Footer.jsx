@@ -6,10 +6,10 @@ function Footer() {
     <footer className="footer">
       <div className="footer__content">
         <div className="footer__left">
-          <h3 className="footer__title">PopShift</h3>
+          <h3 className="footer__title">RegionLore</h3>
 
           <p className="footer__copyright">
-            © 2026 PopShift. All rights reserved.
+            © 2026 RegionLore. All rights reserved.
           </p>
         </div>
 

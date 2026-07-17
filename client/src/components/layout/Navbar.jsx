@@ -16,7 +16,7 @@ function Navbar() {
     <nav className="navbar">
       <div className="navbar__content">
         <NavLink className="navbar__logo" to="/" onClick={closeMenu}>
-          PopShift
+          RegionLore
         </NavLink>
 
         <button

@@ -39,7 +39,7 @@ export default function MetroAtAGlance({ metro }) {
 
       <p>
         It ranks #{metro.rank} among the largest metro areas tracked by
-        PopShift.
+        RegionLore.
       </p>
 
       <p>
