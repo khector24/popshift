@@ -4,6 +4,8 @@ import "./App.css";
 import Navbar from "./components/layout/Navbar";
 import Footer from "./components/layout/Footer";
 
+import ScrollToTop from "./router/ScrollToTop";
+
 import Home from "./pages/Home";
 
 // TBD if I want to merge it with home page.
@@ -24,6 +26,7 @@ import MetroDetail from "./pages/MetroDetail";
 function App() {
   return (
     <BrowserRouter>
+      <ScrollToTop />
       <div className="app">
         <Navbar />
 
