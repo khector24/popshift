@@ -23,6 +23,9 @@ import DataSources from "./pages/DataSources";
 import MetroDirectory from "./pages/MetroDirectory";
 import MetroDetail from "./pages/MetroDetail";
 
+// Frontend 404 page
+import NotFound from "./pages/NotFound";
+
 function App() {
   return (
     <BrowserRouter>
@@ -42,6 +45,9 @@ function App() {
             <Route path="/data-sources" element={<DataSources />} />
             <Route path="/metros/" element={<MetroDirectory />} />
             <Route path="/metros/:slug" element={<MetroDetail />} />
+            
+            {/* Return a custom page when no frontend route matches */}
+            <Route path="*" element={<NotFound />} />
           </Routes>
         </main>
 
