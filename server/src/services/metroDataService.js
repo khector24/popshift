@@ -15,6 +15,24 @@ import {
   metroMigration,
 } from "../data/metros/metroMigration2023.js";
 
+/*
+ * V1 DATA OWNERSHIP NOTE
+ *
+ * topMetros is currently used as the master list of metros included in V1
+ * and as the source of manually curated image metadata.
+ *
+ * Do NOT treat topMetros.rank or topMetros.population as authoritative.
+ * Those values may become stale when new Census population estimates are
+ * released.
+ *
+ * Current rank, name, population, and population growth data should come
+ * from metroPopulation2025.js.
+ *
+ * This duplication is intentionally being left in place for V1.
+ * A future V2 data-pipeline/database refactor should establish clearer
+ * canonical sources instead of duplicating fields across generated files.
+ */
+
 function getMetroStatesBySlug(slug) {
   const metroStateRecord = metroStates.find((metro) => metro.slug === slug);
   return metroStateRecord?.states || [];
@@ -25,7 +43,11 @@ function getMetroPopulationBySlug(slug) {
     (metro) => metro.slug === slug,
   );
 
+  // Population data is authoritative for the metro's current rank and name.
+  // Do not use the copies stored in topMetros for these fields.
   return {
+    rank: metroPopulationRecord?.rank,
+    name: metroPopulationRecord?.name,
     populationYears: metroPopulationYears,
     population: metroPopulationRecord?.population,
     populationByYear: metroPopulationRecord?.populationByYear,
@@ -73,8 +95,14 @@ function buildMetro() {
   const metros = [];
   const nationalAverages = nationalACS;
 
+  /*
+   * topMetros determines which metros are included in V1.
+   * We only need the slug here for joining datasets.
+   *
+   * Image metadata still comes directly from the metro object below.
+   */
   for (const metro of topMetros) {
-    const { rank, name, slug } = metro;
+    const { slug } = metro;
 
     const states = getMetroStatesBySlug(slug);
     const populationRecord = getMetroPopulationBySlug(slug);
@@ -88,9 +116,9 @@ function buildMetro() {
     const migrationRecord = getMetroMigrationBySlug(slug);
 
     const newMetro = {
-      rank,
-      name,
       slug,
+
+      // Image metadata is manually curated in topMetros for V1.
       imageData: {
         name: metro.image,
         author: metro.imageAuthor,
@@ -98,7 +126,9 @@ function buildMetro() {
         url: metro.imageUrl,
       },
 
+      // Includes authoritative current rank, name, population, and growth.
       ...populationRecord,
+
       ...acsRecord,
 
       states,
