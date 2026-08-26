@@ -13,6 +13,16 @@ const outputPath = path.join(
 
 const economicDataYear = 2024;
 
+// National 2024 ACS values used for comparison/context in the app.
+// The raw state economics file contains state rows only, so the national
+// record is maintained separately for V1.
+const nationalEconomics = {
+  name: "United States",
+  medianIncome: 81604,
+  medianRent: 1487,
+  medianHomeValue: 360600,
+};
+
 const rawData = JSON.parse(fs.readFileSync(inputPath, "utf8"));
 
 const dataRows = rawData.slice(1);
@@ -26,6 +36,8 @@ const stateEconomics = dataRows.map((row) => ({
 }));
 
 const fileContents = `export const economicDataYear = ${economicDataYear};
+
+export const nationalEconomics = ${JSON.stringify(nationalEconomics, null, 2)};
 
 export const stateEconomics = ${JSON.stringify(stateEconomics, null, 2)};
 `;
