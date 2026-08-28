@@ -1,4 +1,5 @@
 import pool from "../db/index.js";
+import { statePopulation } from "../data/population/statePopulation2025.js";
 
 async function seedUnitedStates(client) {
   const placeResult = await client.query(`
@@ -29,6 +30,91 @@ async function seedUnitedStates(client) {
   return unitedStatesPlaceId;
 }
 
+function getStateLevelPlaceType(state) {
+  if (state.code === "11") {
+    return "federal_district";
+  }
+
+  if (state.code === "72") {
+    return "territory";
+  }
+
+  return "state";
+}
+
+function slugify(name) {
+  return name
+    .toLowerCase()
+    .replace(/[^a-z0-9]+/g, "-")
+    .replace(/^-|-$/g, "");
+}
+
+async function getRelationshipTypeId(client, code) {
+  const result = await client.query(
+    `
+        SELECT id 
+        FROM relationship_types 
+        WHERE code = $1;
+    `,
+    [code],
+  );
+
+  return result.rows[0].id;
+}
+
+async function seedStateLevelPlaces(
+  client,
+  unitedStatesPlaceId,
+  locatedInRelationshipTypeId,
+) {
+  for (const state of statePopulation) {
+    const placeType = getStateLevelPlaceType(state);
+    const slug = slugify(state.name);
+
+    const placeResult = await client.query(
+      `
+        INSERT INTO places (name, slug, place_type)
+        VALUES ($1, $2, $3)
+        ON CONFLICT (slug)
+        DO UPDATE SET
+            name = EXCLUDED.name,
+            place_type = EXCLUDED.place_type,
+            updated_at = current_timestamp
+        RETURNING id;
+     `,
+      [state.name, slug, placeType],
+    );
+
+    const placeId = placeResult.rows[0].id;
+
+    if (placeType === "state") {
+      await client.query(
+        `
+            INSERT INTO states (place_id, state_fips)
+            VALUES ($1, $2)
+            ON CONFLICT (place_id)
+            DO UPDATE SET
+                state_fips = EXCLUDED.state_fips;
+        `,
+        [placeId, state.code],
+      );
+    }
+
+    await client.query(
+      `
+        INSERT INTO place_relationships (
+            from_place_id,
+            to_place_id,
+            relationship_type_id
+        )
+        VALUES ($1, $2, $3)
+        ON CONFLICT DO NOTHING;
+      `,
+      [placeId, unitedStatesPlaceId, locatedInRelationshipTypeId],
+    );
+  }
+}
+
 async function seedGeographyIdentities() {
   const client = await pool.connect();
 
@@ -36,6 +122,17 @@ async function seedGeographyIdentities() {
     await client.query("BEGIN");
 
     const unitedStatesPlaceId = await seedUnitedStates(client);
+
+    const locatedInRelationshipTypeId = await getRelationshipTypeId(
+      client,
+      "located_in",
+    );
+
+    await seedStateLevelPlaces(
+      client,
+      unitedStatesPlaceId,
+      locatedInRelationshipTypeId,
+    );
 
     console.log(`United States place ID: ${unitedStatesPlaceId}`);
 
