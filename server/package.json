@@ -18,7 +18,8 @@
     "migrate": "node-pg-migrate",
     "migrate:up": "node-pg-migrate up",
     "migrate:down": "node-pg-migrate down",
-    "migrate:create": "node-pg-migrate create"
+    "migrate:create": "node-pg-migrate create",
+    "seed:geography": "node src/scripts/seedGeographyIdentities.js"
   },
   "dependencies": {
     "cors": "^2.8.6",
