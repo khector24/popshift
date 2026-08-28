@@ -1,5 +1,7 @@
 import pool from "../db/index.js";
 import { statePopulation } from "../data/population/statePopulation2025.js";
+import { topMetros } from "../data/metros/topMetros.js";
+import { metroCounties } from "../data/metros/metroCounties.js";
 
 async function seedUnitedStates(client) {
   const placeResult = await client.query(`
@@ -115,6 +117,46 @@ async function seedStateLevelPlaces(
   }
 }
 
+async function seedMetros(client) {
+  // loop through topMetros
+  // find CBSA
+  // upsert places
+  // upsert metros
+
+  for (const metro of topMetros) {
+    const slug = metro.slug;
+    const metroCountyRecord = metroCounties[slug];
+    const cbsa = metroCountyRecord.cbsa;
+
+    const placeResult = await client.query(
+      `
+        INSERT INTO places (name, slug, place_type)
+        VALUES ($1, $2, 'metro')
+        ON CONFLICT (slug)
+        DO UPDATE SET
+            name = EXCLUDED.name,
+            place_type = EXCLUDED.place_type,
+            updated_at = current_timestamp
+        RETURNING id;
+      `,
+      [metro.name, slug],
+    );
+
+    const placeId = placeResult.rows[0].id;
+
+    await client.query(
+      `
+        INSERT INTO metros (place_id, cbsa)
+        VALUES ($1, $2)
+        ON CONFLICT (place_id)
+        DO UPDATE SET
+            cbsa = EXCLUDED.cbsa;
+      `,
+      [placeId, cbsa],
+    );
+  }
+}
+
 async function seedGeographyIdentities() {
   const client = await pool.connect();
 
@@ -133,6 +175,8 @@ async function seedGeographyIdentities() {
       unitedStatesPlaceId,
       locatedInRelationshipTypeId,
     );
+
+    await seedMetros(client);
 
     console.log(`United States place ID: ${unitedStatesPlaceId}`);
 
