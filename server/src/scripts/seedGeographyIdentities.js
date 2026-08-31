@@ -29,6 +29,13 @@ async function seedUnitedStates(client) {
     [unitedStatesPlaceId],
   );
 
+  await seedPlaceAlias(client, unitedStatesPlaceId, "United States");
+  await seedPlaceAlias(client, unitedStatesPlaceId, "United States of America");
+  await seedPlaceAlias(client, unitedStatesPlaceId, "US");
+  await seedPlaceAlias(client, unitedStatesPlaceId, "USA");
+
+  console.log(`United States seeded. Place ID: ${unitedStatesPlaceId}`);
+
   return unitedStatesPlaceId;
 }
 
@@ -42,6 +49,10 @@ function getStateLevelPlaceType(state) {
   }
 
   return "state";
+}
+
+function normalizeAlias(alias) {
+  return alias.trim().toLowerCase().replace(/\s+/g, " ");
 }
 
 function slugify(name) {
@@ -62,6 +73,26 @@ async function getRelationshipTypeId(client, code) {
   );
 
   return result.rows[0].id;
+}
+
+async function seedPlaceAlias(client, placeId, alias) {
+  const cleanAlias = alias.trim().replace(/\s+/g, " ");
+  const normalizedAlias = normalizeAlias(cleanAlias);
+
+  await client.query(
+    `
+    INSERT INTO place_aliases (
+        place_id,
+        alias,
+        normalized_alias
+    )
+    VALUES ($1, $2, $3)
+    ON CONFLICT (place_id, normalized_alias)
+    DO UPDATE SET
+        alias = EXCLUDED.alias;
+    `,
+    [placeId, cleanAlias, normalizedAlias],
+  );
 }
 
 async function seedStateLevelPlaces(
@@ -89,6 +120,14 @@ async function seedStateLevelPlaces(
 
     const placeId = placeResult.rows[0].id;
 
+    await seedPlaceAlias(client, placeId, state.name);
+
+    if (state.code === "11") {
+      await seedPlaceAlias(client, placeId, "DC");
+      await seedPlaceAlias(client, placeId, "Washington DC");
+      await seedPlaceAlias(client, placeId, "Washington, DC");
+    }
+
     if (placeType === "state") {
       await client.query(
         `
@@ -115,14 +154,11 @@ async function seedStateLevelPlaces(
       [placeId, unitedStatesPlaceId, locatedInRelationshipTypeId],
     );
   }
+
+  console.log(`State-level places seeded: ${statePopulation.length}`);
 }
 
 async function seedMetros(client) {
-  // loop through topMetros
-  // find CBSA
-  // upsert places
-  // upsert metros
-
   for (const metro of topMetros) {
     const slug = metro.slug;
     const metroCountyRecord = metroCounties[slug];
@@ -155,6 +191,8 @@ async function seedMetros(client) {
       [placeId, cbsa],
     );
   }
+
+  console.log(`Metros seeded: ${topMetros.length}`);
 }
 
 async function seedGeographyIdentities() {
@@ -162,6 +200,8 @@ async function seedGeographyIdentities() {
 
   try {
     await client.query("BEGIN");
+
+    console.log("Seeding geography identities...");
 
     const unitedStatesPlaceId = await seedUnitedStates(client);
 
@@ -177,8 +217,6 @@ async function seedGeographyIdentities() {
     );
 
     await seedMetros(client);
-
-    console.log(`United States place ID: ${unitedStatesPlaceId}`);
 
     await client.query("COMMIT");
 
