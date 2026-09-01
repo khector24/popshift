@@ -2,6 +2,7 @@ import pool from "../db/index.js";
 import { statePopulation } from "../data/population/statePopulation2025.js";
 import { topMetros } from "../data/metros/topMetros.js";
 import { metroCounties } from "../data/metros/metroCounties.js";
+import { STATE_ABBREVIATIONS_BY_NAME } from "../data/stateAbbreviations.js";
 
 async function seedUnitedStates(client) {
   const placeResult = await client.query(`
@@ -120,10 +121,15 @@ async function seedStateLevelPlaces(
 
     const placeId = placeResult.rows[0].id;
 
+    const abbreviation = STATE_ABBREVIATIONS_BY_NAME[state.name];
+
     await seedPlaceAlias(client, placeId, state.name);
 
+    if (abbreviation) {
+      await seedPlaceAlias(client, placeId, abbreviation);
+    }
+
     if (state.code === "11") {
-      await seedPlaceAlias(client, placeId, "DC");
       await seedPlaceAlias(client, placeId, "Washington DC");
       await seedPlaceAlias(client, placeId, "Washington, DC");
     }
@@ -131,13 +137,14 @@ async function seedStateLevelPlaces(
     if (placeType === "state") {
       await client.query(
         `
-            INSERT INTO states (place_id, state_fips)
-            VALUES ($1, $2)
+            INSERT INTO states (place_id, state_fips, abbreviation)
+            VALUES ($1, $2, $3)
             ON CONFLICT (place_id)
             DO UPDATE SET
-                state_fips = EXCLUDED.state_fips;
+                state_fips = EXCLUDED.state_fips,
+                abbreviation = EXCLUDED.abbreviation;
         `,
-        [placeId, state.code],
+        [placeId, state.code, abbreviation],
       );
     }
 
