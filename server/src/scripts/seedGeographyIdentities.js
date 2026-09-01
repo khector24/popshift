@@ -3,6 +3,7 @@ import { statePopulation } from "../data/population/statePopulation2025.js";
 import { topMetros } from "../data/metros/topMetros.js";
 import { metroCounties } from "../data/metros/metroCounties.js";
 import { STATE_ABBREVIATIONS_BY_NAME } from "../data/stateAbbreviations.js";
+import { cityDirectory } from "../data/cities/cityDirectory.js";
 
 async function seedUnitedStates(client) {
   const placeResult = await client.query(`
@@ -66,8 +67,8 @@ function slugify(name) {
 async function getRelationshipTypeId(client, code) {
   const result = await client.query(
     `
-        SELECT id 
-        FROM relationship_types 
+        SELECT id
+        FROM relationship_types
         WHERE code = $1;
     `,
     [code],
@@ -202,6 +203,86 @@ async function seedMetros(client) {
   console.log(`Metros seeded: ${topMetros.length}`);
 }
 
+async function seedCities(client, locatedInRelationshipTypeId) {
+  for (const city of cityDirectory) {
+    const slug = `${slugify(city.name)}-${city.stateAbbreviation.toLowerCase()}`;
+
+    const placeResult = await client.query(
+      `
+        INSERT INTO places (name, slug, place_type)
+        VALUES ($1, $2, 'city')
+        ON CONFLICT (slug)
+        DO UPDATE SET
+            name = EXCLUDED.name,
+            place_type = EXCLUDED.place_type,
+            updated_at = current_timestamp
+        RETURNING id;
+      `,
+      [city.name, slug],
+    );
+
+    const placeId = placeResult.rows[0].id;
+
+    const stateFips = city.geoid.slice(0, 2);
+    const placeFips = city.geoid.slice(2);
+
+    await client.query(
+      `
+        INSERT INTO cities (
+            place_id, state_fips, place_fips, geoid,
+            latitude, longitude, land_area, water_area)
+        VALUES ($1, $2, $3, $4, $5, $6, $7, $8)
+        ON CONFLICT (place_id)
+        DO UPDATE SET
+            state_fips = EXCLUDED.state_fips,
+            place_fips = EXCLUDED.place_fips,
+            geoid = EXCLUDED.geoid,
+            latitude = EXCLUDED.latitude,
+            longitude = EXCLUDED.longitude,
+            land_area = EXCLUDED.land_area,
+            water_area = EXCLUDED.water_area;
+      `,
+      [
+        placeId,
+        stateFips,
+        placeFips,
+        city.geoid,
+        city.latitude,
+        city.longitude,
+        city.landArea,
+        city.waterArea,
+      ],
+    );
+
+    const statePlaceResult = await client.query(
+      `
+        SELECT id
+        FROM places
+        WHERE name = $1
+            AND place_type IN ('state', 'federal_district', 'territory');
+      `,
+      [city.stateName],
+    );
+
+    const statePlaceId = statePlaceResult.rows[0].id;
+
+    await client.query(
+      `
+        INSERT INTO place_relationships (
+            from_place_id,
+            to_place_id,
+            relationship_type_id
+        )
+        VALUES ($1, $2, $3)
+        ON CONFLICT DO NOTHING;
+      `,
+      [placeId, statePlaceId, locatedInRelationshipTypeId],
+    );
+  }
+
+  console.log(`Cities seeded: ${cityDirectory.length}`);
+}
+
 async function seedGeographyIdentities() {
   const client = await pool.connect();
 
@@ -217,6 +298,11 @@ async function seedGeographyIdentities() {
       "located_in",
     );
 
+    const partOfMetroRelationshipTypeId = await getRelationshipTypeId(
+      client,
+      "part_of_metro",
+    );
+
     await seedStateLevelPlaces(
       client,
       unitedStatesPlaceId,
@@ -224,6 +310,12 @@ async function seedGeographyIdentities() {
     );
 
     await seedMetros(client);
+
+    await seedCities(
+      client,
+      locatedInRelationshipTypeId,
+      partOfMetroRelationshipTypeId,
+    );
 
     await client.query("COMMIT");
 

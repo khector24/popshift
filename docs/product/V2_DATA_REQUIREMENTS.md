@@ -548,29 +548,42 @@ relationship inferred from display names.
 
 ## 15. City ↔ Metro Relationship
 
-This relationship requires more care.
+City-to-metro membership must not be inferred from similar city and metro
+names.
 
-CBSAs are delineated primarily from counties/county-equivalents, while
-Census places are a different geography. A city's metro membership
-should therefore not be inferred from similar names.
+For the initial U.S. city universe, RegionLore will derive city-to-metro
+membership using current Census geography and the existing RegionLore
+metro-to-county / CBSA data.
 
-Existing RegionLore metro data already uses CBSA/county relationships.
-V2 architecture should reuse that work where appropriate.
+The V2 pipeline will:
 
-Possible mapping strategies to evaluate during architecture design
-include:
+1. use 2025 Census place geography for supported cities;
+2. determine the county or county-equivalent geography intersecting each place;
+3. match those county FIPS codes against the existing RegionLore metro
+   county-membership data;
+4. determine the corresponding CBSA;
+5. generate reusable city-to-metro membership data;
+6. store supported relationships in PostgreSQL using `part_of_metro`.
 
--   place -\> county relationship -\> CBSA;
--   official principal-city information where applicable;
--   geographic/spatial relationship data when needed;
--   explicit curated exceptions for unusual geographies.
+Because Census places may cross county boundaries, the pipeline must support
+a city intersecting more than one county.
 
-A city may also have no supported RegionLore metro relationship.
+The geographic matching should happen during the ingestion/build process
+rather than inside the PostgreSQL identity seed.
 
-The exact implementation is intentionally deferred to the architecture
-decision.
+Conceptually:
 
-------------------------------------------------------------------------
+Census place geography
+→ intersecting county/county-equivalent FIPS
+→ RegionLore metro county membership
+→ CBSA
+→ `part_of_metro`
+
+A city may have no supported RegionLore metro relationship. In that case,
+RegionLore should leave the relationship unavailable rather than infer one
+from names or substitute an unsupported geography.
+
+---
 
 ## 16. Source IDs vs RegionLore Fields
 

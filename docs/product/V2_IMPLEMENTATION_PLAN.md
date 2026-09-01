@@ -185,10 +185,26 @@ Do not manually maintain 500 city rows.
 
 ## Metro relationship work
 
-City → metro mapping should use official/geographic identifiers and the existing
-RegionLore CBSA/county work where practical.
+City → metro mapping should be generated during the ingestion/build process rather
+than inferred inside the PostgreSQL identity seed.
 
-Do not infer metro membership from similar names.
+For the initial U.S. city universe, the pipeline should:
+
+1. determine the county or county-equivalent geography intersecting each Census place;
+2. preserve all intersecting counties because a place may cross county boundaries;
+3. match those county FIPS codes against RegionLore's existing metro county-membership data;
+4. determine the corresponding CBSA;
+5. generate reusable city-to-metro membership data;
+6. seed supported relationships into PostgreSQL using `part_of_metro`.
+
+Conceptually:
+
+````text
+Census place
+→ intersecting county FIPS
+→ RegionLore metro county membership
+→ CBSA
+→ part_of_metro
 
 ## Exit criteria
 
@@ -208,7 +224,7 @@ Create:
 ```text
 data_sources
 data_releases
-```
+````
 
 Seed initial providers:
 
