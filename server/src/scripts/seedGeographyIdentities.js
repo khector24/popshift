@@ -4,6 +4,7 @@ import { topMetros } from "../data/metros/topMetros.js";
 import { metroCounties } from "../data/metros/metroCounties.js";
 import { STATE_ABBREVIATIONS_BY_NAME } from "../data/stateAbbreviations.js";
 import { cityDirectory } from "../data/cities/cityDirectory.js";
+import { cityMetroMembership } from "../data/cities/cityMetroMembership.js";
 
 async function seedUnitedStates(client) {
   const placeResult = await client.query(`
@@ -203,7 +204,15 @@ async function seedMetros(client) {
   console.log(`Metros seeded: ${topMetros.length}`);
 }
 
-async function seedCities(client, locatedInRelationshipTypeId) {
+const CITY_METRO_MEMBERSHIP_BY_GEOID = new Map(
+  cityMetroMembership.map((city) => [city.geoid, city]),
+);
+
+async function seedCities(
+  client,
+  locatedInRelationshipTypeId,
+  partOfMetroRelationshipTypeId,
+) {
   for (const city of cityDirectory) {
     const slug = `${slugify(city.name)}-${city.stateAbbreviation.toLowerCase()}`;
 
@@ -278,6 +287,48 @@ async function seedCities(client, locatedInRelationshipTypeId) {
       `,
       [placeId, statePlaceId, locatedInRelationshipTypeId],
     );
+
+    const metroMembership = CITY_METRO_MEMBERSHIP_BY_GEOID.get(city.geoid);
+
+    if (!metroMembership) {
+      throw new Error(
+        `No city metro membership record found for ${city.name} (${city.geoid})`,
+      );
+    }
+
+    if (metroMembership.cbsa) {
+      const metroPlaceResult = await client.query(
+        `
+        SELECT p.id
+        FROM places p
+        JOIN metros m
+            ON m.place_id = p.id
+        WHERE m.cbsa = $1;
+        `,
+        [metroMembership.cbsa],
+      );
+
+      if (metroPlaceResult.rows.length === 0) {
+        throw new Error(
+          `No metro place found for CBSA ${metroMembership.cbsa}`,
+        );
+      }
+
+      const metroPlaceId = metroPlaceResult.rows[0].id;
+
+      await client.query(
+        `
+        INSERT INTO place_relationships (
+          from_place_id,
+          to_place_id,
+          relationship_type_id
+        )
+        VALUES ($1, $2, $3)
+        ON CONFLICT DO NOTHING;
+        `,
+        [placeId, metroPlaceId, partOfMetroRelationshipTypeId],
+      );
+    }
   }
 
   console.log(`Cities seeded: ${cityDirectory.length}`);

@@ -199,12 +199,45 @@ For the initial U.S. city universe, the pipeline should:
 
 Conceptually:
 
-````text
+```text
 Census place
 → intersecting county FIPS
 → RegionLore metro county membership
 → CBSA
 → part_of_metro
+```
+
+### City-to-metro refresh workflow
+
+City-to-metro membership is generated from Census TIGER/Line geography rather than inferred during database seeding.
+
+The refresh pipeline is:
+
+```text
+cityDirectory.js
+→ download current TIGER COUNTY and PLACE files
+→ spatially match Census places to counties
+→ map county FIPS to supported RegionLore CBSAs
+→ generate cityMetroMembership.js
+→ seed part_of_metro relationships
+```
+
+Commands:
+
+```bash
+cd server
+npm run download:city-metro
+npm run build:city-metro
+npm run seed:geography
+```
+
+Raw TIGER files are stored under `server/src/data/cities/raw/tigerYYYY/` and are intentionally excluded from Git because they can be downloaded again for the applicable Census TIGER year.
+
+The generated `cityMetroMembership.js` is committed to Git.
+
+Cities whose metros are not currently included in RegionLore's supported metro set receive no `part_of_metro` relationship.
+
+For cities crossing county/metro boundaries, the build pipeline uses the Census place internal point to select the primary metro while preserving all intersecting county information in the generated data.
 
 ## Exit criteria
 
@@ -224,7 +257,7 @@ Create:
 ```text
 data_sources
 data_releases
-````
+```
 
 Seed initial providers:
 
