@@ -21,7 +21,9 @@
     "migrate:create": "node-pg-migrate create",
     "seed:geography": "node src/scripts/seedGeographyIdentities.js",
     "download:city-metro": "node src/scripts/downloadCityMetroSources.js",
-    "build:city-metro": "node src/scripts/buildCityMetroMembership.js"
+    "build:city-metro": "node src/scripts/buildCityMetroMembership.js",
+    "seed:data-sources": "node src/scripts/seedDataSources.js",
+    "seed:data-releases": "node src/scripts/seedDataReleases.js"
   },
   "dependencies": {
     "@turf/boolean-point-in-polygon": "^7.4.0",

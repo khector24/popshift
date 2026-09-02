@@ -261,19 +261,32 @@ data_releases
 
 Seed initial providers:
 
-- Census ACS;
-- Census Population Estimates;
-- NOAA Climate Normals;
-- FBI UCR;
+- U.S. Census Bureau;
+- National Oceanic and Atmospheric Administration;
+- Federal Bureau of Investigation;
+- National Center for Education Statistics;
+- Internal Revenue Service;
 - OpenWeather.
+
+Provider organizations belong in `data_sources`.
+
+Specific dataset editions belong in `data_releases`. Examples include:
+
+- Census Population Estimates, 2025;
+- Census ACS 5-Year, 2024;
+- Census Gazetteer Files, 2025;
+- Census TIGER/Line, 2025.
+
+Additional NOAA, FBI, OpenWeather, or international releases should be added when RegionLore actually ingests those datasets.
 
 The architecture should be ready to record future international sources later.
 
 ## Exit criteria
 
-- data providers exist in `data_sources`;
+- data providers exist uniquely in `data_sources`;
 - ingested dataset editions can be represented as `data_releases`;
-- metric pipelines can reference their source release.
+- multiple releases can reference the same provider;
+- metric pipelines can reference their specific source release.
 
 ---
 

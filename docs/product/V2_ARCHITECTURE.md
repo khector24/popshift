@@ -282,25 +282,44 @@ RegionLore should preserve the origin of important data from the beginning.
 
 This is especially important for future international expansion, because different countries and agencies will provide similar metrics using different methodologies and release schedules.
 
+## Provider vs. dataset release
+
+`data_sources` represents the provider or organization that publishes data.
+
+Examples:
+
+```text
+U.S. Census Bureau
+National Oceanic and Atmospheric Administration
+Federal Bureau of Investigation
+National Center for Education Statistics
+Internal Revenue Service
+OpenWeather
+```
+
+A provider may publish many different datasets.
+
+`data_releases` represents the specific dataset edition, year, or vintage that RegionLore actually consumed.
+
+For example:
+
+```text
+U.S. Census Bureau
+├── Population Estimates — 2025
+├── ACS 5-Year — 2024
+├── Gazetteer Files — 2025
+└── TIGER/Line — 2025
+```
+
 ## `data_sources`
 
 ```text
 data_sources
 ------------
 id PK
-name
+name UNIQUE
 organization
 base_url
-```
-
-Examples:
-
-```text
-ACS
-Census Population Estimates
-NOAA Climate Normals
-FBI UCR
-OpenWeather
 ```
 
 ## `data_releases`
@@ -316,6 +335,8 @@ vintage
 retrieved_at
 notes
 ```
+
+A source/provider should normally exist once in `data_sources`, while new dataset editions are represented by additional `data_releases` rows.
 
 Metric rows should reference the specific release when appropriate.
 
