@@ -23,7 +23,9 @@
     "download:city-metro": "node src/scripts/downloadCityMetroSources.js",
     "build:city-metro": "node src/scripts/buildCityMetroMembership.js",
     "seed:data-sources": "node src/scripts/seedDataSources.js",
-    "seed:data-releases": "node src/scripts/seedDataReleases.js"
+    "seed:data-releases": "node src/scripts/seedDataReleases.js",
+    "build:city-population": "node src/scripts/buildCityPopulationHistory.js",
+    "seed:population-history": "node src/scripts/seedPopulationHistory.js"
   },
   "dependencies": {
     "@turf/boolean-point-in-polygon": "^7.4.0",

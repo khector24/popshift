@@ -314,6 +314,42 @@ Calculate application-level values such as:
 Derived values do not necessarily need to be stored if they are cheap and safe
 to calculate from stored history.
 
+### Implemented City Population Refresh Pipeline
+
+The V2 city population pipeline uses the Census City and Town Population
+Estimates as the authoritative source for recent city population history.
+
+Current flow:
+
+`SUB-IP-ESTYYYY-ANNRNK.xlsx`
+→ `buildCityPopulationHistory.js`
+→ `cityPopulationHistory.js`
+→ `seedPopulationHistory.js`
+→ PostgreSQL `population_history`
+
+Implementation details:
+
+- retain annual July 1 population estimates for 2020 through the current
+  adopted Census vintage;
+- do not treat the April 1, 2020 Estimates Base as an additional annual
+  population observation;
+- use the source-file population rank only during the build step to reconnect
+  the supported city set to rows from the same Census ranking file;
+- preserve Census GEOID in the generated population-history data;
+- match generated city population data to PostgreSQL cities by GEOID during
+  database seeding rather than by city name or population rank;
+- associate stored observations with the appropriate `data_releases` record;
+- commit the generated `cityPopulationHistory.js` artifact so runtime and
+  database seeding do not require Excel parsing;
+- install `xlsx` only when rebuilding Excel-derived source data and remove it
+  afterward rather than keeping it as a runtime dependency;
+- make population-history seeding idempotent through upserts so rerunning the
+  seed updates existing observations rather than creating duplicates.
+
+For the current Vintage 2025 implementation, the supported city set contains
+500 cities with six annual observations per city (2020–2025), producing 3,000
+`population_history` rows.
+
 ## Exit criteria
 
 - all supported cities have current population where available;
