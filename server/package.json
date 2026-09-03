@@ -13,8 +13,9 @@
   "type": "module",
   "main": "src/app.js",
   "scripts": {
-    "start": "node src/app.js",
-    "dev": "nodemon src/app.js",
+    "start": "node src/server.js",
+    "dev": "nodemon src/server.js",
+    "test": "vitest run",
     "migrate": "node-pg-migrate",
     "migrate:up": "node-pg-migrate up",
     "migrate:down": "node-pg-migrate down",
@@ -40,6 +41,8 @@
     "shpjs": "^6.2.0"
   },
   "devDependencies": {
-    "node-pg-migrate": "^9.0.0"
+    "node-pg-migrate": "^9.0.0",
+    "supertest": "^7.2.2",
+    "vitest": "^5.0.0"
   }
 }

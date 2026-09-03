@@ -15,8 +15,6 @@ app.use(cors());
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 
-const PORT = process.env.PORT || 3000;
-
 // API routes
 app.use("/api/states", statesRoutes);
 app.use("/api/metros", metroRoutes);
@@ -32,7 +30,4 @@ app.use((req, res) => {
 // Error middleware
 app.use(errorHandler);
 
-// Start server
-app.listen(PORT, () => {
-  console.log(`Server running on port ${PORT}`);
-});
+export { app };
