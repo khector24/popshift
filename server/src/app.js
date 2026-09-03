@@ -2,7 +2,9 @@ import express from "express";
 import dotenv from "dotenv";
 import statesRoutes from "./routes/states.routes.js";
 import metroRoutes from "./routes/metros.routes.js";
+import citiesRoutes from "./routes/cities.routes.js";
 import cors from "cors";
+import { errorHandler } from "./middleware/error.middleware.js";
 
 dotenv.config();
 
@@ -18,6 +20,7 @@ const PORT = process.env.PORT || 3000;
 // API routes
 app.use("/api/states", statesRoutes);
 app.use("/api/metros", metroRoutes);
+app.use("/api/cities", citiesRoutes);
 
 // Catch-all 404 middleware
 app.use((req, res) => {
@@ -25,6 +28,9 @@ app.use((req, res) => {
     message: `API route ${req.method} ${req.originalUrl} not found`,
   });
 });
+
+// Error middleware
+app.use(errorHandler);
 
 // Start server
 app.listen(PORT, () => {

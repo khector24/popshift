@@ -862,6 +862,8 @@ Because the `place_id` identity already exists, later metric migration does not 
 
 The API/service layer should hide the storage difference from React.
 
+Backend request handling currently follows a thin route → controller → service structure. Routes define HTTP endpoints, controllers orchestrate API responses, and services own PostgreSQL/storage-specific access. RegionLore uses centralized Express error middleware; with Express 5, errors from async controllers are forwarded automatically to that middleware without requiring controller-level `try/catch` + `next(error)` wrappers solely for async error propagation.
+
 ---
 
 # 20. Future International Expansion

@@ -488,6 +488,11 @@ Exact endpoint naming should remain consistent with existing RegionLore API styl
 
 The service layer should hide database details from routes.
 
+### Implemented City API Foundation
+
+The initial city API now exposes `GET /api/cities` and `GET /api/cities/:slug` using the existing RegionLore route/controller/service structure. The directory returns all 500 supported cities with state metadata where available, 2025 and 2020 population, and growth since 2020. The detail endpoint assembles city geography, state and metro relationships, population history, and the current ACS profile. City PostgreSQL access is isolated in `cities.service.js`; controllers assemble API responses; routes define HTTP endpoints. Centralized Express error middleware handles API failures, with Express 5 automatically forwarding errors from async controllers. Washington, DC remains in the directory with null state fields because the current `states` extension table has no FIPS 11 row. Manual checks confirm the city list, city detail, and 404 behavior; automated API tests remain required for the Phase 7 exit criteria.
+
+
 ## Exit criteria
 
 - city list endpoint works;
