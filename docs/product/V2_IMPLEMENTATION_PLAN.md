@@ -409,6 +409,56 @@ Initial V2 age/race/ethnicity fields should follow the final ACS mapping.
 V2 should use practical U.S. groupings now and preserve the ability to evolve
 them later.
 
+### Implemented City ACS Refresh Pipeline
+
+The initial V2 city-profile pipeline uses the Census American Community Survey
+5-Year Data Profiles as the authoritative source for socioeconomic, housing,
+transportation, and demographic city metrics.
+
+Current flow:
+
+`2024 ACS 5-Year Data Profile API`
+→ `cityAcsVariables.js`
+→ `buildCityAcsProfile.js`
+→ `cityAcsProfile2024.js`
+→ `seedCityAcsProfiles.js`
+→ PostgreSQL domain tables
+
+Implementation details:
+
+- request ACS place geography by state rather than issuing one request per city;
+- combine Census state FIPS and place FIPS to reconstruct the Census GEOID;
+- filter ACS results against the supported RegionLore city GEOID set;
+- use Census identifiers rather than city-name matching;
+- normalize ACS API string values into numeric application data;
+- preserve unavailable or Census sentinel values as `null` rather than zero;
+- derive the V2 age groupings from the adopted ACS profile variables where
+  direct matching bands are not available;
+- store annual observations using `(place_id, data_year)` composite primary
+  keys;
+- associate all stored observations with the applicable ACS `data_releases`
+  record;
+- seed socioeconomic, housing, transportation, and demographic data
+  idempotently through upserts;
+- commit the generated `cityAcsProfile2024.js` artifact so runtime/database
+  seeding does not depend on live Census API requests.
+
+For the current 2024 ACS 5-Year implementation, 499 of the 500 supported cities
+have valid ACS place profiles. St. George, Louisiana (`2267303`) is an explicit
+known geography-vintage exception because the city is present in the newer
+RegionLore/Census city universe but is not represented as that incorporated
+place in the 2024 ACS geography. No substitute geography or fabricated values
+are used for that city.
+
+The current database load therefore produces 499 rows in each of:
+
+- `socioeconomics`;
+- `housing`;
+- `transportation`;
+- `demographics`.
+
+This produces 1,996 ACS metric rows for the current city universe.
+
 ## Exit criteria
 
 - ACS pipeline works by Census identifiers rather than city-name matching;

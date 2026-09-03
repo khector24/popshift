@@ -25,7 +25,9 @@
     "seed:data-sources": "node src/scripts/seedDataSources.js",
     "seed:data-releases": "node src/scripts/seedDataReleases.js",
     "build:city-population": "node src/scripts/buildCityPopulationHistory.js",
-    "seed:population-history": "node src/scripts/seedPopulationHistory.js"
+    "seed:population-history": "node src/scripts/seedPopulationHistory.js",
+    "build:city-acs": "node src/scripts/buildCityAcsProfile.js",
+    "seed:city-acs": "node src/scripts/seedCityAcsProfiles.js"
   },
   "dependencies": {
     "@turf/boolean-point-in-polygon": "^7.4.0",
