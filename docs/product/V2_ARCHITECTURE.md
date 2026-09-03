@@ -274,6 +274,26 @@ New York Metro → New York Metropolitan Area
 
 Aliases improve search without creating duplicate place identities.
 
+### V2 Place Search Behavior
+
+V2 place search uses `places` and `place_aliases` as the universal discovery layer while preserving existing type-specific navigation during the V1-to-V2 transition.
+
+The search API may return multiple legitimate places for the same normalized alias when the alias is genuinely ambiguous. For example, `LA` may resolve to both Los Angeles and Louisiana. Search results therefore include `place_type` and the identifiers needed by the existing application routes.
+
+Current navigation metadata follows:
+
+```text
+city             → RegionLore slug
+metro            → RegionLore slug
+state            → state FIPS
+federal_district → state-equivalent FIPS where required by the existing V1 route
+```
+
+This routing metadata does not replace universal `place_id` identity. It is a compatibility layer that allows PostgreSQL-backed place discovery to coexist with existing V1 state and metro pages while their metric systems remain in the current generated-data services.
+
+Search supports exact aliases and prefix matching. When several prefix matches have the same match quality, the latest available place population may be used as a prominence signal where that data is available. Missing population does not prevent a place from participating in search.
+
+
 ---
 
 # 7. Data Provenance

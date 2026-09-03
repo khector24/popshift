@@ -531,6 +531,50 @@ New York Metro
 
 Search should return enough metadata for the UI to distinguish place types.
 
+### Implemented Place Search Foundation
+
+The initial V2 universal place search is implemented through the existing
+RegionLore route → controller → service structure.
+
+Current API:
+
+`GET /api/search?q={query}`
+
+Search uses PostgreSQL `places` and `place_aliases` as the universal geographic
+identity and discovery layer.
+
+Current behavior:
+
+- supports cities, states, federal districts, and metros through the universal
+  place identity model;
+- resolves canonical aliases generated during geography seeding;
+- supports curated common aliases such as `NYC`, `LA`, `Philly`, `SF`, and `DC`;
+- supports exact alias matches and prefix search;
+- ranks exact matches ahead of prefix matches;
+- uses the latest available `population_history` observation as a prominence
+  signal where population data is currently available;
+- prevents the same place from appearing multiple times when more than one alias
+  matches the query;
+- returns `place_type` so the frontend can distinguish geographic result types;
+- returns the canonical RegionLore `slug` for each result;
+- returns `state_fips` for state-level results so the existing V1 state route can
+  continue using its current state-code navigation during the V1/V2 transition;
+- preserves legitimate ambiguous aliases rather than forcing one interpretation.
+  For example, `LA` may match both Los Angeles and Louisiana;
+- treats Washington, DC city and the District of Columbia geographic identity as
+  separate valid search results when both match;
+- returns an empty result set for an empty normalized query.
+
+The initial search API is intentionally a backend foundation. Frontend integration
+with the global search component and navigation into city pages belongs to the
+city frontend phase rather than this phase.
+
+Automated API tests cover exact aliases, ambiguous aliases, prefix search,
+duplicate prevention, empty queries, mixed place types, and relevant navigation
+metadata.
+
+All Phase 8 exit criteria are satisfied.
+
 ## Exit criteria
 
 - aliases resolve correctly;

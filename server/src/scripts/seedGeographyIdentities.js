@@ -5,6 +5,7 @@ import { metroCounties } from "../data/metros/metroCounties.js";
 import { STATE_ABBREVIATIONS_BY_NAME } from "../data/stateAbbreviations.js";
 import { cityDirectory } from "../data/cities/cityDirectory.js";
 import { cityMetroMembership } from "../data/cities/cityMetroMembership.js";
+import { PLACE_ALIASES_BY_SLUG } from "../data/placeAliases.js";
 
 async function seedUnitedStates(client) {
   const placeResult = await client.query(`
@@ -96,6 +97,14 @@ async function seedPlaceAlias(client, placeId, alias) {
     `,
     [placeId, cleanAlias, normalizedAlias],
   );
+}
+
+async function seedCuratedPlaceAliases(client, placeId, slug) {
+  const aliases = PLACE_ALIASES_BY_SLUG[slug] ?? [];
+
+  for (const alias of aliases) {
+    await seedPlaceAlias(client, placeId, alias);
+  }
 }
 
 async function seedStateLevelPlaces(
@@ -199,6 +208,8 @@ async function seedMetros(client) {
       `,
       [placeId, cbsa],
     );
+
+    await seedPlaceAlias(client, placeId, metro.name);
   }
 
   console.log(`Metros seeded: ${topMetros.length}`);
@@ -231,6 +242,16 @@ async function seedCities(
     );
 
     const placeId = placeResult.rows[0].id;
+
+    await seedPlaceAlias(client, placeId, city.name);
+
+    await seedPlaceAlias(
+      client,
+      placeId,
+      `${city.name} ${city.stateAbbreviation}`,
+    );
+
+    await seedCuratedPlaceAliases(client, placeId, slug);
 
     const stateFips = city.geoid.slice(0, 2);
     const placeFips = city.geoid.slice(2);
