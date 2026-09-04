@@ -602,6 +602,56 @@ Core work:
 
 Do not block initial city pages on climate, crime, articles, or AI.
 
+### City Frontend Design Decisions
+
+The Phase 9 city experience should use the existing RegionLore dark navy/blue
+visual language as its primary design system. Purple may remain as a secondary
+accent, but city pages should move toward the blue-forward direction intended
+for the future shared light/dark design system.
+
+Phase 9 introduces two primary city pages:
+
+- `/cities` for city discovery and directory browsing;
+- `/cities/:slug` for the city detail profile.
+
+The city directory should prioritize discovery rather than heavy analytics. It
+should support city search and a practical initial set of filters/sorting using
+data already available in V2, such as state, metro, region, population, and
+population-based ordering. The initial implementation does not require advanced
+economic, housing, poverty, commute, or other metric filters, nor does it
+require both card and table views.
+
+The city detail page should be modular so later phases can add new domains
+without redesigning the page. The intended Phase 9 structure is:
+
+- compact city hero with state and metro context;
+- headline metrics;
+- population/history;
+- economic snapshot;
+- housing and affordability;
+- demographics;
+- transportation;
+- about/source context;
+- related state and metro navigation where supported.
+
+The layout should reserve sensible future insertion points without requiring
+unfinished features to be implemented during Phase 9:
+
+- Phase 10 climate content belongs in a full page section below the core Phase 9
+  domains;
+- Phase 11 current weather should appear as a compact hero or hero-adjacent
+  treatment rather than a large standalone content section;
+- Phase 12 crime and safety should plug into the page as another domain section;
+- Phase 13 related articles should use a reserved lower-page article area.
+
+Mockups are visual references only. Actual V2 backend-supported fields determine
+which metrics appear. Do not add new backend pipelines solely to match a mockup.
+
+Phase 9 does not require city migration, top employers, county profiles,
+incorporation dates, elevation, municipal websites, separate domain-detail
+routes, or expandable "view full section" behavior. These remain deferred unless
+promoted into a later version-specific scope.
+
 ## Exit criteria
 
 A user can:
