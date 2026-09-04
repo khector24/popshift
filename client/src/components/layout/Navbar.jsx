@@ -49,6 +49,10 @@ function Navbar() {
               Metros
             </NavLink>
 
+            <NavLink to="/cities" onClick={closeMenu}>
+              Cities
+            </NavLink>
+
             <NavLink to="/about" onClick={closeMenu}>
               About
             </NavLink>

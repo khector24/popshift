@@ -1,0 +1,87 @@
+.city-highlights {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 16px;
+
+  margin-bottom: 20px;
+}
+
+.city-highlight-card {
+  min-height: 120px;
+
+  padding: 18px;
+
+  display: flex;
+  align-items: center;
+  gap: 14px;
+
+  border: 1px solid var(--border);
+  border-radius: 12px;
+
+  background: var(--surface);
+}
+
+.city-highlight-card__icon {
+  width: 46px;
+  height: 46px;
+  flex-shrink: 0;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 10px;
+
+  background: rgba(59, 130, 246, 0.14);
+  color: var(--accent);
+
+  font-size: 1.3rem;
+}
+
+.city-highlight-card__icon--green {
+  background: var(--positive-bg);
+  color: var(--positive);
+}
+
+.city-highlight-card__icon--orange {
+  background: var(--warning-bg);
+  color: var(--warning);
+}
+
+.city-highlight-card span {
+  display: block;
+
+  margin-bottom: 6px;
+
+  color: var(--text-muted);
+
+  font-size: 0.75rem;
+}
+
+.city-highlight-card strong {
+  display: block;
+
+  color: var(--text);
+
+  font-size: 1.4rem;
+}
+
+.city-highlight-card__positive {
+  color: var(--positive) !important;
+}
+
+.city-highlight-card__negative {
+  color: var(--negative) !important;
+}
+
+@media (max-width: 950px) {
+  .city-highlights {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 550px) {
+  .city-highlights {
+    grid-template-columns: 1fr;
+  }
+}

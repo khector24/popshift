@@ -1,0 +1,61 @@
+.city-demographics-layout {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 34px;
+}
+
+.city-demographics-layout h3 {
+  margin: 0 0 14px;
+
+  color: var(--text);
+
+  font-size: 0.9rem;
+}
+
+.city-demographic-row {
+  display: grid;
+  grid-template-columns: 105px minmax(0, 1fr) 54px;
+  gap: 10px;
+  align-items: center;
+
+  margin-bottom: 12px;
+}
+
+.city-demographic-row > span {
+  color: var(--text-muted);
+
+  font-size: 0.78rem;
+}
+
+.city-demographic-row > strong {
+  color: var(--text);
+
+  font-size: 0.78rem;
+  text-align: right;
+}
+
+.city-demographic-row__bar {
+  height: 7px;
+
+  overflow: hidden;
+
+  border-radius: 999px;
+
+  background: rgba(255, 255, 255, 0.06);
+}
+
+.city-demographic-row__bar span {
+  height: 100%;
+
+  display: block;
+
+  border-radius: inherit;
+
+  background: var(--accent);
+}
+
+@media (max-width: 800px) {
+  .city-demographics-layout {
+    grid-template-columns: 1fr;
+  }
+}

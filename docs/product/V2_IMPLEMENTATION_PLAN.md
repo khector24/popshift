@@ -661,6 +661,43 @@ A user can:
 3. understand its core population/demographic/economic/housing/transportation profile;
 4. navigate related geography where supported.
 
+
+### Implemented City Frontend
+
+The initial V2 city frontend is now implemented.
+
+The city directory provides:
+
+- the 500-city universe;
+- city search;
+- population/growth filtering;
+- state filtering;
+- sorting;
+- pagination;
+- links into city profiles.
+
+The city detail experience provides:
+
+- city/state/metro identity context;
+- current population and growth since 2020;
+- population history;
+- economic indicators;
+- housing indicators;
+- demographic indicators;
+- transportation indicators;
+- state and metro navigation where available;
+- source and methodology context.
+
+The city UI uses the existing RegionLore dark navy design with a more
+blue-forward accent direction. The current implementation intentionally
+prioritizes functional V2 coverage over final visual polish.
+
+Climate, current weather, crime, and related articles remain reserved for
+their later V2 phases. More advanced city features such as migration, top
+employers, and richer local context remain deferred.
+
+All Phase 9 exit criteria are satisfied.
+
 ---
 
 # 13. Phase 10 — Climate
