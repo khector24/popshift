@@ -115,9 +115,7 @@ describe("GET /api/cities/:slug", () => {
     expect(response.body.weather.humidity).toBeDefined();
     expect(response.body.weather.wind_speed).toBeDefined();
 
-    expect(["cache_empty", "cache_used", "cache_expired_refreshed"]).toContain(
-      response.body.weather.cache_status,
-    );
+    expect(response.body.weather.cache_status).toBeUndefined();
   });
 
   test("returns 404 for weather when the city does not exist", async () => {

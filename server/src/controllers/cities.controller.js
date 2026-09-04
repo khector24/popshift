@@ -57,12 +57,14 @@ export async function getCityWeatherController(req, res) {
 
   const weather = await getCurrentWeather(city);
 
+  const { cache_status, ...publicWeather } = weather;
+
   return res.json({
     city: {
       id: city.id,
       name: city.name,
       slug: city.slug,
     },
-    weather,
+    weather: publicWeather,
   });
 }
