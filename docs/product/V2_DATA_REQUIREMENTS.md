@@ -355,9 +355,14 @@ The 60-minute window is the V2 product policy because RegionLore uses
 weather as current place context rather than as a minute-by-minute weather
 service. It can be revisited later if product needs change.
 
-The freshness window is separate from physical cache deletion. The exact
-cache technology and record-expiration mechanism remain architecture
-decisions.
+The implemented V2 cache uses PostgreSQL. Each city has at most one
+`weather_cache` record keyed by `place_id`, with `fetched_at` and `expires_at`
+timestamps controlling freshness. Missing or stale records are refreshed
+on demand and upserted into the cache.
+
+Cache-status values used to verify cache behavior during development remain
+internal implementation diagnostics and are not exposed by the public weather
+API response.
 
 ------------------------------------------------------------------------
 

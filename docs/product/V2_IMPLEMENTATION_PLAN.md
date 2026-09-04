@@ -790,27 +790,85 @@ All Phase 10 exit criteria are satisfied.
 
 # 14. Phase 11 — Current Weather
 
-Implement current weather through the RegionLore backend.
+Current weather is implemented through the RegionLore backend using the
+OpenWeather Current Weather API and each city's stored latitude/longitude.
 
-Use OpenWeather by stored latitude/longitude.
+PostgreSQL provides the V2 demand-driven weather cache with a 60-minute
+freshness window.
 
-Use PostgreSQL as the V2 weather cache.
-
-Freshness policy:
-
-```text
-60 minutes
-```
-
-Behavior:
+Current behavior:
 
 ```text
-missing → fetch → cache → return
+missing → fetch from OpenWeather → cache → return
 fresh   → return cached value
-stale   → fetch → update → return
+stale   → fetch from OpenWeather → update cache → return
 ```
 
-Do not proactively refresh all cities.
+Cities are not proactively refreshed when nobody requests them.
+
+### Implemented Current Weather Pipeline
+
+Current flow:
+
+```text
+city detail frontend
+→ GET /api/cities/:slug/weather
+→ getCurrentWeather()
+→ PostgreSQL weather_cache
+→ OpenWeather when cache is missing/stale
+→ PostgreSQL cache update
+→ RegionLore API response
+→ CityHero.jsx
+```
+
+The `weather_cache` table stores one current record per place, including:
+
+- temperature;
+- feels-like temperature;
+- OpenWeather condition code;
+- condition;
+- description;
+- humidity;
+- wind speed;
+- fetch timestamp;
+- expiration timestamp.
+
+Implementation details:
+
+- keep `OPENWEATHER_API_KEY` server-side through environment configuration;
+- call OpenWeather by stored city latitude/longitude rather than city name;
+- use imperial units for the current U.S.-city implementation;
+- use `place_id` as the weather-cache primary key and foreign key;
+- expire cached weather after 60 minutes;
+- upsert refreshed weather into PostgreSQL;
+- reuse fresh cached weather without another OpenWeather request;
+- refresh missing or stale weather on demand;
+- expose current weather through `/api/cities/:slug/weather`;
+- keep internal cache-status diagnostics out of the public API response;
+- fetch weather separately from the main city-detail request so a weather
+  failure does not prevent the rest of the city page from loading;
+- render current temperature, feels-like temperature, description, humidity,
+  and wind in the city hero;
+- display a graceful unavailable state when current weather cannot be loaded.
+
+Backend validation confirms:
+
+- missing-cache requests fetch and store current weather;
+- fresh-cache requests reuse PostgreSQL data;
+- stale-cache requests refresh and replace the cached record;
+- the weather endpoint returns the expected public response shape;
+- nonexistent city weather requests return 404;
+- internal cache-status diagnostics are not exposed publicly;
+- the full backend test suite passes with 15 tests.
+
+Frontend validation confirms:
+
+- current weather renders in the city hero;
+- weather failure does not prevent the city page from loading;
+- the frontend communicates only with the RegionLore backend;
+- the production Vite build succeeds.
+
+All Phase 11 exit criteria are satisfied.
 
 ## Exit criteria
 
