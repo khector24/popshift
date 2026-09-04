@@ -12,6 +12,7 @@ import CityHousingSection from "../components/city/CityHousingSection.jsx";
 import CityDemographicsSection from "../components/city/CityDemographicsSection.jsx";
 import CityTransportationSection from "../components/city/CityTransportationSection.jsx";
 import CityBottomSection from "../components/city/CityBottomSection.jsx";
+import CityClimateSection from "../components/city/CityClimateSection.jsx";
 
 import "../styles/pages/CityDetail.css";
 
@@ -81,6 +82,8 @@ export default function CityDetail() {
       <CityDemographicsSection acsProfile={cityData.acsProfile} />
 
       <CityTransportationSection acsProfile={cityData.acsProfile} />
+
+      <CityClimateSection climate={cityData.climate} />
 
       <CityBottomSection
         city={cityData.city}

@@ -1,0 +1,126 @@
+.city-climate__highlights {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 14px;
+
+  margin-bottom: 20px;
+}
+
+.city-climate__highlight {
+  min-width: 0;
+
+  padding: 16px;
+
+  display: flex;
+  align-items: center;
+  gap: 12px;
+
+  border: 1px solid var(--border);
+  border-radius: 10px;
+
+  background: rgba(255, 255, 255, 0.02);
+}
+
+.city-climate__highlight > svg {
+  flex-shrink: 0;
+
+  color: var(--accent);
+
+  font-size: 1.35rem;
+}
+
+.city-climate__highlight span,
+.city-climate__highlight strong,
+.city-climate__highlight small {
+  display: block;
+}
+
+.city-climate__highlight span {
+  margin-bottom: 4px;
+
+  color: var(--text-muted);
+
+  font-size: 0.72rem;
+}
+
+.city-climate__highlight strong {
+  color: var(--text);
+
+  font-size: 1rem;
+}
+
+.city-climate__highlight small {
+  margin-top: 3px;
+
+  color: var(--text-subtle);
+
+  font-size: 0.68rem;
+}
+
+.city-climate__table-wrap {
+  overflow-x: auto;
+
+  border: 1px solid var(--border);
+  border-radius: 10px;
+}
+
+.city-climate__table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.city-climate__table th,
+.city-climate__table td {
+  padding: 11px 14px;
+
+  border-bottom: 1px solid var(--border);
+
+  text-align: right;
+  white-space: nowrap;
+}
+
+.city-climate__table th:first-child,
+.city-climate__table td:first-child {
+  text-align: left;
+}
+
+.city-climate__table th {
+  color: var(--text-subtle);
+
+  font-size: 0.7rem;
+  font-weight: 600;
+}
+
+.city-climate__table td {
+  color: var(--text);
+
+  font-size: 0.78rem;
+}
+
+.city-climate__table tbody tr:last-child td {
+  border-bottom: 0;
+}
+
+.city-climate__table tbody tr:hover {
+  background: rgba(59, 130, 246, 0.05);
+}
+
+.city-climate__source {
+  margin: 12px 0 0;
+
+  color: var(--text-subtle);
+
+  font-size: 0.7rem;
+}
+
+@media (max-width: 900px) {
+  .city-climate__highlights {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 520px) {
+  .city-climate__highlights {
+    grid-template-columns: 1fr;
+  }
+}
