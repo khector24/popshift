@@ -110,6 +110,14 @@ const DATA_RELEASES = [
     vintage: "2024",
     notes: "2024 NAEP Grade 8 mathematics assessment results.",
   },
+  {
+    sourceName: "National Oceanic and Atmospheric Administration",
+    datasetName: "U.S. Monthly Climate Normals",
+    dataYear: 2020,
+    vintage: "1991-2020",
+    notes:
+      "NOAA/NCEI U.S. Climate Normals monthly normals for the official 1991-2020 normal period.",
+  },
 ];
 
 async function seedDataReleases() {

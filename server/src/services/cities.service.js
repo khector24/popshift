@@ -235,3 +235,32 @@ export async function getCities() {
 
   return result.rows;
 }
+
+export async function getCityClimate(placeId, normalPeriod = "1991-2020") {
+  const result = await pool.query(
+    `
+      SELECT
+        cm.month,
+        cm.normal_period,
+        cm.normal_high,
+        cm.normal_low,
+        cm.normal_mean,
+        cm.precipitation,
+        cm.snowfall,
+        ds.name AS source,
+        dr.dataset_name,
+        dr.vintage
+      FROM climate_monthly cm
+      JOIN data_releases dr
+        ON dr.id = cm.data_release_id
+      JOIN data_sources ds
+        ON ds.id = dr.source_id
+      WHERE cm.place_id = $1
+        AND cm.normal_period = $2
+      ORDER BY cm.month;
+    `,
+    [placeId, normalPeriod],
+  );
+
+  return result.rows;
+}

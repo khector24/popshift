@@ -42,6 +42,20 @@ describe("GET /api/cities/:slug", () => {
 
     expect(response.body.acsProfile).toBeDefined();
     expect(response.body.acsProfile.data_year).toBe(2024);
+
+    expect(Array.isArray(response.body.climate)).toBe(true);
+    expect(response.body.climate.length).toBe(12);
+
+    expect(response.body.climate[0].month).toBe(1);
+    expect(response.body.climate[0].normal_period).toBe("1991-2020");
+    expect(response.body.climate[0].normal_high).toBeDefined();
+    expect(response.body.climate[0].normal_low).toBeDefined();
+    expect(response.body.climate[0].normal_mean).toBeDefined();
+    expect(response.body.climate[0].precipitation).toBeDefined();
+
+    expect(response.body.climate[0].source).toBe(
+      "National Oceanic and Atmospheric Administration",
+    );
   });
 
   test("returns St. George even without a 2024 ACS profile", async () => {
@@ -68,7 +82,22 @@ describe("GET /api/cities/:slug", () => {
     expect(response.body.city.name).toBe("Washington, DC");
     expect(response.body.state).toBeNull();
   });
+
+  test("returns climate normals for San Francisco", async () => {
+    const response = await request(app).get("/api/cities/san-francisco-ca");
+
+    expect(response.status).toBe(200);
+    expect(response.body.climate.length).toBe(12);
+
+    const january = response.body.climate.find((month) => month.month === 1);
+
+    const july = response.body.climate.find((month) => month.month === 7);
+
+    expect(january.normal_high).toBe("57.80");
+    expect(july.normal_high).toBe("66.30");
+  });
 });
+
 afterAll(async () => {
   await pool.end();
 });

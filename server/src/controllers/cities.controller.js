@@ -3,6 +3,7 @@ import {
   getCityBySlug,
   getCityPopulationHistory,
   getCityAcsProfile,
+  getCityClimate,
   getCityMetro,
   getCityState,
 } from "../services/cities.service.js";
@@ -25,12 +26,14 @@ export async function getCityBySlugController(req, res) {
     throw new AppError("City not found", 404);
   }
 
-  const [state, metro, populationHistory, acsProfile] = await Promise.all([
-    getCityState(city.id),
-    getCityMetro(city.id),
-    getCityPopulationHistory(city.id),
-    getCityAcsProfile(city.id),
-  ]);
+  const [state, metro, populationHistory, acsProfile, climate] =
+    await Promise.all([
+      getCityState(city.id),
+      getCityMetro(city.id),
+      getCityPopulationHistory(city.id),
+      getCityAcsProfile(city.id),
+      getCityClimate(city.id),
+    ]);
 
   return res.json({
     city,
@@ -38,5 +41,6 @@ export async function getCityBySlugController(req, res) {
     metro,
     populationHistory,
     acsProfile,
+    climate,
   });
 }
