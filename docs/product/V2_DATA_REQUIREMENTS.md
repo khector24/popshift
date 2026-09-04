@@ -397,12 +397,19 @@ preserves flexibility without forcing a more detailed V2 presentation.
 
 NOAA normals are station-based rather than Census-place records.
 
-The ingestion pipeline therefore needs a documented rule for selecting
-an appropriate station or otherwise mapping climate observations to each
-city.
+The implemented V2 ingestion pipeline selects the nearest qualifying NOAA
+station using stored city coordinates and requires all 12 months of normal
+high, normal low, normal mean, and precipitation data with NOAA completeness
+flags S, R, or P.
 
-This mapping must be validated before climate becomes a guaranteed V2
-field.
+A 15-mile distance is used as a review threshold rather than a hard cutoff.
+Mappings beyond that threshold are manually reviewed. San Francisco uses an
+explicit climate-station override to NOAA station USW00023272
+(SAN FRANCISCO DWTN) because the Census Gazetteer internal point is not
+appropriate for climate-station distance selection.
+
+The current implementation provides reviewed climate mappings for all 500
+supported cities.
 
 ------------------------------------------------------------------------
 

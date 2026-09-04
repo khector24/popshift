@@ -692,9 +692,9 @@ The city UI uses the existing RegionLore dark navy design with a more
 blue-forward accent direction. The current implementation intentionally
 prioritizes functional V2 coverage over final visual polish.
 
-Climate, current weather, crime, and related articles remain reserved for
-their later V2 phases. More advanced city features such as migration, top
-employers, and richer local context remain deferred.
+Current weather, crime, and related articles remain reserved for their later
+V2 phases. Climate is implemented in Phase 10. More advanced city features such as
+migration, top employers, and richer local context remain deferred.
 
 All Phase 9 exit criteria are satisfied.
 
@@ -712,13 +712,73 @@ Use NOAA Climate Normals where mapping is defensible.
 
 Store monthly values and derive simpler seasonal summaries in the UI.
 
-Potential initial fields:
+Initial implemented fields:
 
 - normal high;
 - normal low;
 - normal mean;
-- precipitation;
-- snowfall.
+- precipitation.
+
+Snowfall remains optional and is not currently required for the core station
+selection rule.
+
+### Implemented City Climate Pipeline
+
+The initial V2 city-climate pipeline uses NOAA/NCEI U.S. Climate Normals for
+the official 1991–2020 normal period.
+
+Current flow:
+
+```text
+NOAA monthly multivariate by-station archive
+→ buildCityClimate.js
+→ cityClimate1991_2020.js
+→ seedCityClimate.js
+→ PostgreSQL climate_monthly
+→ city detail API
+→ CityClimateSection.jsx
+```
+
+Implementation details:
+
+- use the NOAA monthly multivariate by-station Climate Normals archive;
+- require all 12 months for `MLY-TMAX-NORMAL`, `MLY-TMIN-NORMAL`,
+  `MLY-TAVG-NORMAL`, and `MLY-PRCP-NORMAL`;
+- accept NOAA completeness flags `S`, `R`, and `P`;
+- select the nearest qualifying station by great-circle distance;
+- treat 15 miles as a review threshold rather than a hard rejection cutoff;
+- manually review mappings beyond 15 miles;
+- use NOAA station `USW00023272` (`SAN FRANCISCO DWTN, CA US`) as the
+  San Francisco climate override because the Census Gazetteer internal point
+  is not an appropriate representative point for climate-station distance;
+- preserve NOAA source provenance through `data_releases`;
+- generate and store 12 monthly climate rows for each supported city;
+- seed climate rows idempotently through upserts;
+- expose monthly climate normals through the city detail API;
+- render a `Climate & Seasons` section on the city detail page;
+- derive warmest month, coldest month, wettest month, and annual precipitation
+  summaries from the stored monthly values;
+- remove the obsolete climate coming-soon placeholder after implementation.
+
+The current implementation maps all 500 supported cities and stores 6,000
+monthly climate rows.
+
+Backend validation confirms:
+
+- 5,861 NOAA stations satisfy the adopted S/R/P qualification rule;
+- all 500 RegionLore cities receive a reviewed climate mapping;
+- the San Francisco override returns expected downtown climate normals;
+- city API tests cover climate response shape, provenance, and San Francisco
+  values;
+- the full backend test suite passes.
+
+Frontend validation confirms:
+
+- the city climate section renders from API-provided climate data;
+- the production Vite build succeeds;
+- climate is no longer shown as a future/coming-soon feature.
+
+All Phase 10 exit criteria are satisfied.
 
 ## Exit criteria
 
