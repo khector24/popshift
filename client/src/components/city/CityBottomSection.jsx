@@ -121,14 +121,6 @@ export default function CityBottomSection({
 
         <div className="city-bottom__future-grid">
           <div className="city-bottom__future-item">
-            <FaCloudSun />
-            <div>
-              <strong>Climate & Weather</strong>
-              <span>Coming in later V2 phases</span>
-            </div>
-          </div>
-
-          <div className="city-bottom__future-item">
             <FaShieldHalved />
             <div>
               <strong>Crime & Safety</strong>
