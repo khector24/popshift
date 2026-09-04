@@ -8,6 +8,7 @@ import {
   getCityState,
 } from "../services/cities.service.js";
 import { AppError } from "../utils/AppError.js";
+import { getCurrentWeather } from "../services/weather.service.js";
 
 export async function getCitiesController(req, res) {
   const cities = await getCities();
@@ -42,5 +43,26 @@ export async function getCityBySlugController(req, res) {
     populationHistory,
     acsProfile,
     climate,
+  });
+}
+
+export async function getCityWeatherController(req, res) {
+  const { slug } = req.params;
+
+  const city = await getCityBySlug(slug);
+
+  if (!city) {
+    throw new AppError("City not found", 404);
+  }
+
+  const weather = await getCurrentWeather(city);
+
+  return res.json({
+    city: {
+      id: city.id,
+      name: city.name,
+      slug: city.slug,
+    },
+    weather,
   });
 }

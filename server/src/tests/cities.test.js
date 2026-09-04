@@ -96,6 +96,38 @@ describe("GET /api/cities/:slug", () => {
     expect(january.normal_high).toBe("57.80");
     expect(july.normal_high).toBe("66.30");
   });
+
+  test("returns current weather for a city", async () => {
+    const response = await request(app).get(
+      "/api/cities/new-york-city-ny/weather",
+    );
+
+    expect(response.status).toBe(200);
+
+    expect(response.body.city.name).toBe("New York City");
+    expect(response.body.city.slug).toBe("new-york-city-ny");
+
+    expect(response.body.weather).toBeDefined();
+    expect(response.body.weather.temperature).toBeDefined();
+    expect(response.body.weather.feels_like).toBeDefined();
+    expect(response.body.weather.condition).toBeDefined();
+    expect(response.body.weather.description).toBeDefined();
+    expect(response.body.weather.humidity).toBeDefined();
+    expect(response.body.weather.wind_speed).toBeDefined();
+
+    expect(["cache_empty", "cache_used", "cache_expired_refreshed"]).toContain(
+      response.body.weather.cache_status,
+    );
+  });
+
+  test("returns 404 for weather when the city does not exist", async () => {
+    const response = await request(app).get(
+      "/api/cities/does-not-exist/weather",
+    );
+
+    expect(response.status).toBe(404);
+    expect(response.body.message).toBe("City not found");
+  });
 });
 
 afterAll(async () => {
