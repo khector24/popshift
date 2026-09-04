@@ -1,0 +1,70 @@
+.city-directory-hero {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+
+  padding: 28px 0 30px;
+
+  border-bottom: 1px solid var(--border);
+}
+
+.city-directory-hero__icon {
+  width: 72px;
+  height: 72px;
+  flex-shrink: 0;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border: 1px solid var(--border);
+  border-radius: 14px;
+
+  background: rgba(59, 130, 246, 0.12);
+  color: var(--accent);
+
+  font-size: 2rem;
+}
+
+.city-directory-hero__eyebrow {
+  display: block;
+
+  margin-bottom: 5px;
+
+  color: var(--accent);
+
+  font-size: 0.82rem;
+  font-weight: 700;
+}
+
+.city-directory-hero h1 {
+  margin: 0;
+
+  color: var(--text);
+
+  font-size: clamp(2rem, 4vw, 2.7rem);
+  line-height: 1.05;
+}
+
+.city-directory-hero p {
+  max-width: 680px;
+
+  margin: 10px 0 0;
+
+  color: var(--text-muted);
+
+  line-height: 1.65;
+}
+
+@media (max-width: 650px) {
+  .city-directory-hero {
+    align-items: flex-start;
+  }
+
+  .city-directory-hero__icon {
+    width: 58px;
+    height: 58px;
+
+    font-size: 1.5rem;
+  }
+}
