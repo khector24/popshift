@@ -19,3 +19,13 @@ export async function getCityBySlug(slug) {
 
   return response.json();
 }
+
+export async function getCityWeather(slug) {
+  const response = await fetch(`${API_URL}/api/cities/${slug}/weather`);
+
+  if (!response.ok) {
+    throw new Error("Failed to fetch city weather");
+  }
+
+  return response.json();
+}

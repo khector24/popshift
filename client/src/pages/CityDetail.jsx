@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 
-import { getCityBySlug } from "../services/citiesApi.js";
+import { getCityBySlug, getCityWeather } from "../services/citiesApi.js";
 
 import CityHero from "../components/city/CityHero.jsx";
 import CityHighlights from "../components/city/CityHighlights.jsx";
@@ -23,6 +23,9 @@ export default function CityDetail() {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState("");
 
+  const [weatherData, setWeatherData] = useState(null);
+  const [weatherError, setWeatherError] = useState("");
+
   useEffect(() => {
     async function fetchCity() {
       try {
@@ -40,7 +43,21 @@ export default function CityDetail() {
       }
     }
 
+    async function fetchWeather() {
+      try {
+        setWeatherError("");
+
+        const result = await getCityWeather(slug);
+
+        setWeatherData(result.weather);
+      } catch (error) {
+        console.error("Unable to load weather:", error);
+        setWeatherError("Unable to load current weather.");
+      }
+    }
+
     fetchCity();
+    fetchWeather();
   }, [slug]);
 
   if (loading) {
@@ -61,6 +78,8 @@ export default function CityDetail() {
         city={cityData.city}
         state={cityData.state}
         metro={cityData.metro}
+        weather={weatherData}
+        weatherError={weatherError}
       />
 
       <CityHighlights
