@@ -4,7 +4,7 @@ const sourceGroups = [
   {
     title: "Population",
     description:
-      "Population estimates power the state and metro population totals, annual histories, growth calculations, national summaries, and rankings.",
+      "Population estimates power state, metro, and city population totals, annual histories, growth calculations, national summaries, and rankings.",
     sources: [
       {
         name: "U.S. Census Bureau Population Estimates Program",
@@ -23,9 +23,9 @@ const sourceGroups = [
     ],
   },
   {
-    title: "Economics, Housing, and Transportation",
+    title: "Demographics, Economics, Housing, and Transportation",
     description:
-      "American Community Survey data supports many of the economic, housing, and commuting measures displayed in state and metro profiles.",
+      "American Community Survey data supports many of the economic, housing, demographic, and commuting measures displayed in state, metro, and city profiles.",
     sources: [
       {
         name: "2024 American Community Survey 1-Year Data",
@@ -40,6 +40,13 @@ const sourceGroups = [
         description:
           "API dataset used to retrieve selected 2024 ACS detailed-table variables.",
         url: "https://api.census.gov/data/2024/acs/acs1.html",
+      },
+      {
+        name: "2024 American Community Survey 5-Year Data",
+        organization: "U.S. Census Bureau",
+        description:
+          "Five-year estimates used for city-level demographic, economic, housing, and commuting measures where broader geographic coverage is required.",
+        url: "https://www.census.gov/data/developers/data-sets/acs-5year/2024.html",
       },
     ],
   },
@@ -89,6 +96,48 @@ const sourceGroups = [
         description:
           "Migration-flow tables used to summarize where state residents moved from and where departing residents moved to.",
         url: "https://www.census.gov/data/tables/time-series/demo/geographic-mobility/state-to-state-migration.html",
+      },
+    ],
+  },
+  {
+    title: "Climate and Weather",
+    description:
+      "City climate and weather sections combine long-term climate normals with current weather conditions.",
+    sources: [
+      {
+        name: "U.S. Climate Normals",
+        organization: "National Oceanic and Atmospheric Administration",
+        description:
+          "1991–2020 climate normals used for city-level monthly temperature and precipitation summaries.",
+        url: "https://www.ncei.noaa.gov/products/land-based-station/us-climate-normals",
+      },
+      {
+        name: "Current Weather API",
+        organization: "OpenWeather",
+        description:
+          "Current weather conditions used in city profile headers, including temperature, feels-like temperature, humidity, and wind.",
+        url: "https://openweathermap.org/current",
+      },
+    ],
+  },
+  {
+    title: "Crime",
+    description:
+      "City crime statistics use FBI city-level reported-offense data where the reporting geography can be matched responsibly to the RegionLore city.",
+    sources: [
+      {
+        name: "Crime Data Explorer",
+        organization: "Federal Bureau of Investigation",
+        description:
+          "FBI portal for Uniform Crime Reporting data and Crime in the United States releases.",
+        url: "https://cde.ucr.cjis.gov/",
+      },
+      {
+        name: "Offenses Known to Law Enforcement by State by City",
+        organization: "Federal Bureau of Investigation",
+        description:
+          "2024 city-level reported-offense table used for RegionLore crime counts, rates, reporting population, and coverage validation.",
+        url: "https://cde.ucr.cjis.gov/LATEST/webapp/#/pages/downloads",
       },
     ],
   },
@@ -195,11 +244,12 @@ export default function DataSources() {
         <h2>About Source Years</h2>
 
         <p>
-          Government datasets are published on different schedules. Population,
-          migration, economic, housing, education, and transportation values
-          shown together on a profile may therefore represent different years.
-          RegionLore displays the applicable year near each section whenever
-          possible.
+          Government and external datasets are published or refreshed on
+          different schedules. Population, migration, economic, housing,
+          education, climate, crime, and weather information shown together on a
+          profile may therefore represent different years or update frequencies.
+          RegionLore displays the applicable year or source context near each
+          section whenever possible.
         </p>
       </section>
 

@@ -111,8 +111,7 @@ export default function CityDetail() {
         city={cityData.city}
         state={cityData.state}
         metro={cityData.metro}
-        acsProfile={cityData.acsProfile}
-        populationHistory={cityData.populationHistory}
+        crime={cityData.crime}
       />
     </main>
   );

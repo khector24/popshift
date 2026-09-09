@@ -1,23 +1,9 @@
 import { Link } from "react-router-dom";
-import {
-  FaBookOpen,
-  FaCloudSun,
-  FaMapLocationDot,
-  FaNewspaper,
-  FaShieldHalved,
-} from "react-icons/fa6";
+import { FaBookOpen, FaMapLocationDot, FaNewspaper } from "react-icons/fa6";
 
 import "../../styles/components/city/CityBottomSection.css";
 
-export default function CityBottomSection({
-  city,
-  state,
-  metro,
-  acsProfile,
-  populationHistory,
-}) {
-  const populationSource = populationHistory?.[0];
-
+export default function CityBottomSection({ city, state, metro, crime }) {
   return (
     <section className="city-bottom">
       <div className="city-bottom__main">
@@ -73,35 +59,36 @@ export default function CityBottomSection({
           </div>
 
           <p className="city-bottom__description">
-            RegionLore combines official population estimates and American
-            Community Survey data to build this profile of {city.name}.
+            RegionLore combines data from the U.S. Census Bureau, NOAA,
+            OpenWeather, and the FBI to build this profile of {city.name}.
           </p>
 
           <div className="city-bottom__sources">
-            {populationSource && (
+            <div>
+              <span>Census Data</span>
+              <strong>U.S. Census Bureau</strong>
+              <small>Population Estimates · American Community Survey</small>
+            </div>
+
+            <div>
+              <span>Climate Normals</span>
+              <strong>NOAA</strong>
+              <small>U.S. Climate Normals · 1991–2020</small>
+            </div>
+
+            <div>
+              <span>Current Weather</span>
+              <strong>OpenWeather</strong>
+              <small>Current Weather API</small>
+            </div>
+
+            {crime?.source && (
               <div>
-                <span>Population</span>
-
-                <strong>{populationSource.source}</strong>
-
+                <span>Crime</span>
+                <strong>{crime.source}</strong>
                 <small>
-                  {populationSource.dataset_name}
-                  {populationSource.vintage
-                    ? ` · Vintage ${populationSource.vintage}`
-                    : ""}
-                </small>
-              </div>
-            )}
-
-            {acsProfile?.source && (
-              <div>
-                <span>Community Profile</span>
-
-                <strong>{acsProfile.source}</strong>
-
-                <small>
-                  {acsProfile.dataset_name}
-                  {acsProfile.vintage ? ` · ${acsProfile.vintage}` : ""}
+                  {crime.dataset_name}
+                  {crime.vintage ? ` · ${crime.vintage}` : ""}
                 </small>
               </div>
             )}
@@ -120,14 +107,6 @@ export default function CityBottomSection({
         </div>
 
         <div className="city-bottom__future-grid">
-          <div className="city-bottom__future-item">
-            <FaShieldHalved />
-            <div>
-              <strong>Crime & Safety</strong>
-              <span>Coming in a later V2 phase</span>
-            </div>
-          </div>
-
           <div className="city-bottom__future-item">
             <FaNewspaper />
             <div>

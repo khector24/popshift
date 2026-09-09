@@ -10,10 +10,10 @@ export default function Methodology() {
 
         <p>
           RegionLore combines multiple public datasets to describe population,
-          migration, economics, housing, education, transportation, and
-          geographic relationships across U.S. states and metropolitan areas.
-          This page explains how the application processes and presents that
-          information.
+          migration, economics, housing, education, transportation, climate,
+          weather, crime, and geographic relationships across U.S. states,
+          metropolitan areas, and cities. This page explains how the application
+          processes and presents that information.
         </p>
       </header>
 
@@ -22,20 +22,24 @@ export default function Methodology() {
 
         <p>
           Most RegionLore datasets are downloaded from their original source and
-          processed locally during development. Build scripts clean the source
+          processed locally during development. Build scripts clean source
           files, match geographic identifiers, calculate derived values, and
-          generate JavaScript data files used by the Express backend.
+          prepare data that is stored in RegionLore’s backend data layer,
+          including PostgreSQL tables and generated data files where
+          appropriate.
         </p>
 
         <p>
-          The React frontend requests these processed datasets from RegionLore’s
-          own API rather than repeatedly requesting the original source on every
-          page visit.
+          The React frontend requests processed RegionLore datasets from
+          RegionLore’s own API. Current weather is handled separately: the
+          backend requests live conditions from OpenWeather and caches recent
+          responses before returning them to the frontend.
         </p>
 
         <p>
-          This improves application performance and makes the data structures
-          used throughout the state and metro pages more consistent.
+          This improves application performance, keeps source-specific
+          processing in the backend, and makes the data structures used
+          throughout state, metro, and city pages more consistent.
         </p>
       </section>
 
@@ -43,7 +47,7 @@ export default function Methodology() {
         <h2>Population Estimates</h2>
 
         <p>
-          State and metro population figures represent annual population
+          State, metro, and city population figures represent annual population
           estimates rather than complete counts from the decennial census.
         </p>
 
@@ -123,8 +127,8 @@ export default function Methodology() {
         <h2>Economic and Housing Measures</h2>
 
         <p>
-          State and metro profiles include selected American Community Survey
-          measures such as:
+          State, metro, and city profiles include selected American Community
+          Survey measures such as:
         </p>
 
         <ul>
@@ -133,6 +137,12 @@ export default function Methodology() {
           <li>Median gross rent</li>
           <li>Median owner-occupied home value</li>
         </ul>
+
+        <p>
+          RegionLore may use different ACS products for different geographic
+          levels. City profiles use 5-Year Estimates, which provide broader
+          geographic coverage than the 1-Year product.
+        </p>
 
         <p>
           Median values describe the midpoint of the reported distribution, not
@@ -264,25 +274,112 @@ export default function Methodology() {
         <h2>Transportation Measures</h2>
 
         <p>
-          Metro profiles include selected commuting measures such as driving
-          alone, public-transit use, working from home, and average commute
-          time.
+          Metro and city profiles include selected commuting measures such as
+          driving alone, public-transit use, working from home, and average
+          commute time.
         </p>
 
         <p>
           Transportation percentages describe the measured worker population in
           the underlying survey. They do not describe every trip taken within a
-          metro area or the full quality of its transportation network.
+          city or metro area or the full quality of its transportation network.
         </p>
       </section>
 
       <section className="methodology__section">
-        <h2>Metro and State Geography</h2>
+        <h2>Climate Normals</h2>
 
         <p>
-          States use Census geographic codes. Metropolitan areas use Core Based
-          Statistical Area identifiers and may contain counties from more than
-          one state.
+          City climate sections use NOAA 1991–2020 U.S. Climate Normals. These
+          values describe long-term typical monthly conditions rather than
+          current weather.
+        </p>
+
+        <p>
+          RegionLore matches supported cities to reviewed NOAA weather stations
+          and stores monthly temperature and precipitation normals for the
+          selected station. Station selection is reviewed when a simple
+          nearest-station match would not reasonably represent the city.
+        </p>
+
+        <p>
+          Climate normals should be interpreted as historical baseline
+          conditions, not a forecast and not a measurement of conditions
+          occurring today.
+        </p>
+      </section>
+
+      <section className="methodology__section">
+        <h2>Current Weather</h2>
+
+        <p>
+          Current city weather is retrieved from the OpenWeather Current Weather
+          API using the city’s location.
+        </p>
+
+        <p>
+          RegionLore requests current conditions through its backend rather than
+          exposing the external weather service directly to the browser. Recent
+          responses are cached for a limited period to reduce repeated external
+          API requests.
+        </p>
+
+        <p>
+          Current weather can change quickly and may differ from nearby
+          observing stations or other weather providers. It should not be
+          interpreted as the city’s long-term climate.
+        </p>
+      </section>
+
+      <section className="methodology__section">
+        <h2>Crime Statistics</h2>
+
+        <p>
+          City crime sections use 2024 FBI Crime Data Explorer / Crime in the
+          United States data from Offenses Known to Law Enforcement by State by
+          City.
+        </p>
+
+        <p>
+          RegionLore stores reported offense counts and calculates rates per
+          100,000 residents using the FBI reporting population associated with
+          the source jurisdiction.
+        </p>
+
+        <p>
+          A law-enforcement reporting jurisdiction is not automatically
+          equivalent to a Census place. RegionLore uses exact matches or
+          explicitly reviewed equivalent city mappings and does not use fuzzy
+          matching to select production crime data.
+        </p>
+
+        <p>
+          When the available FBI reporting geography is broader than the
+          RegionLore city, or when no defensible city-level match is available,
+          crime data is shown as unavailable rather than substituted from
+          another geography.
+        </p>
+      </section>
+
+      <section className="methodology__section">
+        <h2>City, Metro, and State Geography</h2>
+
+        <p>
+          States, cities, and metropolitan areas represent different geographic
+          concepts and should not be treated as interchangeable.
+        </p>
+
+        <p>
+          States use Census geographic codes. RegionLore cities are represented
+          as Census places and are linked to their state and, when applicable, a
+          metropolitan area. Metropolitan areas use Core Based Statistical Area
+          identifiers and may contain counties from more than one state.
+        </p>
+
+        <p>
+          A city is not the same geography as its surrounding metro area. Metro
+          areas commonly include the principal city plus additional cities,
+          suburbs, and counties.
         </p>
 
         <p>
@@ -292,9 +389,9 @@ export default function Methodology() {
         </p>
 
         <p>
-          Metro boundaries are statistical definitions and are not necessarily
-          the same as city limits, local cultural definitions, or media-market
-          boundaries.
+          Official Census-place and metro boundaries may differ from local
+          cultural definitions, postal addresses, media markets, or other
+          commonly understood ideas of a city or region.
         </p>
       </section>
 
@@ -360,6 +457,21 @@ export default function Methodology() {
           <li>Migration flows do not explain every reason a person moved.</li>
 
           <li>
+            Climate normals describe long-term historical conditions and should
+            not be interpreted as current weather or a forecast.
+          </li>
+
+          <li>
+            Current weather is time-sensitive and may change shortly after the
+            page is loaded.
+          </li>
+
+          <li>
+            FBI crime coverage and reporting geography vary by city, so some
+            supported cities intentionally display crime data as unavailable.
+          </li>
+
+          <li>
             RegionLore does not yet provide a complete measure of affordability,
             opportunity, transportation quality, school quality, or overall
             quality of life.
@@ -371,7 +483,7 @@ export default function Methodology() {
         <h2>Sources and Documentation</h2>
 
         <p>
-          A complete list of the major government datasets, geographic
+          A complete list of the major datasets, external services, geographic
           resources, visualization libraries, and image sources used by
           RegionLore is available on the{" "}
           <Link to="/data-sources">Data Sources</Link> page.
