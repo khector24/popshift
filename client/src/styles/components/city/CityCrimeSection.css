@@ -1,0 +1,190 @@
+.city-crime__highlights {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 14px;
+
+  margin-bottom: 20px;
+}
+
+.city-crime__highlight {
+  min-width: 0;
+
+  padding: 16px;
+
+  display: flex;
+  align-items: center;
+  gap: 12px;
+
+  border: 1px solid var(--border);
+  border-radius: 10px;
+
+  background: rgba(255, 255, 255, 0.02);
+}
+
+.city-crime__highlight > svg {
+  flex-shrink: 0;
+
+  color: var(--accent);
+
+  font-size: 1.35rem;
+}
+
+.city-crime__highlight span,
+.city-crime__highlight strong,
+.city-crime__highlight small {
+  display: block;
+}
+
+.city-crime__highlight span {
+  margin-bottom: 4px;
+
+  color: var(--text-muted);
+
+  font-size: 0.72rem;
+}
+
+.city-crime__highlight strong {
+  color: var(--text);
+
+  font-size: 1rem;
+}
+
+.city-crime__highlight small {
+  margin-top: 3px;
+
+  color: var(--text-subtle);
+
+  font-size: 0.68rem;
+}
+
+.city-crime__table-wrap {
+  overflow-x: auto;
+
+  border: 1px solid var(--border);
+  border-radius: 10px;
+}
+
+.city-crime__table {
+  width: 100%;
+
+  border-collapse: collapse;
+}
+
+.city-crime__table th,
+.city-crime__table td {
+  padding: 11px 14px;
+
+  border-bottom: 1px solid var(--border);
+
+  white-space: nowrap;
+}
+
+.city-crime__table th:first-child,
+.city-crime__table td:first-child {
+  text-align: left;
+}
+
+.city-crime__table th:not(:first-child),
+.city-crime__table td:not(:first-child) {
+  text-align: right;
+}
+
+.city-crime__table th {
+  color: var(--text-subtle);
+
+  font-size: 0.7rem;
+  font-weight: 600;
+}
+
+.city-crime__table td {
+  color: var(--text);
+
+  font-size: 0.78rem;
+}
+
+.city-crime__table tbody tr:last-child td {
+  border-bottom: 0;
+}
+
+.city-crime__table tbody tr:hover {
+  background: rgba(59, 130, 246, 0.05);
+}
+
+.city-crime__coverage {
+  margin-top: 14px;
+
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px 20px;
+
+  color: var(--text-subtle);
+
+  font-size: 0.7rem;
+}
+
+.city-crime__coverage strong {
+  color: var(--text-muted);
+
+  font-weight: 600;
+}
+
+.city-crime__coverage p {
+  width: 100%;
+  margin: 0;
+}
+
+.city-crime__unavailable {
+  padding: 18px;
+
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+
+  border: 1px solid var(--border);
+  border-radius: 10px;
+
+  background: rgba(255, 255, 255, 0.02);
+}
+
+.city-crime__unavailable > svg {
+  flex-shrink: 0;
+
+  margin-top: 2px;
+
+  color: var(--text-muted);
+
+  font-size: 1.3rem;
+}
+
+.city-crime__unavailable strong {
+  color: var(--text);
+}
+
+.city-crime__unavailable p {
+  margin: 5px 0 0;
+
+  color: var(--text-subtle);
+
+  font-size: 0.78rem;
+  line-height: 1.5;
+}
+
+.city-crime__source {
+  margin: 12px 0 0;
+
+  color: var(--text-subtle);
+
+  font-size: 0.7rem;
+}
+
+@media (max-width: 900px) {
+  .city-crime__highlights {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 520px) {
+  .city-crime__highlights {
+    grid-template-columns: 1fr;
+  }
+}
