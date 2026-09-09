@@ -881,29 +881,70 @@ All Phase 11 exit criteria are satisfied.
 
 # 15. Phase 12 — Crime
 
-Create/populate:
+**Status:** Complete
+
+The initial V2 city-crime pipeline uses the FBI Crime Data Explorer /
+Crime in the United States 2024 city-level reported-offense data.
+
+Current flow:
 
 ```text
-crime_statistics
+FBI 2024 Offenses Known to Law Enforcement archive
+→ buildCityCrime.js
+→ cityCrime2024.js
+→ seedCityCrime.js
+→ PostgreSQL crime_statistics
+→ city detail API
+→ CityCrimeSection.jsx
 ```
 
-Use FBI data where reporting/geographic mapping is defensible.
+Implementation:
 
-Include coverage information.
+- use the FBI 2024 Offenses Known to Law Enforcement by State by City data;
+- retain the FBI reporting population used to calculate offense rates;
+- store reported offense counts and rates per 100,000 residents;
+- include violent crime, murder and nonnegligent manslaughter, rape, robbery,
+  aggravated assault, property crime, burglary, larceny-theft, and motor
+  vehicle theft;
+- preserve FBI provenance through data releases;
+- use exact or explicitly reviewed equivalent city mappings rather than fuzzy
+  production matching;
+- reject broader or otherwise non-equivalent law-enforcement jurisdictions;
+- store explicit available/unavailable coverage status and explanatory notes;
+- preserve unavailable metrics as null rather than zero;
+- expose crime data and coverage metadata through the city detail API;
+- render available statistics and explicit unavailable states on city pages.
 
-The product should be comfortable displaying:
+The 2024 build produces one coverage record for each of RegionLore's 500
+supported cities:
 
-```text
-Crime data unavailable for this city.
-```
+- 444 cities have available FBI city-level crime statistics;
+- 56 cities are explicitly unavailable;
+- 0 mappings remain ambiguous.
 
-rather than presenting misleading data.
+Reviewed alternate-name mappings are used only where the FBI reporting
+geography is defensibly equivalent to the RegionLore Census place. Broader
+reporting geographies such as Las Vegas and Charlotte-Mecklenburg are not
+substituted for Census-place statistics. Limited 2024 Florida coverage also
+leaves a number of Florida cities explicitly unavailable.
+
+Validation:
+
+- PostgreSQL contains 500 crime coverage records;
+- available records expose counts, rates, reporting population, reporting
+  jurisdiction, coverage metadata, and provenance;
+- unavailable records expose coverage status and an explanation without
+  fabricated statistics;
+- API tests cover both available and unavailable crime cases;
+- all 17 backend tests pass;
+- the production frontend build succeeds;
+- the frontend renders both available and unavailable crime states.
 
 ## Exit criteria
 
-- crime source/mapping methodology is documented;
-- supported city crime data is defensible;
-- unsupported cities degrade gracefully.
+- [x] crime source/mapping methodology is documented;
+- [x] supported city crime data is defensible;
+- [x] unsupported cities degrade gracefully.
 
 ---
 

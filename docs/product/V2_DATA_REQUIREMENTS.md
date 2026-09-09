@@ -422,50 +422,79 @@ supported cities.
 
 ### Status
 
-**V2 target, subject to reliable mapping and coverage.**
+**Implemented for V2 with explicit geography and coverage validation.**
 
 ### Source
 
-FBI Uniform Crime Reporting / Crime Data Explorer data.
+FBI Crime Data Explorer / Crime in the United States 2024,
+Offenses Known to Law Enforcement by State by City.
 
-### Important geography rule
+### Geography and mapping rule
 
-A law-enforcement agency is not automatically equivalent to a Census
-city.
+A law-enforcement reporting jurisdiction is not automatically equivalent to a
+Census place.
 
-RegionLore must not assume:
+The implemented pipeline therefore uses exact or explicitly reviewed
+equivalent city mappings. Fuzzy matching is not used to select production
+crime data.
 
-`police agency name == city boundary`
+A broader or otherwise non-equivalent reporting jurisdiction is not
+substituted for a Census place. When no defensible city-level match is
+available, RegionLore stores the city's crime coverage as unavailable.
 
-### Requirements before publishing a city crime metric
+### RegionLore fields
 
-The pipeline must establish:
+For available cities, RegionLore stores reported counts and rates per 100,000
+residents for:
 
--   which reporting agency/agencies represent the city;
--   the population/area represented by those agencies;
--   whether reporting is sufficiently complete for the selected period;
--   whether the metric is comparable across cities;
--   what year the data represents.
+- violent crime;
+- murder and nonnegligent manslaughter;
+- rape;
+- robbery;
+- aggravated assault;
+- property crime;
+- burglary;
+- larceny-theft;
+- motor vehicle theft.
 
-### Candidate fields
+RegionLore also retains:
 
-After validation, possible fields include:
+- data year;
+- FBI reporting population;
+- source reporting-jurisdiction name;
+- coverage status;
+- coverage notes;
+- source/dataset provenance.
 
--   violent crime count/rate;
--   property crime count/rate;
--   homicide count/rate;
--   source year;
--   reporting/coverage metadata.
+Arson is not included in the initial RegionLore crime metrics because the FBI
+table applies a separate full-12-month reporting caveat to that field.
+
+### Current coverage
+
+The 2024 pipeline produces one crime coverage record for every supported
+RegionLore city:
+
+- 500 total city records;
+- 444 with available FBI city-level statistics;
+- 56 explicitly unavailable;
+- 0 ambiguous mappings remaining after review.
+
+Unavailable cases include cities for which the available FBI reporting
+geography is broader than the RegionLore Census place and cities affected by
+limited 2024 source coverage, including a number of Florida cities.
 
 ### Product rule
 
-If a city cannot be represented responsibly, return the metric as
-unavailable rather than inventing or silently substituting a
-county/metro number.
+RegionLore returns unavailable crime coverage with an explanation rather than
+guessing, substituting another geography, or presenting missing values as
+zero.
 
-A future methodology page should explain the crime-data limitations.
+This follows the general V2 missing-data policy and preserves the distinction
+between:
 
-------------------------------------------------------------------------
+- no crime record;
+- a reviewed city with available crime statistics;
+- a reviewed city whose crime statistics are explicitly unavailable.
 
 ## 11. Mayor
 
