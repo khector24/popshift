@@ -118,6 +118,15 @@ const DATA_RELEASES = [
     notes:
       "NOAA/NCEI U.S. Climate Normals monthly normals for the official 1991-2020 normal period.",
   },
+  {
+    sourceName: "Federal Bureau of Investigation",
+    datasetName: "Offenses Known to Law Enforcement by State by City",
+    dataYear: 2024,
+    vintage: "2024",
+    notes:
+      "FBI Crime Data Explorer / Crime in the United States 2024, Table 8. " +
+      "Source file: CIUS_Table_8_Offenses_Known_to_Law_Enforcement_by_State_by_City_2024.xlsx.",
+  },
 ];
 
 async function seedDataReleases() {

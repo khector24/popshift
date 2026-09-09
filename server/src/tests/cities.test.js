@@ -126,6 +126,50 @@ describe("GET /api/cities/:slug", () => {
     expect(response.status).toBe(404);
     expect(response.body.message).toBe("City not found");
   });
+
+  test("returns FBI crime statistics for a city with available data", async () => {
+    const response = await request(app).get("/api/cities/new-york-city-ny");
+
+    expect(response.status).toBe(200);
+
+    expect(response.body.crime).toBeDefined();
+    expect(response.body.crime.year).toBe(2024);
+    expect(response.body.crime.coverage_status).toBe("available");
+
+    expect(response.body.crime.reporting_population).toBe(8299271);
+    expect(response.body.crime.violent_crime_rate).toBe("671.0");
+    expect(response.body.crime.property_crime_rate).toBe("2368.3");
+    expect(response.body.crime.murder_rate).toBe("3.9");
+
+    expect(response.body.crime.source).toBe("Federal Bureau of Investigation");
+
+    expect(response.body.crime.dataset_name).toBe(
+      "Offenses Known to Law Enforcement by State by City",
+    );
+
+    expect(response.body.crime.vintage).toBe("2024");
+  });
+
+  test("returns unavailable crime coverage instead of guessed data", async () => {
+    const response = await request(app).get("/api/cities/miami-fl");
+
+    expect(response.status).toBe(200);
+
+    expect(response.body.crime).toBeDefined();
+    expect(response.body.crime.year).toBe(2024);
+    expect(response.body.crime.coverage_status).toBe("unavailable");
+
+    expect(response.body.crime.reporting_population).toBeNull();
+    expect(response.body.crime.violent_crime_rate).toBeNull();
+    expect(response.body.crime.property_crime_rate).toBeNull();
+    expect(response.body.crime.murder_rate).toBeNull();
+
+    expect(response.body.crime.coverage_notes).toBe(
+      "Limited 2024 Florida data were available in FBI Table 8.",
+    );
+
+    expect(response.body.crime.source).toBe("Federal Bureau of Investigation");
+  });
 });
 
 afterAll(async () => {

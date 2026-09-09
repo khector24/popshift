@@ -4,6 +4,7 @@ import {
   getCityPopulationHistory,
   getCityAcsProfile,
   getCityClimate,
+  getCityCrime,
   getCityMetro,
   getCityState,
 } from "../services/cities.service.js";
@@ -27,13 +28,14 @@ export async function getCityBySlugController(req, res) {
     throw new AppError("City not found", 404);
   }
 
-  const [state, metro, populationHistory, acsProfile, climate] =
+  const [state, metro, populationHistory, acsProfile, climate, crime] =
     await Promise.all([
       getCityState(city.id),
       getCityMetro(city.id),
       getCityPopulationHistory(city.id),
       getCityAcsProfile(city.id),
       getCityClimate(city.id),
+      getCityCrime(city.id),
     ]);
 
   return res.json({
@@ -43,6 +45,7 @@ export async function getCityBySlugController(req, res) {
     populationHistory,
     acsProfile,
     climate,
+    crime,
   });
 }
 

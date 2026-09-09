@@ -264,3 +264,61 @@ export async function getCityClimate(placeId, normalPeriod = "1991-2020") {
 
   return result.rows;
 }
+
+export async function getCityCrime(placeId, dataYear = 2024) {
+  const result = await pool.query(
+    `
+      SELECT
+        cs.year,
+        cs.reporting_population,
+        cs.source_jurisdiction_name,
+        cs.coverage_status,
+        cs.coverage_notes,
+
+        cs.violent_crime_count,
+        cs.violent_crime_rate,
+
+        cs.murder_count,
+        cs.murder_rate,
+
+        cs.rape_count,
+        cs.rape_rate,
+
+        cs.robbery_count,
+        cs.robbery_rate,
+
+        cs.aggravated_assault_count,
+        cs.aggravated_assault_rate,
+
+        cs.property_crime_count,
+        cs.property_crime_rate,
+
+        cs.burglary_count,
+        cs.burglary_rate,
+
+        cs.larceny_theft_count,
+        cs.larceny_theft_rate,
+
+        cs.motor_vehicle_theft_count,
+        cs.motor_vehicle_theft_rate,
+
+        ds.name AS source,
+        dr.dataset_name,
+        dr.vintage
+
+      FROM crime_statistics cs
+
+      JOIN data_releases dr
+        ON dr.id = cs.data_release_id
+
+      JOIN data_sources ds
+        ON ds.id = dr.source_id
+
+      WHERE cs.place_id = $1
+        AND cs.year = $2;
+    `,
+    [placeId, dataYear],
+  );
+
+  return result.rows[0] ?? null;
+}
