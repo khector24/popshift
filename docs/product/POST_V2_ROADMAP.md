@@ -261,7 +261,43 @@ intentionally promoted into a version plan.
 
 ------------------------------------------------------------------------
 
-## 9. Promotion Rule
+## 9. Technical Cleanup and Publishing Enhancements
+
+The following technical improvements are intentionally deferred beyond
+V2. They are not required to complete the current release.
+
+### Shared slug generation
+
+V2 introduces a shared `src/utils/slugify.js` utility as part of the
+articles and tags implementation.
+
+Some older geography and metro build/seed scripts contain their own
+slug-generation helpers. A future cleanup may consolidate generic
+slug-generation behavior around the shared utility.
+
+When doing so:
+
+-   preserve geography-specific preprocessing where required;
+-   do not replace unrelated normalization logic used for search, aliases,
+    source matching, or data cleanup;
+-   verify existing place slugs before changing generated outputs;
+-   avoid unintentionally breaking existing place URLs.
+
+### Article URL history and redirects
+
+In V2, article slugs are generated programmatically from article titles.
+When an article title changes, its slug changes with the title.
+
+If RegionLore later needs stronger URL permanence for published
+articles, add an explicit article-slug history and redirect system rather
+than complicating the lightweight V2 editorial workflow.
+
+Possible future behavior could include preserving previous slugs and
+redirecting old article URLs to the article's current canonical URL.
+
+------------------------------------------------------------------------
+
+## 10. Promotion Rule
 
 A feature should move from this roadmap into a version-specific scope
 only when RegionLore is ready to answer:
@@ -279,7 +315,7 @@ Until then, the feature stays here.
 
 ------------------------------------------------------------------------
 
-## 10. Current Direction Summary
+## 11. Current Direction Summary
 
 ``` text
 V2
