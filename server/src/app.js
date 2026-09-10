@@ -6,6 +6,7 @@ import citiesRoutes from "./routes/cities.routes.js";
 import searchRoutes from "./routes/search.routes.js";
 import authRoutes from "./routes/auth.routes.js";
 import cors from "cors";
+import cookieParser from "cookie-parser";
 import { errorHandler } from "./middleware/error.middleware.js";
 
 dotenv.config();
@@ -16,6 +17,7 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
+app.use(cookieParser());
 
 // API routes
 app.use("/api/states", statesRoutes);
