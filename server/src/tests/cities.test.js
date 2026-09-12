@@ -1,7 +1,6 @@
-import { describe, test, expect, afterAll } from "vitest";
+import { describe, test, expect } from "vitest";
 import request from "supertest";
 import { app } from "../app.js";
-import pool from "../db/index.js";
 
 describe("GET /api/cities", () => {
   test("returns 200 and the city directory", async () => {
@@ -170,8 +169,4 @@ describe("GET /api/cities/:slug", () => {
 
     expect(response.body.crime.source).toBe("Federal Bureau of Investigation");
   });
-});
-
-afterAll(async () => {
-  await pool.end();
 });

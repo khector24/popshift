@@ -1,7 +1,6 @@
-import { describe, test, expect, afterAll } from "vitest";
+import { describe, test, expect } from "vitest";
 import request from "supertest";
 import { app } from "../app.js";
-import pool from "../db/index.js";
 
 describe("GET /api/search", () => {
   test("returns an empty array for an empty query", async () => {
@@ -117,8 +116,4 @@ describe("GET /api/search", () => {
     expect(response.body.data[0].name).toBe("San Antonio");
     expect(response.body.data[1].name).toBe("San Diego");
   });
-});
-
-afterAll(async () => {
-  await pool.end();
 });
