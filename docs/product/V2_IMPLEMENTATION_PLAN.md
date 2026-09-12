@@ -950,36 +950,388 @@ Validation:
 
 # 16. Phase 13 — Articles and Tags
 
-Create:
+**Status:** Backend complete; frontend integration in progress
+
+Phase 13 introduces RegionLore's lightweight editorial publishing system.
+
+The implementation deliberately remains smaller than a general-purpose CMS.
+RegionLore needs enough editorial infrastructure to create, manage, publish,
+archive, and associate original articles with places without introducing
+unnecessary publishing complexity.
+
+## Implemented Data Model
+
+Phase 13 creates:
 
 ```text
+users
 articles
 article_places
 tags
 article_tags
 ```
 
-Build a lightweight editorial workflow.
+The `users` table currently exists only to support private editorial/admin
+authentication. It is not a public RegionLore account or profile system.
 
-Core requirements:
+Articles support:
 
-- draft/publish article;
-- article slug;
-- article body;
-- article tags;
-- attach one article to one or more places;
-- show related articles on place pages.
+- title;
+- generated unique slug;
+- body;
+- `draft`, `published`, and `archived` status;
+- publication timestamp;
+- created/updated timestamps;
+- zero or more tags;
+- zero or more directly associated places.
 
-Do not build a large CMS.
+Tags and places represent different relationships:
+
+```text
+place relationship → where is this article about?
+tag relationship   → what is this article about?
+```
+
+Article/place relationships are editorially explicit rather than inherited
+through geographic parents. An article associated with a city is not
+automatically associated with its state or metro.
+
+Because `article_places` references the universal `places.id`, the same
+relationship model works for cities, states, and metros. One article may be
+associated with multiple place types at the same time.
+
+## Slug Behavior
+
+Article slugs are generated through the shared `src/utils/slugify.js` utility.
+
+Current V2 behavior:
+
+- article creation generates the slug from the title;
+- changing the title regenerates the slug;
+- validation rejects titles that cannot produce a usable slug;
+- article slugs remain unique.
+
+V2 does not preserve historical article slugs. A future slug-history/redirect
+system is documented separately in `POST_V2_ROADMAP.md` and should not
+complicate the lightweight V2 workflow.
+
+## Editorial Status Workflow
+
+The implemented article statuses are:
+
+```text
+draft
+published
+archived
+```
+
+Publishing a previously unpublished article sets `published_at`.
+
+Returning an article to draft clears `published_at`.
+
+Archiving is performed through the normal article update endpoint by setting:
+
+```text
+status = "archived"
+```
+
+Archiving and deletion are intentionally separate operations.
+
+Hard deletion uses the protected admin DELETE endpoint. Deleting an article
+also removes its `article_places` and `article_tags` join rows through database
+referential behavior, while the independent tag records remain available for
+other articles.
+
+## Admin Authentication
+
+Phase 13 includes minimal private authentication because the editorial API must
+not be publicly writable.
+
+This authentication system is specifically for RegionLore administration and
+does not introduce public V2 accounts.
+
+Current behavior includes:
+
+- a private admin user stored in PostgreSQL;
+- bcrypt password hashing;
+- admin login;
+- JWT-backed admin authentication stored in a cookie;
+- authenticated `/api/admin/auth/me` lookup;
+- logout;
+- active-user and admin-role checks;
+- no public registration;
+- no OAuth;
+- no password-recovery workflow;
+- no public user profiles.
+
+The initial V2 editorial workflow assumes a single administrator. Additional
+editorial roles may be added later only if a real product requirement appears.
+
+## API Structure
+
+Public article APIs:
+
+```text
+GET /api/articles
+GET /api/articles/:slug
+GET /api/places/:placeId/articles
+```
+
+Admin article APIs:
+
+```text
+POST   /api/admin/articles
+GET    /api/admin/articles
+GET    /api/admin/articles/:id
+PATCH  /api/admin/articles/:id
+DELETE /api/admin/articles/:id
+```
+
+Admin authentication APIs are mounted separately under:
+
+```text
+/api/admin/auth
+```
+
+Route files deliberately distinguish public and private responsibilities:
+
+```text
+adminArticles.routes.js
+adminAuth.routes.js
+publicArticles.routes.js
+places.routes.js
+```
+
+Article controllers and services remain shared around the article domain rather
+than being duplicated into public/admin implementations.
+
+A future feature-based directory refactor may colocate article routes,
+controllers, services, validation, and tests if that organization becomes
+useful. That refactor is not required for V2.
+
+## Public Article Rules
+
+Public article endpoints expose published content only.
+
+Current behavior:
+
+```text
+published article → publicly available
+draft article     → not publicly available
+archived article  → not publicly available
+```
+
+A request for a draft, archived, or nonexistent public article slug returns
+404.
+
+The related-articles endpoint:
+
+```text
+GET /api/places/:placeId/articles
+```
+
+returns only published articles explicitly associated with the requested
+`place_id`.
+
+Because cities, states, and metros share the universal `places` identity
+system, this single endpoint supports related articles for all three geography
+types without separate city/state/metro article tables or endpoints.
+
+A place with no published related articles returns:
+
+```json
+{
+  "data": []
+}
+```
+
+This is a normal empty relationship result rather than a 404.
+
+## Validation
+
+Phase 13 uses Joi for article/auth request validation.
+
+Validation covers:
+
+- login input;
+- article creation;
+- article updates;
+- article IDs;
+- place IDs;
+- valid article statuses;
+- tag values;
+- place relationship IDs;
+- usable titles/slugs.
+
+Article and place IDs supplied through these routes must be positive integers.
+
+Malformed IDs return 400. A validly shaped article ID that does not correspond
+to an article returns 404.
+
+Create and update validation intentionally behave differently.
+
+For PATCH requests, omitted `tags` or `placeIds` mean:
+
+```text
+preserve the existing relationships
+```
+
+while explicit empty arrays mean:
+
+```text
+tags: []     → clear article tags
+placeIds: [] → clear article places
+```
+
+PATCH validation therefore does not apply create-style defaults to omitted
+relationship fields.
+
+`validatePlaceId` currently lives with article validation because its present
+V2 use is the related-articles endpoint. If place-ID validation becomes broadly
+reused later, it may move into a shared/place validation module rather than
+being abstracted prematurely now.
+
+## Transactional Article Writes
+
+Article creation and updates that affect article fields, tags, and place
+relationships are handled transactionally.
+
+If a relationship operation fails, the complete operation is rolled back
+rather than leaving a partially updated article.
+
+Automated integration testing verifies this behavior by deliberately attempting
+to attach an article to a nonexistent place and confirming that the article,
+tag, and place changes do not partially persist.
+
+## Test Database Isolation
+
+Backend integration tests run against a dedicated PostgreSQL database:
+
+```text
+regionlore_test
+```
+
+Vitest supplies the test `DATABASE_URL` through `vitest.config.js`, isolating
+automated tests from the normal development database.
+
+The shared test setup closes the PostgreSQL connection pool after the suite.
+
+A reproducible test-database reset command is available:
+
+```bash
+npm run test:db:reset
+```
+
+The reset script deliberately hardcodes the test database identity rather than
+accepting an arbitrary database name from the environment.
+
+It:
+
+1. drops `regionlore_test` if it exists;
+2. recreates it with the RegionLore database owner;
+3. runs all migrations;
+4. seeds data sources and releases;
+5. seeds geography;
+6. seeds population history;
+7. seeds ACS city profiles;
+8. seeds city climate;
+9. seeds city crime.
+
+This provides a reproducible integration-test database while reducing the risk
+of accidentally resetting development data.
+
+## Article Integration Testing
+
+Article integration tests use the real Express application, PostgreSQL test
+database, authentication endpoints, middleware, services, and relationships.
+
+The suite creates a disposable admin user with a bcrypt password hash and uses
+Supertest's `request.agent(app)` so authenticated requests retain the login
+cookie similarly to a browser session.
+
+Coverage includes:
+
+- unauthenticated admin rejection;
+- admin login/session verification;
+- article creation;
+- article retrieval;
+- partial article updates;
+- tag replacement and clearing;
+- place replacement and clearing;
+- publishing;
+- empty PATCH rejection;
+- transaction rollback;
+- hard deletion;
+- relationship cleanup after deletion;
+- public published-only listing;
+- public article lookup by slug;
+- draft/archived public exclusion;
+- related articles by place;
+- multi-place article relationships;
+- empty related-article results;
+- invalid article/place IDs.
+
+At the backend checkpoint completed during Phase 13:
+
+```text
+articles.test.js → 27 passing tests
+cities.test.js   → 10 passing tests
+search.test.js   →  7 passing tests
+
+Total            → 44 passing tests
+Test files       → 3 passing
+```
+
+The intentional transaction-rollback test produces a PostgreSQL foreign-key
+error in test stderr while still passing; that failure is deliberately induced
+to verify rollback behavior.
+
+## Remaining Phase 13 Frontend Work
+
+The backend/editorial foundation is complete, but Phase 13 itself is not yet
+complete.
+
+Remaining work includes:
+
+- admin login UI;
+- admin article list;
+- article create/edit interface;
+- draft/publish/archive controls;
+- protected hard-delete UI with explicit confirmation;
+- tag editing;
+- multi-place attachment UI;
+- public article listing/page experience;
+- related-article rendering on appropriate place pages.
+
+The admin editor should remain lightweight. A simple textarea or similarly
+small Markdown-style editing experience is sufficient for V2.
+
+Do not expand Phase 13 into:
+
+- public registration;
+- public profiles;
+- OAuth;
+- password recovery;
+- media-library management;
+- complex publishing permissions;
+- a WordPress-style CMS.
 
 ## Exit criteria
 
-- an article can be associated with city/state/metro place IDs;
-- one article can relate to multiple places;
-- tags work independently from places;
-- place pages can display related articles.
+Phase 13 is complete when:
 
----
+- [x] article/tag/place database relationships exist;
+- [x] an article can be associated with city/state/metro place IDs;
+- [x] one article can relate to multiple places;
+- [x] tags work independently from places;
+- [x] draft/published/archived editorial states work;
+- [x] the admin article API is protected;
+- [x] public APIs expose published articles only;
+- [x] related published articles can be retrieved by universal `place_id`;
+- [x] automated integration tests verify the backend workflow;
+- [ ] an administrator can manage articles through the frontend;
+- [ ] public article pages render published content;
+- [ ] place pages display related published articles.
 
 # 17. Phase 14 — Structured Place Comparison
 

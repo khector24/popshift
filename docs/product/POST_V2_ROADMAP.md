@@ -253,6 +253,9 @@ Ideas already discussed or deferred elsewhere may include:
 -   international locations;
 -   broader geographic hierarchies;
 -   more sophisticated AI recommendations;
+-   account-linked feedback on AI-generated comparisons/recommendations,
+    such as like, dislike, or flag actions that can help evaluate output quality
+    and improve later product behavior;
 -   county profiles if they eventually become useful;
 -   richer comparison and recommendation tools.
 

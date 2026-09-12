@@ -257,14 +257,27 @@ V2 is complete even if this stretch goal is not implemented.
 
 ## 11. Accounts and Favorites — Later
 
-Accounts are not required for V2.
+Public user accounts are not required for V2.
 
 Favorites are not required for V2.
 
 Authentication should not be added merely to demonstrate authentication.
 
-Accounts may be introduced in a later release when they materially support
-features such as:
+V2 does include a minimal private admin authentication system to protect the
+article-management workflow. This is an editorial/admin implementation detail,
+not a public account/profile feature.
+
+The private admin authentication system does not change the V2 decision to defer:
+
+- public registration;
+- public user profiles;
+- favorites;
+- saved user preferences;
+- personalized feeds;
+- persistent moving profiles.
+
+Public accounts may be introduced in a later release when they materially
+support features such as:
 
 - favorites;
 - saved preferences;
