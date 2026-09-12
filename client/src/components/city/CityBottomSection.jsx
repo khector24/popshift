@@ -1,6 +1,8 @@
 import { Link } from "react-router-dom";
 import { FaBookOpen, FaMapLocationDot, FaNewspaper } from "react-icons/fa6";
 
+import RelatedArticles from "../articles/RelatedArticles.jsx";
+
 import "../../styles/components/city/CityBottomSection.css";
 
 export default function CityBottomSection({ city, state, metro, crime }) {
@@ -100,22 +102,18 @@ export default function CityBottomSection({ city, state, metro, crime }) {
         </article>
       </div>
 
-      <div className="city-bottom__future">
-        <div className="city-bottom__future-heading">
-          <span>Coming Later</span>
-          <h2>More Ways to Understand {city.name}</h2>
-        </div>
+      <article className="city-bottom__articles">
+        <div className="city-bottom__heading">
+          <FaNewspaper />
 
-        <div className="city-bottom__future-grid">
-          <div className="city-bottom__future-item">
-            <FaNewspaper />
-            <div>
-              <strong>Related Articles</strong>
-              <span>Coming in a later V2 phase</span>
-            </div>
+          <div>
+            <span>Stories & Analysis</span>
+            <h2>Related Articles</h2>
           </div>
         </div>
-      </div>
+
+        <RelatedArticles placeId={city.id} />
+      </article>
     </section>
   );
 }
