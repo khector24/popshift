@@ -5,6 +5,7 @@ import metroRoutes from "./routes/metros.routes.js";
 import citiesRoutes from "./routes/cities.routes.js";
 import searchRoutes from "./routes/search.routes.js";
 import authRoutes from "./routes/auth.routes.js";
+import articlesRoutes from "./routes/articles.routes.js";
 import cors from "cors";
 import cookieParser from "cookie-parser";
 import { errorHandler } from "./middleware/error.middleware.js";
@@ -25,6 +26,7 @@ app.use("/api/metros", metroRoutes);
 app.use("/api/cities", citiesRoutes);
 app.use("/api/search", searchRoutes);
 app.use("/api/admin/auth", authRoutes);
+app.use("/api/admin/articles", articlesRoutes);
 
 // Catch-all 404 middleware
 app.use((req, res) => {
