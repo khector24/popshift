@@ -3,6 +3,10 @@ import Joi from "joi";
 import { AppError } from "../utils/AppError.js";
 import { slugify } from "../utils/slugify.js";
 
+const articleIdSchema = Joi.object({
+  id: Joi.number().integer().positive().required(),
+});
+
 const createArticleSchema = Joi.object({
   title: Joi.string()
     .trim()
@@ -43,6 +47,18 @@ const updateArticleSchema = Joi.object({
   tags: Joi.array().items(Joi.string().trim().min(1).max(100)),
   placeIds: Joi.array().items(Joi.number().integer().positive()),
 }).min(1);
+
+export function validateArticleId(req, res, next) {
+  const { error } = articleIdSchema.validate(req.params, {
+    abortEarly: false,
+  });
+
+  if (error) {
+    throw new AppError(error.message, 400);
+  }
+
+  next();
+}
 
 export function validateCreateArticle(req, res, next) {
   const { error, value } = createArticleSchema.validate(req.body, {

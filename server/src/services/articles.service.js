@@ -201,6 +201,19 @@ export async function setArticlePlaces(client, articleId, placeIds) {
   }
 }
 
+export async function deleteArticleById(id) {
+  const result = await pool.query(
+    `
+      DELETE FROM articles
+      WHERE id = $1
+      RETURNING id
+    `,
+    [id],
+  );
+
+  return result.rows[0] || null;
+}
+
 export async function createTag(client, { name }) {
   const tagSlug = slugify(name);
 

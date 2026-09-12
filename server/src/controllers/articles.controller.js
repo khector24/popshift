@@ -4,6 +4,7 @@ import {
   getAdminArticleById,
   createArticleWithRelations,
   updateArticleWithRelations,
+  deleteArticleById,
 } from "../services/articles.service.js";
 
 export async function getAdminArticlesController(req, res, next) {
@@ -56,6 +57,25 @@ export async function updateArticleController(req, res, next) {
 
     return res.json({
       data: article,
+    });
+  } catch (error) {
+    next(error);
+  }
+}
+
+export async function deleteArticleController(req, res, next) {
+  try {
+    const articleId = Number(req.params.id);
+
+    const deletedArticle = await deleteArticleById(articleId);
+
+    if (!deletedArticle) {
+      throw new AppError("Article not found", 404);
+    }
+
+    res.json({
+      message: "Article deleted successfully",
+      articleId: deletedArticle.id,
     });
   } catch (error) {
     next(error);

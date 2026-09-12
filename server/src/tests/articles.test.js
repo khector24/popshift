@@ -340,6 +340,96 @@ describe("PATCH /api/admin/articles/:id", () => {
   });
 });
 
+describe("DELETE /api/admin/articles/:id", () => {
+  test("rejects delete requests without an admin cookie", async () => {
+    const article = await createTestArticle({
+      title: "Article Integration Test Delete Unauthorized",
+    });
+
+    const response = await request(app).delete(
+      `/api/admin/articles/${article.id}`,
+    );
+
+    expect(response.status).toBe(401);
+  });
+
+  test("rejects an invalid article id", async () => {
+    const response = await agent.delete("/api/admin/articles/not-a-number");
+
+    expect(response.status).toBe(400);
+  });
+
+  test("returns 404 when deleting an article that does not exist", async () => {
+    const response = await agent.delete("/api/admin/articles/999999999");
+
+    expect(response.status).toBe(404);
+    expect(response.body.message).toBe("Article not found");
+  });
+
+  test("deletes an article and its relationships", async () => {
+    const article = await createTestArticle({
+      title: "Article Integration Test Delete",
+    });
+
+    const beforePlaces = await pool.query(
+      `
+        SELECT *
+        FROM article_places
+        WHERE article_id = $1;
+      `,
+      [article.id],
+    );
+
+    const beforeTags = await pool.query(
+      `
+        SELECT *
+        FROM article_tags
+        WHERE article_id = $1;
+      `,
+      [article.id],
+    );
+
+    expect(beforePlaces.rows).toHaveLength(1);
+    expect(beforeTags.rows).toHaveLength(1);
+
+    const response = await agent.delete(`/api/admin/articles/${article.id}`);
+
+    expect(response.status).toBe(200);
+    expect(response.body.articleId).toBe(article.id);
+
+    const articleResult = await pool.query(
+      `
+        SELECT id
+        FROM articles
+        WHERE id = $1;
+      `,
+      [article.id],
+    );
+
+    const afterPlaces = await pool.query(
+      `
+        SELECT *
+        FROM article_places
+        WHERE article_id = $1;
+      `,
+      [article.id],
+    );
+
+    const afterTags = await pool.query(
+      `
+        SELECT *
+        FROM article_tags
+        WHERE article_id = $1;
+      `,
+      [article.id],
+    );
+
+    expect(articleResult.rows).toHaveLength(0);
+    expect(afterPlaces.rows).toHaveLength(0);
+    expect(afterTags.rows).toHaveLength(0);
+  });
+});
+
 afterAll(async () => {
   await deleteTestData();
 });
