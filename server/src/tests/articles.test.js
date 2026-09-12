@@ -430,6 +430,177 @@ describe("DELETE /api/admin/articles/:id", () => {
   });
 });
 
+describe("GET /api/articles", () => {
+  test("returns only published articles without authentication", async () => {
+    const publishedArticle = await createTestArticle({
+      title: "Article Integration Test Public Published",
+      status: "published",
+    });
+
+    const draftArticle = await createTestArticle({
+      title: "Article Integration Test Public Draft",
+      status: "draft",
+    });
+
+    const archivedArticle = await createTestArticle({
+      title: "Article Integration Test Public Archived",
+      status: "archived",
+    });
+
+    const response = await request(app).get("/api/articles");
+
+    expect(response.status).toBe(200);
+    expect(Array.isArray(response.body.data)).toBe(true);
+
+    const articleIds = response.body.data.map((article) => article.id);
+
+    expect(articleIds).toContain(publishedArticle.id);
+    expect(articleIds).not.toContain(draftArticle.id);
+    expect(articleIds).not.toContain(archivedArticle.id);
+  });
+});
+
+describe("GET /api/articles/:slug", () => {
+  test("returns a published article by slug", async () => {
+    const article = await createTestArticle({
+      title: "Article Integration Test Public Slug",
+      status: "published",
+    });
+
+    const response = await request(app).get(`/api/articles/${article.slug}`);
+
+    expect(response.status).toBe(200);
+    expect(response.body.data.id).toBe(article.id);
+    expect(response.body.data.slug).toBe(article.slug);
+    expect(response.body.data.status).toBe("published");
+  });
+
+  test("returns 404 for a draft article", async () => {
+    const article = await createTestArticle({
+      title: "Article Integration Test Public Draft Slug",
+      status: "draft",
+    });
+
+    const response = await request(app).get(`/api/articles/${article.slug}`);
+
+    expect(response.status).toBe(404);
+    expect(response.body.message).toBe("Article not found");
+  });
+
+  test("returns 404 for an archived article", async () => {
+    const article = await createTestArticle({
+      title: "Article Integration Test Public Archived Slug",
+      status: "archived",
+    });
+
+    const response = await request(app).get(`/api/articles/${article.slug}`);
+
+    expect(response.status).toBe(404);
+    expect(response.body.message).toBe("Article not found");
+  });
+
+  test("returns 404 for a missing slug", async () => {
+    const response = await request(app).get(
+      "/api/articles/article-integration-test-does-not-exist",
+    );
+
+    expect(response.status).toBe(404);
+    expect(response.body.message).toBe("Article not found");
+  });
+});
+
+describe("GET /api/places/:placeId/articles", () => {
+  test("returns an empty array when a place has no published articles", async () => {
+    await createTestArticle({
+      title: "Article Integration Test Colorado Draft Only",
+      status: "draft",
+      placeIds: [coloradoId],
+    });
+
+    const response = await request(app).get(
+      `/api/places/${coloradoId}/articles`,
+    );
+
+    expect(response.status).toBe(200);
+    expect(response.body.data).toEqual([]);
+  });
+
+  test("returns only published articles attached to the requested place", async () => {
+    const californiaPublished = await createTestArticle({
+      title: "Article Integration Test California Published",
+      status: "published",
+      placeIds: [californiaId],
+    });
+
+    const californiaDraft = await createTestArticle({
+      title: "Article Integration Test California Draft",
+      status: "draft",
+      placeIds: [californiaId],
+    });
+
+    const californiaArchived = await createTestArticle({
+      title: "Article Integration Test California Archived",
+      status: "archived",
+      placeIds: [californiaId],
+    });
+
+    const coloradoPublished = await createTestArticle({
+      title: "Article Integration Test Colorado Published",
+      status: "published",
+      placeIds: [coloradoId],
+    });
+
+    const response = await request(app).get(
+      `/api/places/${californiaId}/articles`,
+    );
+
+    expect(response.status).toBe(200);
+    expect(Array.isArray(response.body.data)).toBe(true);
+
+    const articleIds = response.body.data.map((article) => article.id);
+
+    expect(articleIds).toContain(californiaPublished.id);
+    expect(articleIds).not.toContain(californiaDraft.id);
+    expect(articleIds).not.toContain(californiaArchived.id);
+    expect(articleIds).not.toContain(coloradoPublished.id);
+  });
+
+  test("returns published articles attached to multiple places", async () => {
+    const article = await createTestArticle({
+      title: "Article Integration Test Multi Place Public",
+      status: "published",
+      placeIds: [californiaId, coloradoId],
+    });
+
+    const californiaResponse = await request(app).get(
+      `/api/places/${californiaId}/articles`,
+    );
+
+    const coloradoResponse = await request(app).get(
+      `/api/places/${coloradoId}/articles`,
+    );
+
+    expect(californiaResponse.status).toBe(200);
+    expect(coloradoResponse.status).toBe(200);
+
+    expect(californiaResponse.body.data.map((item) => item.id)).toContain(
+      article.id,
+    );
+
+    expect(coloradoResponse.body.data.map((item) => item.id)).toContain(
+      article.id,
+    );
+  });
+
+  test("rejects an invalid place id", async () => {
+    const response = await request(app).get(
+      "/api/places/not-a-number/articles",
+    );
+
+    expect(response.status).toBe(400);
+  });
+});
+
 afterAll(async () => {
   await deleteTestData();
 });

@@ -7,6 +7,10 @@ const articleIdSchema = Joi.object({
   id: Joi.number().integer().positive().required(),
 });
 
+const placeIdSchema = Joi.object({
+  placeId: Joi.number().integer().positive().required(),
+});
+
 const createArticleSchema = Joi.object({
   title: Joi.string()
     .trim()
@@ -50,6 +54,18 @@ const updateArticleSchema = Joi.object({
 
 export function validateArticleId(req, res, next) {
   const { error } = articleIdSchema.validate(req.params, {
+    abortEarly: false,
+  });
+
+  if (error) {
+    throw new AppError(error.message, 400);
+  }
+
+  next();
+}
+
+export function validatePlaceId(req, res, next) {
+  const { error } = placeIdSchema.validate(req.params, {
     abortEarly: false,
   });
 

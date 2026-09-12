@@ -1,11 +1,52 @@
 import { AppError } from "../utils/AppError.js";
 import {
+  getPublishedArticles,
+  getPublishedArticleBySlug,
+  getPublishedArticlesByPlaceId,
   getAdminArticles,
   getAdminArticleById,
   createArticleWithRelations,
   updateArticleWithRelations,
   deleteArticleById,
 } from "../services/articles.service.js";
+
+export async function getPublishedArticlesController(req, res, next) {
+  try {
+    const articles = await getPublishedArticles();
+
+    return res.json({ data: articles });
+  } catch (error) {
+    next(error);
+  }
+}
+
+export async function getPublishedArticleBySlugController(req, res, next) {
+  try {
+    const article = await getPublishedArticleBySlug(req.params.slug);
+
+    if (!article) {
+      throw new AppError("Article not found", 404);
+    }
+
+    return res.json({
+      data: article,
+    });
+  } catch (error) {
+    next(error);
+  }
+}
+
+export async function getPublishedArticlesByPlaceIdController(req, res, next) {
+  try {
+    const articles = await getPublishedArticlesByPlaceId(req.params.placeId);
+
+    return res.json({
+      data: articles,
+    });
+  } catch (error) {
+    next(error);
+  }
+}
 
 export async function getAdminArticlesController(req, res, next) {
   try {
