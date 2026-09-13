@@ -7,7 +7,7 @@ export default function MetroBottomSection({ metro }) {
   return (
     <section className="metro-bottom-section">
       <MetroOverview metro={metro} />
-      <MetroRelatedArticles />
+      <MetroRelatedArticles placeId={metro.id} />
     </section>
   );
 }

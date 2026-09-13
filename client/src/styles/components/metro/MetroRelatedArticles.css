@@ -5,6 +5,29 @@
   padding: 24px;
 }
 
-.metro-related-articles h2 {
+.metro-related-articles__heading {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 18px;
+}
+
+.metro-related-articles__heading > svg {
+  flex-shrink: 0;
+  color: var(--accent);
+  font-size: 1.1rem;
+}
+
+.metro-related-articles__heading span {
+  display: block;
+  margin-bottom: 3px;
+  color: var(--accent);
+  font-size: 0.74rem;
+  font-weight: 700;
+}
+
+.metro-related-articles__heading h2 {
   margin: 0;
+  color: var(--text);
+  font-size: 1.05rem;
 }
