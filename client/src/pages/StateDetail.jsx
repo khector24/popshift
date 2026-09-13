@@ -21,10 +21,11 @@ import MigrationTimeline from "../components/ui/MigrationTimeline.jsx";
 import MigrationHistoryTable from "../components/ui/MigrationHistoryTable.jsx";
 import EducationSnapshot from "../components/ui/EducationSnapshot.jsx";
 import NetMigrationSummary from "../components/ui/NetMigrationSummary.jsx";
+import RelatedArticles from "../components/articles/RelatedArticles.jsx";
 
 import "../styles/pages/StateDetail.css";
 
-import { FaWallet, FaBuilding, FaHouse } from "react-icons/fa6";
+import { FaWallet, FaBuilding, FaHouse, FaNewspaper } from "react-icons/fa6";
 
 function StateDetail() {
   const { code } = useParams();
@@ -338,6 +339,19 @@ function StateDetail() {
                   Population history is not available for this state.
                 </p>
               )}
+            </section>
+
+            <section className="state-detail__articles">
+              <div className="state-detail__articles-heading">
+                <FaNewspaper />
+
+                <div>
+                  <span>Stories & Analysis</span>
+                  <h2>Related Articles</h2>
+                </div>
+              </div>
+
+              <RelatedArticles placeId={stateData.id} />
             </section>
           </main>
         ))}
