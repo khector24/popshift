@@ -3,6 +3,9 @@ import { Link } from "react-router-dom";
 
 import { getPublishedArticlesByPlaceId } from "../../services/articlesApi.js";
 
+import "../../styles/components/articles/RelatedArticles.css";
+import { FaBookOpen } from "react-icons/fa6";
+
 export default function RelatedArticles({ placeId }) {
   const [articles, setArticles] = useState([]);
   const [loading, setLoading] = useState(true);
@@ -47,12 +50,16 @@ export default function RelatedArticles({ placeId }) {
   }
 
   return (
-    <div>
+    <div className="related-articles">
       {articles.map((article) => (
-        <article key={article.id}>
-          <h3>
-            <Link to={`/articles/${article.slug}`}>{article.title}</Link>
-          </h3>
+        <article className="related-articles__item" key={article.id}>
+          <Link to={`/articles/${article.slug}`}>
+            <div className="related-articles__icon">
+              <FaBookOpen />
+            </div>
+
+            <span className="related-articles__title">{article.title}</span>
+          </Link>
         </article>
       ))}
     </div>

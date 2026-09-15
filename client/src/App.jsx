@@ -26,6 +26,8 @@ import MetroDetail from "./pages/MetroDetail";
 import CityDirectory from "./pages/CityDirectory";
 import CityDetail from "./pages/CityDetail";
 
+import ArticleDetail from "./pages/ArticleDetail";
+
 import AdminLogin from "./pages/admin/AdminLogin";
 import AdminArticles from "./pages/admin/AdminArticles";
 import AdminArticleForm from "./pages/admin/AdminArticleForm";
@@ -59,6 +61,8 @@ function AppContent() {
             <Route path="/metros/:slug" element={<MetroDetail />} />
             <Route path="/cities" element={<CityDirectory />} />
             <Route path="/cities/:slug" element={<CityDetail />} />
+
+            <Route path="/articles/:slug" element={<ArticleDetail />} />
 
             <Route path="/admin/login" element={<AdminLogin />} />
             <Route element={<ProtectedRoute />}>
