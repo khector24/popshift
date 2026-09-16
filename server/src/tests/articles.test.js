@@ -465,6 +465,7 @@ describe("GET /api/articles/:slug", () => {
     const article = await createTestArticle({
       title: "Article Integration Test Public Slug",
       status: "published",
+      tags: ["Article Test Population", "Article Test Housing"],
     });
 
     const response = await request(app).get(`/api/articles/${article.slug}`);
@@ -473,6 +474,11 @@ describe("GET /api/articles/:slug", () => {
     expect(response.body.data.id).toBe(article.id);
     expect(response.body.data.slug).toBe(article.slug);
     expect(response.body.data.status).toBe("published");
+
+    expect(response.body.data.tags.map((tag) => tag.slug)).toEqual([
+      "article-test-housing",
+      "article-test-population",
+    ]);
   });
 
   test("returns 404 for a draft article", async () => {

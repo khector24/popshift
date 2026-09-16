@@ -26,7 +26,8 @@ import MetroDetail from "./pages/MetroDetail";
 import CityDirectory from "./pages/CityDirectory";
 import CityDetail from "./pages/CityDetail";
 
-import ArticleDetail from "./pages/ArticleDetail";
+import Articles from "./pages/articles/Articles";
+import ArticleDetail from "./pages/articles/ArticleDetail";
 
 import AdminLogin from "./pages/admin/AdminLogin";
 import AdminArticles from "./pages/admin/AdminArticles";
@@ -62,6 +63,7 @@ function AppContent() {
             <Route path="/cities" element={<CityDirectory />} />
             <Route path="/cities/:slug" element={<CityDetail />} />
 
+            <Route path="/articles" element={<Articles />} />
             <Route path="/articles/:slug" element={<ArticleDetail />} />
 
             <Route path="/admin/login" element={<AdminLogin />} />

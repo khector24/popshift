@@ -1,9 +1,9 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 
-import { getPublishedArticleBySlug } from "../services/articlesApi.js";
+import { getPublishedArticleBySlug } from "../../services/articlesApi.js";
 
-import "../styles/pages/ArticleDetail.css";
+import "../../styles/pages/articles/ArticleDetail.css";
 
 export default function ArticleDetail() {
   const { slug } = useParams();
@@ -72,6 +72,14 @@ export default function ArticleDetail() {
         </header>
 
         <div className="article-detail__body">{article.body}</div>
+
+        {article.tags?.length > 0 && (
+          <div className="article-detail__tags">
+            {article.tags.map((tag) => (
+              <span key={tag.id}>{tag.name}</span>
+            ))}
+          </div>
+        )}
       </article>
     </main>
   );

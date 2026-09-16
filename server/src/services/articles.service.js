@@ -40,7 +40,18 @@ export async function getPublishedArticleBySlug(slug) {
     [slug],
   );
 
-  return result.rows[0] ?? null;
+  const article = result.rows[0];
+
+  if (!article) {
+    return null;
+  }
+
+  const tags = await getArticleTags(article.id);
+
+  return {
+    ...article,
+    tags,
+  };
 }
 
 export async function getPublishedArticlesByPlaceId(placeId) {
