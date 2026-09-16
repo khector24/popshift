@@ -41,16 +41,20 @@ function Navbar() {
           </div>
 
           <div className="navbar__links">
-            <NavLink to="/states" onClick={closeMenu}>
-              States
+            <NavLink to="/cities" onClick={closeMenu}>
+              Cities
             </NavLink>
 
             <NavLink to="/metros" onClick={closeMenu}>
               Metros
             </NavLink>
 
-            <NavLink to="/cities" onClick={closeMenu}>
-              Cities
+            <NavLink to="/states" onClick={closeMenu}>
+              States
+            </NavLink>
+
+            <NavLink to="/articles" onClick={closeMenu}>
+              Articles
             </NavLink>
 
             <NavLink to="/about" onClick={closeMenu}>

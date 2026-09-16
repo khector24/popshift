@@ -252,6 +252,41 @@
   margin-bottom: 12px;
 }
 
+.state-detail__articles {
+  margin-top: 32px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 24px;
+}
+
+.state-detail__articles-heading {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 18px;
+}
+
+.state-detail__articles-heading > svg {
+  flex-shrink: 0;
+  color: var(--accent);
+  font-size: 1.1rem;
+}
+
+.state-detail__articles-heading span {
+  display: block;
+  margin-bottom: 3px;
+  color: var(--accent);
+  font-size: 0.74rem;
+  font-weight: 700;
+}
+
+.state-detail__articles-heading h2 {
+  margin: 0;
+  color: var(--text);
+  font-size: 1.05rem;
+}
+
 @media (max-width: 900px) {
   .state-detail__history-grid {
     grid-template-columns: 1fr;

@@ -1,10 +1,11 @@
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { BrowserRouter, Routes, Route, useLocation } from "react-router-dom";
 import "./App.css";
 
 import Navbar from "./components/layout/Navbar";
 import Footer from "./components/layout/Footer";
 
 import ScrollToTop from "./router/ScrollToTop";
+import ProtectedRoute from "./router/ProtectedRoute";
 
 import Home from "./pages/Home";
 
@@ -25,15 +26,27 @@ import MetroDetail from "./pages/MetroDetail";
 import CityDirectory from "./pages/CityDirectory";
 import CityDetail from "./pages/CityDetail";
 
+import Articles from "./pages/articles/Articles";
+import ArticleDetail from "./pages/articles/ArticleDetail";
+
+import AdminLogin from "./pages/admin/AdminLogin";
+import AdminArticles from "./pages/admin/AdminArticles";
+import AdminArticleForm from "./pages/admin/AdminArticleForm";
+
 // Frontend 404 page
 import NotFound from "./pages/NotFound";
 
-function App() {
+function AppContent() {
+  const location = useLocation();
+
+  const isAdminRoute = location.pathname.startsWith("/admin");
+
   return (
-    <BrowserRouter>
+    <>
       <ScrollToTop />
+
       <div className="app">
-        <Navbar />
+        {!isAdminRoute && <Navbar />}
 
         <main className="app__main">
           <Routes>
@@ -50,13 +63,37 @@ function App() {
             <Route path="/cities" element={<CityDirectory />} />
             <Route path="/cities/:slug" element={<CityDetail />} />
 
+            <Route path="/articles" element={<Articles />} />
+            <Route path="/articles/:slug" element={<ArticleDetail />} />
+
+            <Route path="/admin/login" element={<AdminLogin />} />
+            <Route element={<ProtectedRoute />}>
+              <Route path="/admin/articles" element={<AdminArticles />} />
+              <Route
+                path="/admin/articles/new"
+                element={<AdminArticleForm />}
+              />
+              <Route
+                path="/admin/articles/:id/edit"
+                element={<AdminArticleForm />}
+              />
+            </Route>
+
             {/* Return a custom page when no frontend route matches */}
             <Route path="*" element={<NotFound />} />
           </Routes>
         </main>
 
-        <Footer />
+        {!isAdminRoute && <Footer />}
       </div>
+    </>
+  );
+}
+
+function App() {
+  return (
+    <BrowserRouter>
+      <AppContent />
     </BrowserRouter>
   );
 }

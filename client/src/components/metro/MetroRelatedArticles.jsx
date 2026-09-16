@@ -1,10 +1,20 @@
+import { FaNewspaper } from "react-icons/fa6";
+import RelatedArticles from "../articles/RelatedArticles.jsx";
 import "../../styles/components/metro/MetroRelatedArticles.css";
 
-export default function MetroRelatedArticles() {
+export default function MetroRelatedArticles({ placeId }) {
   return (
-    <aside className="metro-related-articles">
-      <h2>Related Articles</h2>
-      <p>COMING SOON</p>
-    </aside>
+    <section className="metro-related-articles">
+      <div className="metro-related-articles__heading">
+        <FaNewspaper />
+
+        <div>
+          <span>Stories & Analysis</span>
+          <h2>Related Articles</h2>
+        </div>
+      </div>
+
+      <RelatedArticles placeId={placeId} />
+    </section>
   );
 }

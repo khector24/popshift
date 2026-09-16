@@ -1,21 +1,21 @@
 import express from "express";
+import pool from "../db/index.js";
 import {
   getCensusStates,
   getCensusStateByCode,
   getCensusStateHistoryByCode,
   getCensusDashboardSummary,
 } from "../services/populationDataService.js";
-
 import {
   getStateEconomics,
   getStateEconomicsByCode,
 } from "../services/economicsDataService.js";
-
 import { getStateMigrationByCode } from "../services/migrationDataService.js";
 import {
   getStateEducation,
   getStateEducationByCode,
 } from "../services/educationDataService.js";
+
 const router = express.Router();
 
 // GET /api/states
@@ -180,14 +180,37 @@ router.get("/:code/history", (req, res) => {
 });
 
 // GET /api/states/:code
-router.get("/:code", (req, res) => {
-  const state = getCensusStateByCode(req.params.code);
+router.get("/:code", async (req, res, next) => {
+  try {
+    const { code } = req.params;
 
-  if (!state) {
-    return res.status(404).json({ message: "State code not found" });
+    const state = getCensusStateByCode(code);
+
+    if (!state) {
+      return res.status(404).json({ message: "State code not found" });
+    }
+
+    const result = await pool.query(
+      `
+        SELECT p.id
+        FROM places p
+        INNER JOIN states s
+          ON s.place_id = p.id
+        WHERE s.state_fips = $1
+        LIMIT 1
+      `,
+      [code],
+    );
+
+    const place = result.rows[0];
+
+    res.json({
+      ...state,
+      id: place?.id ?? null,
+    });
+  } catch (error) {
+    next(error);
   }
-
-  res.json(state);
 });
 
 export default router;

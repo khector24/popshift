@@ -253,6 +253,9 @@ Ideas already discussed or deferred elsewhere may include:
 -   international locations;
 -   broader geographic hierarchies;
 -   more sophisticated AI recommendations;
+-   account-linked feedback on AI-generated comparisons/recommendations,
+    such as like, dislike, or flag actions that can help evaluate output quality
+    and improve later product behavior;
 -   county profiles if they eventually become useful;
 -   richer comparison and recommendation tools.
 
@@ -261,7 +264,89 @@ intentionally promoted into a version plan.
 
 ------------------------------------------------------------------------
 
-## 9. Promotion Rule
+## 9. Technical Cleanup and Publishing Enhancements
+
+The following technical improvements are intentionally deferred beyond
+V2. They are not required to complete the current release.
+
+### Shared slug generation
+
+V2 introduces a shared `src/utils/slugify.js` utility as part of the
+articles and tags implementation.
+
+Some older geography and metro build/seed scripts contain their own
+slug-generation helpers. A future cleanup may consolidate generic
+slug-generation behavior around the shared utility.
+
+When doing so:
+
+-   preserve geography-specific preprocessing where required;
+-   do not replace unrelated normalization logic used for search, aliases,
+    source matching, or data cleanup;
+-   verify existing place slugs before changing generated outputs;
+-   avoid unintentionally breaking existing place URLs.
+
+### Article URL history and redirects
+
+In V2, article slugs are generated programmatically from article titles.
+When an article title changes, its slug changes with the title.
+
+If RegionLore later needs stronger URL permanence for published
+articles, add an explicit article-slug history and redirect system rather
+than complicating the lightweight V2 editorial workflow.
+
+Possible future behavior could include preserving previous slugs and
+redirecting old article URLs to the article's current canonical URL.
+
+------------------------------------------------------------------------
+
+### Database-backed article authors
+
+V2 currently assumes a single RegionLore writer and displays `Kenny Hector`
+directly in the public article frontend. Authorship is not yet stored on the
+article record.
+
+Before RegionLore supports multiple writers, add a proper database-backed
+author model rather than continuing to hardcode author names in the frontend.
+
+The eventual implementation should:
+
+- represent article authors explicitly in PostgreSQL;
+- associate articles with their author through a stable relationship;
+- backfill existing RegionLore articles to Kenny Hector;
+- allow the admin article workflow to select an author when multiple authors
+  become supported;
+- keep article authorship conceptually separate from the current V2 `users`
+  table unless a future authentication/account design provides a clear reason
+  to unify them.
+
+The current `users` table exists to authenticate private administrators. An
+editorial author identity and a login identity should not be assumed to be the
+same concept merely because the initial RegionLore administrator is also the
+initial writer.
+
+### Tag-based article discovery
+
+V2 stores reusable article tags and exposes them on public article detail
+responses, but public tag pills are intentionally informational rather than
+clickable.
+
+A later publishing/discovery enhancement should allow users to browse or filter
+RegionLore articles by tag.
+
+Possible product behavior may include:
+
+- filtering the article directory by tag;
+- linking article-detail tag pills into filtered article results;
+- tag-specific browsing pages if they become useful;
+- incorporating tags into broader article search/discovery;
+- eventually connecting article tags with future topic-following features.
+
+The exact URL design may use query parameters such as `/articles?tag=...` or
+dedicated tag routes. That decision should be made when tag discovery is
+implemented rather than creating unused V2 routes now.
+
+## 10. Promotion Rule
 
 A feature should move from this roadmap into a version-specific scope
 only when RegionLore is ready to answer:
@@ -279,7 +364,7 @@ Until then, the feature stays here.
 
 ------------------------------------------------------------------------
 
-## 10. Current Direction Summary
+## 11. Current Direction Summary
 
 ``` text
 V2

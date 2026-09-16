@@ -690,6 +690,10 @@ If nobody requests weather for a place, RegionLore should make no provider call 
 
 # 15. Articles
 
+The Phase 13 publishing system is intentionally lightweight. RegionLore needs
+enough editorial infrastructure to create, manage, publish, archive, and relate
+original articles to places without becoming a general-purpose CMS.
+
 ## `articles`
 
 ```text
@@ -705,13 +709,27 @@ created_at
 updated_at
 ```
 
-Potential status values:
+Implemented status values:
 
 ```text
 draft
 published
 archived
 ```
+
+Current publication behavior:
+
+- creating an article as published sets `published_at`;
+- publishing a previously unpublished article sets `published_at`;
+- returning an article to draft clears `published_at`;
+- archived articles remain non-public because public queries filter by status;
+- hard deletion is a separate protected admin operation rather than another
+  article status.
+
+Article slugs are generated from article titles through the shared
+`src/utils/slugify.js` utility. Updating a title regenerates the slug. V2 does
+not maintain article-slug history or redirects; that remains a later publishing
+enhancement.
 
 ## `article_places`
 
@@ -725,6 +743,128 @@ PRIMARY KEY (article_id, place_id)
 ```
 
 An article can relate to any supported place type.
+
+These relationships are editorially explicit rather than inherited through
+geographic parents. An article attached to a city is not automatically attached
+to its state or metro.
+
+Because `article_places.place_id` references the universal `places` table, the
+same relationship model works for cities, states, and metros without separate
+article tables for each geography.
+
+## Public and Admin Article APIs
+
+Public article APIs:
+
+```text
+GET /api/articles
+GET /api/articles/:slug
+GET /api/places/:placeId/articles
+```
+
+Public article APIs expose published content only. Draft and archived articles
+are not publicly retrievable.
+
+A place with no published related articles returns a normal empty collection:
+
+```json
+{
+  "data": []
+}
+```
+
+rather than a 404.
+
+Admin article APIs:
+
+```text
+POST   /api/admin/articles
+GET    /api/admin/articles
+GET    /api/admin/articles/:id
+PATCH  /api/admin/articles/:id
+DELETE /api/admin/articles/:id
+```
+
+The route organization deliberately separates public and private HTTP
+responsibilities:
+
+```text
+publicArticles.routes.js
+adminArticles.routes.js
+places.routes.js
+adminAuth.routes.js
+```
+
+Article controllers and services remain shared around the article domain.
+
+## Private Admin Authentication
+
+Phase 13 adds a minimal private authentication system solely to protect the
+editorial administration workflow.
+
+## `users`
+
+```text
+users
+-----
+id PK
+email UNIQUE
+password_hash
+role
+is_active
+created_at
+updated_at
+```
+
+Current V2 behavior:
+
+- one private administrator is sufficient for the initial editorial workflow;
+- passwords are stored as bcrypt hashes;
+- login issues JWT-backed admin authentication through a cookie;
+- `/api/admin/auth/me` verifies the current authenticated administrator;
+- logout clears the authentication cookie;
+- protected admin middleware verifies the authenticated user, active status,
+  and admin role;
+- there is no public registration;
+- there are no public user profiles;
+- there is no OAuth or password-recovery system.
+
+This `users` table is an editorial-access implementation detail. It does not
+change the V2 product decision that public accounts and favorites remain
+deferred.
+
+## Validation and Transaction Boundaries
+
+Phase 13 uses Joi at the request boundary for:
+
+- admin login input;
+- article creation;
+- article updates;
+- article IDs;
+- place IDs;
+- valid statuses;
+- tag values;
+- place relationship IDs.
+
+Article and place route IDs must be positive integers. Malformed IDs return 400,
+while a validly shaped article ID that does not exist returns 404.
+
+PATCH semantics intentionally distinguish omission from explicit clearing:
+
+```text
+tags omitted       → preserve current tags
+tags: []            → clear tags
+placeIds omitted    → preserve current places
+placeIds: []        → clear places
+```
+
+Article writes that modify article fields, tags, and place relationships are
+transactional. If a relationship write fails, the complete operation rolls
+back rather than leaving a partially updated article.
+
+Hard deletion removes the article and its join-table relationships through
+referential behavior while leaving independent tag records available for other
+articles.
 
 ---
 
@@ -759,7 +899,61 @@ Tags answer:
 
 > What is this article about?
 
+Tags are independent editorial concepts. Deleting an article removes its
+`article_tags` relationships but does not delete the reusable tag records.
+
 ---
+
+## Article Frontend Architecture
+
+The completed V2 article frontend preserves a deliberate separation between
+private editorial tooling and the public article experience.
+
+Page organization:
+
+    client/src/pages/
+    ├── admin/
+    │   ├── AdminLogin.jsx
+    │   ├── AdminArticles.jsx
+    │   └── AdminArticleForm.jsx
+    └── articles/
+        ├── Articles.jsx
+        └── ArticleDetail.jsx
+
+The corresponding page styles use the same sibling organization under
+`client/src/styles/pages/`.
+
+The `admin` and `articles` directories intentionally remain siblings. Admin is
+a private application area, while articles are part of the public RegionLore
+experience. Public article pages are therefore not nested inside the admin
+feature, and admin tooling is not nested inside the public article feature.
+
+Public article routes are:
+
+    /articles
+    /articles/:slug
+
+The primary navigation links to `/articles`.
+
+Place pages use the shared `RelatedArticles` component with the universal
+place-based endpoint:
+
+    GET /api/places/:placeId/articles
+
+Because this component depends on universal `place_id` rather than a
+city-specific relationship, the same frontend pattern works for city, state,
+and metro pages.
+
+Public article detail responses include article tags. V2 renders these tags as
+informational metadata rather than navigation because tag-based article
+discovery is not yet implemented.
+
+The public article directory currently displays `Kenny Hector` as the author in
+the frontend. Article authorship is not yet represented by the V2 article
+schema. This temporary single-author presentation should not be confused with
+the `users` table, whose current responsibility is private admin
+authentication. A database-backed author relationship should be introduced
+before RegionLore supports multiple article authors.
 
 # 17. Future People / Officials Model
 
@@ -876,13 +1070,39 @@ Because the `place_id` identity already exists, later metric migration does not 
               ├── relationships
               ├── aliases
               ├── new V2 metrics
+              ├── users (private admin access)
               ├── articles
+              ├── article relationships / tags
               └── weather cache
 ```
 
 The API/service layer should hide the storage difference from React.
 
-Backend request handling currently follows a thin route → controller → service structure. Routes define HTTP endpoints, controllers orchestrate API responses, and services own PostgreSQL/storage-specific access. RegionLore uses centralized Express error middleware; with Express 5, errors from async controllers are forwarded automatically to that middleware without requiring controller-level `try/catch` + `next(error)` wrappers solely for async error propagation.
+Backend request handling currently follows a thin route → controller → service
+structure. Routes define HTTP endpoints, controllers orchestrate API responses,
+and services own PostgreSQL/storage-specific access.
+
+RegionLore uses centralized Express error middleware. With Express 5, rejected
+promises/errors from async route handlers and controllers are forwarded
+automatically to that middleware, so controller-level `try/catch +
+next(error)` wrappers are not required solely for async error propagation.
+Existing controllers may retain that explicit forwarding pattern for
+consistency without making it an architectural requirement.
+
+Request validation lives at the HTTP boundary before controller/service work.
+Phase 13 uses Joi for article/auth validation, including the distinction between
+omitted PATCH relationship fields and explicit empty arrays.
+
+Multi-step editorial writes use PostgreSQL transactions so article, tag, and
+place changes succeed or fail as one operation.
+
+Automated backend integration tests run against a dedicated
+`regionlore_test` PostgreSQL database rather than the normal development
+database. Vitest injects the test database connection, and
+`npm run test:db:reset` recreates that dedicated test database, runs migrations,
+and reseeds the required V2 datasets. The reset script deliberately targets the
+test database by its fixed name rather than accepting an arbitrary database
+target from the environment.
 
 ---
 
@@ -911,7 +1131,7 @@ The following may be added later and should not block the core V2 implementation
 
 - `people`;
 - `place_officials`;
-- user accounts;
+- public user accounts and profiles;
 - favorites;
 - survey tables;
 - advanced assessment tables;
@@ -952,6 +1172,10 @@ climate_monthly
 crime_statistics
 weather_cache
 
+ADMIN ACCESS
+------------
+users
+
 CONTENT
 -------
 articles
@@ -983,6 +1207,10 @@ The central design principles are:
 9. **The backend hides mixed storage during migration.**
 10. **PostgreSQL is sufficient for V2 weather caching.**
 11. **Articles relate to places through one universal join table.**
-12. **International expansion is supported structurally without delaying the U.S.-focused V2 release.**
+12. **Public article reads and private editorial writes are separated at the route/API boundary.**
+13. **Private admin authentication protects editorial tools without introducing public V2 accounts.**
+14. **Multi-step editorial writes use transactions to preserve consistency.**
+15. **Backend integration tests are isolated from development data through a dedicated test database.**
+16. **International expansion is supported structurally without delaying the U.S.-focused V2 release.**
 
 This architecture should remain understandable, extensible, and practical rather than maximizing abstraction for its own sake.
