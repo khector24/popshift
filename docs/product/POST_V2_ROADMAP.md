@@ -300,6 +300,52 @@ redirecting old article URLs to the article's current canonical URL.
 
 ------------------------------------------------------------------------
 
+### Database-backed article authors
+
+V2 currently assumes a single RegionLore writer and displays `Kenny Hector`
+directly in the public article frontend. Authorship is not yet stored on the
+article record.
+
+Before RegionLore supports multiple writers, add a proper database-backed
+author model rather than continuing to hardcode author names in the frontend.
+
+The eventual implementation should:
+
+- represent article authors explicitly in PostgreSQL;
+- associate articles with their author through a stable relationship;
+- backfill existing RegionLore articles to Kenny Hector;
+- allow the admin article workflow to select an author when multiple authors
+  become supported;
+- keep article authorship conceptually separate from the current V2 `users`
+  table unless a future authentication/account design provides a clear reason
+  to unify them.
+
+The current `users` table exists to authenticate private administrators. An
+editorial author identity and a login identity should not be assumed to be the
+same concept merely because the initial RegionLore administrator is also the
+initial writer.
+
+### Tag-based article discovery
+
+V2 stores reusable article tags and exposes them on public article detail
+responses, but public tag pills are intentionally informational rather than
+clickable.
+
+A later publishing/discovery enhancement should allow users to browse or filter
+RegionLore articles by tag.
+
+Possible product behavior may include:
+
+- filtering the article directory by tag;
+- linking article-detail tag pills into filtered article results;
+- tag-specific browsing pages if they become useful;
+- incorporating tags into broader article search/discovery;
+- eventually connecting article tags with future topic-following features.
+
+The exact URL design may use query parameters such as `/articles?tag=...` or
+dedicated tag routes. That decision should be made when tag discovery is
+implemented rather than creating unused V2 routes now.
+
 ## 10. Promotion Rule
 
 A feature should move from this roadmap into a version-specific scope

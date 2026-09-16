@@ -1286,27 +1286,129 @@ The intentional transaction-rollback test produces a PostgreSQL foreign-key
 error in test stderr while still passing; that failure is deliberately induced
 to verify rollback behavior.
 
-## Remaining Phase 13 Frontend Work
+## Implemented Phase 13 Frontend
 
-The backend/editorial foundation is complete, but Phase 13 itself is not yet
-complete.
+The Phase 13 editorial and public article frontend is now implemented.
 
-Remaining work includes:
+Private administration is organized under the existing admin application area:
 
-- admin login UI;
-- admin article list;
-- article create/edit interface;
-- draft/publish/archive controls;
-- protected hard-delete UI with explicit confirmation;
+    client/src/pages/admin/
+    ├── AdminLogin.jsx
+    ├── AdminArticles.jsx
+    └── AdminArticleForm.jsx
+
+Public article pages are organized separately:
+
+    client/src/pages/articles/
+    ├── Articles.jsx
+    └── ArticleDetail.jsx
+
+The corresponding page styles follow the same organization under
+`client/src/styles/pages/`.
+
+Admin and public article pages intentionally remain sibling application areas
+rather than nesting admin pages inside the public article feature. The admin
+area represents private application tooling, while the articles area represents
+the public editorial product.
+
+### Admin Editorial Interface
+
+The private admin frontend provides:
+
+- admin login;
+- authenticated admin-route protection;
+- article listing;
+- article creation;
+- article editing;
+- draft, published, and archived status management;
 - tag editing;
-- multi-place attachment UI;
-- public article listing/page experience;
-- related-article rendering on appropriate place pages.
+- attachment to multiple places;
+- hard deletion.
 
-The admin editor should remain lightweight. A simple textarea or similarly
-small Markdown-style editing experience is sufficient for V2.
+The article editor remains intentionally lightweight for V2 rather than becoming
+a general-purpose CMS.
 
-Do not expand Phase 13 into:
+Hard deletion requires explicit confirmation by typing `DELETE` before the
+frontend sends the protected delete request. V2 uses the browser's native
+prompt for this confirmation rather than adding a custom modal solely for this
+operation.
+
+### Public Article Experience
+
+The public frontend now provides:
+
+    /articles
+    /articles/:slug
+
+`/articles` provides the public RegionLore article directory and is linked from
+the primary navigation.
+
+Published article cards display:
+
+- article title;
+- a short body preview;
+- publication date;
+- the current V2 author display;
+- navigation to the full article.
+
+`/articles/:slug` renders the published article detail experience.
+
+The public article-detail API also returns the article's tags. The article page
+renders those tags as informational pills below the article body.
+
+Tags are display-only in V2. They are intentionally not clickable until a
+tag-based browsing/filtering destination exists.
+
+The current V2 public directory displays `Kenny Hector` as the article author
+in the frontend because RegionLore currently has a single writer. A proper
+database-backed author model is deferred until multiple-author support is
+actually needed.
+
+### Related Articles
+
+A shared `RelatedArticles` frontend component uses:
+
+    GET /api/places/:placeId/articles
+
+to display published articles explicitly related to a place.
+
+Because the component operates on universal `place_id`, the same implementation
+supports:
+
+- city pages;
+- state pages;
+- metro pages.
+
+This preserves the backend rule that article relationships are explicit.
+Associating an article with a city does not automatically make it related to
+that city's state or metro.
+
+Places without related published articles degrade normally rather than causing
+the containing place page to fail.
+
+## Final Phase 13 Validation
+
+Backend validation after the completed public article integration confirms:
+
+    articles.test.js → 27 passing tests
+    cities.test.js   → 10 passing tests
+    search.test.js   →  7 passing tests
+
+    Total            → 44 passing tests
+    Test files       → 3 passing
+
+The public article-slug integration test also verifies that tags associated
+with a published article are returned by the public detail endpoint.
+
+The intentional transaction-rollback test continues to produce a PostgreSQL
+foreign-key error in test stderr while passing. That failure is deliberately
+triggered to verify that failed relationship writes roll back the complete
+article update.
+
+Frontend validation confirms that the production Vite build succeeds with the
+completed Phase 13 article/admin integration.
+
+Phase 13 deliberately does not expand into:
 
 - public registration;
 - public profiles;
@@ -1314,7 +1416,12 @@ Do not expand Phase 13 into:
 - password recovery;
 - media-library management;
 - complex publishing permissions;
+- database-backed multi-author publishing;
+- tag-based article search/browsing;
 - a WordPress-style CMS.
+
+The author system and tag-based article discovery are preserved as post-V2
+publishing enhancements rather than expanding the current release.
 
 ## Exit criteria
 
@@ -1329,9 +1436,11 @@ Phase 13 is complete when:
 - [x] public APIs expose published articles only;
 - [x] related published articles can be retrieved by universal `place_id`;
 - [x] automated integration tests verify the backend workflow;
-- [ ] an administrator can manage articles through the frontend;
-- [ ] public article pages render published content;
-- [ ] place pages display related published articles.
+- [x] an administrator can manage articles through the frontend;
+- [x] public article pages render published content;
+- [x] place pages display related published articles.
+
+**Phase 13 is complete.**
 
 # 17. Phase 14 — Structured Place Comparison
 

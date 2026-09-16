@@ -904,6 +904,57 @@ Tags are independent editorial concepts. Deleting an article removes its
 
 ---
 
+## Article Frontend Architecture
+
+The completed V2 article frontend preserves a deliberate separation between
+private editorial tooling and the public article experience.
+
+Page organization:
+
+    client/src/pages/
+    ├── admin/
+    │   ├── AdminLogin.jsx
+    │   ├── AdminArticles.jsx
+    │   └── AdminArticleForm.jsx
+    └── articles/
+        ├── Articles.jsx
+        └── ArticleDetail.jsx
+
+The corresponding page styles use the same sibling organization under
+`client/src/styles/pages/`.
+
+The `admin` and `articles` directories intentionally remain siblings. Admin is
+a private application area, while articles are part of the public RegionLore
+experience. Public article pages are therefore not nested inside the admin
+feature, and admin tooling is not nested inside the public article feature.
+
+Public article routes are:
+
+    /articles
+    /articles/:slug
+
+The primary navigation links to `/articles`.
+
+Place pages use the shared `RelatedArticles` component with the universal
+place-based endpoint:
+
+    GET /api/places/:placeId/articles
+
+Because this component depends on universal `place_id` rather than a
+city-specific relationship, the same frontend pattern works for city, state,
+and metro pages.
+
+Public article detail responses include article tags. V2 renders these tags as
+informational metadata rather than navigation because tag-based article
+discovery is not yet implemented.
+
+The public article directory currently displays `Kenny Hector` as the author in
+the frontend. Article authorship is not yet represented by the V2 article
+schema. This temporary single-author presentation should not be confused with
+the `users` table, whose current responsibility is private admin
+authentication. A database-backed author relationship should be introduced
+before RegionLore supports multiple article authors.
+
 # 17. Future People / Officials Model
 
 Mayor, governor, president, prime minister, and similar data should not permanently live as plain text fields on geographic tables.
