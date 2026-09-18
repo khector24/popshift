@@ -1106,7 +1106,49 @@ target from the environment.
 
 ---
 
-# 20. Future International Expansion
+# 20. Structured Comparison and AI Boundary
+
+V2 comparison exposes normalized backend contracts before AI is involved.
+
+Current comparison endpoints are:
+
+```text
+GET /api/comparisons/cities?slugs=...
+GET /api/comparisons/states?codes=...
+GET /api/comparisons/metros?slugs=...
+```
+
+For V2, comparisons use places of the same geography type. Cross-geography
+comparison is deferred.
+
+City comparison uses the newer V2/PostgreSQL-backed city data. State and metro
+comparison may continue to reuse the existing V1 generated metric files and
+services while those remain authoritative for V2. The comparison service layer
+hides that storage difference and returns geography-specific normalized
+profiles to React and, later, the AI layer.
+
+Comparison contracts should preserve geographic identity, group metrics by
+domain, retain relevant year/vintage/provenance where available, represent
+unavailable values explicitly, preserve legitimate zeroes, and avoid inventing
+metric parity across cities, metros, and states.
+
+State migration comparison keeps full available inbound/outbound detail for the
+latest year while historical context may use annual totals, net migration, and
+leading flows.
+
+Phase 14 produces deterministic RegionLore comparison context with no model
+call. Phase 15 may send that context plus optional user-supplied comparison
+reason or priorities to an AI provider. The model may summarize, interpret, and
+explain tradeoffs, but factual geographic metric values should come from
+RegionLore.
+
+AI/provider failure should not make the underlying structured comparison data
+unavailable. Provider/model choice, prompting, token/cost controls, response
+validation, and caching or precomputation belong to the AI integration layer.
+
+---
+
+# 21. Future International Expansion
 
 V2 is U.S.-focused, but the architecture should avoid unnecessary U.S.-only assumptions.
 
@@ -1125,24 +1167,27 @@ The project should not delay V2 to solve international normalization in advance.
 
 ---
 
-# 21. Deferred V2 Architecture Areas
+# 22. Deferred V2 Architecture Areas
 
 The following may be added later and should not block the core V2 implementation:
 
 - `people`;
 - `place_officials`;
-- public user accounts and profiles;
+- user accounts;
 - favorites;
 - survey tables;
 - advanced assessment tables;
 - international geographic types;
 - advanced historical-site metadata;
 - Redis/ElastiCache;
-- full V1 metric migration.
+- full V1 metric migration;
+- cross-geography comparison;
+- saved/private comparison profiles;
+- occupation-specific and job-offer purchasing-power analysis.
 
 ---
 
-# 22. Proposed Core V2 Tables
+# 23. Proposed Core V2 Tables
 
 ```text
 GEOGRAPHY
@@ -1172,10 +1217,6 @@ climate_monthly
 crime_statistics
 weather_cache
 
-ADMIN ACCESS
-------------
-users
-
 CONTENT
 -------
 articles
@@ -1190,7 +1231,7 @@ Implementation order should be defined separately.
 
 ---
 
-# 23. Architecture Summary
+# 24. Architecture Summary
 
 RegionLore V2 uses a universal place identity system with specialized geographic extension tables.
 
@@ -1207,10 +1248,8 @@ The central design principles are:
 9. **The backend hides mixed storage during migration.**
 10. **PostgreSQL is sufficient for V2 weather caching.**
 11. **Articles relate to places through one universal join table.**
-12. **Public article reads and private editorial writes are separated at the route/API boundary.**
-13. **Private admin authentication protects editorial tools without introducing public V2 accounts.**
-14. **Multi-step editorial writes use transactions to preserve consistency.**
-15. **Backend integration tests are isolated from development data through a dedicated test database.**
-16. **International expansion is supported structurally without delaying the U.S.-focused V2 release.**
+12. **Structured comparison hides mixed V2/V1 storage behind normalized geography-specific contracts.**
+13. **AI interprets RegionLore-provided comparison facts rather than serving as their source.**
+14. **International expansion is supported structurally without delaying the U.S.-focused V2 release.**
 
 This architecture should remain understandable, extensible, and practical rather than maximizing abstraction for its own sake.

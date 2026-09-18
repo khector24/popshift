@@ -737,6 +737,27 @@ geographically complex datasets.
 -   typical/seasonal climate;
 -   city crime.
 
+### Comparison use
+
+Structured comparison does not create a new V2 data-acquisition requirement.
+
+Phase 14 should compare the reliable city, metro, and state data RegionLore
+already has. Geography-specific comparison profiles may expose different metric
+sets when coverage differs.
+
+For comparison and later AI context:
+
+- unavailable values remain explicit rather than being converted to zero;
+- legitimate zeroes remain zero;
+- RegionLore should not fabricate parity between geography types;
+- relevant year, vintage, source, and coverage context should be preserved where
+  available;
+- state and metro comparison may reuse existing V1 generated metric sources
+  without requiring the full V3 metric migration.
+
+The AI layer may interpret RegionLore-provided facts, but it is not a substitute
+for missing RegionLore data.
+
 ### Optional
 
 -   mayor.
@@ -759,17 +780,13 @@ geographically complex datasets.
 
 ## 21. Questions Reserved for Architecture Design
 
-This document intentionally does **not** answer:
+This document intentionally leaves the following implementation details to architecture/design decisions:
 
--   whether RegionLore uses a generalized `places` table;
--   whether it uses separate `states`, `cities`, and `metros` tables;
--   whether it uses a hybrid model;
 -   exact PostgreSQL table definitions;
 -   whether normalized metrics live in wide tables, domain tables, or
     another structure;
 -   how articles relate to geographic entities;
 -   exact REST endpoints;
--   whether V1 generated state/metro files move into PostgreSQL;
 -   exact weather caching technology and physical expiration mechanism;
 -   exact AI cache/precomputation design.
 

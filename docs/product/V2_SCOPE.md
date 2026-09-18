@@ -19,10 +19,10 @@ The primary goals are to:
 1. Introduce cities as a first-class geographic entity.
 2. Establish a PostgreSQL-backed foundation for new V2 systems.
 3. Introduce lightweight editorial content through articles.
-4. Add useful AI-powered geographic comparison.
-5. Begin the "If I Move From X to Y" experience.
-6. Preserve the working V1 state and metro experience.
-7. Strengthen RegionLore as a portfolio project demonstrating full-stack,
+4. Add a useful Compare Places experience using structured RegionLore data
+   and AI-assisted interpretation.
+5. Preserve the working V1 state and metro experience.
+6. Strengthen RegionLore as a portfolio project demonstrating full-stack,
    database, cloud, data-pipeline, and AI engineering skills.
 
 V2 is not intended to implement the complete RegionLore product vision.
@@ -176,66 +176,72 @@ V2 does not require a large WordPress-style CMS.
 
 ---
 
-## 8. AI Geographic Comparison
+## 8. Compare Places
 
-AI-powered geographic comparison is a core V2 feature.
+Compare Places is a core V2 feature.
 
-Examples include:
+V2 should provide one coherent comparison experience rather than separate
+general-comparison and moving-comparison products. A user may compare places
+because they are considering a move, evaluating work or school options,
+planning a visit, or simply exploring.
 
-- New York vs. Chicago;
-- Texas vs. Florida;
-- Cleveland vs. Pittsburgh;
-- "Should I move from City X to City Y?"
+For V2, comparisons should use the same geographic type:
 
-RegionLore should gather its own structured data first and provide that
-structured context to an existing AI model.
+- city vs. city;
+- metro vs. metro;
+- state vs. state.
 
-The AI layer should primarily:
+Cross-geography comparison is not required for V2.
 
-- interpret;
-- compare;
-- summarize;
-- explain tradeoffs;
-- personalize an answer using user-selected preferences.
-
-The AI model should not be treated as the authoritative source for RegionLore's
-geographic statistics.
-
-Provider selection, caching, precomputed comparisons, model-call strategy, and
-storage strategy are architecture decisions to be made after scope is locked.
-
----
-
-## 9. Moving Comparison
-
-V2 should implement the first meaningful version of:
-
-**If I Move From X to Y**
-
-Users should be able to compare supported locations and see relevant
-differences using RegionLore's structured data.
+The comparison setup should allow users to select supported places and may
+collect optional context such as why they are comparing and what matters most
+to them. Users should be able to skip optional context.
 
 Potential comparison dimensions include:
 
 - population and growth;
 - income;
-- rent;
-- home value;
+- rent and home value;
 - housing;
 - demographics;
 - employment;
 - transportation / commute;
-- weather;
-- crime where available.
+- climate or weather where appropriate;
+- crime where available;
+- other structured RegionLore metrics available for the selected geography
+  type.
 
-The structured comparison may then be interpreted by the AI layer.
+RegionLore should assemble its own structured comparison facts first. Missing
+or unavailable values should remain explicit rather than being invented or
+treated as zero.
 
-V2 does not require occupation-specific salary estimates, a custom RegionLore
+An existing AI model may then use the structured RegionLore context plus
+optional user-selected priorities or comparison reason to:
+
+- interpret;
+- compare;
+- summarize;
+- explain tradeoffs;
+- emphasize information relevant to the user's stated priorities.
+
+The AI model should not be treated as the authoritative source for RegionLore's
+geographic statistics, and it should not decide where a user should live.
+
+The result presentation should favor readable explanation with selective
+supporting metrics, tables, or charts rather than requiring another dense
+dashboard of metric cards. Exact result-page presentation can be finalized
+during implementation.
+
+Provider selection, caching, precomputed comparisons, model-call strategy, and
+storage strategy remain architecture decisions.
+
+V2 does not require persistent user profiles, occupation-specific salary
+estimates, job-offer purchasing-power modeling, a custom RegionLore
 cost-of-living model, or a complete personal financial simulation.
 
 ---
 
-## 10. Moving Survey — Stretch Goal
+## 9. Moving Survey — Stretch Goal
 
 A small anonymous moving-interest survey is a V2 stretch goal.
 
@@ -255,7 +261,7 @@ V2 is complete even if this stretch goal is not implemented.
 
 ---
 
-## 11. Accounts and Favorites — Later
+## 10. Accounts and Favorites — Later
 
 Public user accounts are not required for V2.
 
@@ -287,7 +293,7 @@ support features such as:
 
 ---
 
-## 12. Search and Geographic Relationships
+## 11. Search and Geographic Relationships
 
 Users should be able to find supported geographic entities through search.
 
@@ -306,7 +312,7 @@ without requiring those levels to be implemented in V2.
 
 ---
 
-## 13. Existing V1 Functionality
+## 12. Existing V1 Functionality
 
 V2 should preserve the working V1 state and metro experience.
 
@@ -330,7 +336,7 @@ Replacing working V1 systems is not itself a V2 objective.
 
 ---
 
-## 14. Explicitly Out of Scope for V2
+## 13. Explicitly Out of Scope for V2
 
 The following are not V2 requirements:
 
@@ -352,6 +358,11 @@ The following are not V2 requirements:
 - comments;
 - full account/profile system;
 - favorites;
+- saved/private user comparison profiles;
+- cross-geography comparison;
+- job-offer purchasing-power modeling;
+- full personal financial simulation;
+- travel-specific comparison;
 - sophisticated longitudinal surveys;
 - training a proprietary AI model;
 - migrating every V1 dataset into PostgreSQL;
@@ -361,7 +372,7 @@ These remain candidates for later releases.
 
 ---
 
-## 15. Architecture Questions Intentionally Deferred
+## 14. Architecture Questions Intentionally Deferred
 
 The following are important but are not product-scope decisions:
 
@@ -383,7 +394,7 @@ These should be decided during data-requirements and architecture planning.
 
 ---
 
-## 16. V2 Portfolio Goals
+## 15. V2 Portfolio Goals
 
 RegionLore V2 should demonstrate experience with:
 
@@ -404,7 +415,7 @@ clearly during a software engineering interview.
 
 ---
 
-## 17. Definition of Done
+## 16. Definition of Done
 
 V2 is complete when:
 
@@ -415,10 +426,11 @@ V2 is complete when:
 5. PostgreSQL supports the new relational V2 systems that require it.
 6. Articles can be stored and associated with geographic entities.
 7. Related articles can appear on appropriate place pages.
-8. Users can compare supported places using structured RegionLore data.
-9. AI can explain meaningful geographic comparisons using RegionLore-provided
-   context.
-10. A meaningful "If I Move From X to Y" experience exists.
+8. Users can compare supported cities, metros, or states through the same
+   Compare Places experience using structured RegionLore data.
+9. Users can optionally provide comparison reason/priorities or skip them.
+10. AI can explain meaningful differences and tradeoffs using
+    RegionLore-provided context.
 11. Existing V1 state and metro functionality remains operational.
 12. The deployed application demonstrates the complete core V2 flow.
 13. Major architecture and data-source decisions are documented.
@@ -427,7 +439,7 @@ The moving survey is a stretch goal and is not required for V2 completion.
 
 ---
 
-## 18. After V2
+## 17. After V2
 
 Possible future releases may include:
 
@@ -442,7 +454,11 @@ Possible future releases may include:
 - attractions;
 - historical place timelines;
 - occupation-specific moving analysis;
+- saved/private comparison preferences and profiles;
+- job-offer purchasing-power analysis;
 - RegionLore's own cost-of-living methodology;
+- cross-geography comparison;
+- travel-oriented comparison;
 - community/following systems;
 - international locations;
 - broader geographic hierarchies;
