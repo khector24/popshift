@@ -29,6 +29,35 @@
   font-weight: 600;
 }
 
+.state-detail__compare {
+  display: inline-flex;
+  width: fit-content;
+  align-items: center;
+  gap: 8px;
+
+  margin-top: 18px;
+  padding: 10px 16px;
+
+  border: 1px solid var(--accent);
+  border-radius: 8px;
+
+  background: transparent;
+  color: var(--accent);
+
+  font-size: 14px;
+  font-weight: 700;
+  text-decoration: none;
+
+  transition:
+    background 160ms ease,
+    color 160ms ease;
+}
+
+.state-detail__compare:hover {
+  background: var(--accent);
+  color: white;
+}
+
 .state-detail-grid {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));

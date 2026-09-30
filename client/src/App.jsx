@@ -16,7 +16,7 @@ import States from "./pages/States";
 import StateDetail from "./pages/StateDetail";
 
 // Later implementtion
-// import Compare from "./pages/Compare";
+import Compare from "./pages/Compare";
 
 import About from "./pages/About";
 import Methodology from "./pages/Methodology";
@@ -54,7 +54,7 @@ function AppContent() {
             <Route path="/dashboard" element={<Dashboard />} />
             <Route path="/states" element={<States />} />
             <Route path="/states/:code" element={<StateDetail />} />
-            {/* <Route path="/compare" element={<Compare />} /> */}
+            <Route path="/compare" element={<Compare />} />
             <Route path="/about" element={<About />} />
             <Route path="/methodology" element={<Methodology />} />
             <Route path="/data-sources" element={<DataSources />} />

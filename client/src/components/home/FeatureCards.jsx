@@ -39,22 +39,20 @@ export default function FeatureCards() {
 
         <FeatureCard
           icon={<FaExchangeAlt />}
-          title="Explore Moving"
-          description="Compare two places side-by-side to see how they stack up on what matters most."
-          buttonText="Coming Soon"
-          to="#"
+          title="Compare Places"
+          description="Compare cities, metro areas, or states and focus on what matters most to you."
+          buttonText="Start Comparing"
+          to="/compare"
           color="green"
-          disabled
         />
 
         <FeatureCard
           icon={<FaRegNewspaper />}
           title="Articles & Insights"
           description="In-depth analysis and stories about the trends shaping where Americans live and move."
-          buttonText="Coming Soon"
-          to="#"
+          buttonText="Read Articles"
+          to="/articles"
           color="orange"
-          disabled
         />
       </div>
     </section>

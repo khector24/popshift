@@ -41,14 +41,13 @@ export default function MetroHero({ metro }) {
           <span>{latestPopulationYear} Population Estimate</span>
         </div>
 
-        {/* TODO (V1.1): Re-enable when the Explore Moving page is built.
-
-<button className="metro-hero__button">
-  <FaRoute />
-  Explore Moving
-</button>
-
-*/}
+        <Link
+          className="metro-hero__button"
+          to={`/compare?type=metro&place=${metro.slug}`}
+        >
+          <FaRoute />
+          Compare This Metro
+        </Link>
       </div>
 
       <img

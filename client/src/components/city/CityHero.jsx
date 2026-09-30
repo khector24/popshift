@@ -54,6 +54,13 @@ export default function CityHero({
         </div>
 
         <p className="city-hero__estimate">2025 Population Estimate</p>
+
+        <Link
+          className="city-hero__compare"
+          to={`/compare?type=city&place=${city.slug}`}
+        >
+          Compare This City →
+        </Link>
       </div>
 
       <div className="city-hero__visual">

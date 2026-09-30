@@ -155,10 +155,18 @@ function StateDetail() {
           <main className="state-detail__content">
             <div className="state-detail__header">
               <h1>{stateData.name}</h1>
+
               <p>
                 {stateData.region} <span> &bull; </span> Census {stateData.year}{" "}
                 <span> &bull; </span> State Code {stateData.code}
               </p>
+
+              <Link
+                className="state-detail__compare"
+                to={`/compare?type=state&place=${stateData.code}`}
+              >
+                Compare This State →
+              </Link>
             </div>
 
             <div className="state-detail-grid">

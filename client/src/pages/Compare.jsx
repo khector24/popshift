@@ -1,189 +1,357 @@
-import { useEffect, useState, useRef } from "react";
+import { useEffect, useState } from "react";
 import { useSearchParams } from "react-router-dom";
+import ComparePlaceSelector from "../components/comparison/ComparePlaceSelector.jsx";
+import ComparePersonalization from "../components/comparison/ComparePersonalization.jsx";
 import {
-  getStates,
-  getStateHistoryByCode,
-  getStateEconomics,
-} from "../services/statesApi.js";
-import CompareTable from "../components/ui/CompareTable.jsx";
-import ComparePopulationChart from "../components/ui/ComparePopulationChart.jsx";
-import CompareStateLinks from "../components/ui/CompareStateLinks.jsx";
-
+  getCityComparison,
+  getMetroComparison,
+  getStateComparison,
+} from "../services/comparisonApi.js";
+import { getCityBySlug } from "../services/citiesApi.js";
+import { getMetrosBySlug } from "../services/metrosApi.js";
+import { getStateByCode } from "../services/statesApi.js";
 import "../styles/pages/Compare.css";
+import {
+  FaBuilding,
+  FaCity,
+  FaFlagUsa,
+  FaMapLocationDot,
+} from "react-icons/fa6";
+
+const geographyTypes = [
+  {
+    value: "city",
+    label: "Cities",
+    description: "Compare cities across the country",
+    icon: FaCity,
+  },
+  {
+    value: "metro",
+    label: "Metro Areas",
+    description: "Compare metropolitan areas",
+    icon: FaBuilding,
+  },
+  {
+    value: "state",
+    label: "States",
+    description: "Compare U.S. states",
+    icon: FaFlagUsa,
+  },
+];
 
 export default function Compare() {
-  const [statesData, setStatesData] = useState([]);
-  const [selectedStateCodes, setSelectedStateCodes] = useState([]);
-  const [economicsData, setEconomicsData] = useState([]);
-  const [chartData, setChartData] = useState([]);
-  const [searchParams, setSearchParams] = useSearchParams();
+  const [searchParams] = useSearchParams();
+  const [geographyType, setGeographyType] = useState("city");
+  const [selectedPlaces, setSelectedPlaces] = useState([]);
+  const [comparisonReason, setComparisonReason] = useState(null);
+  const [comparisonPriorities, setComparisonPriorities] = useState([]);
+  const [comparisonPreferences, setComparisonPreferences] = useState({
+    climate: null,
+  });
 
-  const initialStatesFromUrl = useRef(searchParams.get("states"));
+  const [comparisonLoading, setComparisonLoading] = useState(false);
+  const [comparisonError, setComparisonError] = useState(null);
 
   useEffect(() => {
-    async function fetchStates() {
+    async function loadInitialPlace() {
+      const type = searchParams.get("type");
+      const place = searchParams.get("place");
+
+      if (!place) {
+        return;
+      }
+
       try {
-        const result = await getStates({
-          sortBy: "population",
-          order: "desc",
-        });
+        if (type === "city") {
+          const result = await getCityBySlug(place);
 
-        const economicsResult = await getStateEconomics();
-        setEconomicsData(economicsResult.data);
+          setGeographyType("city");
+          setSelectedPlaces([result.city]);
+          return;
+        }
 
-        setStatesData(result.data);
+        if (type === "metro") {
+          const result = await getMetrosBySlug(place);
 
-        if (initialStatesFromUrl.current) {
-          setSelectedStateCodes(initialStatesFromUrl.current.split(","));
-        } else {
-          setSelectedStateCodes([
-            result.data[0]?.code || "",
-            result.data[1]?.code || "",
+          setGeographyType("metro");
+          setSelectedPlaces([
+            {
+              ...result,
+              place_type: "metro",
+            },
           ]);
         }
-      } catch (err) {
-        console.log(err);
+
+        if (type === "state") {
+          const result = await getStateByCode(place);
+
+          setGeographyType("state");
+          setSelectedPlaces([
+            {
+              ...result,
+              place_type: "state",
+              state_fips: result.code,
+            },
+          ]);
+        }
+      } catch (error) {
+        console.error("Unable to load initial place:", error);
       }
     }
 
-    fetchStates();
-  }, []);
+    loadInitialPlace();
+  }, [searchParams]);
 
-  useEffect(() => {
-    async function fetchChartData() {
-      try {
-        const histories = await Promise.all(
-          selectedStateCodes.map((code) => getStateHistoryByCode(code)),
+  const minimumPlaces = 2;
+  const placesNeeded = Math.max(minimumPlaces - selectedPlaces.length, 0);
+  const canCompare = placesNeeded === 0;
+
+  const geographyLabel =
+    geographyType === "city"
+      ? "cities"
+      : geographyType === "metro"
+        ? "metro areas"
+        : "states";
+
+  function handleReset() {
+    setGeographyType("city");
+    setSelectedPlaces([]);
+    setComparisonReason(null);
+    setComparisonPriorities([]);
+    setComparisonPreferences({
+      climate: null,
+    });
+    setComparisonError(null);
+    setComparisonLoading(false);
+  }
+
+  async function handleCompare() {
+    if (!canCompare) {
+      return;
+    }
+
+    try {
+      setComparisonLoading(true);
+      setComparisonError(null);
+
+      let result;
+
+      if (geographyType === "city") {
+        result = await getCityComparison(
+          selectedPlaces.map((place) => place.slug),
         );
-
-        const mergedData = [];
-
-        histories.forEach((history, index) => {
-          history.forEach((point) => {
-            let yearRow = mergedData.find((item) => item.year === point.year);
-
-            if (!yearRow) {
-              yearRow = { year: point.year };
-              mergedData.push(yearRow);
-            }
-
-            const state = statesData.find(
-              (state) => state.code === selectedStateCodes[index],
-            );
-
-            if (state) {
-              yearRow[state.name] = point.population;
-            }
-          });
-        });
-
-        setChartData(mergedData);
-      } catch (err) {
-        console.log(err);
       }
-    }
 
-    if (selectedStateCodes.length > 0 && statesData.length > 0) {
-      fetchChartData();
-    }
-  }, [selectedStateCodes, statesData]);
+      if (geographyType === "metro") {
+        result = await getMetroComparison(
+          selectedPlaces.map((place) => place.slug),
+        );
+      }
 
-  useEffect(() => {
-    if (selectedStateCodes.length > 0) {
-      setSearchParams({
-        states: selectedStateCodes.join(","),
-      });
-    }
-  }, [selectedStateCodes, setSearchParams]);
+      if (geographyType === "state") {
+        result = await getStateComparison(
+          selectedPlaces.map((place) => place.state_fips),
+        );
+      }
 
-  const selectedStates = selectedStateCodes
-    .map((code) => {
-      const state = statesData.find((state) => state.code === code);
-      const economics = economicsData.find((item) => item.code === code);
-
-      if (!state) return null;
-
-      return {
-        ...state,
-        economics: economics || null,
+      const comparisonContext = {
+        geographyType,
+        places: result.places,
+        personalization: {
+          reason: comparisonReason,
+          otherReason:
+            comparisonReason === "other"
+              ? comparisonPreferences.otherReason || null
+              : null,
+          priorities: comparisonPriorities,
+          preferences: {
+            climate: comparisonPriorities.includes("climate")
+              ? comparisonPreferences.climate
+              : null,
+          },
+        },
       };
-    })
-    .filter(Boolean);
+
+      console.log("Comparison context:", comparisonContext);
+    } catch (error) {
+      console.error("Unable to build comparison context:", error);
+      setComparisonError("Unable to load this comparison. Please try again.");
+    } finally {
+      setComparisonLoading(false);
+    }
+  }
 
   return (
-    <div className="compare">
-      <div className="compare__header">
-        <h1>Compare States</h1>
-        <p>
-          Select two to four states to compare population, growth, housing, and
-          income.
-        </p>
-      </div>
+    <main className="compare">
+      <header className="compare__header">
+        <div className="compare__header-icon" aria-hidden="true">
+          <FaMapLocationDot />
+        </div>
 
-      <div className="compare__selectors">
-        {selectedStateCodes.map((code, index) => (
-          <div className="compare__selector" key={index}>
-            <div className="compare__selector-header">
-              <label>State {index + 1}</label>
+        <div>
+          <h1>Compare Places</h1>
+          <p>
+            Compare cities, metro areas, or states and focus on what matters
+            most to you.
+          </p>
+          <p>Add a little context if you want a more focused comparison.</p>
+        </div>
+      </header>
 
-              {selectedStateCodes.length > 2 && (
-                <button
-                  className="compare__remove-button"
-                  type="button"
-                  aria-label={`Remove state ${index + 1}`}
-                  onClick={() => {
-                    const updatedCodes = selectedStateCodes.filter(
-                      (_, i) => i !== index,
-                    );
-                    setSelectedStateCodes(updatedCodes);
-                  }}
-                >
-                  ×
-                </button>
-              )}
-            </div>
+      <section className="compare__section">
+        <div className="compare__section-heading">
+          <span className="compare__step" aria-hidden="true">
+            1
+          </span>
 
-            <select
-              value={code}
-              onChange={(event) => {
-                const updatedCodes = [...selectedStateCodes];
-                updatedCodes[index] = event.target.value;
-                setSelectedStateCodes(updatedCodes);
-              }}
-            >
-              {statesData.map((state) => (
-                <option key={state.code} value={state.code}>
-                  {state.name}
-                </option>
-              ))}
-            </select>
+          <div>
+            <h2>What do you want to compare?</h2>
+            <p>Choose the type of places you want to compare.</p>
           </div>
-        ))}
+        </div>
 
-        <button
-          className="compare__add-button"
-          type="button"
-          disabled={selectedStateCodes.length >= 4}
-          onClick={() => {
-            const nextState = statesData.find(
-              (state) => !selectedStateCodes.includes(state.code),
+        <div className="compare__type-grid">
+          {geographyTypes.map((type) => {
+            const isSelected = geographyType === type.value;
+            const TypeIcon = type.icon;
+
+            return (
+              <button
+                key={type.value}
+                type="button"
+                className={`compare__type-card ${
+                  isSelected ? "compare__type-card--selected" : ""
+                }`}
+                aria-pressed={isSelected}
+                onClick={() => {
+                  setGeographyType(type.value);
+                  setSelectedPlaces([]);
+                }}
+              >
+                <span className="compare__type-icon" aria-hidden="true">
+                  <TypeIcon />
+                </span>
+
+                <span className="compare__type-content">
+                  <strong>{type.label}</strong>
+                  <span>{type.description}</span>
+                </span>
+
+                <span
+                  className={`compare__radio ${
+                    isSelected ? "compare__radio--selected" : ""
+                  }`}
+                  aria-hidden="true"
+                />
+              </button>
             );
+          })}
+        </div>
+      </section>
 
-            if (!nextState) return;
+      <section className="compare__section compare__section--spaced">
+        <div className="compare__section-heading">
+          <span className="compare__step" aria-hidden="true">
+            2
+          </span>
 
-            setSelectedStateCodes([...selectedStateCodes, nextState.code]);
-          }}
-        >
-          + Add State
-        </button>
-      </div>
+          <div>
+            <h2>
+              Choose{" "}
+              {geographyType === "city"
+                ? "cities"
+                : geographyType === "metro"
+                  ? "metro areas"
+                  : "states"}
+            </h2>
 
-      <div className="compare__table-section">
-        <CompareTable states={selectedStates} />
-      </div>
+            <p>Add at least two places to compare.</p>
+          </div>
+        </div>
 
-      <ComparePopulationChart data={chartData} states={selectedStates} />
-      <CompareStateLinks states={selectedStates} />
-    </div>
+        <div className="compare__section-content">
+          <ComparePlaceSelector
+            geographyType={geographyType}
+            selectedPlaces={selectedPlaces}
+            onAddPlace={(place) => {
+              setSelectedPlaces((currentPlaces) => [...currentPlaces, place]);
+            }}
+            onRemovePlace={(placeId) => {
+              setSelectedPlaces((currentPlaces) =>
+                currentPlaces.filter((place) => place.id !== placeId),
+              );
+            }}
+          />
+        </div>
+      </section>
+
+      <section className="compare__section compare__section--spaced">
+        <div className="compare__section-heading">
+          <span className="compare__step" aria-hidden="true">
+            3
+          </span>
+
+          <div>
+            <h2>Personalize your comparison</h2>
+            <p>
+              Add a little context to make your comparison more useful.
+              Everything here is optional.
+            </p>
+          </div>
+        </div>
+
+        <div className="compare__section-content">
+          <ComparePersonalization
+            reason={comparisonReason}
+            priorities={comparisonPriorities}
+            preferences={comparisonPreferences}
+            onReasonChange={setComparisonReason}
+            onPrioritiesChange={setComparisonPriorities}
+            onPreferencesChange={setComparisonPreferences}
+          />
+        </div>
+      </section>
+
+      {comparisonError && (
+        <p className="compare__error" role="alert">
+          {comparisonError}
+        </p>
+      )}
+
+      <section className="compare__actions">
+        <div>
+          {!canCompare ? (
+            <p className="compare__status">
+              {placesNeeded === 1
+                ? "1 more place needed"
+                : `${placesNeeded} more places needed`}
+            </p>
+          ) : (
+            <p className="compare__status compare__status--ready">
+              Ready to compare {selectedPlaces.length} {geographyLabel}
+            </p>
+          )}
+        </div>
+
+        <div className="compare__action-buttons">
+          <button
+            type="button"
+            className="compare__reset"
+            onClick={handleReset}
+          >
+            Reset
+          </button>
+
+          <button
+            type="button"
+            className="compare__submit"
+            disabled={!canCompare || comparisonLoading}
+            onClick={handleCompare}
+          >
+            {comparisonLoading ? "Comparing..." : "Compare Places"}
+          </button>
+        </div>
+      </section>
+    </main>
   );
 }
