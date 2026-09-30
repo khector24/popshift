@@ -1137,10 +1137,21 @@ latest year while historical context may use annual totals, net migration, and
 leading flows.
 
 Phase 14 produces deterministic RegionLore comparison context with no model
-call. Phase 15 may send that context plus optional user-supplied comparison
-reason or priorities to an AI provider. The model may summarize, interpret, and
-explain tradeoffs, but factual geographic metric values should come from
-RegionLore.
+call. The implemented handoff contains the selected `geographyType`, normalized
+RegionLore `places`, and optional personalization containing `reason`,
+`otherReason`, `priorities`, and supported preference refinements such as
+`climate`.
+
+Phase 14 requires at least two selected places. The V2 target range is two to
+four places, but the final upper limit is deliberately deferred to Phase 15.
+That phase should choose whether the V2 maximum is three or four after
+evaluating real AI output quality, response readability, token/cost behavior,
+and result presentation. The comparison backend should not encode that V2
+presentation/model cap as a permanent architectural limit.
+
+Phase 15 may send the structured Phase 14 context to an AI provider. The model
+may summarize, interpret, and explain tradeoffs, but factual geographic metric
+values should come from RegionLore.
 
 AI/provider failure should not make the underlying structured comparison data
 unavailable. Provider/model choice, prompting, token/cost controls, response
