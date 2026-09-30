@@ -109,6 +109,39 @@ describe("GET /api/search", () => {
     expect(dcDistrict.state_fips).toBe("11");
   });
 
+  test("filters search results by metro type before limiting results", async () => {
+    const response = await request(app).get("/api/search?q=new&type=metro");
+
+    expect(response.status).toBe(200);
+    expect(response.body.data.length).toBeGreaterThan(0);
+
+    expect(
+      response.body.data.every((place) => place.place_type === "metro"),
+    ).toBe(true);
+
+    const newYorkMetro = response.body.data.find(
+      (place) => place.slug === "new-york-newark-jersey-city",
+    );
+
+    expect(newYorkMetro).toBeDefined();
+  });
+
+  test("includes federal districts in state-filtered search results", async () => {
+    const response = await request(app).get(
+      "/api/search?q=District&type=state",
+    );
+
+    expect(response.status).toBe(200);
+
+    const districtOfColumbia = response.body.data.find(
+      (place) => place.slug === "district-of-columbia",
+    );
+
+    expect(districtOfColumbia).toBeDefined();
+    expect(districtOfColumbia.place_type).toBe("federal_district");
+    expect(districtOfColumbia.state_fips).toBe("11");
+  });
+
   test("ranks prominent cities ahead of smaller prefix matches", async () => {
     const response = await request(app).get("/api/search?q=san");
 

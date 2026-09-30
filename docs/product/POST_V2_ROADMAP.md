@@ -234,7 +234,97 @@ data-maintenance burden.
 
 ------------------------------------------------------------------------
 
-## 8. Longer-Term Backlog
+## 8. Compare Places - Post-V2 Direction
+
+V2 establishes one coherent **Compare Places** product with structured
+RegionLore facts, optional comparison context, and AI-assisted explanation.
+
+Post-V2 work can deepen that same foundation rather than creating disconnected
+comparison products.
+
+### Directional Move Analysis
+
+Preserve **Directional Move Analysis** as a named capability within Compare
+Places.
+
+The central question is:
+
+> **What changes if I move from here to there?**
+
+Unlike a symmetric A-vs-B comparison, directional analysis treats one place as
+the origin and another as the destination. Future versions can explain changes
+from the user's starting point across dimensions such as:
+
+-   housing costs and housing options;
+-   income and employment context;
+-   commute and transportation;
+-   climate;
+-   crime or safety data where defensible;
+-   taxes;
+-   cost of living;
+-   other RegionLore-supported quality-of-life dimensions.
+
+Possible later personalization includes:
+
+-   saved/private comparison preferences;
+-   occupation or career field;
+-   actual salary or job-offer inputs;
+-   household context;
+-   purchasing-power changes;
+-   RegionLore's own transparent cost-of-living methodology;
+-   richer personal financial context.
+
+These features should remain evidence-first. RegionLore should provide or
+calculate the underlying facts; AI should explain differences and tradeoffs
+rather than independently inventing data or deciding where a user should live.
+
+### Comparison Engine Upgrades
+
+Possible later upgrades include:
+
+-   cross-geography comparison, such as city vs. metro or metro vs. state;
+-   richer priority weighting rather than only selecting important dimensions;
+-   explicit tradeoff modeling, such as affordability vs. location, career
+    opportunity vs. housing cost, or transit access vs. driving;
+-   additional defensible datasets and comparison dimensions;
+-   cached or precomputed AI explanations where they improve cost, speed, or
+    consistency;
+-   saved comparisons and reusable preference profiles if accounts are added.
+
+Cross-geography comparison should only be added when RegionLore can clearly
+communicate differences in geographic definitions and metric availability.
+
+### Place-Detail AI Summaries
+
+A later detail-page enhancement may generate short, readable **At a Glance**
+prose from RegionLore's structured data.
+
+This could be generated and cached when data is refreshed rather than requiring
+a model call on every page view. The purpose would be to make place pages easier
+to read, not to replace the underlying metrics or provenance.
+
+### Travel-Oriented Comparison
+
+The same preference-and-tradeoff engine may eventually support travel questions
+without becoming part of V2.
+
+Travel comparison could emphasize:
+
+-   history and cultural attractions;
+-   beaches and relaxation;
+-   food;
+-   nightlife;
+-   nature;
+-   weather;
+-   budget;
+-   major attractions and things to do.
+
+This is a longer-term extension of RegionLore's place-understanding model, not a
+committed near-term release.
+
+------------------------------------------------------------------------
+
+## 9. Longer-Term Backlog
 
 Ideas already discussed or deferred elsewhere may include:
 
@@ -264,7 +354,7 @@ intentionally promoted into a version plan.
 
 ------------------------------------------------------------------------
 
-## 9. Technical Cleanup and Publishing Enhancements
+## 10. Technical Cleanup and Publishing Enhancements
 
 The following technical improvements are intentionally deferred beyond
 V2. They are not required to complete the current release.
@@ -346,7 +436,7 @@ The exact URL design may use query parameters such as `/articles?tag=...` or
 dedicated tag routes. That decision should be made when tag discovery is
 implemented rather than creating unused V2 routes now.
 
-## 10. Promotion Rule
+## 11. Promotion Rule
 
 A feature should move from this roadmap into a version-specific scope
 only when RegionLore is ready to answer:
@@ -364,12 +454,13 @@ Until then, the feature stays here.
 
 ------------------------------------------------------------------------
 
-## 11. Current Direction Summary
+## 12. Current Direction Summary
 
 ``` text
 V2
 Cities + universal place foundation + climate + current weather +
-crime where defensible + articles + comparison/AI + moving experience
+crime where defensible + articles + unified Compare Places setup +
+AI-assisted comparison
 
 V3
 Migrate/normalize existing state and metro metric systems into the

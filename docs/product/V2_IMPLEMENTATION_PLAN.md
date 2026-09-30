@@ -19,8 +19,8 @@ The implementation should prioritize:
 2. reusable data pipelines;
 3. normalized city data;
 4. useful city pages;
-5. articles and AI comparison;
-6. moving comparison;
+5. articles and structured Compare Places;
+6. AI-assisted place comparison;
 7. stretch features only after the core V2 release is healthy.
 
 V2 should not become a full rewrite of V1 before delivering visible new product value.
@@ -950,7 +950,7 @@ Validation:
 
 # 16. Phase 13 — Articles and Tags
 
-**Status:** Backend complete; frontend integration in progress
+**Status:** Complete
 
 Phase 13 introduces RegionLore's lightweight editorial publishing system.
 
@@ -1442,109 +1442,274 @@ Phase 13 is complete when:
 
 **Phase 13 is complete.**
 
-# 17. Phase 14 — Structured Place Comparison
+# 17. Phase 14 — Structured Place Comparison + Comparison Setup
 
-Before AI, build the deterministic comparison layer.
+**Status:** Complete
 
-The comparison service should assemble normalized RegionLore data for two
-supported places.
+Phase 14 establishes the deterministic comparison layer and the user-facing
+setup experience that supplies structured context to the later AI layer.
 
-Initial focus:
+V2 provides one coherent **Compare Places** experience rather than separate
+general-comparison, Explore Moving, and "If I Move From X to Y" products.
+Moving is one reason a user may compare places, not a separate comparison
+engine.
+
+For V2, comparisons use the same geographic type:
 
 - city vs city;
-- existing state vs state;
-- existing metro vs metro where useful.
+- metro vs metro;
+- state vs state.
 
-Comparison context may include:
+Cross-geography comparison is deferred until RegionLore can present differences
+in geographic definitions and metric availability without misleading users.
 
-- population/growth;
-- income;
-- housing;
-- demographics;
-- transportation;
-- climate;
-- crime where available.
+## Implemented comparison backend
+
+Phase 14 supports:
+
+```text
+GET /api/comparisons/cities?slugs=...
+GET /api/comparisons/states?codes=...
+GET /api/comparisons/metros?slugs=...
+```
+
+The comparison services assemble normalized RegionLore data without AI.
+
+City comparison uses the newer V2 PostgreSQL-backed city data and can provide
+identity and relationships, population/history, economics, education, housing,
+transportation, demographics, climate, crime where available, and provenance.
+
+State comparison intentionally reuses existing V1 state data systems where
+useful. Its normalized profile includes identity/region, population/history,
+economics/housing, education, and migration. The latest migration year retains
+the full available inbound/outbound detail; historical context retains annual
+totals/net migration and leading inbound/outbound flows.
+
+Metro comparison likewise reuses existing V1 metro data systems where useful.
+Its normalized profile includes identity/CBSA/states, population/history,
+economics, education, housing/affordability, transportation, and existing metro
+migration data.
+
+This hybrid implementation is intentional. Phase 14 does not pull the larger
+state/metro metric migration planned for a later release into V2 merely to make
+comparison work.
+
+Missing or unavailable values remain explicit rather than becoming fabricated
+zeroes. Geography types do not need artificial metric parity.
+
+## Implemented comparison setup frontend
+
+The `/compare` experience now supports:
+
+1. choosing Cities, Metro Areas, or States;
+2. searching for, adding, and removing supported places of that type;
+3. optional comparison-reason selection;
+4. optional priority selection;
+5. optional climate preference refinement;
+6. skipping optional personalization;
+7. resetting the setup;
+8. producing structured context ready for Phase 15.
+
+At least two places are required.
+
+The V2 target is **two to four places**. Phase 14 enforces only the minimum of
+two. Phase 15 will decide whether the final V2 maximum is three or four after
+testing real AI output quality, readability, token/cost behavior, and result
+presentation.
+
+That V2 cap should remain a UI/model constraint rather than a permanent backend
+restriction.
+
+Implemented comparison reasons are:
+
+- Moving;
+- Work / career;
+- School / education;
+- Family;
+- Travel / visiting;
+- Just exploring;
+- Other.
+
+`Other` allows a short custom reason.
+
+Implemented priorities are:
+
+- Affordability;
+- Housing;
+- Jobs & income;
+- Transportation;
+- Climate;
+- Safety;
+- Education;
+- Population & growth;
+- Lifestyle.
+
+Climate refinement supports:
+
+- Warmer;
+- Cooler;
+- Four seasons;
+- No preference.
+
+Comparison search is filtered by geography type before the result limit is
+applied. State search includes both `state` and `federal_district`, allowing
+Washington, D.C. to participate through its state-equivalent FIPS code.
+
+Compare Places is reachable from the homepage and from city, metro, and state
+detail pages. Detail-page entry points open `/compare` with the geography type
+and current place preselected.
+
+The Phase 14 handoff contains:
+
+```text
+geographyType
+places
+personalization
+  reason
+  otherReason
+  priorities
+  preferences
+    climate
+```
+
+The place facts come from RegionLore structured comparison APIs.
+Personalization remains optional.
+
+Phase 14 makes **no AI model calls**.
+
+The previous state-only comparison presentation components and supporting
+comparison utilities were removed after the new Compare Places setup replaced
+them. Git history preserves the earlier implementation if any part proves useful
+later.
+
+## Final Phase 14 validation
+
+Backend validation confirms:
+
+```text
+comparison.test.js → 25 passing tests
+search.test.js     →  9 passing tests
+cities.test.js     → 10 passing tests
+articles.test.js   → 27 passing tests
+
+Total              → 71 passing tests
+Test files         →  4 passing
+```
+
+Frontend validation confirms:
+
+- city comparison context works;
+- metro comparison context works;
+- state comparison context works;
+- city detail preselection works;
+- metro detail preselection works;
+- state detail preselection works;
+- reset works;
+- minimum-two-place behavior works;
+- homepage entry works;
+- the production Vite build succeeds after removal of the old state-only
+  comparison components.
 
 ## Exit criteria
 
-- comparison works without AI;
-- the backend produces a clean structured comparison object;
-- missing fields are handled explicitly.
+- [x] city, state, and metro structured comparison APIs work without AI;
+- [x] the backend produces clean normalized comparison objects;
+- [x] missing fields are handled explicitly;
+- [x] the frontend supports same-type place selection and add/remove behavior;
+- [x] homepage and place-detail entry points lead into the same comparison flow;
+- [x] optional comparison reason, priorities, and supported preferences can be supplied or skipped;
+- [x] the resulting RegionLore facts and optional context are ready for Phase 15.
+
+**Phase 14 is complete.**
 
 ---
 
-# 18. Phase 15 — AI Comparison
+# 18. Phase 15 — AI-Assisted Place Comparison
 
-Add the AI layer only after structured comparison data is reliable.
+Add AI to the same **Compare Places** experience established in Phase 14.
 
-The model should receive RegionLore-provided context rather than independently
-inventing geographic facts.
+Phase 15 should consume:
 
-AI responsibilities:
+- RegionLore normalized structured comparison facts;
+- the selected places and geography type;
+- optional comparison reason and custom Other context;
+- optional priorities;
+- supported preference refinements such as climate preference.
 
-- summarize;
-- interpret;
-- explain tradeoffs;
-- personalize based on user-selected preferences.
+The model should receive RegionLore-provided factual context rather than
+independently sourcing or inventing geographic statistics.
 
-Architecture decisions during this phase should include:
+## AI responsibilities
+
+The AI layer should:
+
+- summarize meaningful differences;
+- interpret RegionLore metrics in plain language;
+- explain important tradeoffs;
+- emphasize dimensions relevant to optional user context;
+- acknowledge missing or unavailable data;
+- avoid pretending that every geography type has identical metrics.
+
+The AI should not decide where a user should live. It should help the user
+understand the evidence and tradeoffs so the user can make that decision.
+
+## Result presentation
+
+The comparison result should favor readable, concise explanation over another
+large dashboard of cards.
+
+Supporting metrics, tables, or charts should be shown selectively when they
+help explain the comparison.
+
+The goal is not to repeat every RegionLore number. The goal is to turn
+RegionLore's structured facts into an understandable comparison while keeping
+those facts traceable to RegionLore data.
+
+## Architecture decisions
+
+Phase 15 should establish:
 
 - provider/model selection;
-- prompt/context structure;
-- token/cost controls;
-- response caching/precomputation strategy;
-- safety and error handling.
+- prompt and context structure;
+- token and cost controls;
+- response validation where useful;
+- caching or precomputation strategy for common comparisons;
+- graceful handling of provider/API failure;
+- the final V2 comparison-place maximum within the current two-to-four-place
+  target, based on real AI output quality, readability, token/cost behavior,
+  and result presentation.
+
+The final V2 maximum should remain a UI/model constraint rather than a permanent
+backend limitation.
 
 Do not train a proprietary foundation model for V2.
 
+Advanced personalization is not required for V2. Persistent user profiles,
+saved preferences, occupation-specific salary modeling, job-offer purchasing
+power, custom RegionLore cost-of-living calculations, and full personal
+financial simulation remain later-product work.
+
+A future AI-generated or cached prose "At a Glance" treatment for place-detail
+pages may reuse lessons from this phase, but it is not required for Phase 15
+unless deliberately added to scope later.
+
 ## Exit criteria
 
-- AI explanations use RegionLore data;
-- factual metric values come from RegionLore;
+Phase 15 is complete when:
+
+- AI explanations use the structured comparison context produced by Phase 14;
+- factual geographic metric values come from RegionLore;
+- optional reason/priorities can influence emphasis without changing facts;
+- missing data is communicated rather than invented;
+- the result provides a useful prose-first explanation with selective
+  supporting evidence;
 - provider failure degrades gracefully;
-- common comparisons can later be cached without changing the UI contract.
+- the architecture can support later caching/precomputation without changing
+  the core comparison product.
 
 ---
 
-# 19. Phase 16 — “If I Move From X to Y”
-
-Build the first moving-comparison experience on top of the structured comparison
-and AI layers.
-
-Initial experience may let users select:
-
-- current place;
-- destination;
-- important preferences.
-
-Potential comparison factors:
-
-- income;
-- rent/home value;
-- commute;
-- transportation;
-- weather/climate;
-- demographics;
-- crime when available;
-- population/growth.
-
-V2 does not need:
-
-- occupation-specific salary modeling;
-- custom RegionLore cost-of-living calculations;
-- full personal financial simulation.
-
-## Exit criteria
-
-A user can compare an origin and destination and receive:
-
-1. structured differences;
-2. an AI explanation of tradeoffs;
-3. a useful summary grounded in RegionLore data.
-
----
-
-# 20. Phase 17 — Stretch: Anonymous Moving Survey
+# 19. Phase 16 — Stretch: Anonymous Moving Survey
 
 Only after the core V2 experience works.
 
@@ -1564,7 +1729,7 @@ V2 is complete even if this phase is skipped.
 
 ---
 
-# 21. Phase 18 — Stretch: Officials
+# 20. Phase 17 — Stretch: Officials
 
 Only after the core release is complete and only if sourcing is easy enough to
 justify the work.
@@ -1587,7 +1752,7 @@ If data collection or maintenance becomes annoying, defer the entire feature.
 
 ---
 
-# 22. Explicitly Deferred
+# 21. Explicitly Deferred
 
 The following should not distract from the implementation plan:
 
@@ -1611,7 +1776,7 @@ The following should not distract from the implementation plan:
 
 ---
 
-# 23. Later V1 Metric Migration
+# 22. Later V1 Metric Migration
 
 After V2 is stable, existing V1 state/metro metrics can gradually move into the
 new place-based metric architecture.
@@ -1635,7 +1800,7 @@ easier.
 
 ---
 
-# 24. Recommended Branch Strategy
+# 23. Recommended Branch Strategy
 
 Use focused implementation branches.
 
@@ -1649,8 +1814,8 @@ feature/v2-city-api
 feature/v2-city-ui
 feature/v2-weather
 feature/v2-articles
+feature/v2-structured-comparison
 feature/v2-ai-comparison
-feature/v2-moving-comparison
 ```
 
 Exact branch boundaries may change based on implementation size.
@@ -1659,7 +1824,7 @@ Avoid one enormous `feature/v2` branch containing the entire release.
 
 ---
 
-# 25. Recommended Commit Strategy
+# 24. Recommended Commit Strategy
 
 Continue using small logical commits.
 
@@ -1684,59 +1849,64 @@ Do not force one commit per file.
 
 ---
 
-# 26. V2 Completion Checkpoint
+# 25. V2 Completion Checkpoint
 
 The core V2 release is complete when:
 
-- the geography foundation is stable;
-- approximately 500 cities are supported;
-- city pages work;
-- core city metrics are populated;
-- current weather works;
-- climate works where defensible;
-- crime works where defensible;
-- articles can attach to places;
-- structured comparisons work;
-- AI comparison works;
-- moving X → Y works;
-- existing V1 state/metro functionality remains healthy;
-- the deployed application demonstrates the full core V2 flow.
+- the geography identity and relationship model is stable;
+- the city directory and city detail experience work across the intended city set;
+- city population, ACS profile, climate, and crime data are integrated with
+  explicit provenance and missingness;
+- article publishing and public article browsing work;
+- Compare Places provides a deterministic same-type comparison setup for
+  cities, metro areas, and states;
+- comparison can be entered from the homepage and relevant place-detail pages;
+- optional comparison reason/priorities can be supplied or skipped;
+- AI-assisted comparison uses RegionLore-provided facts to explain meaningful
+  differences and tradeoffs;
+- AI/provider failure does not break access to the underlying structured
+  comparison.
 
 The following do **not** block V2 completion:
 
-- anonymous survey;
-- mayors;
-- governors;
-- accounts/favorites;
-- full V1 metric migration.
+- the anonymous moving survey;
+- officials;
+- cross-geography comparison;
+- full migration of legacy state/metro metrics into the newer place-based
+  backend;
+- persistent accounts or saved comparison preferences;
+- occupation-specific salary or job-offer modeling;
+- custom RegionLore cost-of-living calculations;
+- full personal financial simulation;
+- travel-specific comparison;
+- AI-generated place-detail "At a Glance" prose unless deliberately promoted
+  into V2 scope.
 
 ---
 
-# 27. Implementation Summary
+# 26. Implementation Summary
 
 Recommended order:
 
-```text
-1. Geography schema
-2. Seed V1 identities
-3. 500-city identity pipeline
-4. Data provenance
-5. Population history
-6. ACS city metrics
-7. City API
-8. Search
-9. City frontend
-10. Climate
-11. Current weather
-12. Crime
-13. Articles/tags
-14. Structured comparison
-15. AI comparison
-16. Moving X → Y
-17. Stretch survey
-18. Stretch officials
-19. Later V1 metric migration
-```
+1. Geography/data foundation
+2. City directory and city detail
+3. City population/history
+4. City ACS profile
+5. City climate
+6. City crime
+7. Articles and tags
+8. Structured Place Comparison + Comparison Setup
+9. AI-Assisted Place Comparison
+10. Stretch: Anonymous Moving Survey
+11. Stretch: Officials
+12. Later V1 metric migration
 
-This sequence deliberately delivers visible product value before optional
-cleanup and future-facing features.
+The V2 comparison product should remain one coherent **Compare Places**
+experience. Phase 14 builds its deterministic data and setup layer; Phase 15
+adds AI interpretation to that same flow. A separate "If I Move From X to Y"
+product is not required.
+
+Keep V2 focused on shipping a reliable, understandable product. Broader
+personalization, cross-geography comparison, richer cost-of-living modeling,
+saved/private user context, and travel-oriented comparison belong to later
+product work unless deliberately promoted into scope.

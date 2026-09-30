@@ -1,0 +1,59 @@
+.modal__overlay {
+  position: fixed;
+  z-index: 100;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  padding: 24px;
+  background: rgba(2, 6, 23, 0.72);
+}
+
+.modal {
+  position: relative;
+  width: min(100%, 460px);
+  padding: 24px;
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  background: var(--surface);
+  box-shadow: 0 24px 60px rgba(0, 0, 0, 0.45);
+}
+
+.modal__close {
+  position: absolute;
+  top: 14px;
+  right: 14px;
+  display: grid;
+  width: 32px;
+  height: 32px;
+  place-items: center;
+  padding: 0;
+  border: 0;
+  border-radius: 7px;
+  background: transparent;
+  color: var(--text-muted);
+  cursor: pointer;
+}
+
+.modal__close:hover {
+  background: rgba(255, 255, 255, 0.06);
+  color: var(--text);
+}
+
+.modal__heading {
+  padding-right: 32px;
+}
+
+.modal__heading h3 {
+  margin: 0 0 6px;
+  font-size: 20px;
+}
+
+.modal__heading p {
+  margin: 0;
+  color: var(--text-muted);
+  line-height: 1.5;
+}
+
+.modal__content {
+  margin-top: 22px;
+}

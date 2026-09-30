@@ -8,6 +8,7 @@ import adminAuthRoutes from "./routes/adminAuth.routes.js";
 import adminArticlesRoutes from "./routes/adminArticles.routes.js";
 import publicArticlesRoutes from "./routes/publicArticles.routes.js";
 import placesRoutes from "./routes/places.routes.js";
+import comparisonRoutes from "./routes/comparison.routes.js";
 import cors from "cors";
 import cookieParser from "cookie-parser";
 import { errorHandler } from "./middleware/error.middleware.js";
@@ -36,6 +37,7 @@ app.use("/api/admin/auth", adminAuthRoutes);
 app.use("/api/admin/articles", adminArticlesRoutes);
 app.use("/api/articles", publicArticlesRoutes);
 app.use("/api/places", placesRoutes);
+app.use("/api/comparisons", comparisonRoutes);
 
 // Catch-all 404 middleware
 app.use((req, res) => {

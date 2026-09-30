@@ -1,6 +1,6 @@
 import pool from "../db/index.js";
 
-export async function searchPlaces(query) {
+export async function searchPlaces(query, placeTypes = null) {
   const normalizedQuery = query.trim().toLowerCase().replace(/\s+/g, " ");
 
   if (!normalizedQuery) {
@@ -80,6 +80,10 @@ export async function searchPlaces(query) {
         ON ph.place_id = p.id
 
       WHERE pa.normalized_alias LIKE $1 || '%'
+        AND (
+          $2::text[] IS NULL
+          OR p.place_type = ANY($2::text[])
+        )
 
       GROUP BY
         p.id,
@@ -99,7 +103,7 @@ export async function searchPlaces(query) {
 
       LIMIT 10;
     `,
-    [normalizedQuery],
+    [normalizedQuery, placeTypes],
   );
 
   return result.rows;

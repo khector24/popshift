@@ -147,23 +147,45 @@ future possibilities rather than a Version 2 commitment.
 
 ## 7. Comparison and Relocation
 
-### General place comparison
+### Compare Places
 
 Users should be able to compare supported states, metros, and cities
-across relevant data. AI can eventually explain tradeoffs rather than
-merely displaying side-by-side numbers.
+across relevant RegionLore data. People may compare places because they
+are considering a move, evaluating work or school options, planning a
+visit, or simply exploring.
+
+Structured RegionLore data should remain the factual foundation. AI can
+help explain meaningful differences and tradeoffs rather than merely
+displaying side-by-side numbers.
+
+Version 2 should begin this as one coherent **Compare Places** experience
+rather than separate general-comparison and relocation products.
 
 ### Directional move analysis
 
-A separate but related experience answers: **"What changes if I move
-from here to there?"** The direction matters because origin and
-destination can be compared in terms of housing, income, commute,
-weather, transportation, crime, taxes, cost of living, and other
-available factors.
+Directional move analysis is a deeper capability built on the Compare
+Places foundation. It answers: **"What changes if I move from here to
+there?"**
 
-Future versions may include occupation-specific comparisons---for
-example, expected software-engineering compensation and purchasing-power
-changes---but this is intentionally outside the initial Version 2 scope.
+Direction matters. An origin-to-destination analysis can eventually go
+beyond a symmetric side-by-side comparison and explain how housing,
+income, commute, transportation, climate, crime, taxes, cost of living,
+and other available factors change from the user's starting point to the
+destination.
+
+Version 2 can support moving as a comparison reason and use optional
+priorities to shape the explanation. More advanced directional analysis
+belongs after V2 and may incorporate saved/private preferences,
+occupation-specific comparisons, job-offer purchasing-power analysis,
+RegionLore's own cost-of-living methodology, and richer personal
+financial context.
+
+This remains part of the broader Compare Places product rather than
+requiring a separate top-level application flow.
+
+The same comparison and preference foundation may eventually support
+travel-oriented questions, but travel-specific comparison is not
+required for Version 2.
 
 ### Migration Explorer
 

@@ -12,14 +12,14 @@
   align-items: flex-start;
 }
 
-.metro-hero__content a {
+.metro-hero__content > a:not(.metro-hero__button) {
   margin-bottom: 24px;
   color: var(--text-muted);
   font-size: 14px;
   font-weight: 600;
 }
 
-.metro-hero__content a:hover {
+.metro-hero__content > a:not(.metro-hero__button):hover {
   color: var(--accent);
 }
 
@@ -64,17 +64,27 @@
 }
 
 .metro-hero__button {
-  border: none;
-  background: var(--metro-purple);
-  color: white;
-  border-radius: 10px;
-  padding: 12px 22px;
-  font-weight: 800;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  margin: 0;
+  padding: 12px 18px;
+
+  border: 1px solid var(--metro-purple);
+  border-radius: 8px;
+
+  background: transparent;
+  color: var(--metro-purple);
+
+  font-size: 14px;
+  font-weight: 700;
+  text-decoration: none;
+
   cursor: pointer;
 }
 
 .metro-hero__button:hover {
-  background: #6d28d9;
+  background: var(--metro-purple);
   color: white;
 }
 
