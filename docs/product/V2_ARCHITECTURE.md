@@ -1270,6 +1270,35 @@ This architecture should remain understandable, extensible, and practical rather
 
 ## Phase 15 AI Comparison Architecture Update
 
+### Implemented backend architecture
+
+The Phase 15 backend now exposes `POST /api/comparisons/ai` through the
+existing `/api/comparisons` router.
+
+The request passes through Joi validation before the comparison controller calls
+the AI comparison service. The service reuses the authoritative Phase 14 city,
+metro, or state comparison builder rather than creating a second geographic
+data path.
+
+The resulting RegionLore comparison is prepared by the shared AI context
+builder. The production prompt and OpenAI provider modules are shared with the
+evaluation tooling so the evaluated prompt/provider behavior and production
+behavior do not unnecessarily diverge.
+
+Before generation, the prepared context is fingerprinted. The backend derives a
+cache key from the geography type, ordered place identifiers, personalization,
+provider, model, prompt version, context version, and data fingerprint.
+
+Successful responses are cached in PostgreSQL in
+`ai_comparison_cache` with a 30-day TTL. A valid cache hit bypasses the model.
+A cache miss calls OpenAI `gpt-5.6-luna`, validates that a non-empty response
+was returned, stores the successful response, and returns it to the caller.
+Failed or empty generations are not cached.
+
+The AI endpoint is intentionally separate from the deterministic structured
+comparison endpoints. This allows the frontend to retain and display the
+underlying RegionLore comparison even if AI generation fails.
+
 V2 production AI comparison generation uses **OpenAI `gpt-5.6-luna`** behind a backend service boundary.
 
 The frontend should send selected geography type, place identifiers, and optional personalization. The backend should reconstruct the authoritative RegionLore comparison facts rather than accepting metric values from the browser as truth.

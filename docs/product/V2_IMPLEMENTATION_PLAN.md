@@ -1626,6 +1626,54 @@ Frontend validation confirms:
 
 # 18. Phase 15 — AI-Assisted Place Comparison
 
+## Backend implementation checkpoint
+
+The Phase 15 backend is implemented and validated.
+
+The production endpoint is:
+
+```text
+POST /api/comparisons/ai
+```
+
+The backend flow is:
+
+```text
+request
+→ Joi validation
+→ comparison controller
+→ AI comparison service
+→ authoritative Phase 14 comparison data
+→ compact AI context
+→ data fingerprint and cache key
+→ PostgreSQL cache lookup
+→ OpenAI gpt-5.6-luna generation on cache miss
+→ successful-response cache write
+→ response
+```
+
+The request accepts two to four unique same-type place identifiers plus the
+optional comparison reason, priorities, Other context, and supported preference
+refinements.
+
+The PostgreSQL `ai_comparison_cache` stores successful generated responses
+with the provider, model, prompt version, context version, data fingerprint,
+token metadata, and expiration time. The current cache TTL is 30 days. Expired
+entries are treated as misses. Empty or failed model generations are not cached.
+
+The data fingerprint is derived from the current prepared RegionLore AI context.
+Changes to the underlying comparison facts therefore produce a different cache
+identity rather than reusing prose generated from stale facts.
+
+The production path has been verified with a real request. The first identical
+request generated through `gpt-5.6-luna` and returned `cached: false`; the
+second returned the stored response with `cached: true`.
+
+Backend validation currently passes all 85 tests across 6 test files. Phase 15
+is not yet complete because the frontend AI result experience still needs to be
+connected to this endpoint and its loading, success, failure/retry, and
+structured-data presentation behavior still needs final validation.
+
 Add AI to the same **Compare Places** experience established in Phase 14.
 
 Phase 15 should consume:
