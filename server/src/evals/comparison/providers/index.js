@@ -1,10 +1,10 @@
 import { runDryRun } from "./dryRun.js";
-import { runOpenAI } from "./openai.js";
+import { runOpenAIEvaluation } from "../../../services/aiComparison/openai.js";
 import { runGemini } from "./gemini.js";
 
 const providers = {
   "dry-run": runDryRun,
-  openai: runOpenAI,
+  openai: runOpenAIEvaluation,
   gemini: runGemini,
 };
 

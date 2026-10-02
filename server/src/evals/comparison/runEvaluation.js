@@ -2,7 +2,7 @@ import fs from "node:fs";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
 
-import { buildComparisonPrompt } from "./prompt.js";
+import { buildComparisonPrompt } from "../../services/aiComparison/prompt.js";
 import { getAvailableProviders, getProviderRunner } from "./providers/index.js";
 
 const currentFile = fileURLToPath(import.meta.url);

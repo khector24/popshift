@@ -3,6 +3,7 @@ import {
   buildStateComparison,
   buildMetroComparison,
 } from "../services/comparison.service.js";
+import { generateComparisonExplanation } from "../services/aiComparison/aiComparison.service.js";
 import { AppError } from "../utils/AppError.js";
 
 export async function getCityComparisonController(req, res, next) {
@@ -66,6 +67,31 @@ export function getMetroComparisonController(req, res, next) {
     }
 
     res.json(comparison);
+  } catch (error) {
+    next(error);
+  }
+}
+
+
+export async function postAiComparisonController(req, res, next) {
+  try {
+    const {
+      geographyType,
+      placeIdentifiers,
+      personalization,
+    } = req.body;
+
+    const result = await generateComparisonExplanation({
+      geographyType,
+      placeIdentifiers,
+      personalization,
+    });
+
+    if (!result) {
+      throw new AppError("Invalid AI comparison", 400);
+    }
+
+    res.json(result);
   } catch (error) {
     next(error);
   }
