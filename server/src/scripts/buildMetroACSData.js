@@ -38,7 +38,7 @@ const TABLES = {
     variables: {
       driveAlone: "S0801_C01_003E",
       publicTransit: "S0801_C01_009E",
-      workFromHome: "S0801_C01_012E",
+      workFromHome: "S0801_C01_013E",
       averageCommuteMinutes: "S0801_C01_046E",
     },
   },
