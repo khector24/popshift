@@ -1,0 +1,40 @@
+{
+  "provider": "openai",
+  "model": "gpt-5.6-luna",
+  "geography": "metros",
+  "testCase": "missing-data",
+  "inputTokens": 2399,
+  "outputTokens": 762,
+  "thinkingTokens": null,
+  "totalTokens": 3161,
+  "latencyMs": 8819,
+  "estimatedCost": null,
+  "errors": [],
+  "response": "The biggest contrast is economic: Miami–Fort Lauderdale–West Palm Beach is much larger, more affluent, and growing, while San Juan–Bayamón–Caguas has substantially lower housing costs but lower incomes and a higher poverty rate.\n\nIn 2024, median household income was **$76,527** in Miami versus **$29,276** in San Juan, and poverty was **13.1% versus 37.0%**. Housing is considerably less expensive in San Juan in nominal terms: median rent was **$623**, compared with **$1,869** in Miami, and median home value was **$145,900 versus $443,300**. The supplied affordability ratios are somewhat closer, however: rent represented **25.5% of income** in San Juan and **29.3%** in Miami, while home value-to-income ratios were **5.0 and 5.8**, respectively. That suggests San Juan’s lower prices occur alongside much lower household incomes rather than simply indicating an easier overall economic situation.\n\nThe metros also differ in population trajectory and scale. Miami had about **6.39 million residents in 2025** and was up **4.2% from 2020**; San Juan had about **2.02 million** and was down **2.6%** over the same period. Miami’s 2023 migration data show **99,574 inbound** and **124,213 outbound** movers, for net migration of **−24,639**. San Juan’s migration fields are reported as **zero**, with no origin or destination detail supplied, so the migration comparison is limited.\n\nEducation levels are moderately higher in Miami: **36.7%** of adults had a bachelor’s degree or higher, compared with **32.3%** in San Juan; high-school completion was **87.3% versus 83.3%**. Transportation patterns are more distinct: driving accounted for **69.2%** of commuting in Miami and **81.0%** in San Juan, while transit shares were low in both—**2.4% and 1.1%**. Mean commute times were nearly identical at roughly **29 minutes**, but working from home was more common in Miami (**14.5% versus 6.6%**).\n\nOverall, Miami offers a larger and faster-growing metro with higher incomes, lower poverty, and somewhat stronger education and remote-work measures, but with much higher housing costs. San Juan offers markedly lower nominal housing prices and a lower rent share of income, alongside lower incomes, substantially higher poverty, slower population change, and more driving-oriented commuting.",
+  "scores": {
+    "factualFaithfulness": 5,
+    "comparisonQuality": 5,
+    "missingDataHandling": 5,
+    "personalization": 5,
+    "clarity": 5,
+    "conciseness": 5
+  },
+  "hardFailures": [],
+  "notes": "The response accurately compares the supplied metro-level values, respects the relevant years, and handles San Juan's migration fields cautiously without treating the zero values as a meaningful migration estimate. No user priorities or preferences were supplied, so there was no personalization requirement to address.",
+  "evaluation": {
+    "judgeProvider": "openai",
+    "judgeModel": "gpt-5.6-luna",
+    "judgeInputTokens": 2801,
+    "judgeOutputTokens": 674,
+    "judgeTotalTokens": 3475,
+    "judgeLatencyMs": 7532,
+    "scoreRationales": {
+      "factualFaithfulness": "All cited population, growth, income, poverty, housing, education, transportation, and migration figures match the context. Comparative claims such as larger, growing, lower nominal housing costs, lower rent share, and higher driving share are supported by the supplied values.",
+      "comparisonQuality": "The response explains important tradeoffs rather than merely listing metrics, especially the contrast between nominal housing prices and affordability ratios, as well as income and poverty differences.",
+      "missingDataHandling": "It explicitly notes that San Juan's migration fields are reported as zero and that no origin or destination detail is supplied, appropriately limiting the comparison rather than drawing conclusions from the zero values.",
+      "personalization": "No priorities or preferences were provided in the context, so the neutral, broad comparison is appropriate and does not invent personalization.",
+      "clarity": "The organization is logical, the prose is plain, and the opening summary effectively frames the main contrasts. Numerical comparisons are easy to follow.",
+      "conciseness": "The response is selective and focused on major differences, with enough explanation to make the tradeoffs meaningful and little unnecessary repetition."
+    }
+  }
+}

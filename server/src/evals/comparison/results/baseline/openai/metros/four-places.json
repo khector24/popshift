@@ -1,0 +1,24 @@
+{
+  "provider": "openai",
+  "model": "gpt-5.6-luna",
+  "geography": "metros",
+  "testCase": "four-places",
+  "inputTokens": 5118,
+  "outputTokens": 744,
+  "thinkingTokens": null,
+  "totalTokens": 5862,
+  "latencyMs": 8102,
+  "estimatedCost": 0.0019164,
+  "errors": [],
+  "response": "The biggest tradeoff is between faster-growing, relatively affordable metros and larger, more transit-oriented but costlier ones. Austin and Raleigh have similar median household incomes—about $100,000—but Raleigh is somewhat less expensive on the supplied housing measures. New York offers by far the strongest transit use, while Miami has the weakest affordability and income profile of the four.\n\nAustin is the largest of the two fast-growing southern metros, with 2.62 million residents in 2025 and 13.9% growth since 2020; Raleigh had 1.60 million residents and 12.6% growth. Their economic profiles are close, though Raleigh’s poverty rate is lower—8.7% versus Austin’s 9.8%. Raleigh’s median rent is $1,573 compared with Austin’s $1,726, and its median home value is $418,400 versus $465,000. The supplied affordability ratios also favor Raleigh: homes were valued at 4.2 times median household income, compared with 4.6 in Austin, while rent represented 18.9% versus 20.6% of income.\n\nNew York is much larger—20.1 million residents—but its population grew only 0.6% since 2020, compared with double-digit growth in Austin and Raleigh. It has the highest median rent ($1,830) and home value ($614,200), along with the highest home-value-to-income ratio at 6.2. Its median household income, $99,155, is close to Austin and Raleigh, but its poverty rate is higher at 12.7%. The major transportation distinction is that 24.1% of workers used transit in New York, versus 1.1% in Austin, 0.5% in Raleigh, and 2.4% in Miami. New York also had the longest mean commute at 35.6 minutes.\n\nMiami stands apart economically: its median household income was $76,527, while its poverty rate was 13.1%, the highest in the comparison. Median rent was $1,869—the highest listed—and rent represented 29.3% of income, also clearly the highest. Its population was 6.39 million in 2025, but growth since 2020 was 4.2%, below Austin and Raleigh and above New York’s. Miami also had the lowest bachelor’s-degree attainment, at 36.7%, compared with 50.9% in Austin, 51.2% in Raleigh, and 44.2% in New York.\n\nMigration data from 2023 reinforce the different growth patterns: Austin and Raleigh both had positive net migration, at 18,309 and 14,044 respectively, while Miami and New York had net outflows of 24,639 and 120,800. These figures describe movement during that period rather than explaining why people moved.\n\nIn short, Austin and Raleigh combine strong recent growth, higher incomes, and lower housing-cost ratios, with Raleigh showing the more favorable supplied housing measures. New York provides a much more transit-oriented setting but with higher housing costs, longer commutes, and slower population growth. Miami has substantial population scale but the lowest income and highest rent burden in this comparison.",
+  "scores": {
+    "factualFaithfulness": null,
+    "comparisonQuality": null,
+    "missingDataHandling": null,
+    "personalization": null,
+    "clarity": null,
+    "conciseness": null
+  },
+  "hardFailures": [],
+  "notes": ""
+}

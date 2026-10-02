@@ -1,0 +1,24 @@
+{
+  "provider": "gemini",
+  "model": "gemini-3.8-flash",
+  "geography": "cities",
+  "testCase": "unsupported-priority",
+  "inputTokens": 8205,
+  "outputTokens": 1119,
+  "thinkingTokens": 1231,
+  "totalTokens": 10555,
+  "latencyMs": 10233,
+  "estimatedCost": 0.01496625,
+  "errors": [],
+  "response": "When evaluating a move between Austin, Raleigh, and Denver, the most pronounced differences center on housing costs, day-to-day work patterns, local climates, and reported crime rates. \n\nBecause you noted **lifestyle** as your primary consideration, it is important to clarify that RegionLore does not provide a direct measure for lifestyle itself. However, several supplied dimensions—including climate normals, commuting and remote-work habits, housing tenure, and urban scale—provide tangible context for what day-to-day life looks like in each city.\n\n### Housing and Urban Scale\nThe three cities offer distinctly different residential environments. Raleigh is the smallest in population (506,306 in 2025) but has grown the fastest since 2020 (8.6%). It also features the most accessible housing market of the group, with a 2024 median home value of $415,800 and median rent of $1,572, alongside the highest homeownership rate (50.7%). \n\nIn contrast, Austin is the largest city (over 1 million residents) and is predominantly renter-occupied (56.6%), with a median home value of $555,300 and median rent of $1,729. Denver sits between the two in population (740,613) but carries the highest housing costs, with a 2024 median home value of $616,000 and median rent of $1,831.\n\n### Work and Daily Routine\nHow residents navigate their daily routine also varies:\n* **Austin** has the highest remote-work share among the three at 30.7%, alongside an average commute of 23.7 minutes. \n* **Denver** combines a 27.3% work-from-home rate with slightly higher shares of alternative commuting: 3.8% of workers use transit and 3.6% walk, though it has the longest mean commute at 24.9 minutes.\n* **Raleigh** has a somewhat lower remote-work share (25.8%) and the highest reliance on personal vehicles (62.3% driving alone), with a 23.0-minute average commute.\n\nAll three cities feature highly educated populations, led by Austin where 59.6% of adults hold a bachelor’s degree or higher, followed by Denver (56.5%) and Raleigh (54.0%). Median household incomes are similarly elevated in Denver ($94,718) and Austin ($93,658), compared to Raleigh ($85,395).\n\n### Climate and Environment\nThe physical rhythms of the year differ substantially across the three locations:\n* **Austin** experiences hot summers and mild winters (normal daily highs reach 97.8°F in August, with January highs around 62.5°F and lows around 41.8°F). It sees regular rainfall throughout the year, peaking in May at 5.04 inches.\n* **Denver** is considerably colder and drier. Normal winter low temperatures drop into the upper teens (17.6°F in January and 17.7°F in December), with moderate summer highs near 90.2°F in July. Monthly precipitation is generally light, remaining under an inch for several winter and late-fall months.\n* **Raleigh** provides a four-season profile with moderate winter conditions (normal highs in the low 50s and lows in the low 30s) and warm, humid summers (July normal highs reaching 90.6°F), paired with consistent rainfall averaging between 2.8 and 5.7 inches per month.\n\n### Crime Rates\nReported crime rates from 2024 show notable divergence. Raleigh reported a violent crime rate of 488.8 per 100,000 residents and the lowest property crime rate of the three (2,819.2 per 100,000). Austin reported comparable violent crime (466.9 per 100,000) and a property crime rate of 3,241.9 per 100,000. Denver recorded noticeably higher rates in both categories, with a violent crime rate of 993.0 per 100,000 and a property crime rate of 4,761.6 per 100,000.\n\n---\n\n### Tradeoff Synthesis\nIf your lifestyle priorities lean toward lower housing costs and a balanced, four-season climate with a slight edge toward homeownership, **Raleigh** presents the most favorable financial baseline, balanced against slightly lower median incomes and higher car dependence. \n\nIf your daily life would benefit from a very high work-from-home culture, warm weather year-round, and the amenities of a larger city, **Austin** aligns with those routines, offset by higher housing prices and hot summer peaks. \n\nIf you prefer cooler, drier weather and greater walk and transit usage for daily errands, **Denver** offers that environment, but requires navigating the group's highest housing costs and notably higher rates of reported property and violent crime.",
+  "scores": {
+    "factualFaithfulness": null,
+    "comparisonQuality": null,
+    "missingDataHandling": null,
+    "personalization": null,
+    "clarity": null,
+    "conciseness": null
+  },
+  "hardFailures": [],
+  "notes": ""
+}

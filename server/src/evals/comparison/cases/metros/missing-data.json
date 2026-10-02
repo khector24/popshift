@@ -1,0 +1,230 @@
+{
+  "geographyType": "metro",
+  "places": [
+    {
+      "identity": {
+        "name": "Miami-Fort Lauderdale-West Palm Beach, FL Metro Area",
+        "slug": "miami-fort-lauderdale-west-palm-beach",
+        "placeType": "metro",
+        "cbsa": "33100",
+        "states": [
+          {
+            "name": "Florida",
+            "code": "12",
+            "abbreviation": "FL"
+          }
+        ]
+      },
+      "population": {
+        "current": 6391072,
+        "year": 2025,
+        "growthSince2020": 4.2,
+        "history": [
+          {
+            "year": 2020,
+            "population": 6133159
+          },
+          {
+            "year": 2021,
+            "population": 6110225
+          },
+          {
+            "year": 2022,
+            "population": 6233455
+          },
+          {
+            "year": 2023,
+            "population": 6353900
+          },
+          {
+            "year": 2024,
+            "population": 6399981
+          },
+          {
+            "year": 2025,
+            "population": 6391072
+          }
+        ]
+      },
+      "economics": {
+        "year": 2024,
+        "medianHouseholdIncome": 76527,
+        "povertyRate": 13.1
+      },
+      "education": {
+        "year": 2024,
+        "highSchoolOrHigher": 87.3,
+        "bachelorsOrHigher": 36.7
+      },
+      "housing": {
+        "year": 2024,
+        "medianRent": 1869,
+        "medianHomeValue": 443300,
+        "rentAsPercentOfIncome": 29.3,
+        "homeValueToIncome": 5.8
+      },
+      "transportation": {
+        "year": 2024,
+        "driveShare": 69.2,
+        "transitShare": 2.4,
+        "workFromHomeShare": 14.5,
+        "meanCommuteMinutes": 29.3
+      },
+      "migration": {
+        "year": 2023,
+        "totalInbound": 99574,
+        "totalOutbound": 124213,
+        "netMigration": -24639,
+        "topInbound": [
+          {
+            "name": "New York-Newark-Jersey City, NY-NJ Metro Area",
+            "slug": "new-york-newark-jersey-city",
+            "cbsa": "35620",
+            "movers": 27268
+          },
+          {
+            "name": "Orlando-Kissimmee-Sanford, FL Metro Area",
+            "slug": "orlando-kissimmee-sanford",
+            "cbsa": "36740",
+            "movers": 6589
+          },
+          {
+            "name": "Tampa-St. Petersburg-Clearwater, FL Metro Area",
+            "slug": "tampa-st-petersburg-clearwater",
+            "cbsa": "45300",
+            "movers": 4547
+          },
+          {
+            "name": "Atlanta-Sandy Springs-Roswell, GA Metro Area",
+            "slug": "atlanta-sandy-springs-roswell",
+            "cbsa": "12060",
+            "movers": 3807
+          },
+          {
+            "name": "Washington-Arlington-Alexandria, DC-VA-MD-WV Metro Area",
+            "slug": "washington-arlington-alexandria",
+            "cbsa": "47900",
+            "movers": 3795
+          }
+        ],
+        "topOutbound": [
+          {
+            "name": "Orlando-Kissimmee-Sanford, FL Metro Area",
+            "slug": "orlando-kissimmee-sanford",
+            "cbsa": "36740",
+            "movers": 15181
+          },
+          {
+            "name": "New York-Newark-Jersey City, NY-NJ Metro Area",
+            "slug": "new-york-newark-jersey-city",
+            "cbsa": "35620",
+            "movers": 12572
+          },
+          {
+            "name": "Tampa-St. Petersburg-Clearwater, FL Metro Area",
+            "slug": "tampa-st-petersburg-clearwater",
+            "cbsa": "45300",
+            "movers": 8950
+          },
+          {
+            "name": "Atlanta-Sandy Springs-Roswell, GA Metro Area",
+            "slug": "atlanta-sandy-springs-roswell",
+            "cbsa": "12060",
+            "movers": 8180
+          },
+          {
+            "name": "Cape Coral-Fort Myers, FL Metro Area",
+            "slug": "cape-coral-fort-myers",
+            "cbsa": "15980",
+            "movers": 6378
+          }
+        ]
+      }
+    },
+    {
+      "identity": {
+        "name": "San Juan-Bayamón-Caguas, PR Metro Area",
+        "slug": "san-juan-bayam-n-caguas",
+        "placeType": "metro",
+        "cbsa": "41980",
+        "states": [
+          {
+            "code": null,
+            "abbreviation": "PR"
+          }
+        ]
+      },
+      "population": {
+        "current": 2024195,
+        "year": 2025,
+        "growthSince2020": -2.6,
+        "history": [
+          {
+            "year": 2020,
+            "population": 2078866
+          },
+          {
+            "year": 2021,
+            "population": 2068747
+          },
+          {
+            "year": 2022,
+            "population": 2042268
+          },
+          {
+            "year": 2023,
+            "population": 2033567
+          },
+          {
+            "year": 2024,
+            "population": 2034053
+          },
+          {
+            "year": 2025,
+            "population": 2024195
+          }
+        ]
+      },
+      "economics": {
+        "year": 2024,
+        "medianHouseholdIncome": 29276,
+        "povertyRate": 37
+      },
+      "education": {
+        "year": 2024,
+        "highSchoolOrHigher": 83.3,
+        "bachelorsOrHigher": 32.3
+      },
+      "housing": {
+        "year": 2024,
+        "medianRent": 623,
+        "medianHomeValue": 145900,
+        "rentAsPercentOfIncome": 25.5,
+        "homeValueToIncome": 5
+      },
+      "transportation": {
+        "year": 2024,
+        "driveShare": 81,
+        "transitShare": 1.1,
+        "workFromHomeShare": 6.6,
+        "meanCommuteMinutes": 29.4
+      },
+      "migration": {
+        "year": 2023,
+        "totalInbound": 0,
+        "totalOutbound": 0,
+        "netMigration": 0,
+        "topInbound": [],
+        "topOutbound": []
+      }
+    }
+  ],
+  "personalization": {
+    "reason": "",
+    "otherReason": null,
+    "priorities": [],
+    "preferences": {
+      "climate": null
+    }
+  }
+}

@@ -227,11 +227,20 @@ personal information.
 - Weather preferences
 - Driving, transit, and walkability preferences
 - Nightlife and lifestyle priorities
+- Local age distribution and demographic mix
+- Dating / social-scene considerations where supported by defensible data
 - Retirement or family considerations
 - Future occupation/income context
 
 A 22-year-old without children, a family with children, and a retiree
 may reasonably receive different interpretations of the same place data.
+
+Future comparison personalization may also allow users to express more specific
+social or demographic preferences. For example, a user may care about the share
+of residents in a particular age range, the local sex ratio, or characteristics
+of the dating and social environment. RegionLore should present the underlying
+demographic evidence rather than implying that any single statistic guarantees
+a particular social or relationship outcome.
 
 ## 10. Historical Change
 

@@ -1,0 +1,24 @@
+{
+  "provider": "gemini",
+  "model": "gemini-3.8-flash",
+  "geography": "metros",
+  "testCase": "unsupported-priority",
+  "inputTokens": 4984,
+  "outputTokens": 954,
+  "thinkingTokens": 1413,
+  "totalTokens": 7351,
+  "latencyMs": 9429,
+  "estimatedCost": 0.01261425,
+  "errors": [],
+  "response": "When comparing the Austin, Raleigh, and New York metro areas, the most prominent contrasts emerge between the massive scale, transit reliance, and higher housing costs of the New York metro versus the rapid population growth, widespread remote work, and relatively lower home-price-to-income ratios found in Austin and Raleigh.\n\nBefore evaluating these locations against your relocation preferences, note that **RegionLore does not provide a direct measure for climate**. While the dataset identifies the states in which these metros reside (Texas, North Carolina, and New York/New Jersey), it contains no specific figures for temperatures, sunshine, or weather patterns. The supplied data does, however, provide concrete context on housing, commuting, and population dynamics that are directly relevant when planning a move.\n\n### Commuting, Remote Work, and Daily Mobility\nTransportation patterns diverge sharply between the northeastern and Sunbelt metros. In 2024, the New York metro stood out for public transit usage, with 24.1% of workers commuting via transit and an average commute time of 35.6 minutes. Austin and Raleigh, by contrast, rely predominantly on driving (60.9% and 64.3% drive shares, respectively) with transit accounting for 1.1% or less of commutes. Both Austin and Raleigh feature a high prevalence of remote work—26.8% in Austin and 26.2% in Raleigh in 2024, compared to 16.7% in New York—which aligns with slightly shorter average commute times (27.3 minutes in Austin and 26.8 minutes in Raleigh).\n\n### Housing Costs and Household Economics\nMedian household incomes were fairly uniform across all three metros in 2024, hovering right around $100,000 ($100,431 in Austin, $100,103 in Raleigh, and $99,155 in New York). However, housing costs relative to those incomes vary substantially:\n- **New York** presented the highest financial barrier to homeownership, with a median home value of $614,200 and a home-value-to-income ratio of 6.2. Median rent was $1,830 (22.1% of income), and the poverty rate stood at 12.7%.\n- **Austin** occupied a middle ground, with a median home value of $465,000 (a 4.6 value-to-income ratio) and median rent of $1,726 (20.6% of income).\n- **Raleigh** was the most affordable on these measures, with a median home value of $418,400 (a 4.2 value-to-income ratio) and a median rent of $1,573 (18.9% of income). Raleigh also recorded the lowest poverty rate among the three at 8.7%.\n\nBoth Austin and Raleigh also report higher shares of adults with a bachelor's degree or higher (50.9% and 51.2%, respectively) compared to New York (44.2%).\n\n### Population Scale and Migration Trajectories\nWith over 20.1 million residents in 2025, New York operates on an entirely different scale than Austin (2.62 million) and Raleigh (1.60 million). However, their growth trajectories differ markedly. Between 2020 and 2025, Austin grew by 13.9% and Raleigh grew by 12.6%, while New York grew by 0.6%. This reflects migration patterns captured in 2023: New York experienced a net outflow of 120,800 residents, whereas Austin (+18,309) and Raleigh (+14,044) both recorded net positive migration, including inbound moves from the New York metro area.\n\n### Synthesis of Major Tradeoffs\nIf your primary motivation is seeking a warmer climate, the Austin and Raleigh metros represent southern destinations, though you will need to evaluate external weather information directly since RegionLore does not track climate data. In terms of measured tradeoffs, choosing Austin or Raleigh over New York means trading an extensive transit network and immense metropolitan scale for lower housing-to-income ratios, shorter average commute times, and a higher prevalence of remote work. Between Austin and Raleigh, the two share remarkably similar educational profiles and incomes, but Raleigh offers moderately lower rent and purchase prices alongside slightly lower poverty rates.",
+  "scores": {
+    "factualFaithfulness": null,
+    "comparisonQuality": null,
+    "missingDataHandling": null,
+    "personalization": null,
+    "clarity": null,
+    "conciseness": null
+  },
+  "hardFailures": [],
+  "notes": ""
+}

@@ -470,3 +470,20 @@ Possible future releases may include:
 - broader geographic hierarchies;
 - more sophisticated AI recommendations;
 - large-scale migration of existing geographic data into PostgreSQL.
+
+
+---
+
+## Compare Places Phase 15 Decision Update
+
+For V2, Compare Places supports **two to four same-type places**.
+
+AI-assisted comparison uses **OpenAI `gpt-5.6-luna`** for production generation. Gemini remains part of the evaluated provider history, and Anthropic/Claude or other providers may be evaluated later.
+
+The result stays on the same `/compare` page. After the user clicks **Compare Places**, results render below the setup flow and the page auto-scrolls to them.
+
+The written AI comparison appears first, followed by structured RegionLore data. The structured data remains the factual evidence.
+
+V2 does not require a separate results page, per-section woven AI prose, or a normal Regenerate button. A Retry action is appropriate when AI generation fails.
+
+AI failure should not prevent the structured comparison from rendering.

@@ -1,0 +1,24 @@
+{
+  "provider": "openai",
+  "model": "gpt-5.6-luna",
+  "geography": "states",
+  "testCase": "unsupported-priority",
+  "inputTokens": 3266,
+  "outputTokens": 653,
+  "thinkingTokens": null,
+  "totalTokens": 3919,
+  "latencyMs": 8058,
+  "estimatedCost": 0.0014368000000000002,
+  "errors": [],
+  "response": "The biggest tradeoff is between Texas and North Carolina’s stronger recent growth and positive migration, versus New York’s higher income and education levels but population decline and much more negative migration.\n\nFor a move, **climate is your stated priority, but RegionLore does not provide a direct climate measure**. The supplied South/Northeast regional labels are not enough to establish which state is warmer, so the comparison cannot reliably rank Texas, North Carolina, and New York on that dimension.\n\nEconomically, New York has the highest 2024 median household income at **$85,820**, compared with **$79,721 in Texas** and **$73,958 in North Carolina**. It also has the highest median rent (**$1,634**) and median home value (**$449,800**), making its higher income come with higher reported housing costs. Texas has the lowest median home value (**$313,200**), while North Carolina’s is **$333,000**; North Carolina also has the lowest median rent at **$1,338**.\n\nNorth Carolina has the strongest education profile on several supplied measures: **90.1%** of adults have a high school diploma or higher and **35.7%** have a bachelor’s degree or higher. New York leads on bachelor’s attainment at **40.2%**, while Texas is lower at **33.8%**. In the supplied student scores, North Carolina has the highest math score (**276**), and New York the highest reading score (**257**).\n\nPopulation and migration trends separate the states clearly. From 2020 to 2025, Texas grew **8.5%** and North Carolina **7.2%**, while New York declined **0.6%**. In 2024, Texas had net migration of **72,680** and North Carolina **58,610**; New York had net migration of **−130,436**. Those figures show stronger recent population momentum in the two Southern states, though migration totals are not a direct measure of climate or quality of life.\n\nIn short, **Texas offers the lowest home values and highest income among the two growth states; North Carolina combines the lowest rent with strong education measures; and New York offers the highest income and educational attainment but also the highest housing costs and substantial recent net outmigration**. RegionLore does not supply the climate data needed to determine which best matches your preference for warmer conditions.",
+  "scores": {
+    "factualFaithfulness": null,
+    "comparisonQuality": null,
+    "missingDataHandling": null,
+    "personalization": null,
+    "clarity": null,
+    "conciseness": null
+  },
+  "hardFailures": [],
+  "notes": ""
+}

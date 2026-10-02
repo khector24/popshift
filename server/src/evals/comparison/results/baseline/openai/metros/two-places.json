@@ -1,0 +1,24 @@
+{
+  "provider": "openai",
+  "model": "gpt-5.6-luna",
+  "geography": "metros",
+  "testCase": "two-places",
+  "inputTokens": 2938,
+  "outputTokens": 506,
+  "thinkingTokens": null,
+  "totalTokens": 3444,
+  "latencyMs": 6305,
+  "estimatedCost": 0.0011947999999999998,
+  "errors": [],
+  "response": "Austin-Round Rock-San Marcos is the larger and slightly faster-growing metro: its 2025 population is about 2.62 million, compared with 1.60 million in Raleigh-Cary, and growth since 2020 was 13.9% versus 12.6%. Both had positive net migration in 2023, with Austin gaining 18,309 people and Raleigh gaining 14,044.\n\nEconomically, the two are very similar. Median household income in 2024 was nearly identical—$100,431 in Austin and $100,103 in Raleigh—but Raleigh had the lower poverty rate, 8.7% compared with Austin’s 9.8%. Raleigh also had slightly higher educational attainment, both for high school completion and bachelor’s degrees.\n\nThe clearest practical difference is housing cost. Raleigh’s 2024 median rent was $1,573 versus $1,726 in Austin, and its median home value was $418,400 versus $465,000. The affordability measures point in the same direction: rent was 18.9% of household income in Raleigh compared with 20.6% in Austin, while the median home-value-to-income ratio was 4.2 versus 4.6. These figures suggest Raleigh had the less costly housing profile in the supplied data, though they are metro-level 2024 measures rather than guarantees for every neighborhood or household.\n\nTransportation patterns are broadly alike. Average commute times were close—26.8 minutes in Raleigh and 27.3 in Austin—and work-from-home shares were also similar. Austin had a lower driving share, 60.9% versus 64.3%, and a somewhat higher transit share, though transit remained a small share in both metros.\n\nOverall, Austin offers a larger, somewhat faster-growing metro with nearly the same incomes, while Raleigh combines comparable economic and educational measures with lower reported housing costs, a lower poverty rate, and a slightly shorter average commute.",
+  "scores": {
+    "factualFaithfulness": null,
+    "comparisonQuality": null,
+    "missingDataHandling": null,
+    "personalization": null,
+    "clarity": null,
+    "conciseness": null
+  },
+  "hardFailures": [],
+  "notes": ""
+}

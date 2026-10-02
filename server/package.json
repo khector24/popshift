@@ -32,6 +32,8 @@
     "seed:city-acs": "node src/scripts/seedCityAcsProfiles.js"
   },
   "dependencies": {
+    "@anthropic-ai/sdk": "^0.130.0",
+    "@google/genai": "^2.24.0",
     "@turf/boolean-point-in-polygon": "^7.4.0",
     "@turf/intersect": "^7.4.0",
     "bcrypt": "^6.0.0",
@@ -43,6 +45,7 @@
     "joi": "^18.2.9",
     "jsonwebtoken": "^9.0.3",
     "nodemon": "^3.1.14",
+    "openai": "^7.25.0",
     "pg": "^8.23.0",
     "shpjs": "^6.2.0"
   },

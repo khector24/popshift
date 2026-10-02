@@ -1,0 +1,40 @@
+{
+  "provider": "gemini",
+  "model": "gemini-3.8-flash",
+  "geography": "states",
+  "testCase": "unsupported-priority",
+  "inputTokens": 4214,
+  "outputTokens": 619,
+  "thinkingTokens": 1033,
+  "totalTokens": 5866,
+  "latencyMs": 7972,
+  "estimatedCost": 0.0093555,
+  "errors": [],
+  "response": "While you are considering a move with a preference for a warmer climate, RegionLore does not provide a direct measure for climate or weather conditions. However, RegionLore does identify Texas and North Carolina as Southern states and New York as a Northeast state, alongside clear differences in their growth trajectories, housing costs, and educational indicators.\n\nThe clearest dividing line among these states is in their migration and population patterns. Texas and North Carolina have experienced steady growth between 2020 and 2025, expanding by 8.5% (reaching roughly 31.7 million residents) and 7.2% (reaching 11.2 million), respectively. Both sustained positive net inbound migration in 2024—Texas gained a net 72,680 residents, while North Carolina added 58,610. In contrast, New York saw a net loss of 130,436 movers in 2024, contributing to an overall population decline of 0.6% between 2020 and 2025 (to 20.0 million). Notably, Texas was one of the top five outbound destinations for movers leaving New York in 2024, receiving over 28,000 former New Yorkers.\n\nEconomic and housing metrics reveal distinct tradeoffs across the three states. In 2024, New York reported the highest median household income ($85,820) and the highest bachelor’s degree attainment rate (40.2%), but it also carried the highest housing costs, with a median rent of $1,634 and a median home value of $449,800. \n\nBy comparison, Texas and North Carolina present lower median housing costs:\n* **Texas** pairs a median household income of $79,721 with a median home value of $313,200 and median rent of $1,475.\n* **North Carolina** recorded a median household income of $73,958, alongside the lowest median rent among the three at $1,338 and a median home value of $333,000. North Carolina also shows higher educational attainment metrics than Texas, with 90.1% of residents holding a high school diploma or higher (compared to 86.0% in Texas) and slightly higher test scores in both reading (255 vs. 252) and math (276 vs. 269).\n\n### Synthesis of Tradeoffs\n\nAlthough RegionLore cannot directly verify climate characteristics to address your preference for warmer weather, Texas and North Carolina represent Southern options characterized by steady inbound migration and comparatively lower housing costs. The primary tradeoff lies between the higher earning baselines and degree attainment rates of New York—balanced against substantially steeper housing costs and net population decline—versus the lower housing expenses and expanding populations found in Texas and North Carolina.",
+  "scores": {
+    "factualFaithfulness": 5,
+    "comparisonQuality": 5,
+    "missingDataHandling": 5,
+    "personalization": 4,
+    "clarity": 5,
+    "conciseness": 5
+  },
+  "hardFailures": [],
+  "notes": "The response accurately compares the supplied population, migration, income, housing, and education values. It explicitly states that RegionLore lacks direct climate data and avoids making an unsupported warmer-climate claim. Personalization is strong given the data limitation, though it cannot fully evaluate the user's climate priority.",
+  "evaluation": {
+    "judgeProvider": "openai",
+    "judgeModel": "gpt-5.6-luna",
+    "judgeInputTokens": 3678,
+    "judgeOutputTokens": 843,
+    "judgeTotalTokens": 4521,
+    "judgeLatencyMs": 8561,
+    "scoreRationales": {
+      "factualFaithfulness": "All stated comparative claims are supported by the supplied values: Texas and North Carolina have positive growth and 2024 net migration, New York has negative growth and net migration, New York has the highest income and bachelor's attainment, and its rent and home value are highest. The New York-to-Texas migration figure is also accurate.",
+      "comparisonQuality": "The response explains meaningful tradeoffs among growth, migration, housing costs, income, education, and population decline rather than merely listing metrics. It appropriately contrasts New York with the two Southern states.",
+      "missingDataHandling": "It clearly acknowledges that direct climate or weather measures are unavailable and does not treat regional labels as proof of warmer conditions or invent climate data.",
+      "personalization": "It directly addresses the user's move and warmer-climate preference and explains the limitation. It uses the supplied regional information only as contextual framing, but the unsupported climate priority cannot be substantively evaluated.",
+      "clarity": "The organization, headings, prose, and bullet points make the comparison easy to follow. Values and years are generally clear.",
+      "conciseness": "The response is selective, avoids unnecessary metrics, and provides a focused synthesis without excessive repetition."
+    }
+  }
+}

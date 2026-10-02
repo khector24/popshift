@@ -1,0 +1,427 @@
+{
+  "geographyType": "state",
+  "places": [
+    {
+      "identity": {
+        "name": "Texas",
+        "code": "48",
+        "placeType": "state",
+        "region": "South"
+      },
+      "population": {
+        "current": 31709821,
+        "year": 2025,
+        "growthSince2020": 8.5,
+        "history": [
+          {
+            "year": 2020,
+            "population": 29237895
+          },
+          {
+            "year": 2021,
+            "population": 29572672
+          },
+          {
+            "year": 2022,
+            "population": 30118002
+          },
+          {
+            "year": 2023,
+            "population": 30719247
+          },
+          {
+            "year": 2024,
+            "population": 31318578
+          },
+          {
+            "year": 2025,
+            "population": 31709821
+          }
+        ]
+      },
+      "economics": {
+        "year": 2024,
+        "medianHouseholdIncome": 79721,
+        "medianRent": 1475,
+        "medianHomeValue": 313200
+      },
+      "education": {
+        "year": 2024,
+        "highSchoolOrHigher": 86,
+        "bachelorsOrHigher": 33.8,
+        "readingScore": 252,
+        "mathScore": 269
+      },
+      "migration": {
+        "latestYear": 2024,
+        "totalInbound": 556156,
+        "totalOutbound": 483476,
+        "netMigration": 72680,
+        "topInbound": [
+          {
+            "state": "California",
+            "code": "06",
+            "movers": 77161
+          },
+          {
+            "state": "Florida",
+            "code": "12",
+            "movers": 52219
+          },
+          {
+            "state": "New York",
+            "code": "36",
+            "movers": 28233
+          },
+          {
+            "state": "Louisiana",
+            "code": "22",
+            "movers": 24170
+          },
+          {
+            "state": "Illinois",
+            "code": "17",
+            "movers": 23509
+          }
+        ],
+        "topOutbound": [
+          {
+            "state": "California",
+            "code": "06",
+            "movers": 45447
+          },
+          {
+            "state": "Florida",
+            "code": "12",
+            "movers": 45259
+          },
+          {
+            "state": "Oklahoma",
+            "code": "40",
+            "movers": 28074
+          },
+          {
+            "state": "Colorado",
+            "code": "08",
+            "movers": 27574
+          },
+          {
+            "state": "Georgia",
+            "code": "13",
+            "movers": 20968
+          }
+        ],
+        "history": [
+          {
+            "year": 2021,
+            "totalInbound": 591395,
+            "totalOutbound": 447363,
+            "netMigration": 144032
+          },
+          {
+            "year": 2022,
+            "totalInbound": 668338,
+            "totalOutbound": 494077,
+            "netMigration": 174261
+          },
+          {
+            "year": 2023,
+            "totalInbound": 611942,
+            "totalOutbound": 478570,
+            "netMigration": 133372
+          },
+          {
+            "year": 2024,
+            "totalInbound": 556156,
+            "totalOutbound": 483476,
+            "netMigration": 72680
+          }
+        ]
+      }
+    },
+    {
+      "identity": {
+        "name": "North Carolina",
+        "code": "37",
+        "placeType": "state",
+        "region": "South"
+      },
+      "population": {
+        "current": 11197968,
+        "year": 2025,
+        "growthSince2020": 7.2,
+        "history": [
+          {
+            "year": 2020,
+            "population": 10450215
+          },
+          {
+            "year": 2021,
+            "population": 10565503
+          },
+          {
+            "year": 2022,
+            "population": 10705768
+          },
+          {
+            "year": 2023,
+            "population": 10871849
+          },
+          {
+            "year": 2024,
+            "population": 11052061
+          },
+          {
+            "year": 2025,
+            "population": 11197968
+          }
+        ]
+      },
+      "economics": {
+        "year": 2024,
+        "medianHouseholdIncome": 73958,
+        "medianRent": 1338,
+        "medianHomeValue": 333000
+      },
+      "education": {
+        "year": 2024,
+        "highSchoolOrHigher": 90.1,
+        "bachelorsOrHigher": 35.7,
+        "readingScore": 255,
+        "mathScore": 276
+      },
+      "migration": {
+        "latestYear": 2024,
+        "totalInbound": 299782,
+        "totalOutbound": 241172,
+        "netMigration": 58610,
+        "topInbound": [
+          {
+            "state": "Florida",
+            "code": "12",
+            "movers": 33591
+          },
+          {
+            "state": "South Carolina",
+            "code": "45",
+            "movers": 29982
+          },
+          {
+            "state": "Virginia",
+            "code": "51",
+            "movers": 28409
+          },
+          {
+            "state": "Georgia",
+            "code": "13",
+            "movers": 19031
+          },
+          {
+            "state": "California",
+            "code": "06",
+            "movers": 18428
+          }
+        ],
+        "topOutbound": [
+          {
+            "state": "South Carolina",
+            "code": "45",
+            "movers": 33151
+          },
+          {
+            "state": "Florida",
+            "code": "12",
+            "movers": 25865
+          },
+          {
+            "state": "Virginia",
+            "code": "51",
+            "movers": 22757
+          },
+          {
+            "state": "Texas",
+            "code": "48",
+            "movers": 15679
+          },
+          {
+            "state": "Georgia",
+            "code": "13",
+            "movers": 15283
+          }
+        ],
+        "history": [
+          {
+            "year": 2021,
+            "totalInbound": 336681,
+            "totalOutbound": 237275,
+            "netMigration": 99406
+          },
+          {
+            "year": 2022,
+            "totalInbound": 341582,
+            "totalOutbound": 259422,
+            "netMigration": 82160
+          },
+          {
+            "year": 2023,
+            "totalInbound": 339255,
+            "totalOutbound": 232663,
+            "netMigration": 106592
+          },
+          {
+            "year": 2024,
+            "totalInbound": 299782,
+            "totalOutbound": 241172,
+            "netMigration": 58610
+          }
+        ]
+      }
+    },
+    {
+      "identity": {
+        "name": "New York",
+        "code": "36",
+        "placeType": "state",
+        "region": "Northeast"
+      },
+      "population": {
+        "current": 20002427,
+        "year": 2025,
+        "growthSince2020": -0.6,
+        "history": [
+          {
+            "year": 2020,
+            "population": 20122262
+          },
+          {
+            "year": 2021,
+            "population": 19835345
+          },
+          {
+            "year": 2022,
+            "population": 19713025
+          },
+          {
+            "year": 2023,
+            "population": 19786543
+          },
+          {
+            "year": 2024,
+            "population": 20001419
+          },
+          {
+            "year": 2025,
+            "population": 20002427
+          }
+        ]
+      },
+      "economics": {
+        "year": 2024,
+        "medianHouseholdIncome": 85820,
+        "medianRent": 1634,
+        "medianHomeValue": 449800
+      },
+      "education": {
+        "year": 2024,
+        "highSchoolOrHigher": 88,
+        "bachelorsOrHigher": 40.2,
+        "readingScore": 257,
+        "mathScore": 271
+      },
+      "migration": {
+        "latestYear": 2024,
+        "totalInbound": 284868,
+        "totalOutbound": 415304,
+        "netMigration": -130436,
+        "topInbound": [
+          {
+            "state": "New Jersey",
+            "code": "34",
+            "movers": 36002
+          },
+          {
+            "state": "California",
+            "code": "06",
+            "movers": 31367
+          },
+          {
+            "state": "Florida",
+            "code": "12",
+            "movers": 28080
+          },
+          {
+            "state": "Pennsylvania",
+            "code": "42",
+            "movers": 23152
+          },
+          {
+            "state": "Massachusetts",
+            "code": "25",
+            "movers": 17862
+          }
+        ],
+        "topOutbound": [
+          {
+            "state": "New Jersey",
+            "code": "34",
+            "movers": 56799
+          },
+          {
+            "state": "Florida",
+            "code": "12",
+            "movers": 50661
+          },
+          {
+            "state": "Pennsylvania",
+            "code": "42",
+            "movers": 29274
+          },
+          {
+            "state": "Texas",
+            "code": "48",
+            "movers": 28233
+          },
+          {
+            "state": "Connecticut",
+            "code": "09",
+            "movers": 25095
+          }
+        ],
+        "history": [
+          {
+            "year": 2021,
+            "totalInbound": 287249,
+            "totalOutbound": 571041,
+            "netMigration": -283792
+          },
+          {
+            "year": 2022,
+            "totalInbound": 301461,
+            "totalOutbound": 545598,
+            "netMigration": -244137
+          },
+          {
+            "year": 2023,
+            "totalInbound": 302835,
+            "totalOutbound": 481544,
+            "netMigration": -178709
+          },
+          {
+            "year": 2024,
+            "totalInbound": 284868,
+            "totalOutbound": 415304,
+            "netMigration": -130436
+          }
+        ]
+      }
+    }
+  ],
+  "personalization": {
+    "reason": "",
+    "otherReason": null,
+    "priorities": [],
+    "preferences": {
+      "climate": null
+    }
+  }
+}

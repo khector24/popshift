@@ -1,0 +1,40 @@
+{
+  "provider": "openai",
+  "model": "gpt-5.6-luna",
+  "geography": "cities",
+  "testCase": "unsupported-priority",
+  "inputTokens": 6878,
+  "outputTokens": 768,
+  "thinkingTokens": null,
+  "totalTokens": 7646,
+  "latencyMs": 9129,
+  "estimatedCost": null,
+  "errors": [],
+  "response": "Lifestyle itself is not directly measured by the supplied RegionLore data, but climate, housing, transportation, population change, and demographics provide useful context.\n\nThe clearest lifestyle distinction is climate. Austin is the warmest, with normal summer highs around 97–98°F and mild winters. Raleigh is cooler in summer and winter, while Denver has the coldest winters—normal January lows are about 18°F—and relatively low precipitation throughout the year. Raleigh is the wettest of the three, especially from June through September. These are 1991–2020 climate normals, so they describe long-term patterns rather than current-year conditions.\n\nHousing costs favor Raleigh on the listed measures: its 2024 median rent was $1,572 and median home value $415,800, compared with $1,729 and $555,300 in Austin and $1,831 and $616,000 in Denver. Austin and Denver had higher median household incomes—$93,658 and $94,718 versus Raleigh’s $85,395—so the tradeoff is lower housing costs in Raleigh versus higher reported incomes in the other two cities.\n\nThe cities also differ in scale and growth. Austin is the largest, at about 1.0 million residents in 2025, while Denver had about 741,000 and Raleigh about 506,000. Raleigh grew fastest since 2020, at 8.6%, compared with Austin’s 4.2% and Denver’s 3.2%. Transportation patterns are broadly car-oriented in all three, with mean commutes close to 23–25 minutes. Denver stands out for higher transit and walking shares, while Austin has the highest work-from-home share.\n\nReported 2024 city crime rates also differ, though they should be interpreted as city-level law-enforcement data rather than a complete measure of day-to-day experience. Denver’s violent- and property-crime rates were higher than Austin’s and Raleigh’s; Raleigh’s violent-crime rate was slightly higher than Austin’s, while Austin’s property-crime rate was higher than Raleigh’s.\n\nOverall, Raleigh offers the lowest listed housing costs and fastest recent growth, with a moderate climate. Austin offers the warmest weather, the largest population, and the highest work-from-home share, but higher housing costs. Denver combines the highest income and housing costs with colder, drier weather and somewhat more non-driving transportation—but also the highest reported crime rates among the three.",
+  "scores": {
+    "factualFaithfulness": 5,
+    "comparisonQuality": 5,
+    "missingDataHandling": 5,
+    "personalization": 5,
+    "clarity": 5,
+    "conciseness": 5
+  },
+  "hardFailures": [],
+  "notes": "The response accurately uses the supplied city-level values, years, and climate-normal period. Comparative claims about climate, housing, population, growth, transportation, income, and crime are supported by all relevant supplied values. It explicitly notes that lifestyle is not directly measured and appropriately uses supplied proxy metrics without inventing data or causal claims.",
+  "evaluation": {
+    "judgeProvider": "openai",
+    "judgeModel": "gpt-5.6-luna",
+    "judgeInputTokens": 7233,
+    "judgeOutputTokens": 731,
+    "judgeTotalTokens": 7964,
+    "judgeLatencyMs": 7457,
+    "scoreRationales": {
+      "factualFaithfulness": "All quoted figures and comparative statements match the RegionLore context. Austin is correctly identified as largest and warmest, Raleigh as fastest-growing and lowest-cost on the listed housing measures, and Denver as highest-income, coldest, and highest on the supplied crime rates.",
+      "comparisonQuality": "The response explains meaningful tradeoffs among climate, housing costs, income, growth, transportation, scale, and crime rather than merely listing metrics. The concluding synthesis is consistent with the evidence.",
+      "missingDataHandling": "It explicitly states that lifestyle is not directly measured and treats the supplied metrics as contextual proxies. It also correctly qualifies climate normals and crime data instead of presenting them as current conditions or complete lived experience.",
+      "personalization": "The user's lifestyle priority clearly shapes the emphasis on climate, housing, transportation, population change, demographics, and crime. The response also acknowledges the limitation that lifestyle itself is not directly represented in the supplied data.",
+      "clarity": "The organization is easy to follow, with clear thematic paragraphs and plain-language tradeoffs. Figures are presented in understandable units and the conclusion summarizes the main distinctions.",
+      "conciseness": "It is selective and appropriately detailed for a three-city lifestyle comparison, with little repetition and no unnecessary metric dumping."
+    }
+  }
+}

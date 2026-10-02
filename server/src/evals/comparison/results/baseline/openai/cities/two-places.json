@@ -1,0 +1,24 @@
+{
+  "provider": "openai",
+  "model": "gpt-5.6-luna",
+  "geography": "cities",
+  "testCase": "two-places",
+  "inputTokens": 4856,
+  "outputTokens": 618,
+  "thinkingTokens": null,
+  "totalTokens": 5474,
+  "latencyMs": 6571,
+  "estimatedCost": 0.0017128,
+  "errors": [],
+  "response": "Austin and Raleigh offer a similar commute burden, but differ most in scale, housing costs, climate, and growth. Austin is much larger—about 1.00 million residents in 2025 versus Raleigh’s 506,000—while Raleigh grew faster since 2020, at 8.6% compared with Austin’s 4.2%.\n\nAustin has the stronger income and education figures: 2024 median household income was $93,658 versus $85,395 in Raleigh, and the share of adults with a bachelor’s degree or higher was 59.6% versus 54.0%. That comes with more expensive housing: median rent was $1,729 in Austin compared with $1,572 in Raleigh, and median home value was $555,300 versus $415,800. Raleigh also had a slightly lower unemployment rate, 4.4% versus 4.7%.\n\nThe climate contrast is pronounced in the 1991–2020 NOAA normals. Austin is warmer year-round, with normal July and August highs around 96.6–97.8°F, while Raleigh’s are 90.6°F and 88.7°F. Raleigh has cooler winters and generally higher monthly precipitation, especially from June through September.\n\nCommutes are nearly identical—23.7 minutes in Austin and 23.0 in Raleigh—but Austin has a higher work-from-home share, 30.7% versus 25.8%. Both rely primarily on driving, with Raleigh’s drive share somewhat higher.\n\nCrime data for 2024 show a mixed picture rather than a clear overall difference. Raleigh’s violent-crime rate was slightly higher, 488.8 versus 466.9 per 100,000 reporting residents, while Austin’s property-crime rate was higher, 3,241.9 versus 2,819.2. These are city-level rates from jurisdictions with available coverage, not metro-area measures.\n\nIn short, Austin pairs higher incomes, more educational attainment, a larger population, and a warmer climate with notably higher housing costs and property crime. Raleigh is smaller and growing faster, with lower housing costs, cooler and wetter climate normals, and a somewhat lower property-crime rate, while its violent-crime rate was slightly higher in the 2024 data.",
+  "scores": {
+    "factualFaithfulness": null,
+    "comparisonQuality": null,
+    "missingDataHandling": null,
+    "personalization": null,
+    "clarity": null,
+    "conciseness": null
+  },
+  "hardFailures": [],
+  "notes": ""
+}

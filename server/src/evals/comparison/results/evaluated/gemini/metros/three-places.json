@@ -1,0 +1,40 @@
+{
+  "provider": "gemini",
+  "model": "gemini-3.8-flash",
+  "geography": "metros",
+  "testCase": "three-places",
+  "inputTokens": 4971,
+  "outputTokens": 941,
+  "thinkingTokens": 775,
+  "totalTokens": 6687,
+  "latencyMs": 7239,
+  "estimatedCost": null,
+  "errors": [],
+  "response": "This comparison highlights a contrast between a massive, transit-oriented global hub and two fast-growing mid-sized metros that feature high remote-work rates and lower housing costs relative to income. \n\n### Scale, Growth, and Mobility\nThe most immediate difference is population scale and trajectory. The New York metro area is by far the largest of the three, with over 20.1 million residents in 2025, but its population has expanded by just 0.6% since 2020, alongside a net domestic migration deficit of 120,800 people in 2023. In contrast, the Austin and Raleigh metros are much smaller—at roughly 2.62 million and 1.60 million residents, respectively—yet both have experienced rapid expansion, growing by 13.9% in Austin and 12.6% in Raleigh between 2020 and 2025. In 2023, both southern metros posted positive net migration (+18,309 in Austin and +14,044 in Raleigh), with New York ranking among the top origins of inbound movers for both regions.\n\n### Income, Education, and Housing Costs\nDespite substantial differences in size and geography, median household incomes across all three metros were remarkably similar in 2024, hovering around $100,000 ($100,431 in Austin, $100,103 in Raleigh, and $99,155 in New York). The poverty rate, however, varied more, ranging from 8.7% in Raleigh and 9.8% in Austin to 12.7% in New York. Austin and Raleigh also share slightly higher shares of adults with a bachelor’s degree or higher (50.9% and 51.2%, respectively) compared to New York (44.2%).\n\nWhere these metros diverge sharply is in how housing costs interact with those earnings:\n* **New York** carries the highest housing cost burdens. Its 2024 median home value reached $614,200—yielding a home value-to-income ratio of 6.2—while median rent was $1,830 (consuming 22.1% of median household income).\n* **Austin** sits in the middle, with a median home value of $465,000 (a 4.6 value-to-income ratio) and a median rent of $1,726 (20.6% of income).\n* **Raleigh** offers the lowest relative housing burden of the group, with a median home value of $418,400 (a 4.2 ratio) and a median rent of $1,573 (18.9% of income).\n\n### Transportation and Commuting\nDaily transit patterns illustrate another major tradeoff. New York stands apart with heavy public transit use (a 24.1% transit commute share) and a lower share of drivers (44.6%), though it also sees the longest average commute at 35.6 minutes. \n\nAustin and Raleigh display very different commuting structures, marked by car reliance (driving shares of 60.9% in Austin and 64.3% in Raleigh) and minimal public transit adoption (1.1% and 0.5%, respectively). However, both metros feature substantial remote-work footprints, with 26.8% of Austin workers and 26.2% of Raleigh workers working from home in 2024, compared to 16.7% in New York. Mean commute times in both Austin (27.3 minutes) and Raleigh (26.8 minutes) are notably shorter than in New York.\n\n### Synthesis of Tradeoffs\nThe primary tradeoff lies between the scale and transit infrastructure of New York versus the lower housing burdens and high remote-work adoption of Austin and Raleigh. New York offers an established transit network and unmatched metropolitan scale, but comes with higher housing costs relative to income and longer commute times. Austin and Raleigh offer similar household income levels with noticeably lower home price-to-income ratios and shorter commutes, though they require greater reliance on personal vehicles and represent substantially smaller regional footprints. Between the two smaller metros, Raleigh features slightly lower housing costs and a lower poverty rate, while Austin offers a somewhat larger population base and higher total migration volume.",
+  "scores": {
+    "factualFaithfulness": 4,
+    "comparisonQuality": 5,
+    "missingDataHandling": 5,
+    "personalization": 5,
+    "clarity": 5,
+    "conciseness": 5
+  },
+  "hardFailures": [],
+  "notes": "The response accurately uses the supplied values, years, and metro identities, and its major comparative claims are supported across all three metros. Minor concerns are unsupported qualitative phrasing such as “global hub” and “established transit network,” plus the somewhat vague claim that Austin has a “higher total migration volume” without specifying inbound versus outbound. There are no personalization priorities in the context, so the lack of personalized emphasis is appropriate.",
+  "evaluation": {
+    "judgeProvider": "openai",
+    "judgeModel": "gpt-5.6-luna",
+    "judgeInputTokens": 4759,
+    "judgeOutputTokens": 723,
+    "judgeTotalTokens": 5482,
+    "judgeLatencyMs": 8179,
+    "scoreRationales": {
+      "factualFaithfulness": "Nearly all numerical and comparative statements match the context: New York is largest, has the lowest growth and negative net migration; Austin and Raleigh have positive migration and higher growth; housing, education, transportation, and commute comparisons are accurate. The qualitative descriptions “global hub” and “established transit network” are not directly supplied, and “total migration volume” is imprecise, preventing a perfect score.",
+      "comparisonQuality": "Strong synthesis of scale, growth, migration, income, housing burden, transportation, remote work, and commute tradeoffs. It compares the metros rather than merely listing metrics and clearly distinguishes New York from Austin and Raleigh, as well as the two smaller metros.",
+      "missingDataHandling": "The response does not invent missing metrics or treat unavailable information as zero. It stays within the supplied coverage and does not make claims requiring an explicit unavailable-data disclaimer.",
+      "personalization": "The context contains no priorities, preferences, or reason for personalization. The response appropriately provides a general comparison without pretending to tailor the result to a nonexistent preference.",
+      "clarity": "Well organized with descriptive headings, readable prose, and clearly presented figures. The synthesis section makes the main tradeoffs easy to understand.",
+      "conciseness": "Selective and appropriately detailed. It includes enough evidence to support the comparison without repeating the same figures excessively."
+    }
+  }
+}

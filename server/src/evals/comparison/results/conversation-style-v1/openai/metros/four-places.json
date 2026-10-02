@@ -1,0 +1,24 @@
+{
+  "provider": "openai",
+  "model": "gpt-5.6-luna",
+  "geography": "metros",
+  "testCase": "four-places",
+  "inputTokens": 5300,
+  "outputTokens": 648,
+  "thinkingTokens": null,
+  "totalTokens": 5948,
+  "latencyMs": 6965,
+  "estimatedCost": null,
+  "errors": [],
+  "response": "The biggest divide is between the two fast-growing Texas/North Carolina metros and the larger, more expensive coastal metros. Austin and Raleigh have grown quickly since 2020—13.9% and 12.6%, respectively—while Miami grew 4.2% and New York only 0.6%. Both Austin and Raleigh also had positive net migration in 2023, whereas New York and Miami saw more people leave than arrive.\n\nAustin and Raleigh look fairly similar economically: median household income was about $100,000 in both metros in 2024. Raleigh has the more manageable housing profile, though. Its median rent was $1,573 versus Austin’s $1,726, and its median home value was $418,400 versus $465,000. Housing also represented a smaller share of income in Raleigh—18.9% for rent compared with 20.6% in Austin. Their commute times and work-from-home shares were nearly alike, but both are primarily car-oriented, with driving accounting for 64.3% of commuting in Raleigh and 60.9% in Austin.\n\nNew York offers a distinctly different tradeoff. Its median household income was close to Austin and Raleigh’s, but housing was substantially more expensive: median rent was $1,830, median home value was $614,200, and the home-value-to-income ratio was 6.2, compared with 4.2 in Raleigh and 4.6 in Austin. In return, New York stands apart on transportation: 24.1% of commuters used transit, versus 1.1% in Austin and 0.5% in Raleigh. It also had the longest mean commute, at 35.6 minutes, and a much lower work-from-home share at 16.7%.\n\nMiami’s housing costs were also high relative to local incomes. Its median household income was $76,527, while median rent was $1,869; rent accounted for 29.3% of income, the highest of the four metros. Miami also had the highest poverty rate, at 13.1%, and the lowest bachelor’s-degree attainment, at 36.7%. Its transportation pattern was much more car-dependent than New York’s, with 69.2% driving and only 2.4% using transit.\n\nSo the practical choice is less about one metro being universally better and more about the tradeoff you want: Raleigh offers the lowest housing burden among Austin and Raleigh while retaining rapid growth; Austin combines similar income levels with faster recent growth but somewhat higher housing costs; New York provides far more transit use but at the highest home prices and longest commutes; and Miami has slower growth, lower incomes, and the greatest housing pressure relative to income.",
+  "scores": {
+    "factualFaithfulness": null,
+    "comparisonQuality": null,
+    "missingDataHandling": null,
+    "personalization": null,
+    "clarity": null,
+    "conciseness": null
+  },
+  "hardFailures": [],
+  "notes": ""
+}

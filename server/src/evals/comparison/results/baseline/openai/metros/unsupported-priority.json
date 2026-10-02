@@ -1,0 +1,24 @@
+{
+  "provider": "openai",
+  "model": "gpt-5.6-luna",
+  "geography": "metros",
+  "testCase": "unsupported-priority",
+  "inputTokens": 4064,
+  "outputTokens": 564,
+  "thinkingTokens": null,
+  "totalTokens": 4628,
+  "latencyMs": 7174,
+  "estimatedCost": 0.0014896,
+  "errors": [],
+  "response": "The biggest limitation for your stated priority is that **RegionLore does not provide a direct climate measure**, so it cannot establish which of these metros is warmer.\n\nOn the supplied moving-related dimensions, **Austin and Raleigh look more similar to each other than either does to New York**. Both had strong population growth from 2020 to 2025—13.9% in Austin and 12.6% in Raleigh—while New York’s growth was only 0.6%. Austin and Raleigh also had positive net migration in 2023, compared with New York’s net outmigration of 120,800.\n\nHousing is generally less costly in Raleigh than in Austin or New York. In 2024, median rent was $1,573 in Raleigh, versus $1,726 in Austin and $1,830 in New York; median home values followed a similar pattern: $418,400, $465,000, and $614,200, respectively. Raleigh also had the lowest rent-to-income and home-value-to-income ratios among the three. Median household incomes were broadly comparable—about $100,000 in Austin and Raleigh and $99,155 in New York—but New York had the highest poverty rate at 12.7%, compared with 9.8% in Austin and 8.7% in Raleigh.\n\nTransportation presents the clearest structural difference. New York had much higher transit use—24.1% compared with 1.1% in Austin and 0.5% in Raleigh—and a lower drive share, though its mean commute was longer at 35.6 minutes versus 27.3 in Austin and 26.8 in Raleigh. Austin and Raleigh had similarly high work-from-home shares, around 26%, while New York’s was 16.7%.\n\nFor a move, the tradeoff is therefore less about the supplied climate data—which is unavailable—and more about housing, growth, and transportation. **Raleigh offers the lowest housing costs and slightly lower commute times; Austin combines the fastest growth with somewhat higher housing costs; New York offers far greater transit use but higher housing costs, longer commutes, and markedly weaker recent migration performance.** None of these figures can determine which place best matches your preference for warmer climate.",
+  "scores": {
+    "factualFaithfulness": null,
+    "comparisonQuality": null,
+    "missingDataHandling": null,
+    "personalization": null,
+    "clarity": null,
+    "conciseness": null
+  },
+  "hardFailures": [],
+  "notes": ""
+}

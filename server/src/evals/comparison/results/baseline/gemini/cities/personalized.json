@@ -1,0 +1,24 @@
+{
+  "provider": "gemini",
+  "model": "gemini-3.8-flash",
+  "geography": "cities",
+  "testCase": "personalized",
+  "inputTokens": 8220,
+  "outputTokens": 755,
+  "thinkingTokens": 1097,
+  "totalTokens": 10072,
+  "latencyMs": 9724,
+  "estimatedCost": 0.01311,
+  "errors": [],
+  "response": "When weighing a move between Austin, Raleigh, and Denver, the most defining tradeoffs center on the balance between housing costs, earning potential, and everyday weather. While Denver and Austin offer slightly higher household incomes, Raleigh provides a noticeably lower financial barrier in the housing market. Meanwhile, for anyone seeking warmer conditions, the three cities range from true four-season mountain cold to persistent southern heat.\n\n### Housing and Financial Tradeoffs\nHousing costs show clear separation across the three cities based on 2024 American Community Survey estimates:\n* **Raleigh** is the most moderate on housing costs, with a median home value of $415,800 and median rent of $1,572. It is also the only city among the three where homeowners make up a slight majority of households (50.7%). \n* **Austin** sits in the middle on purchase prices with a median home value of $555,300 and a median rent of $1,729, leaning more heavily toward renters (56.6% renter-occupied).\n* **Denver** presents the highest housing costs, with median home values reaching $616,000 and median rent at $1,831.\n\nOn the income and employment side, Denver and Austin reflect very similar profiles: Denver’s median household income is $94,718 (with a 4.9% unemployment rate and 11.2% poverty rate), while Austin’s is $93,658 (4.7% unemployment and 12.0% poverty). Raleigh’s median household income trails both at $85,395, though its unemployment rate is marginally lower at 4.4% and its poverty rate sits at 11.9%. For buyers and renters, the lower housing prices in Raleigh may offset the lower median earnings compared to the pricier Denver and Austin markets.\n\n### Climate and Temperature Differences\nBased on NOAA 30-year climate normals (1991–2020), your preference for warmer weather highlights stark distinctions:\n* **Austin** aligns most directly with a warmer preference. Its winters are mild, with January normal daily highs of 62.5°F and lows of 41.8°F. However, summers are intensely hot, with normal highs exceeding 90°F from June through September and peaking in August at 97.8°F.\n* **Raleigh** offers a warm subtropical climate with greater seasonal variability. Summer highs reach around 90.6°F in July, while winter temperatures are significantly cooler than Austin's, averaging January highs of 51.7°F and nighttime lows dropping to 31.6°F.\n* **Denver** is the coldest of the three by a wide margin. While summer afternoons warm up (July normal high is 90.2°F), nighttime lows average 59.3°F, and winters bring regular sub-freezing temperatures, with December and January normal lows below 18°F.\n\n### Synthesis of Tradeoffs\nIf your primary goal is maximizing warmth alongside relatively strong household earnings, **Austin** fits the climate preference most closely, though you trade off higher housing costs than Raleigh. If your priority is finding the most accessible housing market while still avoiding harsh winters, **Raleigh** offers substantially lower home values and rents alongside mild-to-warm seasonal weather, offset by somewhat lower median incomes. Conversely, **Denver** pairs higher earning levels with the highest housing costs and the coldest winter climate of the group.",
+  "scores": {
+    "factualFaithfulness": null,
+    "comparisonQuality": null,
+    "missingDataHandling": null,
+    "personalization": null,
+    "clarity": null,
+    "conciseness": null
+  },
+  "hardFailures": [],
+  "notes": ""
+}

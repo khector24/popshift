@@ -1,0 +1,24 @@
+{
+  "provider": "gemini",
+  "model": "gemini-3.8-flash",
+  "geography": "metros",
+  "testCase": "personalized",
+  "inputTokens": 4994,
+  "outputTokens": 764,
+  "thinkingTokens": 1719,
+  "totalTokens": 7477,
+  "latencyMs": 10587,
+  "estimatedCost": 0.01305675,
+  "errors": [],
+  "response": "When comparing these three metro areas, the most prominent divide centers on scale and momentum: the New York metro area offers massive population size and a distinctive transit network alongside higher housing costs, whereas the Austin and Raleigh metros represent fast-growing, mid-sized regions characterized by high rates of remote work and comparatively lower housing costs relative to income.\n\n### Population Growth and Migration Dynamics\nAustin and Raleigh have both experienced rapid growth since 2020, with Austin expanding by 13.9% (reaching roughly 2.62 million by 2025) and Raleigh growing by 12.6% (reaching nearly 1.60 million). Both metros also recorded positive net domestic migration in 2023, drawing thousands more residents than they lost. In contrast, the New York metro operates at a vastly larger scale—surpassing 20.1 million residents in 2025—but its population has remained nearly flat since 2020, rising just 0.6%, accompanied by a net migration outflow of over 120,000 people in 2023.\n\n### Housing Costs and Relative Burden\nAcross 2024 housing measures, New York is the most demanding in terms of price levels and income commitment. Its median home value stood at $614,200, creating a home-value-to-income ratio of 6.2, while median rent took 22.1% of household income ($1,830 median rent). \n\nRaleigh and Austin present lower barriers relative to local income levels:\n* **Raleigh** has the lowest cost profile of the three, with a median home value of $418,400 (a 4.2 home-value-to-income ratio) and a median rent of $1,573 (18.9% of income).\n* **Austin** sits between the two, with a median home value of $465,000 (a 4.6 value-to-income ratio) and a median rent of $1,726 (20.6% of income).\n\n### Commuting and Transportation Infrastructure\nDaily travel highlights completely different transportation realities:\n* **New York** features an established public transit footprint, with 24.1% of commuters using public transit in 2024. However, it also carries the longest average travel time of the group at 35.6 minutes, with 16.7% of workers working from home.\n* **Austin and Raleigh** are automobile-oriented, with drive-alone/car shares exceeding 60% and transit shares at or below 1.1%. However, both metros accommodate a much larger remote workforce—26.8% in Austin and 26.2% in Raleigh worked from home in 2024—and their average commute times are notably shorter, averaging about 27 minutes in both areas.\n\n### Synthesis of Tradeoffs\nFor a move centered on **housing, transportation, and population growth**, the tradeoffs depend on what type of environment fits your routine:\n\n* **New York** provides unmatched population scale and substantial public transit infrastructure, but that comes with higher housing costs relative to income, less remote work, and a longer average daily commute.\n* **Austin and Raleigh** align more closely if your priorities favor rapid regional growth, lower home-value-to-income ratios, and the flexibility of working from home. Between the two, Raleigh offers slightly more favorable housing cost ratios, while Austin has shown slightly faster overall population growth since 2020.",
+  "scores": {
+    "factualFaithfulness": null,
+    "comparisonQuality": null,
+    "missingDataHandling": null,
+    "personalization": null,
+    "clarity": null,
+    "conciseness": null
+  },
+  "hardFailures": [],
+  "notes": ""
+}

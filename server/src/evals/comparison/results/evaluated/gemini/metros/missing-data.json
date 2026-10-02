@@ -1,0 +1,40 @@
+{
+  "provider": "gemini",
+  "model": "gemini-3.8-flash",
+  "geography": "metros",
+  "testCase": "missing-data",
+  "inputTokens": 2871,
+  "outputTokens": 688,
+  "thinkingTokens": 844,
+  "totalTokens": 4403,
+  "latencyMs": 6618,
+  "estimatedCost": null,
+  "errors": [],
+  "response": "The most striking differences between the Miami-Fort Lauderdale-West Palm Beach metro area and the San Juan-Bayamón-Caguas metro area lie in their demographic trajectories, income levels, and housing price points. While Miami is a substantially larger, expanding metro with higher household earnings and steep housing costs, San Juan offers far lower nominal housing prices alongside lower median incomes and population decline.\n\n### Economics and Housing Costs\nIn 2024, economic indicators show divergent baselines across the two regions. Miami’s median household income stood at $76,527 with a poverty rate of 13.1%, whereas San Juan’s median household income was $29,276 with a poverty rate of 37.0%. \n\nThese income differences are mirrored in housing expenses. Miami's nominal costs are much higher, with a 2024 median home value of $443,300 and a median rent of $1,869. In San Juan, the median home value was $145,900 and median rent was $623. However, relative to local earnings, both markets present housing cost burdens: Miami's rent consumed an average of 29.3% of income with a home value-to-income ratio of 5.8, while San Juan's rent consumed 25.5% of income with a home value-to-income ratio of 5.0. \n\n### Population Trends and Commuting\nThe two metros are on different demographic paths. As of 2025, Miami has a population of roughly 6.39 million, reflecting a 4.2% increase since 2020. In contrast, San Juan’s population stood at approximately 2.02 million, reflecting a 2.6% decline over the same span. For migration in 2023, Miami experienced high churn with a net loss of 24,639 residents—exchanging substantial volumes of movers with regions like New York, Orlando, and Tampa. For San Juan, the supplied 2023 data records zero inbound and outbound migration flows, indicating no tracked metro-to-metro migration data in this dataset.\n\nDaily travel, however, shows surprising parity in travel times. In 2024, the mean commute was nearly identical in both places—29.3 minutes in Miami and 29.4 minutes in San Juan. Drivers account for the bulk of travel in both metros (69.2% driving alone or carpooling in Miami versus 81.0% in San Juan), though Miami has a noticeably higher share of residents working from home (14.5% compared to San Juan’s 6.6%). Public transit usage remains modest in both areas, at 2.4% in Miami and 1.1% in San Juan.\n\n### Synthesis of Tradeoffs\nChoosing between these two metros highlights a tradeoff between economic scale and living costs. Miami offers higher overall household earnings, a growing population, and more remote work opportunities, but comes with substantially higher price tags for renters and buyers alike. San Juan offers much lower absolute housing expenses, but operates with significantly lower household incomes, higher poverty, and an overall declining population base.",
+  "scores": {
+    "factualFaithfulness": 5,
+    "comparisonQuality": 5,
+    "missingDataHandling": 5,
+    "personalization": 5,
+    "clarity": 5,
+    "conciseness": 5
+  },
+  "hardFailures": [],
+  "notes": "The response accurately compares the supplied 2024 and 2025 metrics, respects the 2023 migration period, and makes no unsupported causal or geographic claims. It appropriately distinguishes nominal housing costs from income-relative burdens and handles San Juan's zero migration entries cautiously. No explicit user priorities or preferences were supplied, so the neutral comparison is appropriate.",
+  "evaluation": {
+    "judgeProvider": "openai",
+    "judgeModel": "gpt-5.6-luna",
+    "judgeInputTokens": 2885,
+    "judgeOutputTokens": 665,
+    "judgeTotalTokens": 3550,
+    "judgeLatencyMs": 7031,
+    "scoreRationales": {
+      "factualFaithfulness": "All cited values match the RegionLore context. Comparative claims such as Miami being larger, having positive growth, higher income, higher nominal housing costs, and more remote work are supported by the supplied values. The commute comparison and migration figures are also accurate.",
+      "comparisonQuality": "The response emphasizes meaningful tradeoffs—economic scale versus nominal housing costs, income-relative burden, population trends, migration, and commuting—rather than merely listing metrics.",
+      "missingDataHandling": "It does not treat San Juan's zero migration values as actual zero movement; instead, it notes that the supplied data indicate no tracked metro-to-metro migration data. This is appropriately cautious given the empty migration lists.",
+      "personalization": "No priorities or preferences were supplied in the context. The response appropriately provides a balanced, non-personalized comparison without inventing user goals or preferences.",
+      "clarity": "The headings, prose, and numerical contrasts are easy to follow. The distinction between nominal housing prices and affordability relative to income is clearly explained.",
+      "conciseness": "The response is focused and appropriately detailed, including key evidence without unnecessary repetition or exhaustive metric coverage."
+    }
+  }
+}

@@ -1,0 +1,24 @@
+{
+  "provider": "gemini",
+  "model": "gemini-3.8-flash",
+  "geography": "metros",
+  "testCase": "two-places",
+  "inputTokens": 3552,
+  "outputTokens": 834,
+  "thinkingTokens": 743,
+  "totalTokens": 5129,
+  "latencyMs": 6728,
+  "estimatedCost": 0.00857775,
+  "errors": [],
+  "response": "At a glance, the Austin-Round Rock-San Marcos and Raleigh-Cary metro areas share remarkably similar economic and demographic foundations: both boast high educational attainment, median household incomes hovering around $100,000, and substantial post-2020 growth. The primary tradeoff lies in scale, housing costs, and regional orientation—Austin is a larger metro with higher housing expenses, while Raleigh offers lower housing costs on a comparable income base.\n\n### Economic Baselines and Remote Work\nIn 2024, household earnings in both regions were virtually identical, with Austin recording a median household income of $100,431 compared to $100,103 in Raleigh. Poverty rates were also modest across both areas (9.8% in Austin and 8.7% in Raleigh). Their educational profiles parallel each other as well, with just over half of adults holding a bachelor’s degree or higher (50.9% in Austin and 51.2% in Raleigh). \n\nBoth metros also reflect a strong presence of remote work. As of 2024, roughly 26.8% of Austin workers and 26.2% of Raleigh workers worked from home. Commute lengths were nearly indistinguishable, averaging 27.3 minutes in Austin and 26.8 minutes in Raleigh, with personal vehicles serving as the dominant mode of travel in both places (a 60.9% drive share in Austin versus 64.3% in Raleigh).\n\n### Housing Costs and Affordability\nThe clearest divergence between the two metros appears in their housing markets. While median incomes are closely matched, Austin carries higher housing prices across both rental and ownership markets. In 2024, Austin's median rent stood at $1,726 and its median home value was $465,000, resulting in a home-value-to-income ratio of 4.6 and a median rent-to-income share of 20.6%. \n\nBy contrast, Raleigh presented lower price points, with a median rent of $1,573 and a median home value of $418,400. This translated to slightly lower cost burdens relative to local earnings, reflected in a home-value-to-income ratio of 4.2 and a rent-to-income share of 18.9%.\n\n### Scale and Migration Dynamics\nAustin is the larger metropolitan area by roughly one million residents, reaching an estimated population of 2,620,945 in 2025 compared to Raleigh’s 1,595,720. Both have grown rapidly since 2020, with Austin expanding by 13.9% and Raleigh by 12.6%.\n\nTheir migration patterns in 2023 reveal distinct regional ties. Austin experienced higher overall population churn, gaining 71,759 inbound movers and losing 53,450 (a net gain of 18,309). Its largest migration exchanges were concentrated within Texas—primarily Houston, Dallas-Fort Worth, and San Antonio—alongside inflows from Los Angeles and New York. Raleigh drew a net gain of 14,044 movers (41,277 inbound versus 27,233 outbound), with the heaviest movement occurring between neighboring Durham-Chapel Hill, followed by inflows from New York, Charlotte, and the Washington, D.C. area.\n\n### Synthesis of Tradeoffs\nChoosing between these two metros centers on scale and cost efficiency. Both offer similarly strong income levels, highly educated populations, and high rates of remote work. Austin offers the environment of a larger, rapidly growing metro anchored within major Texas urban corridors, but it requires higher expenditures for both renting and homeownership. Raleigh provides a mid-sized metropolitan setting with strong Mid-Atlantic connections and slightly more favorable housing affordability relative to local earnings.",
+  "scores": {
+    "factualFaithfulness": null,
+    "comparisonQuality": null,
+    "missingDataHandling": null,
+    "personalization": null,
+    "clarity": null,
+    "conciseness": null
+  },
+  "hardFailures": [],
+  "notes": ""
+}

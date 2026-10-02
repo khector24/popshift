@@ -1,0 +1,438 @@
+{
+  "geographyType": "metro",
+  "places": [
+    {
+      "identity": {
+        "name": "Austin-Round Rock-San Marcos, TX Metro Area",
+        "slug": "austin-round-rock-san-marcos",
+        "placeType": "metro",
+        "cbsa": "12420",
+        "states": [
+          {
+            "name": "Texas",
+            "code": "48",
+            "abbreviation": "TX"
+          }
+        ]
+      },
+      "population": {
+        "current": 2620945,
+        "year": 2025,
+        "growthSince2020": 13.9,
+        "history": [
+          {
+            "year": 2020,
+            "population": 2300172
+          },
+          {
+            "year": 2021,
+            "population": 2359313
+          },
+          {
+            "year": 2022,
+            "population": 2434592
+          },
+          {
+            "year": 2023,
+            "population": 2498809
+          },
+          {
+            "year": 2024,
+            "population": 2567149
+          },
+          {
+            "year": 2025,
+            "population": 2620945
+          }
+        ]
+      },
+      "economics": {
+        "year": 2024,
+        "medianHouseholdIncome": 100431,
+        "povertyRate": 9.8
+      },
+      "education": {
+        "year": 2024,
+        "highSchoolOrHigher": 91.9,
+        "bachelorsOrHigher": 50.9
+      },
+      "housing": {
+        "year": 2024,
+        "medianRent": 1726,
+        "medianHomeValue": 465000,
+        "rentAsPercentOfIncome": 20.6,
+        "homeValueToIncome": 4.6
+      },
+      "transportation": {
+        "year": 2024,
+        "driveShare": 60.9,
+        "transitShare": 1.1,
+        "workFromHomeShare": 26.8,
+        "meanCommuteMinutes": 27.3
+      },
+      "migration": {
+        "year": 2023,
+        "totalInbound": 71759,
+        "totalOutbound": 53450,
+        "netMigration": 18309,
+        "topInbound": [
+          {
+            "name": "Houston-Pasadena-The Woodlands, TX Metro Area",
+            "slug": "houston-pasadena-the-woodlands",
+            "cbsa": "26420",
+            "movers": 10613
+          },
+          {
+            "name": "Dallas-Fort Worth-Arlington, TX Metro Area",
+            "slug": "dallas-fort-worth-arlington",
+            "cbsa": "19100",
+            "movers": 9291
+          },
+          {
+            "name": "San Antonio-New Braunfels, TX Metro Area",
+            "slug": "san-antonio-new-braunfels",
+            "cbsa": "41700",
+            "movers": 8116
+          },
+          {
+            "name": "Los Angeles-Long Beach-Anaheim, CA Metro Area",
+            "slug": "los-angeles-long-beach-anaheim",
+            "cbsa": "31080",
+            "movers": 3788
+          },
+          {
+            "name": "New York-Newark-Jersey City, NY-NJ Metro Area",
+            "slug": "new-york-newark-jersey-city",
+            "cbsa": "35620",
+            "movers": 3383
+          }
+        ],
+        "topOutbound": [
+          {
+            "name": "San Antonio-New Braunfels, TX Metro Area",
+            "slug": "san-antonio-new-braunfels",
+            "cbsa": "41700",
+            "movers": 10084
+          },
+          {
+            "name": "Dallas-Fort Worth-Arlington, TX Metro Area",
+            "slug": "dallas-fort-worth-arlington",
+            "cbsa": "19100",
+            "movers": 8503
+          },
+          {
+            "name": "Houston-Pasadena-The Woodlands, TX Metro Area",
+            "slug": "houston-pasadena-the-woodlands",
+            "cbsa": "26420",
+            "movers": 8069
+          },
+          {
+            "name": "Los Angeles-Long Beach-Anaheim, CA Metro Area",
+            "slug": "los-angeles-long-beach-anaheim",
+            "cbsa": "31080",
+            "movers": 1813
+          },
+          {
+            "name": "New York-Newark-Jersey City, NY-NJ Metro Area",
+            "slug": "new-york-newark-jersey-city",
+            "cbsa": "35620",
+            "movers": 1811
+          }
+        ]
+      }
+    },
+    {
+      "identity": {
+        "name": "Raleigh-Cary, NC Metro Area",
+        "slug": "raleigh-cary",
+        "placeType": "metro",
+        "cbsa": "39580",
+        "states": [
+          {
+            "name": "North Carolina",
+            "code": "37",
+            "abbreviation": "NC"
+          }
+        ]
+      },
+      "population": {
+        "current": 1595720,
+        "year": 2025,
+        "growthSince2020": 12.6,
+        "history": [
+          {
+            "year": 2020,
+            "population": 1417382
+          },
+          {
+            "year": 2021,
+            "population": 1451713
+          },
+          {
+            "year": 2022,
+            "population": 1481995
+          },
+          {
+            "year": 2023,
+            "population": 1519679
+          },
+          {
+            "year": 2024,
+            "population": 1558927
+          },
+          {
+            "year": 2025,
+            "population": 1595720
+          }
+        ]
+      },
+      "economics": {
+        "year": 2024,
+        "medianHouseholdIncome": 100103,
+        "povertyRate": 8.7
+      },
+      "education": {
+        "year": 2024,
+        "highSchoolOrHigher": 93.2,
+        "bachelorsOrHigher": 51.2
+      },
+      "housing": {
+        "year": 2024,
+        "medianRent": 1573,
+        "medianHomeValue": 418400,
+        "rentAsPercentOfIncome": 18.9,
+        "homeValueToIncome": 4.2
+      },
+      "transportation": {
+        "year": 2024,
+        "driveShare": 64.3,
+        "transitShare": 0.5,
+        "workFromHomeShare": 26.2,
+        "meanCommuteMinutes": 26.8
+      },
+      "migration": {
+        "year": 2023,
+        "totalInbound": 41277,
+        "totalOutbound": 27233,
+        "netMigration": 14044,
+        "topInbound": [
+          {
+            "name": "Durham-Chapel Hill, NC Metro Area",
+            "slug": "durham-chapel-hill",
+            "cbsa": "20500",
+            "movers": 8134
+          },
+          {
+            "name": "New York-Newark-Jersey City, NY-NJ Metro Area",
+            "slug": "new-york-newark-jersey-city",
+            "cbsa": "35620",
+            "movers": 4475
+          },
+          {
+            "name": "Charlotte-Concord-Gastonia, NC-SC Metro Area",
+            "slug": "charlotte-concord-gastonia",
+            "cbsa": "16740",
+            "movers": 2656
+          },
+          {
+            "name": "Washington-Arlington-Alexandria, DC-VA-MD-WV Metro Area",
+            "slug": "washington-arlington-alexandria",
+            "cbsa": "47900",
+            "movers": 1992
+          },
+          {
+            "name": "Miami-Fort Lauderdale-West Palm Beach, FL Metro Area",
+            "slug": "miami-fort-lauderdale-west-palm-beach",
+            "cbsa": "33100",
+            "movers": 1498
+          }
+        ],
+        "topOutbound": [
+          {
+            "name": "Durham-Chapel Hill, NC Metro Area",
+            "slug": "durham-chapel-hill",
+            "cbsa": "20500",
+            "movers": 7728
+          },
+          {
+            "name": "Charlotte-Concord-Gastonia, NC-SC Metro Area",
+            "slug": "charlotte-concord-gastonia",
+            "cbsa": "16740",
+            "movers": 2748
+          },
+          {
+            "name": "New York-Newark-Jersey City, NY-NJ Metro Area",
+            "slug": "new-york-newark-jersey-city",
+            "cbsa": "35620",
+            "movers": 1419
+          },
+          {
+            "name": "Greensboro-High Point, NC Metro Area",
+            "slug": "greensboro-high-point",
+            "cbsa": "24660",
+            "movers": 1270
+          },
+          {
+            "name": "Washington-Arlington-Alexandria, DC-VA-MD-WV Metro Area",
+            "slug": "washington-arlington-alexandria",
+            "cbsa": "47900",
+            "movers": 1196
+          }
+        ]
+      }
+    },
+    {
+      "identity": {
+        "name": "New York-Newark-Jersey City, NY-NJ Metro Area",
+        "slug": "new-york-newark-jersey-city",
+        "placeType": "metro",
+        "cbsa": "35620",
+        "states": [
+          {
+            "name": "New York",
+            "code": "36",
+            "abbreviation": "NY"
+          },
+          {
+            "name": "New Jersey",
+            "code": "34",
+            "abbreviation": "NJ"
+          }
+        ]
+      },
+      "population": {
+        "current": 20112448,
+        "year": 2025,
+        "growthSince2020": 0.6,
+        "history": [
+          {
+            "year": 2020,
+            "population": 19999993
+          },
+          {
+            "year": 2021,
+            "population": 19704474
+          },
+          {
+            "year": 2022,
+            "population": 19629390
+          },
+          {
+            "year": 2023,
+            "population": 19788976
+          },
+          {
+            "year": 2024,
+            "population": 20080087
+          },
+          {
+            "year": 2025,
+            "population": 20112448
+          }
+        ]
+      },
+      "economics": {
+        "year": 2024,
+        "medianHouseholdIncome": 99155,
+        "povertyRate": 12.7
+      },
+      "education": {
+        "year": 2024,
+        "highSchoolOrHigher": 87.6,
+        "bachelorsOrHigher": 44.2
+      },
+      "housing": {
+        "year": 2024,
+        "medianRent": 1830,
+        "medianHomeValue": 614200,
+        "rentAsPercentOfIncome": 22.1,
+        "homeValueToIncome": 6.2
+      },
+      "transportation": {
+        "year": 2024,
+        "driveShare": 44.6,
+        "transitShare": 24.1,
+        "workFromHomeShare": 16.7,
+        "meanCommuteMinutes": 35.6
+      },
+      "migration": {
+        "year": 2023,
+        "totalInbound": 156471,
+        "totalOutbound": 277271,
+        "netMigration": -120800,
+        "topInbound": [
+          {
+            "name": "Philadelphia-Camden-Wilmington, PA-NJ-DE-MD Metro Area",
+            "slug": "philadelphia-camden-wilmington",
+            "cbsa": "37980",
+            "movers": 15116
+          },
+          {
+            "name": "Miami-Fort Lauderdale-West Palm Beach, FL Metro Area",
+            "slug": "miami-fort-lauderdale-west-palm-beach",
+            "cbsa": "33100",
+            "movers": 12572
+          },
+          {
+            "name": "Los Angeles-Long Beach-Anaheim, CA Metro Area",
+            "slug": "los-angeles-long-beach-anaheim",
+            "cbsa": "31080",
+            "movers": 10064
+          },
+          {
+            "name": "Boston-Cambridge-Newton, MA-NH Metro Area",
+            "slug": "boston-cambridge-newton",
+            "cbsa": "14460",
+            "movers": 9913
+          },
+          {
+            "name": "Washington-Arlington-Alexandria, DC-VA-MD-WV Metro Area",
+            "slug": "washington-arlington-alexandria",
+            "cbsa": "47900",
+            "movers": 9161
+          }
+        ],
+        "topOutbound": [
+          {
+            "name": "Philadelphia-Camden-Wilmington, PA-NJ-DE-MD Metro Area",
+            "slug": "philadelphia-camden-wilmington",
+            "cbsa": "37980",
+            "movers": 27695
+          },
+          {
+            "name": "Miami-Fort Lauderdale-West Palm Beach, FL Metro Area",
+            "slug": "miami-fort-lauderdale-west-palm-beach",
+            "cbsa": "33100",
+            "movers": 27268
+          },
+          {
+            "name": "Bridgeport-Stamford-Danbury, CT Metro Area",
+            "slug": "bridgeport-stamford-danbury",
+            "cbsa": "14860",
+            "movers": 14855
+          },
+          {
+            "name": "Kiryas Joel-Poughkeepsie-Newburgh, NY Metro Area",
+            "slug": "kiryas-joel-poughkeepsie-newburgh",
+            "cbsa": "28880",
+            "movers": 14181
+          },
+          {
+            "name": "Los Angeles-Long Beach-Anaheim, CA Metro Area",
+            "slug": "los-angeles-long-beach-anaheim",
+            "cbsa": "31080",
+            "movers": 11967
+          }
+        ]
+      }
+    }
+  ],
+  "personalization": {
+    "reason": "",
+    "otherReason": null,
+    "priorities": [],
+    "preferences": {
+      "climate": null
+    }
+  }
+}

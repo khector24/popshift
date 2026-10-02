@@ -1,0 +1,24 @@
+{
+  "provider": "gemini",
+  "model": "gemini-3.8-flash",
+  "geography": "states",
+  "testCase": "three-places",
+  "inputTokens": 4201,
+  "outputTokens": 715,
+  "thinkingTokens": 723,
+  "totalTokens": 5639,
+  "latencyMs": 6543,
+  "estimatedCost": 0.008543249999999999,
+  "errors": [],
+  "response": "The most striking differences among Texas, North Carolina, and New York center on demographic momentum, the balance between household incomes and housing costs, and educational attainment. While Texas and North Carolina have experienced substantial population growth and steady net inbound migration, New York pairs higher median earnings with significantly steeper housing costs and continued net outbound migration.\n\n### Growth and Migration\nDemographic trajectories between the Southern states and New York diverge sharply. Between 2020 and 2025, Texas and North Carolina grew by 8.5% and 7.2%, respectively, bringing Texas to roughly 31.7 million residents and North Carolina to nearly 11.2 million. In 2024 alone, both states drew positive net migration—adding 72,680 net movers in Texas and 58,610 in North Carolina. By contrast, New York saw a 0.6% decline in population between 2020 and 2025, reaching approximately 20.0 million. While New York's net outbound migration has narrowed each year since 2021—when it stood at -283,792—it still recorded a net loss of 130,436 movers in 2024. Interestingly, California and Florida rank among the top sources of inbound movers for all three states.\n\n### Housing and Incomes\nNew York offers the highest median household income among the three at $85,820 in 2024, but that comes alongside the highest housing expenses, with a median home value of $449,800 and median rent of $1,634. Texas presents a relatively strong median income of $79,721 paired with the lowest median home value in the comparison at $313,200, though median rent sits at $1,475. North Carolina offers the lowest monthly housing barrier, with a median rent of $1,338 and a median home value of $333,000, alongside a lower median household income of $73,958.\n\n### Education\nThe states also show distinct profiles across education metrics. In 2024, New York led in higher education attainment, with 40.2% of adults holding a bachelor’s degree or higher, compared to 35.7% in North Carolina and 33.8% in Texas. Conversely, North Carolina posted the highest proportion of residents with at least a high school diploma (90.1%, compared to 88% in New York and 86% in Texas) as well as the highest math assessment score at 276 (compared to 271 in New York and 269 in Texas). Reading scores remained closely grouped across all three, ranging from 252 in Texas to 257 in New York.\n\n### Synthesis of Tradeoffs\nThe core tradeoff in this comparison is between economic scale and living costs versus population growth. New York provides higher median incomes and higher rates of postsecondary degree attainment, but this is balanced against substantially higher home values and ongoing net population outflows. In contrast, Texas and North Carolina offer lower housing costs and notable population expansion, with Texas providing higher median incomes and lower home purchase costs, and North Carolina offering the lowest median rent and higher high school attainment and assessment scores.",
+  "scores": {
+    "factualFaithfulness": null,
+    "comparisonQuality": null,
+    "missingDataHandling": null,
+    "personalization": null,
+    "clarity": null,
+    "conciseness": null
+  },
+  "hardFailures": [],
+  "notes": ""
+}

@@ -1,0 +1,40 @@
+{
+  "provider": "openai",
+  "model": "gpt-5.6-luna",
+  "geography": "cities",
+  "testCase": "personalized",
+  "inputTokens": 7071,
+  "outputTokens": 909,
+  "thinkingTokens": null,
+  "totalTokens": 7980,
+  "latencyMs": 9616,
+  "estimatedCost": null,
+  "errors": [],
+  "response": "For your priorities, the clearest split is this: **Austin best matches the preference for warmer weather, Raleigh offers the strongest housing tradeoff, and Denver combines high incomes with the highest housing costs and a much cooler climate.**\n\nHousing is noticeably cheaper in Raleigh. Its 2024 median rent was **$1,572**, compared with **$1,729 in Austin** and **$1,831 in Denver**. The difference is larger for home values: Raleigh’s median was **$415,800**, versus **$555,300 in Austin** and **$616,000 in Denver**. Raleigh also had the highest homeowner share, at **50.7%**, while Austin had the lowest at **43.4%**. So if buying sooner or keeping housing costs down matters, Raleigh has the most favorable numbers. Denver is the most expensive of the three despite having a median household income very close to Austin’s.\n\nThe income picture is fairly strong in Austin and Denver: median household income was **$93,658 in Austin** and **$94,718 in Denver**, compared with **$85,395 in Raleigh**. Raleigh, however, had the lowest 2024 unemployment rate—**4.4%**, versus **4.7% in Austin** and **4.9% in Denver**. These are city-level indicators rather than a direct measure of job availability, career growth, or industry fit, so they give useful context but not a complete jobs comparison. Austin also had a higher work-from-home share—**30.7%**, compared with **27.3% in Denver** and **25.8% in Raleigh**.\n\nClimate is where Austin most clearly fits your stated preference for warmth. Using the same 1991–2020 climate-normal period, Austin’s normal January mean temperature was **52.2°F**, compared with **41.7°F in Raleigh** and **32.1°F in Denver**. In summer, Austin’s normal July mean was **85.8°F**, versus **80.4°F in Raleigh** and **74.8°F in Denver**. Raleigh is the middle option: cooler than Austin, but substantially warmer than Denver in winter and warmer than Denver in summer. Denver also has much drier monthly precipitation normals than the other two in many parts of the year, but the supplied data does not provide a direct comfort or outdoor-lifestyle measure.\n\nSo the practical tradeoff is: **Austin if warmth and relatively high income are worth paying more for; Raleigh if housing value and a somewhat lower unemployment rate are the priority; Denver if its income level appeals to you and you are comfortable with the highest housing costs and coolest climate.**",
+  "scores": {
+    "factualFaithfulness": 5,
+    "comparisonQuality": 5,
+    "missingDataHandling": 5,
+    "personalization": 5,
+    "clarity": 5,
+    "conciseness": 5
+  },
+  "hardFailures": [],
+  "notes": "The response accurately compares the supplied city-level housing, income, unemployment, work-from-home, and climate values. It appropriately qualifies jobs-related conclusions and does not treat limited metrics as a complete measure of job availability or career fit. Its recommendations clearly reflect the stated priorities of housing, jobs-income, and warmer climate.",
+  "evaluation": {
+    "judgeProvider": "openai",
+    "judgeModel": "gpt-5.6-luna",
+    "judgeInputTokens": 7298,
+    "judgeOutputTokens": 567,
+    "judgeTotalTokens": 7865,
+    "judgeLatencyMs": 6189,
+    "scoreRationales": {
+      "factualFaithfulness": "All cited values match the RegionLore context. Comparative claims are supported across all three cities: Raleigh has the lowest rent and home value and highest homeowner share; Denver has the highest housing costs and coolest climate; Austin is warmest and has higher income than Raleigh, though slightly below Denver. The precipitation statement is also consistent with the supplied monthly normals.",
+      "comparisonQuality": "The response goes beyond listing metrics by explaining tradeoffs and linking them to moving priorities. It distinguishes Raleigh's affordability, Austin's warmth, and Denver's income-versus-cost tradeoff.",
+      "missingDataHandling": "It explicitly states that income and unemployment are not direct measures of job availability, career growth, or industry fit, and avoids inventing unsupported conclusions. It also notes that the climate data lacks a direct comfort or outdoor-lifestyle measure.",
+      "personalization": "The response directly centers housing, jobs-income, and the explicit preference for warmer weather. The recommendations change emphasis according to those priorities while remaining faithful to the supplied data.",
+      "clarity": "The opening summary, thematic paragraphs, and final practical tradeoff make the comparison easy to follow. Values and conclusions are presented in plain language.",
+      "conciseness": "It selects relevant evidence for the stated priorities, avoids unnecessary metrics, and remains appropriately brief without omitting important qualifications."
+    }
+  }
+}

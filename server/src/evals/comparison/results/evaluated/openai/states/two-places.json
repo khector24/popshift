@@ -1,0 +1,40 @@
+{
+  "provider": "openai",
+  "model": "gpt-5.6-luna",
+  "geography": "states",
+  "testCase": "two-places",
+  "inputTokens": 2446,
+  "outputTokens": 565,
+  "thinkingTokens": null,
+  "totalTokens": 3011,
+  "latencyMs": 7953,
+  "estimatedCost": null,
+  "errors": [],
+  "response": "Texas and North Carolina show different tradeoffs. Texas is much larger and has grown faster since 2020—31.7 million residents in 2025 and 8.5% growth, compared with North Carolina’s 11.2 million and 7.2% growth. Both continued gaining population through 2025.\n\nOn the 2024 economic measures, Texas had the higher median household income ($79,721 versus $73,958), but also higher median rent ($1,475 versus $1,338). North Carolina had the higher median home value ($333,000 versus $313,200). These are statewide medians, so they describe different housing and income profiles rather than directly determining affordability for every household.\n\nNorth Carolina led on the supplied education measures: 90.1% of adults had completed high school or higher, versus 86% in Texas, and 35.7% held a bachelor’s degree or higher, versus 33.8%. Its reading and math scores were also higher—255 versus 252 in reading, and 276 versus 269 in math—but the data does not establish whether those differences are statistically meaningful.\n\nBoth states had positive net migration in 2024. Texas had larger flows in absolute terms, with 556,156 inbound and 483,476 outbound movers for a net gain of 72,680; North Carolina had 299,782 inbound and 241,172 outbound movers, for a net gain of 58,610. Texas’s net migration was lower than in each of the three preceding years, while North Carolina’s 2024 net was also below its 2021–2023 levels.\n\nOverall, Texas offers greater population scale, higher median income, and a lower reported median home value, while North Carolina combines stronger reported education measures with lower median rent and a higher median home value. The more relevant tradeoff depends on whether scale and income or education measures and the particular housing-cost profile matter more to you.",
+  "scores": {
+    "factualFaithfulness": 5,
+    "comparisonQuality": 5,
+    "missingDataHandling": 5,
+    "personalization": 5,
+    "clarity": 5,
+    "conciseness": 5
+  },
+  "hardFailures": [],
+  "notes": "The response accurately compares all emphasized supplied metrics, correctly handles years and statewide medians, avoids unsupported causal claims, and appropriately notes that score differences are not established as statistically meaningful. Because no user priorities or preferences were supplied, the general tradeoff framing is appropriate.",
+  "evaluation": {
+    "judgeProvider": "openai",
+    "judgeModel": "gpt-5.6-luna",
+    "judgeInputTokens": 2707,
+    "judgeOutputTokens": 534,
+    "judgeTotalTokens": 3241,
+    "judgeLatencyMs": 5828,
+    "scoreRationales": {
+      "factualFaithfulness": "All reported population, growth, economic, education, and migration values match the RegionLore context. Comparative claims such as faster growth, higher or lower medians, education leadership, and larger migration flows are correct.",
+      "comparisonQuality": "The response synthesizes meaningful tradeoffs across scale, growth, income, housing, education, and migration rather than merely listing metrics. The concluding comparison is well supported.",
+      "missingDataHandling": "It appropriately qualifies statewide medians and avoids treating them as universally determinative of affordability. It also correctly notes that the data does not establish statistical significance for test-score differences.",
+      "personalization": "No priorities or preferences were supplied in the context, so the response appropriately uses neutral tradeoff framing instead of inventing personalization.",
+      "clarity": "The response is logically organized into population, economics, education, migration, and an overall conclusion, with plain and understandable wording.",
+      "conciseness": "It is selective, non-repetitive, and provides enough evidence to support the comparison without unnecessary detail."
+    }
+  }
+}

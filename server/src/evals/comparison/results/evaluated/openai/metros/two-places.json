@@ -1,0 +1,40 @@
+{
+  "provider": "openai",
+  "model": "gpt-5.6-luna",
+  "geography": "metros",
+  "testCase": "two-places",
+  "inputTokens": 2938,
+  "outputTokens": 506,
+  "thinkingTokens": null,
+  "totalTokens": 3444,
+  "latencyMs": 6305,
+  "estimatedCost": null,
+  "errors": [],
+  "response": "Austin-Round Rock-San Marcos is the larger and slightly faster-growing metro: its 2025 population is about 2.62 million, compared with 1.60 million in Raleigh-Cary, and growth since 2020 was 13.9% versus 12.6%. Both had positive net migration in 2023, with Austin gaining 18,309 people and Raleigh gaining 14,044.\n\nEconomically, the two are very similar. Median household income in 2024 was nearly identical—$100,431 in Austin and $100,103 in Raleigh—but Raleigh had the lower poverty rate, 8.7% compared with Austin’s 9.8%. Raleigh also had slightly higher educational attainment, both for high school completion and bachelor’s degrees.\n\nThe clearest practical difference is housing cost. Raleigh’s 2024 median rent was $1,573 versus $1,726 in Austin, and its median home value was $418,400 versus $465,000. The affordability measures point in the same direction: rent was 18.9% of household income in Raleigh compared with 20.6% in Austin, while the median home-value-to-income ratio was 4.2 versus 4.6. These figures suggest Raleigh had the less costly housing profile in the supplied data, though they are metro-level 2024 measures rather than guarantees for every neighborhood or household.\n\nTransportation patterns are broadly alike. Average commute times were close—26.8 minutes in Raleigh and 27.3 in Austin—and work-from-home shares were also similar. Austin had a lower driving share, 60.9% versus 64.3%, and a somewhat higher transit share, though transit remained a small share in both metros.\n\nOverall, Austin offers a larger, somewhat faster-growing metro with nearly the same incomes, while Raleigh combines comparable economic and educational measures with lower reported housing costs, a lower poverty rate, and a slightly shorter average commute.",
+  "scores": {
+    "factualFaithfulness": 5,
+    "comparisonQuality": 5,
+    "missingDataHandling": 4,
+    "personalization": 5,
+    "clarity": 5,
+    "conciseness": 5
+  },
+  "hardFailures": [],
+  "notes": "The response accurately compares the supplied metro-level 2024, 2025, and 2023 measures, verifies the key comparative claims, and avoids unsupported causal or outside claims. Personalization priorities are empty, so no individualized emphasis was required. It appropriately qualifies housing findings as supplied metro-level measures, though it does not explicitly discuss that other potentially relevant metrics or climate data are unavailable; this is not material given the response's scope.",
+  "evaluation": {
+    "judgeProvider": "openai",
+    "judgeModel": "gpt-5.6-luna",
+    "judgeInputTokens": 3196,
+    "judgeOutputTokens": 590,
+    "judgeTotalTokens": 3786,
+    "judgeLatencyMs": 6187,
+    "scoreRationales": {
+      "factualFaithfulness": "All stated values and comparative claims match the context: Austin is larger and grew faster; both had positive net migration; incomes were nearly identical; Raleigh had lower poverty and slightly higher educational attainment; Raleigh had lower housing costs and affordability ratios; commute times and transportation shares are accurately characterized.",
+      "comparisonQuality": "The response emphasizes meaningful tradeoffs rather than listing metrics: Austin has greater scale and growth, while Raleigh has lower poverty, slightly higher attainment, lower housing costs, and a marginally shorter commute.",
+      "missingDataHandling": "It correctly limits housing interpretation to supplied 2024 metro-level measures and avoids treating the data as universal guarantees. No supplied missing-data issue was directly relevant to the selected comparison, although it does not explicitly state that unsupported dimensions such as climate are not covered.",
+      "personalization": "The context contains no stated priorities or preferences, so the neutral comparison is appropriate and does not falsely claim personalization.",
+      "clarity": "The organization is logical, with clear paragraphs covering population and migration, economics and education, housing, transportation, and an overall conclusion. Language is plain and understandable.",
+      "conciseness": "It is selective and appropriately detailed, includes enough evidence to support the conclusions, and avoids repetition or unnecessary metrics."
+    }
+  }
+}

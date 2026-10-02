@@ -1,0 +1,40 @@
+{
+  "provider": "gemini",
+  "model": "gemini-3.8-flash",
+  "geography": "metros",
+  "testCase": "four-places",
+  "inputTokens": 6324,
+  "outputTokens": 981,
+  "thinkingTokens": 1383,
+  "totalTokens": 8688,
+  "latencyMs": 9829,
+  "estimatedCost": null,
+  "errors": [],
+  "response": "Comparing these four metro areas reveals a clear contrast between fast-growing, highly educated tech and research hubs in the Sun Belt—Austin and Raleigh—and high-density, established coastal giants—New York and Miami. The central tradeoffs among them revolve around housing affordability, commuting patterns, and population momentum.\n\n### Growth and Migration Trends\nAustin and Raleigh have expanded rapidly in recent years. Between 2020 and 2025, Austin’s population grew by 13.9% (reaching roughly 2.62 million) and Raleigh’s expanded by 12.6% (reaching nearly 1.60 million). Both maintained positive net migration in 2023, adding 18,309 and 14,044 net movers, respectively. \n\nBy comparison, the New York metro area—by far the largest with over 20.1 million residents in 2025—saw modest 0.6% growth over the same five-year span and experienced a net domestic migration outflow of 120,800 people in 2023. Miami grew by 4.2% since 2020 to reach 6.39 million residents, but it also recorded a net migration loss of 24,639 in 2023, even as it received substantial inbound movement from New York (over 27,000 movers).\n\n### Incomes, Education, and Housing Affordability\nAustin and Raleigh share remarkably similar economic and educational profiles for 2024. Both report median household incomes exceeding $100,000 ($100,431 in Austin and $100,103 in Raleigh) and bachelor’s degree attainment rates above 50% (50.9% and 51.2%, respectively), alongside poverty rates under 10%. However, Raleigh offers slightly more favorable housing metrics, with a lower median home value ($418,400 vs. Austin’s $465,000) and lower median rent ($1,573 vs. Austin’s $1,726), resulting in a lower rent-to-income share (18.9% in Raleigh vs. 20.6% in Austin).\n\nNew York and Miami present much sharper affordability hurdles relative to their local earnings:\n* **New York** features a median household income of $99,155, but it has the highest median home value in the group ($614,200), translating to a home-value-to-income ratio of 6.2. \n* **Miami** reports the lowest median household income of the four ($76,527) combined with the highest median rent ($1,869). This dynamic leaves Miami with the highest housing cost burden: rent accounts for 29.3% of median income, and the home-value-to-income ratio stands at 5.8 (on a median home value of $443,300).\n\n### Daily Commute and Mobility\nHow residents get around varies substantially across these markets:\n* **New York** is uniquely oriented around public transportation, with a 24.1% transit share and a comparatively low 44.6% driving share. It also demands the longest travel times, averaging 35.6 minutes per commute.\n* **Austin and Raleigh** feature prominent remote-work populations, with 26.8% and 26.2% of workers telecommuting in 2024. For commuters, both are car-dependent (driving shares above 60%), with average commute times lingering around 27 minutes.\n* **Miami** relies heavily on personal vehicles, with 69.2% of commuters driving and only 2.4% using transit, paired with an average travel time of 29.3 minutes and a smaller work-from-home share (14.5%).\n\n### Synthesis of Tradeoffs\nThe choice across these metros centers on scale, lifestyle infrastructure, and financial leverage:\n* **Austin and Raleigh** provide strong earnings profiles relative to housing costs, supported by high rates of remote work and steady inbound growth, with Raleigh maintaining an edge in overall housing affordability.\n* **New York** delivers the scale, transit network, and density of a global center, counterbalanced by elevated home prices and longer commute times.\n* **Miami** offers a large metropolitan environment with moderate commute times, but it pairs lower median earnings with the highest relative rent burden of the four regions.",
+  "scores": {
+    "factualFaithfulness": 4,
+    "comparisonQuality": 5,
+    "missingDataHandling": 5,
+    "personalization": 5,
+    "clarity": 5,
+    "conciseness": 5
+  },
+  "hardFailures": [],
+  "notes": "The response accurately uses the supplied values and makes well-supported comparisons across growth, migration, housing, education, and transportation. It includes some unsupported descriptive framing, such as calling Austin and Raleigh “tech and research hubs,” referring to New York as a “global center,” and describing density, lifestyle infrastructure, and coastal status. These statements are not substantiated by the RegionLore context but do not materially undermine the comparison. There are no selected user priorities or preferences requiring explicit limitation handling.",
+  "evaluation": {
+    "judgeProvider": "openai",
+    "judgeModel": "gpt-5.6-luna",
+    "judgeInputTokens": 5836,
+    "judgeOutputTokens": 917,
+    "judgeTotalTokens": 6753,
+    "judgeLatencyMs": 10030,
+    "scoreRationales": {
+      "factualFaithfulness": "Nearly all numerical claims and comparative statements match the supplied data, including growth rankings, migration balances, housing burdens, and transportation shares. Minor deduction for unsupported characterizations such as “tech and research hubs,” “high-density,” “coastal giants,” and “global center,” plus calling New York’s migration loss specifically “domestic” when the context only labels it net migration.",
+      "comparisonQuality": "Strong synthesis of meaningful tradeoffs rather than merely listing metrics. It clearly contrasts growth and migration, housing affordability, transportation, remote work, and metro scale, and the comparative claims are supported by all relevant supplied values.",
+      "missingDataHandling": "No supplied metric needed for the comparison is falsely presented as missing, zero, or inferred. The response stays within the available coverage and does not invent unavailable data.",
+      "personalization": "The context contains no priorities, reason, or climate preference. The response appropriately provides a general comparison without pretending to tailor the result to a user preference.",
+      "clarity": "Well organized with descriptive headings, concise paragraphs, bullets, and clear explanations of what the figures imply.",
+      "conciseness": "Selective and appropriately detailed. It covers the most decision-relevant differences without repeating the same figures excessively."
+    }
+  }
+}

@@ -270,6 +270,9 @@ Possible later personalization includes:
 -   occupation or career field;
 -   actual salary or job-offer inputs;
 -   household context;
+-   age group or preferred age distribution;
+-   local demographic mix where supported by defensible data;
+-   nightlife, dating, and social-scene considerations;
 -   purchasing-power changes;
 -   RegionLore's own transparent cost-of-living methodology;
 -   richer personal financial context.
@@ -277,6 +280,23 @@ Possible later personalization includes:
 These features should remain evidence-first. RegionLore should provide or
 calculate the underlying facts; AI should explain differences and tradeoffs
 rather than independently inventing data or deciding where a user should live.
+
+### Learning From Other Responses
+
+Future versions may optionally retain free-text responses submitted through
+comparison choices such as `Other` so RegionLore can identify recurring user
+needs that are not represented by the current predefined options.
+
+For example, repeated themes such as retirement, healthcare, dating, nightlife,
+outdoor recreation, or another comparison reason may justify promotion into a
+first-class option or dedicated refinement.
+
+Before storing this text, RegionLore should define privacy and retention rules.
+Collection should avoid unnecessary identifiers, and analysis should focus on
+aggregate recurring themes rather than exposing individual responses.
+
+This feedback loop should be treated as product-learning infrastructure rather
+than a reason to expand V2 personalization prematurely.
 
 ### Comparison Engine Upgrades
 

@@ -1,0 +1,24 @@
+{
+  "provider": "openai",
+  "model": "gpt-5.6-luna",
+  "geography": "cities",
+  "testCase": "missing-data",
+  "inputTokens": 4838,
+  "outputTokens": 974,
+  "thinkingTokens": null,
+  "totalTokens": 5812,
+  "latencyMs": 12248,
+  "estimatedCost": 0.0021364,
+  "errors": [],
+  "response": "The biggest tradeoff is that Phoenix offers a much larger city with stronger 2024 economic indicators, while Las Vegas is smaller, somewhat faster-growing since 2020, and notably drier. Housing costs are quite similar.\n\nPhoenix’s 2025 population was about 1.67 million, compared with roughly 680,000 in Las Vegas. Las Vegas grew 5% from 2020 to 2025, versus 3.3% for Phoenix, so the smaller city had the faster percentage growth over that period.\n\nEconomically, Phoenix had the stronger profile in 2024: median household income was $81,332 versus $73,877 in Las Vegas, and unemployment was 5% versus 7.4%. Poverty rates were close—13.7% in Phoenix and 14% in Las Vegas. Phoenix also had a higher share of adults with a bachelor’s degree or higher, 33.6% versus 27.7%, although Las Vegas had a slightly higher high-school-or-higher share.\n\nHousing is a near wash by these measures. Phoenix’s median rent was modestly higher, $1,582 versus $1,563, while its median home value was slightly lower, $420,700 versus $427,900. Ownership rates were also very similar.\n\nClimate is a clearer distinction. Both cities have very hot summers, but Phoenix’s 1991–2020 climate normals show warmer winters and generally more precipitation. January’s normal mean temperature was 54.8°F in Phoenix versus 48.7°F in Las Vegas; July means were 92.4°F and 91.8°F, respectively. Las Vegas was much drier in several months—for example, August precipitation was 0.22 inches versus 0.96 inches in Phoenix.\n\nCommute times were essentially identical in 2024, at about 25.6–25.7 minutes. Phoenix had a lower driving share—64.2% versus 70.9%—and a higher work-from-home share, 19% versus 12.1%. The demographic profiles also differ: Phoenix had a larger Hispanic/Latino share, 42% versus 34.7%, while Las Vegas had a larger 65-and-over share, 16% versus 12.2%.\n\nCrime cannot be compared directly here. Phoenix has 2024 FBI city-level data, but Las Vegas is marked unavailable because the available reporting geography is broader than the RegionLore Census place and was not used.\n\nOverall, Phoenix stands out for scale, income, employment, educational attainment, and warmer—but wetter—conditions. Las Vegas offers a smaller setting, faster recent percentage growth, slightly lower rent, and a drier climate, while the supplied data does not support a city-level crime comparison.",
+  "scores": {
+    "factualFaithfulness": null,
+    "comparisonQuality": null,
+    "missingDataHandling": null,
+    "personalization": null,
+    "clarity": null,
+    "conciseness": null
+  },
+  "hardFailures": [],
+  "notes": ""
+}

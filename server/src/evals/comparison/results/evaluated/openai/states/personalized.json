@@ -1,0 +1,40 @@
+{
+  "provider": "openai",
+  "model": "gpt-5.6-luna",
+  "geography": "states",
+  "testCase": "personalized",
+  "inputTokens": 3272,
+  "outputTokens": 774,
+  "thinkingTokens": null,
+  "totalTokens": 4046,
+  "latencyMs": 8940,
+  "estimatedCost": null,
+  "errors": [],
+  "response": "The biggest tradeoff is between **stronger population growth and potentially lower housing costs in Texas**, **North Carolina’s education profile and moderate growth**, and **New York’s higher incomes and education attainment alongside substantially higher housing costs and population decline**.\n\nFor **housing**, the 2024 medians show Texas with the lowest home value at **$313,200**, compared with **$333,000 in North Carolina** and **$449,800 in New York**. Texas’s median rent was **$1,475**, between North Carolina’s **$1,338** and New York’s **$1,634**. Median household income was highest in New York (**$85,820**), followed by Texas (**$79,721**) and North Carolina (**$73,958**). These figures describe housing prices, rents, and incomes, but do not by themselves establish overall affordability.\n\nOn **education**, North Carolina had the highest share of adults with at least a high school education (**90.1%**) and the highest math score (**276**). New York had the highest bachelor’s-degree attainment (**40.2%**) and reading score (**257**). Texas was lower on each of these supplied education measures: **86%** high school or higher, **33.8%** bachelor’s or higher, **252** in reading, and **269** in math. The measures are from 2024, and the data does not establish that small score differences are statistically meaningful.\n\nFor **population growth**, Texas grew **8.5%** from 2020 to 2025, compared with **7.2%** for North Carolina. New York declined **0.6%** over the same period. The 2024 migration figures point in the same direction: Texas had net migration of **+72,680**, North Carolina **+58,610**, and New York **–130,436**. Texas and North Carolina therefore offer the stronger growth profile in this comparison, while New York’s population was roughly flat over the latest year after earlier declines.\n\nOverall, **Texas** most closely matches a priority on growth and lower median home values, **North Carolina** combines growth with the strongest supplied high-school and math measures and the lowest median rent, while **New York** stands out for income and bachelor’s attainment but carries the highest housing costs and negative net migration.",
+  "scores": {
+    "factualFaithfulness": 5,
+    "comparisonQuality": 5,
+    "missingDataHandling": 5,
+    "personalization": 5,
+    "clarity": 5,
+    "conciseness": 5
+  },
+  "hardFailures": [],
+  "notes": "The response accurately compares all three states using the supplied 2024 and 2025 data, respects the time periods, and directly addresses the user's moving priorities of housing, education, and population growth. It appropriately qualifies affordability and statistical significance rather than overclaiming.",
+  "evaluation": {
+    "judgeProvider": "openai",
+    "judgeModel": "gpt-5.6-luna",
+    "judgeInputTokens": 3617,
+    "judgeOutputTokens": 596,
+    "judgeTotalTokens": 4213,
+    "judgeLatencyMs": 6014,
+    "scoreRationales": {
+      "factualFaithfulness": "All reported values and comparative claims are supported by the context. Texas has the lowest median home value, North Carolina the lowest median rent, New York the highest income and bachelor's attainment, North Carolina the highest high-school attainment and math score, and New York the highest reading score. Growth and migration comparisons are also accurate.",
+      "comparisonQuality": "The response emphasizes meaningful tradeoffs among housing, education, income, and growth rather than merely listing metrics. The concluding recommendations synthesize the differences appropriately.",
+      "missingDataHandling": "It does not treat the supplied medians as complete affordability measures and explicitly notes that affordability cannot be established from them alone. It also avoids claiming statistical significance for small education-score differences.",
+      "personalization": "The response directly addresses all three supplied priorities—housing, education, and population growth—and uses them to frame the overall comparison and conclusion.",
+      "clarity": "The organized sections and plain-language synthesis make the comparison easy to follow. Qualifications are clear and appropriately placed.",
+      "conciseness": "It is selective and focused, with enough supporting figures to substantiate the conclusions without unnecessary repetition."
+    }
+  }
+}

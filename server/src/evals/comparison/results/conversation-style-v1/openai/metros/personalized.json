@@ -1,0 +1,24 @@
+{
+  "provider": "openai",
+  "model": "gpt-5.6-luna",
+  "geography": "metros",
+  "testCase": "personalized",
+  "inputTokens": 4253,
+  "outputTokens": 691,
+  "thinkingTokens": null,
+  "totalTokens": 4944,
+  "latencyMs": 9127,
+  "estimatedCost": null,
+  "errors": [],
+  "response": "For your priorities, the clearest split is between Austin and Raleigh on one side and New York on the other. Austin and Raleigh have grown rapidly since 2020—13.9% and 12.6%, respectively—while the New York metro grew only 0.6%. In 2023, Austin and Raleigh also recorded positive net migration, at 18,309 and 14,044, while New York had net migration of –120,800. That makes Austin and Raleigh the stronger fits if being in a fast-growing region is important, though the figures describe population movement rather than explaining why people moved.\n\nHousing costs favor Raleigh most clearly. In 2024, its median rent was $1,573 and median home value $418,400, compared with $1,726 and $465,000 in Austin. New York was substantially more expensive at $1,830 rent and a $614,200 median home value. The affordability gap also shows up in the ratios: home value was 4.2 times median household income in Raleigh, 4.6 times in Austin, and 6.2 times in New York. Rent accounted for 18.9% of median household income in Raleigh, versus 20.6% in Austin and 22.1% in New York. So between the two fast-growing options, Raleigh offers the lighter housing burden in these measures; Austin still compares more favorably with New York.\n\nTransportation is the major tradeoff. New York is much less car-dependent: 24.1% of workers used transit and 44.6% drove, compared with just 1.1% transit and 60.9% driving in Austin, and 0.5% transit and 64.3% driving in Raleigh. The supplied commute figures do not show shorter commutes in New York, however—its mean was 35.6 minutes, versus 27.3 in Austin and 26.8 in Raleigh. New York also had a lower work-from-home share, 16.7%, than Austin’s 26.8% and Raleigh’s 26.2%.\n\nIn practical terms, Raleigh looks like the most balanced choice for lower housing costs and strong growth, while Austin offers similarly strong growth with somewhat higher housing costs and slightly more transit use than Raleigh. New York provides by far the strongest transit-oriented profile, but that comes with higher housing costs, longer average commutes, slower population growth, and negative net migration in the 2023 figures. All of these comparisons are for the named metro areas, not individual cities or neighborhoods.",
+  "scores": {
+    "factualFaithfulness": null,
+    "comparisonQuality": null,
+    "missingDataHandling": null,
+    "personalization": null,
+    "clarity": null,
+    "conciseness": null
+  },
+  "hardFailures": [],
+  "notes": ""
+}

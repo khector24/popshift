@@ -1,0 +1,40 @@
+{
+  "provider": "openai",
+  "model": "gpt-5.6-luna",
+  "geography": "cities",
+  "testCase": "two-places",
+  "inputTokens": 4856,
+  "outputTokens": 618,
+  "thinkingTokens": null,
+  "totalTokens": 5474,
+  "latencyMs": 6571,
+  "estimatedCost": null,
+  "errors": [],
+  "response": "Austin and Raleigh offer a similar commute burden, but differ most in scale, housing costs, climate, and growth. Austin is much larger—about 1.00 million residents in 2025 versus Raleigh’s 506,000—while Raleigh grew faster since 2020, at 8.6% compared with Austin’s 4.2%.\n\nAustin has the stronger income and education figures: 2024 median household income was $93,658 versus $85,395 in Raleigh, and the share of adults with a bachelor’s degree or higher was 59.6% versus 54.0%. That comes with more expensive housing: median rent was $1,729 in Austin compared with $1,572 in Raleigh, and median home value was $555,300 versus $415,800. Raleigh also had a slightly lower unemployment rate, 4.4% versus 4.7%.\n\nThe climate contrast is pronounced in the 1991–2020 NOAA normals. Austin is warmer year-round, with normal July and August highs around 96.6–97.8°F, while Raleigh’s are 90.6°F and 88.7°F. Raleigh has cooler winters and generally higher monthly precipitation, especially from June through September.\n\nCommutes are nearly identical—23.7 minutes in Austin and 23.0 in Raleigh—but Austin has a higher work-from-home share, 30.7% versus 25.8%. Both rely primarily on driving, with Raleigh’s drive share somewhat higher.\n\nCrime data for 2024 show a mixed picture rather than a clear overall difference. Raleigh’s violent-crime rate was slightly higher, 488.8 versus 466.9 per 100,000 reporting residents, while Austin’s property-crime rate was higher, 3,241.9 versus 2,819.2. These are city-level rates from jurisdictions with available coverage, not metro-area measures.\n\nIn short, Austin pairs higher incomes, more educational attainment, a larger population, and a warmer climate with notably higher housing costs and property crime. Raleigh is smaller and growing faster, with lower housing costs, cooler and wetter climate normals, and a somewhat lower property-crime rate, while its violent-crime rate was slightly higher in the 2024 data.",
+  "scores": {
+    "factualFaithfulness": 5,
+    "comparisonQuality": 5,
+    "missingDataHandling": 5,
+    "personalization": 5,
+    "clarity": 5,
+    "conciseness": 5
+  },
+  "hardFailures": [],
+  "notes": "The response accurately compares the supplied city-level values, preserves the relevant years and climate normal period, and correctly avoids treating crime coverage as metro-level data. It handles comparative claims appropriately: Austin is larger, Raleigh grew faster, Austin has higher income, bachelor's attainment, housing costs, work-from-home share, and property-crime rate; Raleigh has lower unemployment and slightly higher violent-crime rate. The climate summary is supported by the monthly normals, including Raleigh's higher precipitation in June through September. No selected priorities or preferences were supplied, so there was no unsupported personalization requirement to acknowledge.",
+  "evaluation": {
+    "judgeProvider": "openai",
+    "judgeModel": "gpt-5.6-luna",
+    "judgeInputTokens": 5180,
+    "judgeOutputTokens": 415,
+    "judgeTotalTokens": 5595,
+    "judgeLatencyMs": 4627,
+    "scoreRationales": {
+      "factualFaithfulness": "All cited figures and comparisons match the RegionLore context. The statement that Raleigh has generally higher monthly precipitation is supported across the months, and the crime comparison correctly uses rates per 100,000 reporting residents and identifies the city-level coverage.",
+      "comparisonQuality": "The response synthesizes meaningful tradeoffs across scale, growth, income, education, housing, climate, commuting, and crime rather than merely listing metrics. It appropriately describes crime as mixed rather than declaring one city categorically safer.",
+      "missingDataHandling": "It correctly notes that the crime figures are city-level and available-coverage jurisdiction data, not metro-area measures. It does not invent missing snowfall values or imply unavailable data are zero.",
+      "personalization": "The context contains no priorities, reason, or climate preference. The response appropriately provides a balanced comparison without pretending to personalize around an absent user preference.",
+      "clarity": "The organization is clear, with a useful progression from overall differences to economics, climate, commuting, crime, and a concise synthesis. Language is plain and the numerical comparisons are easy to follow.",
+      "conciseness": "It is focused and appropriately selective, including enough evidence to support the main tradeoffs without unnecessary metric repetition."
+    }
+  }
+}

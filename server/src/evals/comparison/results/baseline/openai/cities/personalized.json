@@ -1,0 +1,24 @@
+{
+  "provider": "openai",
+  "model": "gpt-5.6-luna",
+  "geography": "cities",
+  "testCase": "personalized",
+  "inputTokens": 6889,
+  "outputTokens": 854,
+  "thinkingTokens": null,
+  "totalTokens": 7743,
+  "latencyMs": 10966,
+  "estimatedCost": 0.0024026000000000004,
+  "errors": [],
+  "response": "The biggest tradeoff is between **warmer weather and higher housing costs**. Raleigh is the least expensive of the three on the supplied housing measures, while Austin offers the warmest climate. Denver has the highest incomes but also the highest housing costs and coolest winters.\n\n**Housing:** In 2024, Raleigh had the lowest median rent at **$1,572** and median home value at **$415,800**. Austin was higher at **$1,729** and **$555,300**, while Denver was highest at **$1,831** and **$616,000**. Raleigh also had the largest owner share—**50.7%**, compared with **43.4%** in Austin and **48.8%** in Denver. These are city-level medians, so they show relative housing costs but do not by themselves establish affordability for a particular household.\n\n**Jobs and income:** Denver and Austin had similar 2024 median household incomes—**$94,718** and **$93,658**, respectively—versus **$85,395** in Raleigh. Raleigh had the lowest unemployment rate at **4.4%**, compared with **4.7%** in Austin and **4.9%** in Denver. Raleigh has also grown faster since 2020, with population growth of **8.6%**, compared with **4.2%** in Austin and **3.2%** in Denver, though the supplied data does not explain what drove those differences.\n\n**Climate:** Austin is clearly the warmest choice in the supplied climate normals. January’s normal mean is **52.2°F** in Austin, versus **41.7°F** in Raleigh and **32.1°F** in Denver; in July, the normal high is **96.6°F** in Austin, compared with **90.6°F** in Raleigh and **90.2°F** in Denver. Raleigh is the middle option for temperatures, while Denver has the coolest winters and substantially lower normal monthly precipitation. These climate figures are **1991–2020 NOAA normals**, not measurements from the same recent year.\n\nFor your priorities, **Austin aligns most closely with a preference for warmer weather**, but it costs more than Raleigh on both rent and home value. **Raleigh offers the strongest housing-cost tradeoff and lowest unemployment**, while **Denver combines high income with the highest housing costs and coolest climate**.",
+  "scores": {
+    "factualFaithfulness": null,
+    "comparisonQuality": null,
+    "missingDataHandling": null,
+    "personalization": null,
+    "clarity": null,
+    "conciseness": null
+  },
+  "hardFailures": [],
+  "notes": ""
+}

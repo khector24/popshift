@@ -1,0 +1,24 @@
+{
+  "provider": "openai",
+  "model": "gpt-5.6-luna",
+  "geography": "metros",
+  "testCase": "personalized",
+  "inputTokens": 4071,
+  "outputTokens": 726,
+  "thinkingTokens": null,
+  "totalTokens": 4797,
+  "latencyMs": 8712,
+  "estimatedCost": 0.0016854,
+  "errors": [],
+  "response": "For your priorities—housing, transportation, and population growth—the main tradeoff is clear: **Austin and Raleigh offer faster growth and lower housing costs than New York, while New York offers far stronger transit use but higher housing costs and longer commutes.**\n\n**Housing:** Raleigh is the most affordable of the three on the supplied 2024 measures: median rent was **$1,573**, median home value **$418,400**, and home value-to-income ratio **4.2**. Austin was more expensive, at **$1,726 rent** and **$465,000 median home value**, with a **4.6** home-value-to-income ratio. New York was highest at **$1,830 rent**, **$614,200 median home value**, and a **6.2** ratio. Rent represented **18.9% of median household income in Raleigh**, compared with **20.6% in Austin** and **22.1% in New York**. Median household incomes were fairly similar across the metros, around $99,000–$100,000.\n\n**Transportation:** New York is the clear outlier in travel patterns. **24.1%** of workers used transit, compared with **1.1% in Austin** and **0.5% in Raleigh**. Its drive share was also lower, but its mean commute was longer: **35.6 minutes**, versus **27.3 in Austin** and **26.8 in Raleigh**. Austin had the highest work-from-home share at **26.8%**, just above Raleigh’s **26.2%** and well above New York’s **16.7%**. These figures suggest a major tradeoff between New York’s transit-oriented transportation profile and the shorter average commutes and greater work-from-home prevalence reported in Austin and Raleigh.\n\n**Population growth:** From 2020 to 2025, Austin grew **13.9%** and Raleigh **12.6%**, while New York grew only **0.6%**. The 2023 migration figures reinforce that contrast: Austin recorded **+18,309** net migration and Raleigh **+14,044**, while New York recorded **–120,800**. Austin is also the largest of the two fast-growing metros, with a 2025 population of about **2.62 million**, compared with **1.60 million** for Raleigh; New York remained far larger at about **20.11 million**.\n\nOverall, **Raleigh has the strongest housing position**, **Austin combines rapid growth with somewhat higher costs and the highest work-from-home share**, and **New York provides by far the strongest transit profile but with higher housing costs, longer commutes, slower recent growth, and negative recent net migration**.",
+  "scores": {
+    "factualFaithfulness": null,
+    "comparisonQuality": null,
+    "missingDataHandling": null,
+    "personalization": null,
+    "clarity": null,
+    "conciseness": null
+  },
+  "hardFailures": [],
+  "notes": ""
+}

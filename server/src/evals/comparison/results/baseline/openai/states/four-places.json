@@ -1,0 +1,24 @@
+{
+  "provider": "openai",
+  "model": "gpt-5.6-luna",
+  "geography": "states",
+  "testCase": "four-places",
+  "inputTokens": 4062,
+  "outputTokens": 747,
+  "thinkingTokens": null,
+  "totalTokens": 4809,
+  "latencyMs": 8087,
+  "estimatedCost": 0.0017088000000000001,
+  "errors": [],
+  "response": "The biggest divide is between the three growing Southern states and New York. Texas, Florida, and North Carolina all grew from 2020 to 2025, while New York’s population was down 0.6% over that period. In 2024, Texas had the largest net migration gain at 72,680, followed by Florida at 67,630 and North Carolina at 58,610; New York had net outmigration of 130,436.\n\nThe financial tradeoff is less one-sided. New York had the highest 2024 median household income, at $85,820, but also the highest median rent among the four at $1,634 and the highest median home value at $449,800. North Carolina had the lowest median rent at $1,338, while Texas had the lowest median home value at $313,200. Texas’s median income was $79,721, compared with $77,735 in Florida and $73,958 in North Carolina. These figures describe statewide medians rather than the cost or income experience in any particular city.\n\nEducation measures also distinguish the states. New York had the highest share of adults with a bachelor’s degree or higher, at 40.2%, while North Carolina had the highest high-school-or-higher share, at 90.1%. Texas was lower on both measures—33.8% and 86%, respectively. The supplied 2024 reading and math scores were relatively close across the states, with North Carolina posting the highest math score and New York the highest reading score; the context does not establish that these modest differences are statistically meaningful.\n\nMigration patterns reinforce the population contrast. Florida and Texas attracted the largest numbers of inbound movers in 2024, though both also had substantial outflows. North Carolina’s gains were smaller in absolute terms but still positive, while New York’s outbound moves substantially exceeded inbound moves. Net migration gains also declined from earlier years for all three Southern states, so the 2024 figures should not be read as a guarantee of continued growth at the same pace.\n\nOverall, Texas combines strong population growth with relatively low median home values and higher income than North Carolina or Florida. North Carolina pairs the lowest median rent with the strongest high-school attainment and math score in this comparison. Florida has rapid growth but the highest median rent among the Southern states. New York offers the highest income and bachelor’s-degree attainment, but with higher housing costs and markedly negative recent net migration.",
+  "scores": {
+    "factualFaithfulness": null,
+    "comparisonQuality": null,
+    "missingDataHandling": null,
+    "personalization": null,
+    "clarity": null,
+    "conciseness": null
+  },
+  "hardFailures": [],
+  "notes": ""
+}

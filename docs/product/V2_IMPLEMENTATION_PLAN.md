@@ -1910,3 +1910,41 @@ Keep V2 focused on shipping a reliable, understandable product. Broader
 personalization, cross-geography comparison, richer cost-of-living modeling,
 saved/private user context, and travel-oriented comparison belong to later
 product work unless deliberately promoted into scope.
+
+
+---
+
+## Phase 15 Implementation Decision Update
+
+Phase 15 production implementation should use **OpenAI `gpt-5.6-luna`** for V2 AI-assisted comparison generation.
+
+Gemini remains an evaluated alternative and may be useful later. Anthropic/Claude and other providers can be evaluated later, but V2 does not need multi-provider routing, streaming, queues, or automatic failover.
+
+The V2 comparison target is **two to four same-type places**.
+
+The production flow should be:
+
+```text
+Compare setup
+→ structured RegionLore comparison
+→ compact AI context
+→ PostgreSQL cache lookup
+→ OpenAI generation on cache miss
+→ basic response validation
+→ cache successful response
+→ frontend result
+```
+
+The `/compare` page remains one page. After clicking **Compare Places**, results render below the setup/action area and the page auto-scrolls to the result area.
+
+The result area should include:
+
+1. a substantial written comparison first;
+2. structured RegionLore data underneath;
+3. a small Back to comparison setup / Edit comparison control.
+
+V2 does not weave AI prose into every data section, does not create a separate results route, and does not include a normal Regenerate button. Retry is appropriate when AI generation fails.
+
+Structured data sections should be data-driven by geography type. Cities, metros, and states do not need artificial metric parity. Use reusable section containers, but vary internal presentation where practical with stat groups, compact tables, small charts, or bars.
+
+AI/provider failure must not break the structured comparison.

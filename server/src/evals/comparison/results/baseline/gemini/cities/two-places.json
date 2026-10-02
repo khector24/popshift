@@ -1,0 +1,24 @@
+{
+  "provider": "gemini",
+  "model": "gemini-3.8-flash",
+  "geography": "cities",
+  "testCase": "two-places",
+  "inputTokens": 5755,
+  "outputTokens": 882,
+  "thinkingTokens": 878,
+  "totalTokens": 7515,
+  "latencyMs": 7733,
+  "estimatedCost": 0.010916249999999999,
+  "errors": [],
+  "response": "When comparing Austin and Raleigh, the most noticeable contrasts center on scale, housing costs, climate, and population makeup, even as both mid-to-large capital cities share high levels of educational attainment, similar commute times, and low unemployment.\n\n### Scale, Growth, and Housing\nAustin is roughly double the size of Raleigh, crossing 1 million residents in 2025 (1,002,632) compared to Raleigh’s 506,306. However, Raleigh has grown at a faster pace since 2020, expanding by 8.6% versus Austin’s 4.2%.\n\nAustin features higher incomes alongside significantly higher housing expenses based on 2024 American Community Survey estimates. Austin’s median household income reached $93,658, but its median home value was $555,300 and median rent was $1,729. Raleigh’s median income was somewhat lower at $85,395, but its housing was noticeably more accessible, with a median home value of $415,800 and median rent of $1,572. Reflecting these costs, Raleigh leans slightly toward homeownership (50.7% owner-occupied), whereas Austin is predominantly a renter community (56.6% renter-occupied). Both cities have comparable poverty rates (around 12%) and unemployment rates under 5%.\n\n### Work and Daily Commutes\nCommute experiences in both cities are quite similar in duration—averaging roughly 23 to 24 minutes in 2024—and both feature substantial shares of remote workers. Austin has a slightly higher work-from-home rate at 30.7%, compared to Raleigh’s 25.8%. Both remain largely car-dependent for commuters, though Raleigh has a higher share of solo drivers (62.3% versus 56.0% in Austin). Both cities also report high levels of formal education, with 59.6% of adults holding a bachelor’s degree or higher in Austin and 54.0% in Raleigh.\n\n### Climate and Demographics\nClimate normals from 1991 to 2020 highlight clear seasonal differences. Austin experiences substantially hotter summers, with average July and August highs reaching 96.6°F and 97.8°F, paired with mild winters where January highs average 62.5°F. Raleigh offers four distinct seasons with cooler winters—January normal lows drop to 31.6°F—and warmer, though less extreme, summer peaks around 90.6°F in July.\n\nDemographically, both cities have young populations, though Austin has a larger concentration of adults aged 25 to 34 (22.5% versus 18.7%). Their racial and ethnic profiles differ substantially: Austin’s population is 31.9% Hispanic or Latino and 7.6% Black, whereas Raleigh has a significantly larger Black population (26.6%) and a smaller Hispanic or Latino population (12.6%).\n\n### Crime Rates\nAccording to 2024 FBI reporting, violent crime rates were relatively close between the two cities, with Raleigh reporting 488.8 violent offenses per 100,000 residents and Austin reporting 466.9 per 100,000. In property crime, Austin recorded a higher rate at 3,241.9 per 100,000 residents compared to Raleigh’s 2,819.2 per 100,000, driven largely by higher reported rates of larceny-theft and motor vehicle theft.\n\n### Synthesis of Tradeoffs\nThe core choice between Austin and Raleigh balances scale and urban intensity against housing affordability and climate. Austin offers a larger urban footprint, a slightly higher share of remote workers, and warmer winters, but comes with substantially higher housing costs, higher property crime rates, and extreme summer heat. Raleigh provides lower entry costs for both renting and homebuying, four distinct seasons, and faster recent population growth in a smaller metropolitan core.",
+  "scores": {
+    "factualFaithfulness": null,
+    "comparisonQuality": null,
+    "missingDataHandling": null,
+    "personalization": null,
+    "clarity": null,
+    "conciseness": null
+  },
+  "hardFailures": [],
+  "notes": ""
+}

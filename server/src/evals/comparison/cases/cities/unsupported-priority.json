@@ -1,0 +1,831 @@
+{
+  "geographyType": "city",
+  "places": [
+    {
+      "identity": {
+        "id": 1138,
+        "name": "Austin",
+        "slug": "austin-tx",
+        "placeType": "city",
+        "state": {
+          "id": 47,
+          "name": "Texas",
+          "slug": "texas",
+          "stateFips": "48",
+          "abbreviation": "TX"
+        },
+        "metro": {
+          "id": 133,
+          "name": "Austin-Round Rock-San Marcos, TX Metro Area",
+          "slug": "austin-round-rock-san-marcos",
+          "cbsa": "12420"
+        }
+      },
+      "population": {
+        "current": 1002632,
+        "year": 2025,
+        "growthSince2020": 4.2,
+        "history": [
+          {
+            "year": 2020,
+            "population": 962163,
+            "source": "U.S. Census Bureau",
+            "datasetName": "City and Town Population Estimates",
+            "vintage": "2025"
+          },
+          {
+            "year": 2021,
+            "population": 966501,
+            "source": "U.S. Census Bureau",
+            "datasetName": "City and Town Population Estimates",
+            "vintage": "2025"
+          },
+          {
+            "year": 2022,
+            "population": 978358,
+            "source": "U.S. Census Bureau",
+            "datasetName": "City and Town Population Estimates",
+            "vintage": "2025"
+          },
+          {
+            "year": 2023,
+            "population": 990110,
+            "source": "U.S. Census Bureau",
+            "datasetName": "City and Town Population Estimates",
+            "vintage": "2025"
+          },
+          {
+            "year": 2024,
+            "population": 998607,
+            "source": "U.S. Census Bureau",
+            "datasetName": "City and Town Population Estimates",
+            "vintage": "2025"
+          },
+          {
+            "year": 2025,
+            "population": 1002632,
+            "source": "U.S. Census Bureau",
+            "datasetName": "City and Town Population Estimates",
+            "vintage": "2025"
+          }
+        ]
+      },
+      "economics": {
+        "year": 2024,
+        "medianHouseholdIncome": 93658,
+        "povertyRate": 12,
+        "unemploymentRate": 4.7
+      },
+      "education": {
+        "year": 2024,
+        "highSchoolOrHigher": 92.3,
+        "bachelorsOrHigher": 59.6
+      },
+      "housing": {
+        "year": 2024,
+        "medianRent": 1729,
+        "medianHomeValue": 555300,
+        "ownerShare": 43.4,
+        "renterShare": 56.6
+      },
+      "transportation": {
+        "year": 2024,
+        "meanCommuteMinutes": 23.7,
+        "driveShare": 56,
+        "carpoolShare": 6.4,
+        "transitShare": 2,
+        "walkShare": 2.5,
+        "workFromHomeShare": 30.7
+      },
+      "demographics": {
+        "year": 2024,
+        "age": {
+          "under18Share": 18,
+          "age18To24Share": 10.2,
+          "age25To34Share": 22.5,
+          "age35To44Share": 17.4,
+          "age45To64Share": 21.5,
+          "age65PlusShare": 10.4
+        },
+        "raceEthnicity": {
+          "whiteShare": 55,
+          "blackShare": 7.6,
+          "asianShare": 9.1,
+          "otherRaceShare": 8.1,
+          "hispanicLatinoShare": 31.9
+        }
+      },
+      "climate": {
+        "normalPeriod": "1991-2020",
+        "source": "National Oceanic and Atmospheric Administration",
+        "datasetName": "U.S. Monthly Climate Normals",
+        "vintage": "1991-2020",
+        "monthly": [
+          {
+            "month": 1,
+            "normalHigh": 62.5,
+            "normalLow": 41.8,
+            "normalMean": 52.2,
+            "precipitation": 2.64,
+            "snowfall": null
+          },
+          {
+            "month": 2,
+            "normalHigh": 66.5,
+            "normalLow": 45.8,
+            "normalMean": 56.1,
+            "precipitation": 1.89,
+            "snowfall": null
+          },
+          {
+            "month": 3,
+            "normalHigh": 73.3,
+            "normalLow": 52.2,
+            "normalMean": 62.8,
+            "precipitation": 2.88,
+            "snowfall": null
+          },
+          {
+            "month": 4,
+            "normalHigh": 80.3,
+            "normalLow": 58.9,
+            "normalMean": 69.6,
+            "precipitation": 2.42,
+            "snowfall": null
+          },
+          {
+            "month": 5,
+            "normalHigh": 86.9,
+            "normalLow": 66.8,
+            "normalMean": 76.8,
+            "precipitation": 5.04,
+            "snowfall": null
+          },
+          {
+            "month": 6,
+            "normalHigh": 93.2,
+            "normalLow": 72.9,
+            "normalMean": 83,
+            "precipitation": 3.68,
+            "snowfall": null
+          },
+          {
+            "month": 7,
+            "normalHigh": 96.6,
+            "normalLow": 75,
+            "normalMean": 85.8,
+            "precipitation": 1.96,
+            "snowfall": null
+          },
+          {
+            "month": 8,
+            "normalHigh": 97.8,
+            "normalLow": 75.1,
+            "normalMean": 86.5,
+            "precipitation": 2.74,
+            "snowfall": null
+          },
+          {
+            "month": 9,
+            "normalHigh": 91.4,
+            "normalLow": 70.1,
+            "normalMean": 80.8,
+            "precipitation": 3.45,
+            "snowfall": null
+          },
+          {
+            "month": 10,
+            "normalHigh": 82.5,
+            "normalLow": 60.8,
+            "normalMean": 71.6,
+            "precipitation": 3.91,
+            "snowfall": null
+          },
+          {
+            "month": 11,
+            "normalHigh": 71.5,
+            "normalLow": 50.5,
+            "normalMean": 61,
+            "precipitation": 2.92,
+            "snowfall": null
+          },
+          {
+            "month": 12,
+            "normalHigh": 63.9,
+            "normalLow": 43.4,
+            "normalMean": 53.6,
+            "precipitation": 2.72,
+            "snowfall": null
+          }
+        ]
+      },
+      "crime": {
+        "year": 2024,
+        "reportingPopulation": 984613,
+        "sourceJurisdictionName": "Austin",
+        "coverageStatus": "available",
+        "coverageNotes": null,
+        "violentCrime": {
+          "count": 4597,
+          "rate": 466.9,
+          "murder": {
+            "count": 65,
+            "rate": 6.6
+          },
+          "rape": {
+            "count": 666,
+            "rate": 67.6
+          },
+          "robbery": {
+            "count": 841,
+            "rate": 85.4
+          },
+          "aggravatedAssault": {
+            "count": 3025,
+            "rate": 307.2
+          }
+        },
+        "propertyCrime": {
+          "count": 31920,
+          "rate": 3241.9,
+          "burglary": {
+            "count": 4383,
+            "rate": 445.1
+          },
+          "larcenyTheft": {
+            "count": 21643,
+            "rate": 2198.1
+          },
+          "motorVehicleTheft": {
+            "count": 5894,
+            "rate": 598.6
+          }
+        },
+        "source": "Federal Bureau of Investigation",
+        "datasetName": "Offenses Known to Law Enforcement by State by City",
+        "vintage": "2024"
+      },
+      "sources": {
+        "acs": {
+          "source": "U.S. Census Bureau",
+          "datasetName": "American Community Survey 5-Year",
+          "vintage": "2024"
+        }
+      }
+    },
+    {
+      "identity": {
+        "id": 1165,
+        "name": "Raleigh",
+        "slug": "raleigh-nc",
+        "placeType": "city",
+        "state": {
+          "id": 37,
+          "name": "North Carolina",
+          "slug": "north-carolina",
+          "stateFips": "37",
+          "abbreviation": "NC"
+        },
+        "metro": {
+          "id": 150,
+          "name": "Raleigh-Cary, NC Metro Area",
+          "slug": "raleigh-cary",
+          "cbsa": "39580"
+        }
+      },
+      "population": {
+        "current": 506306,
+        "year": 2025,
+        "growthSince2020": 8.6,
+        "history": [
+          {
+            "year": 2020,
+            "population": 466310,
+            "source": "U.S. Census Bureau",
+            "datasetName": "City and Town Population Estimates",
+            "vintage": "2025"
+          },
+          {
+            "year": 2021,
+            "population": 471981,
+            "source": "U.S. Census Bureau",
+            "datasetName": "City and Town Population Estimates",
+            "vintage": "2025"
+          },
+          {
+            "year": 2022,
+            "population": 475226,
+            "source": "U.S. Census Bureau",
+            "datasetName": "City and Town Population Estimates",
+            "vintage": "2025"
+          },
+          {
+            "year": 2023,
+            "population": 490503,
+            "source": "U.S. Census Bureau",
+            "datasetName": "City and Town Population Estimates",
+            "vintage": "2025"
+          },
+          {
+            "year": 2024,
+            "population": 499017,
+            "source": "U.S. Census Bureau",
+            "datasetName": "City and Town Population Estimates",
+            "vintage": "2025"
+          },
+          {
+            "year": 2025,
+            "population": 506306,
+            "source": "U.S. Census Bureau",
+            "datasetName": "City and Town Population Estimates",
+            "vintage": "2025"
+          }
+        ]
+      },
+      "economics": {
+        "year": 2024,
+        "medianHouseholdIncome": 85395,
+        "povertyRate": 11.9,
+        "unemploymentRate": 4.4
+      },
+      "education": {
+        "year": 2024,
+        "highSchoolOrHigher": 92.6,
+        "bachelorsOrHigher": 54
+      },
+      "housing": {
+        "year": 2024,
+        "medianRent": 1572,
+        "medianHomeValue": 415800,
+        "ownerShare": 50.7,
+        "renterShare": 49.3
+      },
+      "transportation": {
+        "year": 2024,
+        "meanCommuteMinutes": 23,
+        "driveShare": 62.3,
+        "carpoolShare": 6.7,
+        "transitShare": 1.4,
+        "walkShare": 1.6,
+        "workFromHomeShare": 25.8
+      },
+      "demographics": {
+        "year": 2024,
+        "age": {
+          "under18Share": 19.8,
+          "age18To24Share": 12.1,
+          "age25To34Share": 18.7,
+          "age35To44Share": 14.4,
+          "age45To64Share": 23.1,
+          "age65PlusShare": 11.9
+        },
+        "raceEthnicity": {
+          "whiteShare": 52.8,
+          "blackShare": 26.6,
+          "asianShare": 5.2,
+          "otherRaceShare": 5.8,
+          "hispanicLatinoShare": 12.6
+        }
+      },
+      "climate": {
+        "normalPeriod": "1991-2020",
+        "source": "National Oceanic and Atmospheric Administration",
+        "datasetName": "U.S. Monthly Climate Normals",
+        "vintage": "1991-2020",
+        "monthly": [
+          {
+            "month": 1,
+            "normalHigh": 51.7,
+            "normalLow": 31.6,
+            "normalMean": 41.7,
+            "precipitation": 3.65,
+            "snowfall": null
+          },
+          {
+            "month": 2,
+            "normalHigh": 55.2,
+            "normalLow": 33.2,
+            "normalMean": 44.2,
+            "precipitation": 2.88,
+            "snowfall": null
+          },
+          {
+            "month": 3,
+            "normalHigh": 62.6,
+            "normalLow": 40.1,
+            "normalMean": 51.3,
+            "precipitation": 4.17,
+            "snowfall": null
+          },
+          {
+            "month": 4,
+            "normalHigh": 72.3,
+            "normalLow": 48.8,
+            "normalMean": 60.6,
+            "precipitation": 3.63,
+            "snowfall": null
+          },
+          {
+            "month": 5,
+            "normalHigh": 80.2,
+            "normalLow": 57.9,
+            "normalMean": 69,
+            "precipitation": 3.99,
+            "snowfall": null
+          },
+          {
+            "month": 6,
+            "normalHigh": 87.2,
+            "normalLow": 66.1,
+            "normalMean": 76.6,
+            "precipitation": 4.87,
+            "snowfall": null
+          },
+          {
+            "month": 7,
+            "normalHigh": 90.6,
+            "normalLow": 70.3,
+            "normalMean": 80.4,
+            "precipitation": 4.65,
+            "snowfall": null
+          },
+          {
+            "month": 8,
+            "normalHigh": 88.7,
+            "normalLow": 68.8,
+            "normalMean": 78.7,
+            "precipitation": 4.71,
+            "snowfall": null
+          },
+          {
+            "month": 9,
+            "normalHigh": 82.4,
+            "normalLow": 62.9,
+            "normalMean": 72.7,
+            "precipitation": 5.72,
+            "snowfall": null
+          },
+          {
+            "month": 10,
+            "normalHigh": 72.5,
+            "normalLow": 50.9,
+            "normalMean": 61.7,
+            "precipitation": 3.9,
+            "snowfall": null
+          },
+          {
+            "month": 11,
+            "normalHigh": 62.1,
+            "normalLow": 40.9,
+            "normalMean": 51.5,
+            "precipitation": 3.51,
+            "snowfall": null
+          },
+          {
+            "month": 12,
+            "normalHigh": 54.7,
+            "normalLow": 34.9,
+            "normalMean": 44.8,
+            "precipitation": 3.68,
+            "snowfall": null
+          }
+        ]
+      },
+      "crime": {
+        "year": 2024,
+        "reportingPopulation": 488085,
+        "sourceJurisdictionName": "Raleigh",
+        "coverageStatus": "available",
+        "coverageNotes": null,
+        "violentCrime": {
+          "count": 2386,
+          "rate": 488.8,
+          "murder": {
+            "count": 25,
+            "rate": 5.1
+          },
+          "rape": {
+            "count": 176,
+            "rate": 36.1
+          },
+          "robbery": {
+            "count": 423,
+            "rate": 86.7
+          },
+          "aggravatedAssault": {
+            "count": 1762,
+            "rate": 361
+          }
+        },
+        "propertyCrime": {
+          "count": 13760,
+          "rate": 2819.2,
+          "burglary": {
+            "count": 1362,
+            "rate": 279
+          },
+          "larcenyTheft": {
+            "count": 10049,
+            "rate": 2058.9
+          },
+          "motorVehicleTheft": {
+            "count": 2349,
+            "rate": 481.3
+          }
+        },
+        "source": "Federal Bureau of Investigation",
+        "datasetName": "Offenses Known to Law Enforcement by State by City",
+        "vintage": "2024"
+      },
+      "sources": {
+        "acs": {
+          "source": "U.S. Census Bureau",
+          "datasetName": "American Community Survey 5-Year",
+          "vintage": "2024"
+        }
+      }
+    },
+    {
+      "identity": {
+        "id": 1145,
+        "name": "Denver",
+        "slug": "denver-co",
+        "placeType": "city",
+        "state": {
+          "id": 9,
+          "name": "Colorado",
+          "slug": "colorado",
+          "stateFips": "08",
+          "abbreviation": "CO"
+        },
+        "metro": {
+          "id": 127,
+          "name": "Denver-Aurora-Centennial, CO Metro Area",
+          "slug": "denver-aurora-centennial",
+          "cbsa": "19740"
+        }
+      },
+      "population": {
+        "current": 740613,
+        "year": 2025,
+        "growthSince2020": 3.2,
+        "history": [
+          {
+            "year": 2020,
+            "population": 717680,
+            "source": "U.S. Census Bureau",
+            "datasetName": "City and Town Population Estimates",
+            "vintage": "2025"
+          },
+          {
+            "year": 2021,
+            "population": 712156,
+            "source": "U.S. Census Bureau",
+            "datasetName": "City and Town Population Estimates",
+            "vintage": "2025"
+          },
+          {
+            "year": 2022,
+            "population": 716800,
+            "source": "U.S. Census Bureau",
+            "datasetName": "City and Town Population Estimates",
+            "vintage": "2025"
+          },
+          {
+            "year": 2023,
+            "population": 726763,
+            "source": "U.S. Census Bureau",
+            "datasetName": "City and Town Population Estimates",
+            "vintage": "2025"
+          },
+          {
+            "year": 2024,
+            "population": 741591,
+            "source": "U.S. Census Bureau",
+            "datasetName": "City and Town Population Estimates",
+            "vintage": "2025"
+          },
+          {
+            "year": 2025,
+            "population": 740613,
+            "source": "U.S. Census Bureau",
+            "datasetName": "City and Town Population Estimates",
+            "vintage": "2025"
+          }
+        ]
+      },
+      "economics": {
+        "year": 2024,
+        "medianHouseholdIncome": 94718,
+        "povertyRate": 11.2,
+        "unemploymentRate": 4.9
+      },
+      "education": {
+        "year": 2024,
+        "highSchoolOrHigher": 91.2,
+        "bachelorsOrHigher": 56.5
+      },
+      "housing": {
+        "year": 2024,
+        "medianRent": 1831,
+        "medianHomeValue": 616000,
+        "ownerShare": 48.8,
+        "renterShare": 51.2
+      },
+      "transportation": {
+        "year": 2024,
+        "meanCommuteMinutes": 24.9,
+        "driveShare": 56.1,
+        "carpoolShare": 6.3,
+        "transitShare": 3.8,
+        "walkShare": 3.6,
+        "workFromHomeShare": 27.3
+      },
+      "demographics": {
+        "year": 2024,
+        "age": {
+          "under18Share": 18,
+          "age18To24Share": 7.9,
+          "age25To34Share": 23.4,
+          "age35To44Share": 17.1,
+          "age45To64Share": 21.1,
+          "age65PlusShare": 12.5
+        },
+        "raceEthnicity": {
+          "whiteShare": 59.3,
+          "blackShare": 9,
+          "asianShare": 3.7,
+          "otherRaceShare": 8.6,
+          "hispanicLatinoShare": 28
+        }
+      },
+      "climate": {
+        "normalPeriod": "1991-2020",
+        "source": "National Oceanic and Atmospheric Administration",
+        "datasetName": "U.S. Monthly Climate Normals",
+        "vintage": "1991-2020",
+        "monthly": [
+          {
+            "month": 1,
+            "normalHigh": 46.5,
+            "normalLow": 17.6,
+            "normalMean": 32.1,
+            "precipitation": 0.46,
+            "snowfall": null
+          },
+          {
+            "month": 2,
+            "normalHigh": 47.5,
+            "normalLow": 19.3,
+            "normalMean": 33.4,
+            "precipitation": 0.53,
+            "snowfall": null
+          },
+          {
+            "month": 3,
+            "normalHigh": 56.4,
+            "normalLow": 27.1,
+            "normalMean": 41.8,
+            "precipitation": 1.12,
+            "snowfall": null
+          },
+          {
+            "month": 4,
+            "normalHigh": 62.5,
+            "normalLow": 33.7,
+            "normalMean": 48.1,
+            "precipitation": 1.67,
+            "snowfall": null
+          },
+          {
+            "month": 5,
+            "normalHigh": 71.7,
+            "normalLow": 43.4,
+            "normalMean": 57.6,
+            "precipitation": 2.29,
+            "snowfall": null
+          },
+          {
+            "month": 6,
+            "normalHigh": 84.1,
+            "normalLow": 52.9,
+            "normalMean": 68.5,
+            "precipitation": 1.68,
+            "snowfall": null
+          },
+          {
+            "month": 7,
+            "normalHigh": 90.2,
+            "normalLow": 59.3,
+            "normalMean": 74.8,
+            "precipitation": 2.12,
+            "snowfall": null
+          },
+          {
+            "month": 8,
+            "normalHigh": 87.9,
+            "normalLow": 57.2,
+            "normalMean": 72.5,
+            "precipitation": 1.83,
+            "snowfall": null
+          },
+          {
+            "month": 9,
+            "normalHigh": 80.1,
+            "normalLow": 48.2,
+            "normalMean": 64.2,
+            "precipitation": 1.51,
+            "snowfall": null
+          },
+          {
+            "month": 10,
+            "normalHigh": 66.7,
+            "normalLow": 35.7,
+            "normalMean": 51.2,
+            "precipitation": 0.98,
+            "snowfall": null
+          },
+          {
+            "month": 11,
+            "normalHigh": 54.8,
+            "normalLow": 25.5,
+            "normalMean": 40.2,
+            "precipitation": 0.7,
+            "snowfall": null
+          },
+          {
+            "month": 12,
+            "normalHigh": 45.9,
+            "normalLow": 17.7,
+            "normalMean": 31.8,
+            "precipitation": 0.47,
+            "snowfall": null
+          }
+        ]
+      },
+      "crime": {
+        "year": 2024,
+        "reportingPopulation": 722031,
+        "sourceJurisdictionName": "Denver",
+        "coverageStatus": "available",
+        "coverageNotes": null,
+        "violentCrime": {
+          "count": 7170,
+          "rate": 993,
+          "murder": {
+            "count": 71,
+            "rate": 9.8
+          },
+          "rape": {
+            "count": 676,
+            "rate": 93.6
+          },
+          "robbery": {
+            "count": 1272,
+            "rate": 176.2
+          },
+          "aggravatedAssault": {
+            "count": 5151,
+            "rate": 713.4
+          }
+        },
+        "propertyCrime": {
+          "count": 34380,
+          "rate": 4761.6,
+          "burglary": {
+            "count": 5112,
+            "rate": 708
+          },
+          "larcenyTheft": {
+            "count": 20373,
+            "rate": 2821.6
+          },
+          "motorVehicleTheft": {
+            "count": 8895,
+            "rate": 1231.9
+          }
+        },
+        "source": "Federal Bureau of Investigation",
+        "datasetName": "Offenses Known to Law Enforcement by State by City",
+        "vintage": "2024"
+      },
+      "sources": {
+        "acs": {
+          "source": "U.S. Census Bureau",
+          "datasetName": "American Community Survey 5-Year",
+          "vintage": "2024"
+        }
+      }
+    }
+  ],
+  "personalization": {
+    "reason": "moving",
+    "otherReason": null,
+    "priorities": [
+      "lifestyle"
+    ],
+    "preferences": {
+      "climate": null
+    }
+  }
+}

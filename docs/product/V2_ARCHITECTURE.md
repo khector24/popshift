@@ -1264,3 +1264,20 @@ The central design principles are:
 14. **International expansion is supported structurally without delaying the U.S.-focused V2 release.**
 
 This architecture should remain understandable, extensible, and practical rather than maximizing abstraction for its own sake.
+
+
+---
+
+## Phase 15 AI Comparison Architecture Update
+
+V2 production AI comparison generation uses **OpenAI `gpt-5.6-luna`** behind a backend service boundary.
+
+The frontend should send selected geography type, place identifiers, and optional personalization. The backend should reconstruct the authoritative RegionLore comparison facts rather than accepting metric values from the browser as truth.
+
+PostgreSQL is the planned V2 AI comparison cache. Cache identity should account for selected places, geography type, personalization, model, prompt version, and relevant data/context versioning so stale prose is not silently reused after prompt or data changes.
+
+The AI comparison service should perform request validation before model use and basic response validation afterward. V2 does not require a full natural-language fact-checking system.
+
+Provider failure should not make structured comparison data unavailable.
+
+The frontend result behavior remains same-page: setup first, results below, auto-scroll to results, written explanation first, structured data below, and a Back to comparison setup / Edit comparison control.

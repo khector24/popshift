@@ -1,0 +1,24 @@
+{
+  "provider": "openai",
+  "model": "gpt-5.6-luna",
+  "geography": "states",
+  "testCase": "unsupported-priority",
+  "inputTokens": 3448,
+  "outputTokens": 678,
+  "thinkingTokens": null,
+  "totalTokens": 4126,
+  "latencyMs": 6761,
+  "estimatedCost": null,
+  "errors": [],
+  "response": "Because your main priority is a warmer climate, the key limitation is that the comparison doesn’t include climate measures such as temperatures, seasonal patterns, or humidity. So I can’t reliably say which state is warmer from these figures alone.\n\nOn the practical moving tradeoffs, Texas is the largest and fastest-growing of the three: its population reached about 31.7 million in 2025, up 8.5% from 2020. North Carolina is smaller at 11.2 million but also growing quickly, up 7.2%. New York is around 20.0 million and slightly below its 2020 population, with growth of -0.6%. Both Texas and North Carolina had positive net migration in 2024—about 72,700 and 58,600 respectively—while New York had a net outflow of roughly 130,400. That suggests Texas and North Carolina are currently attracting more newcomers than they lose, whereas New York’s population movement is running in the opposite direction.\n\nHousing costs are another clear dividing line. In 2024, Texas had the lowest median rent at $1,475 and the lowest median home value at $313,200. North Carolina’s median rent was lower, at $1,338, but its median home value was higher than Texas’s at $333,000. New York was more expensive on both measures: $1,634 median rent and $449,800 median home value. New York also had the highest median household income, $85,820, compared with $79,721 in Texas and $73,958 in North Carolina. In ordinary terms, New York offers higher typical household income but comes with a noticeably heavier housing-cost burden; Texas looks more favorable on home prices, while North Carolina sits between the two depending on whether you are renting or buying.\n\nThe education measures lean somewhat toward New York and North Carolina. The share of adults with a bachelor’s degree or higher was 40.2% in New York, 35.7% in North Carolina, and 33.8% in Texas. North Carolina had the highest supplied math score, 276, while New York had the highest reading score, 257; Texas recorded 269 in math and 252 in reading. These are descriptive statewide measures, not a complete picture of every community or school district.\n\nSo, for a move, Texas and North Carolina align more closely with a lower-cost, higher-growth profile, while New York combines the highest income and education levels with substantially higher housing costs and recent population decline. The climate question remains unresolved by the supplied data, so that preference would require a separate climate comparison rather than an inference from these economic and demographic differences.",
+  "scores": {
+    "factualFaithfulness": null,
+    "comparisonQuality": null,
+    "missingDataHandling": null,
+    "personalization": null,
+    "clarity": null,
+    "conciseness": null
+  },
+  "hardFailures": [],
+  "notes": ""
+}

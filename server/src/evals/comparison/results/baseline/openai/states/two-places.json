@@ -1,0 +1,24 @@
+{
+  "provider": "openai",
+  "model": "gpt-5.6-luna",
+  "geography": "states",
+  "testCase": "two-places",
+  "inputTokens": 2446,
+  "outputTokens": 565,
+  "thinkingTokens": null,
+  "totalTokens": 3011,
+  "latencyMs": 7953,
+  "estimatedCost": 0.0011672000000000002,
+  "errors": [],
+  "response": "Texas and North Carolina show different tradeoffs. Texas is much larger and has grown faster since 2020—31.7 million residents in 2025 and 8.5% growth, compared with North Carolina’s 11.2 million and 7.2% growth. Both continued gaining population through 2025.\n\nOn the 2024 economic measures, Texas had the higher median household income ($79,721 versus $73,958), but also higher median rent ($1,475 versus $1,338). North Carolina had the higher median home value ($333,000 versus $313,200). These are statewide medians, so they describe different housing and income profiles rather than directly determining affordability for every household.\n\nNorth Carolina led on the supplied education measures: 90.1% of adults had completed high school or higher, versus 86% in Texas, and 35.7% held a bachelor’s degree or higher, versus 33.8%. Its reading and math scores were also higher—255 versus 252 in reading, and 276 versus 269 in math—but the data does not establish whether those differences are statistically meaningful.\n\nBoth states had positive net migration in 2024. Texas had larger flows in absolute terms, with 556,156 inbound and 483,476 outbound movers for a net gain of 72,680; North Carolina had 299,782 inbound and 241,172 outbound movers, for a net gain of 58,610. Texas’s net migration was lower than in each of the three preceding years, while North Carolina’s 2024 net was also below its 2021–2023 levels.\n\nOverall, Texas offers greater population scale, higher median income, and a lower reported median home value, while North Carolina combines stronger reported education measures with lower median rent and a higher median home value. The more relevant tradeoff depends on whether scale and income or education measures and the particular housing-cost profile matter more to you.",
+  "scores": {
+    "factualFaithfulness": null,
+    "comparisonQuality": null,
+    "missingDataHandling": null,
+    "personalization": null,
+    "clarity": null,
+    "conciseness": null
+  },
+  "hardFailures": [],
+  "notes": ""
+}
