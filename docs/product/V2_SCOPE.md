@@ -197,11 +197,10 @@ The comparison setup should allow users to select supported places and may
 collect optional context such as why they are comparing and what matters most
 to them. Users should be able to skip optional context.
 
-Phase 14 requires at least two places. V2 targets comparisons of **two to four
-places**, but the final upper limit is intentionally deferred to Phase 15 after
-evaluating real AI output quality, response readability, token/cost behavior,
-and result presentation. The selected V2 cap should remain a UI/model constraint
-rather than a permanent backend limitation.
+V2 supports comparisons of **two to four same-type places**. Phase 15 finalized
+that range after evaluating real AI output quality, response readability,
+token/cost behavior, and result presentation. The V2 cap remains a UI/model
+constraint rather than a permanent backend limitation.
 
 Potential comparison dimensions include:
 

@@ -1512,12 +1512,12 @@ The `/compare` experience now supports:
 
 At least two places are required.
 
-The V2 target is **two to four places**. Phase 14 enforces only the minimum of
-two. Phase 15 will decide whether the final V2 maximum is three or four after
-testing real AI output quality, readability, token/cost behavior, and result
+Phase 14 enforces the minimum of two places. Phase 15 subsequently finalized
+the V2 comparison range at **two to four same-type places** after evaluating
+real AI output quality, readability, token/cost behavior, and result
 presentation.
 
-That V2 cap should remain a UI/model constraint rather than a permanent backend
+That V2 cap remains a UI/model constraint rather than a permanent backend
 restriction.
 
 Implemented comparison reasons are:
@@ -1669,10 +1669,27 @@ The production path has been verified with a real request. The first identical
 request generated through `gpt-5.6-luna` and returned `cached: false`; the
 second returned the stored response with `cached: true`.
 
-Backend validation currently passes all 85 tests across 6 test files. Phase 15
-is not yet complete because the frontend AI result experience still needs to be
-connected to this endpoint and its loading, success, failure/retry, and
-structured-data presentation behavior still needs final validation.
+Backend validation passes all 85 tests across 6 test files.
+
+The Phase 15 frontend is also implemented and validated. The existing
+`/compare` flow now requests the AI comparison separately from the structured
+comparison and renders both in the same result area. The written AI comparison
+appears first, followed by structured RegionLore data.
+
+The frontend includes:
+
+- a deliberate minimum AI loading state for fast/cache-hit responses;
+- graceful AI failure messaging with Retry;
+- no normal Regenerate action;
+- an Edit comparison control that returns to the existing setup;
+- structured comparison data that remains visible independently of AI success;
+- city, metro, and state result support;
+- city crime rates and monthly climate normals rendered from nested structured
+  RegionLore data rather than provenance metadata.
+
+Final browser validation covered city, metro, and state comparisons. The final
+production Vite build succeeds. The existing Vite large-chunk warning remains a
+non-blocking optimization concern rather than a Phase 15 failure.
 
 Add AI to the same **Compare Places** experience established in Phase 14.
 
@@ -1743,17 +1760,20 @@ unless deliberately added to scope later.
 
 ## Exit criteria
 
-Phase 15 is complete when:
+- [x] AI explanations use the structured comparison context produced by Phase 14;
+- [x] factual geographic metric values come from RegionLore;
+- [x] optional reason/priorities can influence emphasis without changing facts;
+- [x] missing data is communicated rather than invented;
+- [x] the result provides a useful prose-first explanation with supporting
+  structured RegionLore evidence;
+- [x] provider failure degrades gracefully without removing structured data;
+- [x] successful AI responses are cached without changing the core comparison
+  product;
+- [x] two to four same-type places are supported for V2;
+- [x] city, metro, and state result flows have been validated;
+- [x] the production frontend build succeeds.
 
-- AI explanations use the structured comparison context produced by Phase 14;
-- factual geographic metric values come from RegionLore;
-- optional reason/priorities can influence emphasis without changing facts;
-- missing data is communicated rather than invented;
-- the result provides a useful prose-first explanation with selective
-  supporting evidence;
-- provider failure degrades gracefully;
-- the architecture can support later caching/precomputation without changing
-  the core comparison product.
+**Phase 15 is complete.**
 
 ---
 

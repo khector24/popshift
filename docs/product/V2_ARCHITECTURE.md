@@ -1142,20 +1142,19 @@ RegionLore `places`, and optional personalization containing `reason`,
 `otherReason`, `priorities`, and supported preference refinements such as
 `climate`.
 
-Phase 14 requires at least two selected places. The V2 target range is two to
-four places, but the final upper limit is deliberately deferred to Phase 15.
-That phase should choose whether the V2 maximum is three or four after
-evaluating real AI output quality, response readability, token/cost behavior,
-and result presentation. The comparison backend should not encode that V2
-presentation/model cap as a permanent architectural limit.
+Phase 14 requires at least two selected places. Phase 15 finalized the V2
+comparison range at **two to four same-type places** after evaluating real AI
+output quality, response readability, token/cost behavior, and result
+presentation. The comparison backend does not encode that V2 presentation/model
+cap as a permanent architectural limit.
 
-Phase 15 may send the structured Phase 14 context to an AI provider. The model
-may summarize, interpret, and explain tradeoffs, but factual geographic metric
-values should come from RegionLore.
+Phase 15 sends the structured Phase 14 context through a backend AI integration
+layer. The model may summarize, interpret, and explain tradeoffs, but factual
+geographic metric values come from RegionLore.
 
-AI/provider failure should not make the underlying structured comparison data
+AI/provider failure does not make the underlying structured comparison data
 unavailable. Provider/model choice, prompting, token/cost controls, response
-validation, and caching or precomputation belong to the AI integration layer.
+validation, and caching remain isolated in the AI integration layer.
 
 ---
 
@@ -1299,14 +1298,62 @@ The AI endpoint is intentionally separate from the deterministic structured
 comparison endpoints. This allows the frontend to retain and display the
 underlying RegionLore comparison even if AI generation fails.
 
-V2 production AI comparison generation uses **OpenAI `gpt-5.6-luna`** behind a backend service boundary.
+V2 production AI comparison generation uses **OpenAI `gpt-5.6-luna`** behind a
+backend service boundary.
 
-The frontend should send selected geography type, place identifiers, and optional personalization. The backend should reconstruct the authoritative RegionLore comparison facts rather than accepting metric values from the browser as truth.
+The frontend sends the selected geography type, place identifiers, and optional
+personalization. The backend reconstructs the authoritative RegionLore
+comparison facts rather than accepting metric values from the browser as truth.
 
-PostgreSQL is the planned V2 AI comparison cache. Cache identity should account for selected places, geography type, personalization, model, prompt version, and relevant data/context versioning so stale prose is not silently reused after prompt or data changes.
+PostgreSQL is the V2 AI comparison cache. Cache identity accounts for selected
+places, geography type, personalization, model, prompt version, context version,
+and the prepared-data fingerprint so stale prose is not silently reused after
+relevant prompt, context, or data changes.
 
-The AI comparison service should perform request validation before model use and basic response validation afterward. V2 does not require a full natural-language fact-checking system.
+The AI comparison service performs request validation before model use and basic
+response validation afterward. V2 does not require a full natural-language
+fact-checking system.
 
-Provider failure should not make structured comparison data unavailable.
+Provider failure does not make structured comparison data unavailable.
 
-The frontend result behavior remains same-page: setup first, results below, auto-scroll to results, written explanation first, structured data below, and a Back to comparison setup / Edit comparison control.
+### Implemented frontend architecture
+
+The frontend result behavior remains same-page: setup first, results below,
+auto-scroll to results, written explanation first, structured data below, and an
+Edit comparison control.
+
+The result UI is split into focused comparison components:
+
+```text
+CompareResults
+├── AiComparisonSummary
+└── StructuredComparison
+```
+
+`CompareResults` coordinates the result presentation and Edit comparison
+control. `AiComparisonSummary` owns AI loading, success, and failure/retry
+states. `StructuredComparison` renders the RegionLore evidence independently of
+the AI response.
+
+The `/compare` page owns the comparison request state. After the structured
+comparison succeeds, it starts the separate AI request using the selected place
+identifiers and optional personalization.
+
+AI generation does not block the structured result. Structured RegionLore data
+can remain visible while AI generation is pending and remains available if AI
+generation fails. Retry is exposed after AI failure; V2 does not provide a
+normal Regenerate action.
+
+Fast AI/cache-hit responses use a short deliberate minimum loading state so the
+transition does not flash abruptly. This is frontend presentation behavior, not
+additional backend latency.
+
+Structured result sections remain geography-aware rather than forcing identical
+schemas across cities, metros, and states. City crime and climate use
+specialized rendering because their useful values are nested: crime is compared
+using rates per 100,000 where available, while climate uses monthly normals.
+Missing values remain explicit.
+
+The current structured tables are a functional V2 presentation of the underlying
+data. Their visual treatment can be refined later without changing the
+comparison data contracts or AI architecture.
