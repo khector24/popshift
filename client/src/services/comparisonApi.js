@@ -31,3 +31,27 @@ export function getStateComparison(codes) {
     codes: codes.join(","),
   });
 }
+
+export async function getAiComparison({
+  geographyType,
+  placeIdentifiers,
+  personalization = {},
+}) {
+  const response = await fetch(`${API_URL}/api/comparisons/ai`, {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify({
+      geographyType,
+      placeIdentifiers,
+      personalization,
+    }),
+  });
+
+  if (!response.ok) {
+    throw new Error("Unable to load AI comparison");
+  }
+
+  return response.json();
+}

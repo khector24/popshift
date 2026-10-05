@@ -1,8 +1,10 @@
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { useSearchParams } from "react-router-dom";
 import ComparePlaceSelector from "../components/comparison/ComparePlaceSelector.jsx";
 import ComparePersonalization from "../components/comparison/ComparePersonalization.jsx";
+import CompareResults from "../components/comparison/CompareResults.jsx";
 import {
+  getAiComparison,
   getCityComparison,
   getMetroComparison,
   getStateComparison,
@@ -51,6 +53,14 @@ export default function Compare() {
 
   const [comparisonLoading, setComparisonLoading] = useState(false);
   const [comparisonError, setComparisonError] = useState(null);
+
+  const [comparisonResult, setComparisonResult] = useState(null);
+  const [aiResult, setAiResult] = useState(null);
+  const [aiLoading, setAiLoading] = useState(false);
+  const [aiError, setAiError] = useState(null);
+
+  const resultsRef = useRef(null);
+  const setupRef = useRef(null);
 
   useEffect(() => {
     async function loadInitialPlace() {
@@ -123,6 +133,61 @@ export default function Compare() {
     });
     setComparisonError(null);
     setComparisonLoading(false);
+    setComparisonResult(null);
+    setAiResult(null);
+    setAiLoading(false);
+    setAiError(null);
+  }
+
+  function getPersonalization() {
+    return {
+      reason: comparisonReason,
+      otherReason:
+        comparisonReason === "other"
+          ? comparisonPreferences.otherReason || null
+          : null,
+      priorities: comparisonPriorities,
+      preferences: {
+        climate: comparisonPriorities.includes("climate")
+          ? comparisonPreferences.climate
+          : null,
+      },
+    };
+  }
+
+  async function loadAiComparison(placeIdentifiers) {
+    const minimumLoadingTime = 2500;
+    const startedAt = Date.now();
+
+    setAiLoading(true);
+    setAiError(null);
+
+    try {
+      const result = await getAiComparison({
+        geographyType,
+        placeIdentifiers,
+        personalization: getPersonalization(),
+      });
+
+      const elapsed = Date.now() - startedAt;
+      const remaining = Math.max(minimumLoadingTime - elapsed, 0);
+
+      if (remaining > 0) {
+        await new Promise((resolve) => {
+          setTimeout(resolve, remaining);
+        });
+      }
+
+      setAiResult(result);
+    } catch (error) {
+      console.error("Unable to load AI comparison:", error);
+
+      setAiError(
+        "The written comparison is unavailable right now. The RegionLore data is still available below.",
+      );
+    } finally {
+      setAiLoading(false);
+    }
   }
 
   async function handleCompare() {
@@ -133,56 +198,61 @@ export default function Compare() {
     try {
       setComparisonLoading(true);
       setComparisonError(null);
+      setComparisonResult(null);
+      setAiResult(null);
+      setAiError(null);
 
       let result;
+      let placeIdentifiers;
 
       if (geographyType === "city") {
-        result = await getCityComparison(
-          selectedPlaces.map((place) => place.slug),
-        );
+        placeIdentifiers = selectedPlaces.map((place) => place.slug);
+        result = await getCityComparison(placeIdentifiers);
       }
 
       if (geographyType === "metro") {
-        result = await getMetroComparison(
-          selectedPlaces.map((place) => place.slug),
-        );
+        placeIdentifiers = selectedPlaces.map((place) => place.slug);
+        result = await getMetroComparison(placeIdentifiers);
       }
 
       if (geographyType === "state") {
-        result = await getStateComparison(
-          selectedPlaces.map((place) => place.state_fips),
-        );
+        placeIdentifiers = selectedPlaces.map((place) => place.state_fips);
+        result = await getStateComparison(placeIdentifiers);
       }
 
-      const comparisonContext = {
-        geographyType,
-        places: result.places,
-        personalization: {
-          reason: comparisonReason,
-          otherReason:
-            comparisonReason === "other"
-              ? comparisonPreferences.otherReason || null
-              : null,
-          priorities: comparisonPriorities,
-          preferences: {
-            climate: comparisonPriorities.includes("climate")
-              ? comparisonPreferences.climate
-              : null,
-          },
-        },
-      };
+      setComparisonResult(result);
+      setComparisonLoading(false);
 
-      console.log("Comparison context:", comparisonContext);
+      requestAnimationFrame(() => {
+        resultsRef.current?.scrollIntoView({
+          behavior: "smooth",
+          block: "start",
+        });
+      });
+
+      await loadAiComparison(placeIdentifiers);
     } catch (error) {
-      console.error("Unable to build comparison context:", error);
+      console.error("Unable to load comparison:", error);
       setComparisonError("Unable to load this comparison. Please try again.");
     } finally {
       setComparisonLoading(false);
     }
   }
 
+  async function handleAiRetry() {
+    let placeIdentifiers;
+
+    if (geographyType === "state") {
+      placeIdentifiers = selectedPlaces.map((place) => place.state_fips);
+    } else {
+      placeIdentifiers = selectedPlaces.map((place) => place.slug);
+    }
+
+    await loadAiComparison(placeIdentifiers);
+  }
+
   return (
-    <main className="compare">
+    <main className="compare" ref={setupRef}>
       <header className="compare__header">
         <div className="compare__header-icon" aria-hidden="true">
           <FaMapLocationDot />
@@ -352,6 +422,23 @@ export default function Compare() {
           </button>
         </div>
       </section>
+
+      <div ref={resultsRef} className="compare__results-anchor">
+        <CompareResults
+          geographyType={geographyType}
+          comparisonResult={comparisonResult}
+          aiResult={aiResult}
+          aiLoading={aiLoading}
+          aiError={aiError}
+          onAiRetry={handleAiRetry}
+          onEditComparison={() => {
+            setupRef.current?.scrollIntoView({
+              behavior: "smooth",
+              block: "start",
+            });
+          }}
+        />
+      </div>
     </main>
   );
 }
