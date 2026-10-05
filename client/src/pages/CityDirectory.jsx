@@ -24,7 +24,7 @@ export default function CityDirectory() {
   const [selectedStates, setSelectedStates] = useState([]);
   const [selectedGrowth, setSelectedGrowth] = useState([]);
 
-  const [maxPopulation, setMaxPopulation] = useState(0);
+  const [maxPopulation, setMaxPopulation] = useState(8_900_000);
   const [currentPage, setCurrentPage] = useState(1);
 
   useEffect(() => {
@@ -41,11 +41,7 @@ export default function CityDirectory() {
 
         setCities(cityData);
 
-        const largestPopulation = Math.max(
-          ...cityData.map((city) => Number(city.population)),
-        );
-
-        setMaxPopulation(largestPopulation);
+        setMaxPopulation(8_900_000);
       } catch (error) {
         console.error("Unable to load cities:", error);
         setError("Unable to load cities.");
@@ -57,13 +53,7 @@ export default function CityDirectory() {
     fetchCities();
   }, []);
 
-  const maxPopulationLimit = useMemo(() => {
-    if (cities.length === 0) {
-      return 0;
-    }
-
-    return Math.max(...cities.map((city) => Number(city.population)));
-  }, [cities]);
+  const maxPopulationLimit = 10_000_000;
 
   const states = useMemo(() => {
     const stateMap = new Map();
@@ -91,9 +81,15 @@ export default function CityDirectory() {
 
       const matchesSearch =
         !normalizedSearch ||
-        city.name.toLowerCase().includes(normalizedSearch) ||
-        city.state.toLowerCase().includes(normalizedSearch) ||
-        city.state_abbreviation.toLowerCase().includes(normalizedSearch);
+        String(city.name ?? "")
+          .toLowerCase()
+          .includes(normalizedSearch) ||
+        String(city.state ?? "")
+          .toLowerCase()
+          .includes(normalizedSearch) ||
+        String(city.state_abbreviation ?? "")
+          .toLowerCase()
+          .includes(normalizedSearch);
 
       const matchesState =
         selectedStates.length === 0 ||
@@ -198,7 +194,7 @@ export default function CityDirectory() {
             setSelectedGrowth={setSelectedGrowth}
             maxPopulation={maxPopulation}
             setMaxPopulation={setMaxPopulation}
-            defaultMaxPopulation={maxPopulationLimit}
+            defaultMaxPopulation={8_900_000}
             maxPopulationLimit={maxPopulationLimit}
           />
         )}
