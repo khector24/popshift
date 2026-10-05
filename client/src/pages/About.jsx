@@ -9,9 +9,8 @@ export default function About() {
         <h1>About RegionLore</h1>
 
         <p>
-          RegionLore is a U.S. population and migration analytics platform
-          designed to make public data easier to explore, compare, and
-          understand.
+          RegionLore is a U.S. regional data platform designed to make public
+          data easier to explore, compare, and understand.
         </p>
       </header>
 
@@ -20,15 +19,22 @@ export default function About() {
 
         <p>
           RegionLore brings together population, migration, economic, housing,
-          education, transportation, and geographic data for U.S. states and
-          metropolitan areas.
+          education, transportation, demographic, climate, crime, and geographic
+          data for U.S. states, metropolitan areas, and cities.
         </p>
 
         <p>
           Instead of requiring users to search through large government tables
-          and disconnected datasets, RegionLore organizes important information
-          into searchable directories, interactive profiles, charts, tables,
-          rankings, and migration summaries.
+          and disconnected datasets, RegionLore organizes useful information
+          into searchable directories, place profiles, charts, tables,
+          comparisons, rankings, and articles.
+        </p>
+
+        <p>
+          The goal is not to reduce a place to a single score. RegionLore is
+          designed to make it easier to examine the tradeoffs, differences, and
+          trends that matter when learning about a place or comparing it with
+          somewhere else.
         </p>
       </section>
 
@@ -36,26 +42,40 @@ export default function About() {
         <h2>What You Can Explore</h2>
 
         <p>
-          State profiles provide population estimates, annual growth, historical
-          population trends, economic and housing indicators, education data,
-          interstate migration flows, and migration history.
+          State profiles include population estimates and trends, migration,
+          economic and housing indicators, education data, and other measures
+          that help show how states are changing.
         </p>
 
         <p>
-          Metro profiles include population trends, economic and housing
-          measures, transportation information, education indicators, geographic
-          coverage, and migration connections between metropolitan areas.
+          Metro profiles provide regional population, economic, housing,
+          transportation, education, weather, and other information for major
+          metropolitan areas.
         </p>
 
         <p>
-          The state and metro directories also allow users to search, filter,
-          sort, and navigate between places while preserving their selected
-          directory options in the URL.
+          City profiles bring the analysis to the local level with population,
+          housing, economic, demographic, transportation, education, climate,
+          crime, and other available city data.
+        </p>
+
+        <p>
+          Compare Places lets users compare two to four cities, metropolitan
+          areas, or states. Users can optionally tell RegionLore why they are
+          comparing places and what matters most to them. RegionLore presents
+          the underlying structured data alongside an AI-generated explanation
+          of the comparison.
+        </p>
+
+        <p>
+          Articles &amp; Insights provide another way to explore the data through
+          stories and analysis about the trends shaping where Americans live
+          and move.
         </p>
       </section>
 
       <section>
-        <h2>Why Population Change Matters</h2>
+        <h2>Why Place Data Matters</h2>
 
         <p>
           Population change can reveal where people and economic activity are
@@ -64,15 +84,15 @@ export default function About() {
         </p>
 
         <p>
-          These shifts can influence housing demand, infrastructure needs,
-          business investment, labor markets, public services, transportation,
-          political representation, and long-term regional development.
+          But population is only part of the picture. Housing costs, income,
+          migration, transportation, education, climate, demographics, and other
+          local conditions can change what growth or decline means for the people
+          who live there.
         </p>
 
         <p>
-          Population numbers alone do not explain why a place is changing, but
-          combining them with migration, housing, income, education, and
-          transportation data provides a more useful picture.
+          Looking at several measures together provides more context than any
+          single ranking or statistic can provide.
         </p>
       </section>
 
@@ -80,21 +100,22 @@ export default function About() {
         <h2>Current Scope</h2>
 
         <p>
-          RegionLore currently focuses on the 50 U.S. states, the District of
-          Columbia, and a directory of major U.S. metropolitan statistical
-          areas.
+          RegionLore currently covers the 50 U.S. states, the District of
+          Columbia, major U.S. metropolitan statistical areas, and hundreds of
+          U.S. cities.
         </p>
 
         <p>
-          The current population timeline covers 2020 through 2025. Many of the
-          supporting economic, housing, transportation, and education measures
-          use 2024 data, while migration datasets may use earlier years based on
-          the latest compatible source available for that feature.
+          Population estimates currently extend through 2025. Other datasets use
+          the most appropriate available source years for their subject, so
+          economic, housing, migration, education, climate, crime, and other
+          measures do not necessarily share the same reference year.
         </p>
 
         <p>
-          Because the source years can differ, each profile identifies the year
-          associated with the data being displayed whenever possible.
+          RegionLore identifies source years and availability where appropriate
+          rather than treating data from different programs and time periods as
+          though they were collected at the same time.
         </p>
       </section>
 
@@ -102,23 +123,30 @@ export default function About() {
         <h2>How the Data Is Used</h2>
 
         <p>
-          RegionLore uses publicly available datasets from organizations such as
-          the U.S. Census Bureau. Source files are downloaded and processed into
-          application-ready datasets before being served by the RegionLore
-          backend.
+          RegionLore uses public datasets from sources including the U.S. Census
+          Bureau, the FBI, and NOAA, along with other documented sources used for
+          specific features.
         </p>
 
         <p>
-          This approach makes the application faster, reduces dependence on live
-          third-party API requests, and allows the frontend to use consistent
-          data structures across state and metro pages.
+          Source data is processed into consistent application-ready structures
+          and stored or served through the RegionLore data and backend layers.
+          Some features also use external services when live or frequently
+          changing information is appropriate.
+        </p>
+
+        <p>
+          RegionLore treats its structured geographic data as the factual basis
+          for comparisons. AI may help explain and synthesize that information,
+          but it is not the authoritative source of the underlying geographic
+          metrics.
         </p>
 
         <p>
           Visit the <Link to="/methodology">Methodology</Link> page to learn how
-          major calculations and geographic comparisons work. Visit the{" "}
-          <Link to="/data-sources">Data Sources</Link> page for source links and
-          acknowledgments.
+          major calculations, geographic definitions, and comparisons work.
+          Visit the <Link to="/data-sources">Data Sources</Link> page for source
+          links, data notes, and acknowledgments.
         </p>
       </section>
 
@@ -132,9 +160,11 @@ export default function About() {
         </p>
 
         <p>
-          Users making important decisions should review the original source
-          documentation and consider additional local information that may not
-          be represented in a national dataset.
+          Data can contain limitations, revisions, missing values, and differences
+          in methodology or reference year. AI-generated explanations can also
+          make mistakes. Users making important decisions should review the
+          underlying RegionLore data, original source documentation, and
+          additional local information when appropriate.
         </p>
       </section>
 
@@ -142,16 +172,15 @@ export default function About() {
         <h2>Future Direction</h2>
 
         <p>
-          Planned additions include an Explore Moving experience that compares
-          two places, articles explaining important population and migration
-          trends, expanded comparison tools for states and metros, and
-          additional historical and quality-of-life data.
+          RegionLore will continue to expand the depth and consistency of its
+          state, metro, and city data while improving how users explore and
+          compare places.
         </p>
 
         <p>
-          RegionLore may also expand its coverage of housing, education, taxes,
-          climate, transportation, demographics, and the reasons people choose
-          to move.
+          Future versions may add new datasets, longer historical coverage,
+          additional comparison capabilities, and improvements to the site's
+          design and presentation as the platform develops.
         </p>
       </section>
 
@@ -159,9 +188,11 @@ export default function About() {
         <h2>Technology</h2>
 
         <p>
-          RegionLore is built with React, React Router, Node.js, Express, custom
-          data-processing scripts, locally generated JavaScript datasets,
-          Recharts, React-based mapping tools, and custom CSS.
+          RegionLore is built with React, React Router, Node.js, Express,
+          PostgreSQL, custom data-processing pipelines, Recharts, React-based
+          mapping tools, and custom CSS. Its comparison experience also uses an
+          AI service layer to generate explanations from structured RegionLore
+          data.
         </p>
       </section>
     </main>

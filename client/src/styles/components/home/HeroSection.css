@@ -476,10 +476,11 @@
   }
 
   .hero-actions {
-    width: 80%;
+    width: 100%;
+    max-width: 420px;
     margin-top: 28px;
 
-    flex-wrap: nowrap;
+    flex-wrap: wrap;
   }
 
   .hero-actions .btn {

@@ -14,10 +14,10 @@ function Footer() {
         </div>
 
         <div className="footer__right">
+          <NavLink to="/about">About</NavLink>
           <NavLink to="/methodology">Methodology</NavLink>
           <NavLink to="/data-sources">Data Sources</NavLink>
           {/* Later */}
-          {/* <NavLink to="/data-sources">Data Sources</NavLink> */}
           {/* <NavLink to="/privacy">Privacy</NavLink> */}
           {/* <NavLink to="/terms">Terms</NavLink> */}
         </div>

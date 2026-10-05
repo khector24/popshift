@@ -36,17 +36,21 @@ export default function HeroSection({ summaryData }) {
         </p>
 
         <div className="hero-actions">
+          <Link to="/cities" className="btn btn-secondary">
+            Explore Cities
+          </Link>
+
           <Link to="/states" className="btn btn-primary">
-            Explore States →
+            Explore States
           </Link>
 
           <Link to="/metros" className="btn btn-secondary">
-            Explore Metros →
+            Explore Metros
           </Link>
         </div>
 
         <p className="hero-note">
-          Most data updated for 2025 • 50 states • Top 100 metros
+          Population through 2025 • City, metro, and state coverage
         </p>
       </div>
 
@@ -63,11 +67,13 @@ export default function HeroSection({ summaryData }) {
         <h2>
           Top Growing States <span>(2020–2025)</span>
         </h2>
+
         <MoverSection
           title="Biggest Gains"
           states={topGainers}
           type="positive"
         />
+
         <Link to="/dashboard" className="hero-visual__dashboard-link">
           View Dashboard <span aria-hidden="true">→</span>
         </Link>

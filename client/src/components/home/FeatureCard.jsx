@@ -29,7 +29,6 @@ export default function FeatureCard({
 
         <span className="feature-card__button">
           {buttonText}
-          {!disabled && " →"}
         </span>
       </div>
     </>

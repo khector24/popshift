@@ -1,12 +1,12 @@
 .feature-card {
   min-width: 0;
-  min-height: 210px;
+  min-height: 195px;
 
   display: flex;
   align-items: flex-start;
-  gap: 16px;
+  gap: 14px;
 
-  padding: 24px;
+  padding: 20px;
 
   background: var(--surface);
   border: 1px solid var(--border);
@@ -17,8 +17,8 @@
 }
 
 .feature-card__icon {
-  width: 48px;
-  height: 48px;
+  width: 42px;
+  height: 42px;
 
   flex-shrink: 0;
 
@@ -27,7 +27,7 @@
   justify-content: center;
 
   border-radius: 12px;
-  font-size: 1.25rem;
+  font-size: 1.1rem;
 }
 
 /* State Profiles */
@@ -50,7 +50,17 @@
   color: var(--metro-purple);
 }
 
-/* Explore Moving */
+/* City Profiles */
+.feature-card--cyan .feature-card__icon {
+  background: rgba(34, 211, 238, 0.12);
+  color: #22d3ee;
+}
+
+.feature-card--cyan .feature-card__button {
+  color: #22d3ee;
+}
+
+/* Compare Places */
 .feature-card--green .feature-card__icon {
   background: var(--positive-bg);
   color: var(--positive);

@@ -53,12 +53,12 @@ function Navbar() {
               States
             </NavLink>
 
-            <NavLink to="/articles" onClick={closeMenu}>
-              Articles
+            <NavLink to="/compare" onClick={closeMenu}>
+              Compare
             </NavLink>
 
-            <NavLink to="/about" onClick={closeMenu}>
-              About
+            <NavLink to="/articles" onClick={closeMenu}>
+              Articles
             </NavLink>
 
             <NavLink to="/dashboard" onClick={closeMenu}>

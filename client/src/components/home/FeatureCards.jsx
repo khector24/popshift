@@ -3,6 +3,7 @@ import "../../styles/components/home/FeatureCards.css";
 import {
   FaMapMarkedAlt,
   FaCity,
+  FaBuilding,
   FaExchangeAlt,
   FaRegNewspaper,
 } from "react-icons/fa";
@@ -35,6 +36,15 @@ export default function FeatureCards() {
           buttonText="Explore Metros"
           to="/metros"
           color="purple"
+        />
+
+        <FeatureCard
+          icon={<FaBuilding />}
+          title="City Profiles"
+          description="Explore U.S. cities with population, housing, economics, climate, crime, and other local data."
+          buttonText="Explore Cities"
+          to="/cities"
+          color="cyan"
         />
 
         <FeatureCard

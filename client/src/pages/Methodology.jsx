@@ -396,6 +396,44 @@ export default function Methodology() {
       </section>
 
       <section className="methodology__section">
+        <h2>Compare Places and AI Explanations</h2>
+
+        <p>
+          Compare Places supports comparisons of two to four places of the same
+          geographic type: cities with cities, metropolitan areas with
+          metropolitan areas, or states with states.
+        </p>
+
+        <p>
+          The structured comparison data comes from RegionLore&apos;s own processed
+          datasets. The AI-generated explanation is built from that RegionLore
+          comparison context rather than treating the AI model as the source of
+          the underlying geographic facts.
+        </p>
+
+        <p>
+          Optional personalization, such as why a user is comparing places or
+          which factors matter most, can influence what the explanation
+          emphasizes. It does not replace or alter the underlying RegionLore
+          measurements.
+        </p>
+
+        <p>
+          AI-generated explanations can make mistakes, including mistakes when
+          interpreting or comparing otherwise correct source data. Users should
+          treat the structured RegionLore data shown with the comparison as the
+          factual reference and consult the original sources when additional
+          verification is important.
+        </p>
+
+        <p>
+          AI generation is separate from the structured comparison. If an AI
+          explanation cannot be generated, the underlying RegionLore comparison
+          remains available.
+        </p>
+      </section>
+
+      <section className="methodology__section">
         <h2>Rankings, Filtering, and Sorting</h2>
 
         <p>

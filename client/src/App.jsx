@@ -15,7 +15,6 @@ import Dashboard from "./pages/Dashboard";
 import States from "./pages/States";
 import StateDetail from "./pages/StateDetail";
 
-// Later implementtion
 import Compare from "./pages/Compare";
 
 import About from "./pages/About";
