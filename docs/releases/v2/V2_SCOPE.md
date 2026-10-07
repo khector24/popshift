@@ -1,7 +1,7 @@
 # RegionLore — Version 2 Scope
 
-**Status:** Planning / Scope Locked  
-**Created:** August 26, 2026  
+**Status:** Shipped / Complete
+**Created:** August 26, 2026
 **Product Vision:** `docs/product/PRODUCT_VISION.md`
 
 ---

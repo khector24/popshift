@@ -1,7 +1,7 @@
 # RegionLore — V2 Architecture
 
-**Status:** Proposed architecture  
-**Created:** August 27, 2026  
+**Status:** Implemented V2 architecture
+**Created:** August 27, 2026
 **Related:** `PRODUCT_VISION.md`, `V2_SCOPE.md`, `V2_DATA_REQUIREMENTS.md`
 
 ---

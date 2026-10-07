@@ -188,7 +188,12 @@ server/
     tests/
 
 docs/
+  README.md
   product/
+  releases/
+    v2/
+  operations/
+  archive/
 ```
 
 The application separates frontend presentation, backend routing and controllers, domain services, data-processing pipelines, persistence, and provider-specific integrations.

@@ -1,6 +1,6 @@
 # RegionLore --- V2 Data Requirements
 
-**Status:** Initial data contract\
+**Status:** Implemented V2 data contract\
 **Created:** August 26, 2026\
 **Related:** `PRODUCT_VISION.md`, `V2_SCOPE.md`
 
